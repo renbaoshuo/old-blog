@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>宝硕博客 • Posts by &#34;git&#34; tag</title>
+        <link>https://blog.baoshuo.ren</link>
+        <description></description>
+        <language>cn</language>
+        <pubDate>Wed, 25 Nov 2020 20:03:03 +0800</pubDate>
+        <lastBuildDate>Wed, 25 Nov 2020 20:03:03 +0800</lastBuildDate>
+        <category>随笔</category>
+        <category>CTF</category>
+        <category>Git</category>
+        <category>网络</category>
+        <category>折腾</category>
+        <category>题解</category>
+        <category>OI</category>
+        <category>笔记</category>
+        <category>游记</category>
+        <category>黑苹果</category>
+        <category>Linux</category>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/change-git-submission-email/</guid>
+            <title>【随笔】批量修改 Git 仓库的提交邮箱</title>
+            <link>https://blog.baoshuo.ren/post/change-git-submission-email/</link>
+            <category>随笔</category>
+            <category>Git</category>
+            <pubDate>Wed, 25 Nov 2020 20:03:03 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;这几天重装了系统，一个不小心提交了好多 author 为 &lt;code&gt;&#34;root&#34;&amp;lt;root@localhost&amp;gt;&lt;/code&gt; 的 commit ，于是寻找到了一个修改的方法。&lt;/p&gt;
+&lt;p&gt;在仓库根目录下新建一个名为 &lt;code&gt;fix.sh&lt;/code&gt; 的 shell 脚本，输入以下内容：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;&lt;span class=&#34;hljs-meta&#34;&gt;#!/bin/bash&lt;/span&gt;
+ 
+git filter-branch --env-filter &lt;span class=&#34;hljs-string&#34;&gt;&#39;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;an=&#34;$GIT_AUTHOR_NAME&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;am=&#34;$GIT_AUTHOR_EMAIL&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;cn=&#34;$GIT_COMMITTER_NAME&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;cm=&#34;$GIT_COMMITTER_EMAIL&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt; &lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;if [ &#34;$GIT_COMMITTER_EMAIL&#34; = &#34;错误邮箱&#34; ]&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;then&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;    cn=&#34;正确名称&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;    cm=&#34;正确邮箱&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;if [ &#34;$GIT_AUTHOR_EMAIL&#34; = &#34;错误邮箱&#34; ]&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;then&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;    an=&#34;正确名称&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;    am=&#34;正确邮箱&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;export GIT_AUTHOR_NAME=&#34;$an&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;export GIT_AUTHOR_EMAIL=&#34;$am&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;export GIT_COMMITTER_NAME=&#34;$cn&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;export GIT_COMMITTER_EMAIL=&#34;$cm&#34;&lt;/span&gt;
+&lt;span class=&#34;hljs-string&#34;&gt;&#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;完成后运行 &lt;code&gt;./fix.sh&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;p&gt;PS: 跑完记得删脚本，或者直接把脚本内容改好之后拖进终端&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/clone-github-repo-faster/</guid>
+            <title>【随笔】修改 Git 配置加速 clone GitHub 源码</title>
+            <link>https://blog.baoshuo.ren/post/clone-github-repo-faster/</link>
+            <category>Git</category>
+            <pubDate>Tue, 21 Jul 2020 18:38:23 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;设置代理：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;# socks5协议，1080端口修改成自己的本地代理端口&lt;/span&gt;
+git config --global http.https://github.com.proxy  socks5://127.0.0.1:1080
+git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
+
+&lt;span class=&#34;hljs-comment&#34;&gt;# http协议，7890端口修改成自己的本地代理端口&lt;/span&gt;
+git config --global http.https://github.com.proxy  http://127.0.0.1:7890
+git config --global https.https://github.com.proxy http://127.0.0.1:7890&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之后运行 &lt;code&gt;git config -l&lt;/code&gt; 即可查看代理设置情况。&lt;/p&gt;
+&lt;p&gt;清除代理：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;git config --global --unset http.proxy
+git config --global --unset https.proxy&lt;/code&gt;&lt;/pre&gt; ]]></description>
+        </item>
+    </channel>
+</rss>
