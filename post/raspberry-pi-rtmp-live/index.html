@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="cn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>使用树莓派搭建 rtmp 直播服务 - 宝硕博客</title><link rel="icon" href="/favicon.ico"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://i.loli.net"><link rel="preconnect" href="https://vip1.loli.net"><link rel="preconnect" href="https://vip2.loli.net"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript><link rel="alternate" href="/rss.xml" title="宝硕博客" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="宝硕博客" type="application/atom+xml"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/renbaoshuo/blog/styles/main.min.css"><script>window.ga_tid="UA-163290903-2",window.ga_api="https://baoshuo.ren/api/cfga/jquery.js"</script><script async src="https://cdn.jsdelivr.net/npm/cfga@1.0.3/cfga.min.js"></script><script>document.addEventListener("DOMContentLoaded", (event) => {
+<!DOCTYPE html><html lang="cn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>使用树莓派搭建 rtmp 直播服务 - 宝硕博客</title><link rel="icon" href="/favicon.ico"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://i.loli.net"><link rel="preconnect" href="https://vip1.loli.net"><link rel="preconnect" href="https://vip2.loli.net"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" as="style" onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"></noscript><link rel="alternate" href="/rss.xml" title="宝硕博客" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="宝硕博客" type="application/atom+xml"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/renbaoshuo/blog/styles/main.min.css"><script>window.ga_tid="UA-163290903-2",window.ga_api="https://baoshuo.ren/api/cfga/jquery.js"</script><script async src="https://cdn.jsdelivr.net/npm/cfga@1.0.3/cfga.min.js"></script><script>document.addEventListener("DOMContentLoaded", (event) => {
         if((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) || new Date().getHours() >= 19 || new Date().getHours() <= 6) {
             document.body.classList.add("night");
         }
@@ -10,23 +10,23 @@
         } else { 
             element.style.display = 'none';
         }
-    }</script><div class="post-container"><div class="post-detail gt-bg-theme-color-second gt-c-content-color-first"><article class="gt-post-content" id="main"><h1 class="post-title">使用树莓派搭建 rtmp 直播服务</h1><div class="post-info"><time class="post-time gt-c-content-color-first">· 2020 年 10 月 05 日 ·</time> <a href="/tags/%E6%8A%98%E8%85%BE/" class="post-tag">#折腾</a></div><div class="post-content gt-c-content-color-first"><p>国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。</p><a id="more"></a><h2 id="烧写系统"><a href="#烧写系统" class="headerlink" title="烧写系统"></a>烧写系统</h2><p>先从 <a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener external nofollow noreferrer">Raspberry Pi Downloads</a> 页面下载 <code>Raspberry Pi Imager</code> 。</p><p><img src="https://vip1.loli.net/2020/11/25/a4fbwYDWkx3PUiS.png" loading="lazy"></p><p>将 SD 卡插入电脑并打开 <code>Raspberry Pi Imager</code> 。</p><p><img src="https://vip1.loli.net/2020/11/25/OslZej6BqdNpJow.png" loading="lazy"></p><p>点击 <code>CHOOSE OS</code> 按钮，选择系统。</p><p><img src="https://vip1.loli.net/2020/11/25/dXrKCVMAnp1qFNh.png" loading="lazy"></p><p>点击进入 Ubuntu 分类。</p><p><img src="https://vip2.loli.net/2020/11/25/2nvcq7MgXrPD8b3.png" loading="lazy"></p><p>根据括号内所列出的支持树莓派版本来选择系统。</p><p><img src="https://vip2.loli.net/2020/11/25/X8Zemi5VsRF1r7U.png" loading="lazy"></p><p>点击 <code>CHOOSE SD CARD</code> 按钮，选择 SD 卡。</p><p>选择完毕后点击 <code>WRITE</code> 按钮烧写镜像。</p><h2 id="安装及配置-nginx"><a href="#安装及配置-nginx" class="headerlink" title="安装及配置 nginx"></a>安装及配置 nginx</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>依次运行下方命令即可。</p><pre><code class="hljs bash">apt update
+    }</script><div class="post-container"><div class="post-detail gt-bg-theme-color-second gt-c-content-color-first"><article class="gt-post-content" id="main"><h1 class="post-title">使用树莓派搭建 rtmp 直播服务</h1><div class="post-info"><time class="post-time gt-c-content-color-first">· 2020 年 10 月 05 日 ·</time> <a href="/tags/%E6%8A%98%E8%85%BE/" class="post-tag">#折腾</a></div><hr><div class="post-content gt-c-content-color-first"><p>国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。</p><a id="more"></a><h2 id="烧写系统">烧写系统</h2><p>先从 <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/">Raspberry Pi Downloads</a> 页面下载 <code>Raspberry Pi Imager</code> 。</p><p><img src="https://vip1.loli.net/2020/11/25/a4fbwYDWkx3PUiS.png" alt=""></p><p>将 SD 卡插入电脑并打开 <code>Raspberry Pi Imager</code> 。</p><p><img src="https://vip1.loli.net/2020/11/25/OslZej6BqdNpJow.png" alt=""></p><p>点击 <code>CHOOSE OS</code> 按钮，选择系统。</p><p><img src="https://vip1.loli.net/2020/11/25/dXrKCVMAnp1qFNh.png" alt=""></p><p>点击进入 Ubuntu 分类。</p><p><img src="https://vip2.loli.net/2020/11/25/2nvcq7MgXrPD8b3.png" alt=""></p><p>根据括号内所列出的支持树莓派版本来选择系统。</p><p><img src="https://vip2.loli.net/2020/11/25/X8Zemi5VsRF1r7U.png" alt=""></p><p>点击 <code>CHOOSE SD CARD</code> 按钮，选择 SD 卡。</p><p>选择完毕后点击 <code>WRITE</code> 按钮烧写镜像。</p><h2 id="安装及配置-nginx">安装及配置 nginx</h2><h3 id="安装">安装</h3><p>依次运行下方命令即可。</p><pre><code class="hljs bash">apt update
 apt upgrade -y
-apt install nginx libnginx-mod-rtmp -y</code></pre><p>访问 IP ，出现如下图所示网页即代表安装成功。</p><p><img src="https://vip1.loli.net/2020/11/26/BdKOhDuxIaYks6q.png" loading="lazy"></p><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>打开 <code>/etc/nginx/nginx.conf</code> ，在末尾处插入下面的配置</p><pre><code class="hljs nginx"><span class="hljs-section">rtmp</span> {
-    <span class="hljs-section">server</span> {
+apt install nginx libnginx-mod-rtmp -y</code></pre><p>访问 IP ，出现如下图所示网页即代表安装成功。</p><p><img src="https://vip1.loli.net/2020/11/26/BdKOhDuxIaYks6q.png" alt=""></p><h3 id="配置">配置</h3><p>打开 <code>/etc/nginx/nginx.conf</code> ，在末尾处插入下面的配置</p><pre><code class="hljs nginx"><span class="hljs-section">rtmp</span> &#123;
+    <span class="hljs-section">server</span> &#123;
         <span class="hljs-attribute">listen</span>     <span class="hljs-number">1935</span>;              <span class="hljs-comment"># 服务端口</span>
         <span class="hljs-attribute">chunk_size</span> <span class="hljs-number">4096</span>;              <span class="hljs-comment"># 数据传输块的大小</span>
 
-        <span class="hljs-attribute">application</span> vod {
+        <span class="hljs-attribute">application</span> vod &#123;
             <span class="hljs-attribute">play</span> /opt/video;          <span class="hljs-comment"># 视频文件存放位置。</span>
-        }
+        &#125;
 
-        <span class="hljs-attribute">application</span> rtmplive {
+        <span class="hljs-attribute">application</span> rtmplive &#123;
             <span class="hljs-attribute">live</span>            <span class="hljs-literal">on</span>;        <span class="hljs-comment"># 开启直播</span>
             <span class="hljs-attribute">max_connections</span> <span class="hljs-number">64</span>;        <span class="hljs-comment"># 为 rtmp 引擎设置最大连接数。默认为 off</span>
-        }
+        &#125;
 
-        <span class="hljs-attribute">application</span> live {
+        <span class="hljs-attribute">application</span> live &#123;
             <span class="hljs-attribute">live</span>                <span class="hljs-literal">on</span>;              <span class="hljs-comment"># 开启直播</span>
             <span class="hljs-attribute">hls</span>                 <span class="hljs-literal">on</span>;              <span class="hljs-comment"># 这个参数把直播服务器改造成实时回放服务器。</span>
             <span class="hljs-attribute">wait_key</span>            <span class="hljs-literal">on</span>;              <span class="hljs-comment"># 对视频切片进行保护，这样就不会产生马赛克了。</span>
@@ -37,32 +37,32 @@ apt install nginx libnginx-mod-rtmp -y</code></pre><p>访问 IP ，出现如下�
             <span class="hljs-attribute">hls_continuous</span>      <span class="hljs-literal">on</span>;              <span class="hljs-comment"># 连续模式。</span>
             <span class="hljs-attribute">hls_cleanup</span>         <span class="hljs-literal">on</span>;              <span class="hljs-comment"># 对多余的切片进行删除。</span>
             <span class="hljs-attribute">hls_nested</span>          <span class="hljs-literal">on</span>;              <span class="hljs-comment"># 嵌套模式。</span>
-        }
-    }
-}</code></pre><p>打开默认站点配置文件 <code>/etc/nginx/sites-available/default</code> ，在 <code>server</code> 部分的末尾添加以下内容</p><pre><code class="hljs nginx"><span class="hljs-attribute">location</span> /live {
-    <span class="hljs-section">types</span> {
+        &#125;
+    &#125;
+&#125;</code></pre><p>打开默认站点配置文件 <code>/etc/nginx/sites-available/default</code> ，在 <code>server</code> 部分的末尾添加以下内容</p><pre><code class="hljs nginx"><span class="hljs-attribute">location</span> /live &#123;
+    <span class="hljs-section">types</span> &#123;
         application/vnd.apple.mpegurl m3u8;
         video/mp2t                    ts;
-    }
+    &#125;
 
     <span class="hljs-attribute">autoindex</span> <span class="hljs-literal">on</span>;
     <span class="hljs-attribute">alias</span>     /opt/video/hls;
 
     <span class="hljs-attribute">expires</span> -<span class="hljs-number">1</span>;
 
-    <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Cache-Control'</span>                    <span class="hljs-string">'no-cache'</span>;
-    <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Origin'</span>      <span class="hljs-string">'*'</span>;
-    <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Credentials'</span> <span class="hljs-string">'true'</span>;
-    <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Methods'</span>     <span class="hljs-string">'GET, POST, OPTIONS'</span>;
-    <span class="hljs-attribute">add_header</span> <span class="hljs-string">'Access-Control-Allow-Headers'</span>     <span class="hljs-string">'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type'</span>;
-}
-<span class="hljs-attribute">location</span> /stat {
+    <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Cache-Control&#x27;</span>                    <span class="hljs-string">&#x27;no-cache&#x27;</span>;
+    <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Origin&#x27;</span>      <span class="hljs-string">&#x27;*&#x27;</span>;
+    <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Credentials&#x27;</span> <span class="hljs-string">&#x27;true&#x27;</span>;
+    <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Methods&#x27;</span>     <span class="hljs-string">&#x27;GET, POST, OPTIONS&#x27;</span>;
+    <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Headers&#x27;</span>     <span class="hljs-string">&#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&#x27;</span>;
+&#125;
+<span class="hljs-attribute">location</span> /stat &#123;
     <span class="hljs-attribute">rtmp_stat</span> all;
     <span class="hljs-comment"># rtmp_stat_stylesheet stat.xsl;</span>
-}</code></pre><p>插入完以后配置文件会变成下面的样子</p><pre><code class="hljs diff"><span class="hljs-comment">--- /etc/nginx/sites-available/default</span>
+&#125;</code></pre><p>插入完以后配置文件会变成下面的样子</p><pre><code class="hljs diff"><span class="hljs-comment">--- /etc/nginx/sites-available/default</span>
 <span class="hljs-comment">+++ /etc/nginx/sites-available/default</span>
 <span class="hljs-meta">@@ -1,14 +1,35 @@</span>
- server {
+ server &#123;
      listen 80 default_server;
      listen [::]:80 default_server;
 
@@ -72,52 +72,52 @@ apt install nginx libnginx-mod-rtmp -y</code></pre><p>访问 IP ，出现如下�
 
      server_name _;
 
-     location / {
+     location / &#123;
          try_files $uri $uri/ =404;
-     }
-<span class="hljs-addition">+    location /live {</span>
-<span class="hljs-addition">+        types {</span>
+     &#125;
+<span class="hljs-addition">+    location /live &#123;</span>
+<span class="hljs-addition">+        types &#123;</span>
 <span class="hljs-addition">+            application/vnd.apple.mpegurl m3u8;</span>
 <span class="hljs-addition">+            video/mp2t                    ts;</span>
-<span class="hljs-addition">+        }</span>
+<span class="hljs-addition">+        &#125;</span>
 <span class="hljs-addition">+</span>
 <span class="hljs-addition">+        autoindex on;</span>
 <span class="hljs-addition">+        alias     /opt/video/hls;</span>
 <span class="hljs-addition">+</span>
 <span class="hljs-addition">+        expires -1;</span>
 <span class="hljs-addition">+</span>
-<span class="hljs-addition">+        add_header 'Cache-Control'                    'no-cache';</span>
-<span class="hljs-addition">+        add_header 'Access-Control-Allow-Origin'      '*';</span>
-<span class="hljs-addition">+        add_header 'Access-Control-Allow-Credentials' 'true';</span>
-<span class="hljs-addition">+        add_header 'Access-Control-Allow-Methods'     'GET, POST, OPTIONS';</span>
-<span class="hljs-addition">+        add_header 'Access-Control-Allow-Headers'     'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';</span>
-<span class="hljs-addition">+    }</span>
-<span class="hljs-addition">+    location /stat {</span>
+<span class="hljs-addition">+        add_header &#x27;Cache-Control&#x27;                    &#x27;no-cache&#x27;;</span>
+<span class="hljs-addition">+        add_header &#x27;Access-Control-Allow-Origin&#x27;      &#x27;*&#x27;;</span>
+<span class="hljs-addition">+        add_header &#x27;Access-Control-Allow-Credentials&#x27; &#x27;true&#x27;;</span>
+<span class="hljs-addition">+        add_header &#x27;Access-Control-Allow-Methods&#x27;     &#x27;GET, POST, OPTIONS&#x27;;</span>
+<span class="hljs-addition">+        add_header &#x27;Access-Control-Allow-Headers&#x27;     &#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&#x27;;</span>
+<span class="hljs-addition">+    &#125;</span>
+<span class="hljs-addition">+    location /stat &#123;</span>
 <span class="hljs-addition">+        rtmp_stat all;</span>
 <span class="hljs-addition">+        # rtmp_stat_stylesheet stat.xsl;</span>
-<span class="hljs-addition">+    }</span>
- }</code></pre><p>修改完成后使用 <code>nginx -t</code> 测试配置文件是否正确</p><pre><code class="hljs vim">nginx: the configuration <span class="hljs-keyword">file</span> /etc/nginx/nginx.<span class="hljs-keyword">conf</span> <span class="hljs-keyword">syntax</span> <span class="hljs-keyword">is</span> ok
-nginx: configuration <span class="hljs-keyword">file</span> /etc/nginx/nginx.<span class="hljs-keyword">conf</span> test <span class="hljs-keyword">is</span> successful</code></pre><p>当出现成功提示时，使用 <code>nginx -s reload</code> 平滑重启 nginx。</p><p>重启成功后使用 <code>netstat -lnp</code> 查看 <code>tcp/1935</code> 端口是否开启。</p><p><img src="https://vip1.loli.net/2020/11/26/Xy3Nq5WZaogLIvR.png" loading="lazy"></p><h2 id="配置OBS"><a href="#配置OBS" class="headerlink" title="配置OBS"></a>配置OBS</h2><p>打开 OBS ，在 设置 -&gt; 推流 中配置以下内容</p><table><thead><tr><th>项目</th><th>值</th></tr></thead><tbody><tr><td>服务</td><td><code>自定义...</code></td></tr><tr><td>服务器</td><td><code>rtmp://${ip}/live</code></td></tr><tr><td>串流密钥</td><td><code>${key}</code></td></tr></tbody></table><p><small>其中，<code>${ip}</code> 和 <code>${key}</code> 设置为你需要的值即可。</small></p><p>回到主界面，点击 <strong>开始推流</strong> 进行推流。</p><h2 id="使用客户端拉取直播流"><a href="#使用客户端拉取直播流" class="headerlink" title="使用客户端拉取直播流"></a>使用客户端拉取直播流</h2><p><img src="https://vip2.loli.net/2020/11/26/jpqVTAgXSW6oyEP.png" loading="lazy"></p><p>在 <code>PotPlayer</code> <code>QQ影音</code> 等播放器中选择 <code>打开-&gt;打开URL</code> 。</p><p><img src="https://vip1.loli.net/2020/11/26/rzBNukVTntf5xUR.png" loading="lazy"></p><p>输入 <code>http://${ip}/live/${key}/index.m3u8</code> ，点击确定。</p><p><img src="https://vip1.loli.net/2020/11/26/crbEBQNC3qH8uOl.jpg" loading="lazy"></p><p>此时可以就看到直播画面了。</p><h2 id="网页端播放"><a href="#网页端播放" class="headerlink" title="网页端播放"></a>网页端播放</h2><p>非常简单的代码，只有一个播放器，其他请自行实现。</p><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-addition">+    &#125;</span>
+ &#125;</code></pre><p>修改完成后使用 <code>nginx -t</code> 测试配置文件是否正确</p><pre><code class="hljs vim">nginx: the configuration <span class="hljs-keyword">file</span> /etc/nginx/nginx.<span class="hljs-keyword">conf</span> <span class="hljs-keyword">syntax</span> <span class="hljs-keyword">is</span> ok
+nginx: configuration <span class="hljs-keyword">file</span> /etc/nginx/nginx.<span class="hljs-keyword">conf</span> test <span class="hljs-keyword">is</span> successful</code></pre><p>当出现成功提示时，使用 <code>nginx -s reload</code> 平滑重启 nginx。</p><p>重启成功后使用 <code>netstat -lnp</code> 查看 <code>tcp/1935</code> 端口是否开启。</p><p><img src="https://vip1.loli.net/2020/11/26/Xy3Nq5WZaogLIvR.png" alt=""></p><h2 id="配置OBS">配置OBS</h2><p>打开 OBS ，在 设置 -&gt; 推流 中配置以下内容</p><table><thead><tr><th>项目</th><th>值</th></tr></thead><tbody><tr><td>服务</td><td><code>自定义...</code></td></tr><tr><td>服务器</td><td><code>rtmp://$&#123;ip&#125;/live</code></td></tr><tr><td>串流密钥</td><td><code>$&#123;key&#125;</code></td></tr></tbody></table><p><small>其中，<code>$&#123;ip&#125;</code> 和 <code>$&#123;key&#125;</code> 设置为你需要的值即可。</small></p><p>回到主界面，点击 <strong>开始推流</strong> 进行推流。</p><h2 id="使用客户端拉取直播流">使用客户端拉取直播流</h2><p><img src="https://vip2.loli.net/2020/11/26/jpqVTAgXSW6oyEP.png" alt=""></p><p>在 <code>PotPlayer</code> <code>QQ影音</code> 等播放器中选择 <code>打开-&gt;打开URL</code> 。</p><p><img src="https://vip1.loli.net/2020/11/26/rzBNukVTntf5xUR.png" alt=""></p><p>输入 <code>http://$&#123;ip&#125;/live/$&#123;key&#125;/index.m3u8</code> ，点击确定。</p><p><img src="https://vip1.loli.net/2020/11/26/crbEBQNC3qH8uOl.jpg" alt=""></p><p>此时可以就看到直播画面了。</p><h2 id="网页端播放">网页端播放</h2><p>非常简单的代码，只有一个播放器，其他请自行实现。</p><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Live Player<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dplayer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/hls.js@0.14.13/dist/hls.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;dplayer&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/hls.js@0.14.13/dist/hls.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
-<span class="javascript">        <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> DPlayer({</span>
-<span class="javascript">            container: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'dplayer'</span>),</span>
+<span class="javascript">        <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> DPlayer(&#123;</span>
+<span class="javascript">            container: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;dplayer&#x27;</span>),</span>
 <span class="javascript">            live: <span class="hljs-literal">true</span>,</span>
-            video: {
-<span class="javascript">                url: <span class="hljs-string">'http://${ip}/live/${key}/index.m3u8'</span>,</span>
-<span class="javascript">                type: <span class="hljs-string">'hls'</span>,</span>
-            },
-        });
+            video: &#123;
+<span class="javascript">                url: <span class="hljs-string">&#x27;http://$&#123;ip&#125;/live/$&#123;key&#125;/index.m3u8&#x27;</span>,</span>
+<span class="javascript">                type: <span class="hljs-string">&#x27;hls&#x27;</span>,</span>
+            &#125;,
+        &#125;);
     <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><p><img src="https://vip1.loli.net/2020/11/26/9X6mUtF4fLzdaYn.jpg" loading="lazy"></p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>一些注意事项：</p><ul><li>如果没有在外直播的需求，不要将 rtmp 端口映射至公网，这可能会带来一些不必要的麻烦。</li></ul></div></article></div><div class="copyright gt-bg-theme-color-second gt-c-content-color-first"><ul class="post-copyright"><li class="post-copyright-author"><b>本文作者：</b> 宝硕</li><li class="post-copyright-link"><b>本文链接：</b> <a href="https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/" title="使用树莓派搭建 rtmp 直播服务">https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/</a></li><li class="post-copyright-license"><b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处。</li></ul></div><div class="afdian gt-bg-theme-color-second gt-c-content-color-first"><div class="donation-label">喜欢这篇文章？为什么不考虑打赏一下作者呢？</div><a class="afdian-button button" href="https://afdian.net/@baoshuo" rel="nofollow noopener noreferrer" target="_blank">爱发电</a></div><br><div class="next-prev-post"><div class="prev-post"><div class="prev gt-c-content-color-first">上一篇：<a href="" class="post-title gt-a-link">【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</a></div></div><div class="next-post"><div class="next gt-c-content-color-first">下一篇：<a href="" class="post-title gt-a-link">【题解】P1724 东风谷早苗</a></div></div></div><div id="disqus_thread" class="gt-c-content-color-first"></div><script>var disqus_options={shortname:"baoshuo",api:"https://baoshuo.ren/api/disqus/",apikey:"SysuSvnZJi7nYvWwH14fu42b1CowDBsAH3Ol3UIsqdRbEcQwGFpWuUPkcX93ffCJ",identifier:location.pathname,title:"使用树莓派搭建 rtmp 直播服务",siteName:"宝硕博客",admin:"renbaoshuo"}</script><script defer src="https://cdn.jsdelivr.net/gh/renbaoshuo/blog/scripts/disqus.lazyload.min.js"></script></div><div class="site-footer gt-c-content-color-first"><div class="footer-main"><span style="text-align:right;float:right">Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a> | Powered by <a href="https://hexo.io" target="_blank">Hexo</a></span><span style="text-align:left"><a href="/atom.xml" target="_blank">RSS</a> | <a href="https://beian.miit.gov.cn" target="_blank">冀ICP备15024669号</a></span></div></div><script async src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js"></script></div></div></body></html>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><p><img src="https://vip1.loli.net/2020/11/26/9X6mUtF4fLzdaYn.jpg" alt=""></p><h2 id="后记">后记</h2><p>一些注意事项：</p><ul><li>如果没有在外直播的需求，不要将 rtmp 端口映射至公网，这可能会带来一些不必要的麻烦。</li></ul></div></article></div><div class="copyright gt-bg-theme-color-second gt-c-content-color-first"><ul class="post-copyright"><li class="post-copyright-author"><b>本文作者：</b> 宝硕</li><li class="post-copyright-link"><b>本文链接：</b> <a href="https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/" title="使用树莓派搭建 rtmp 直播服务">https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/</a></li><li class="post-copyright-license"><b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处。</li></ul></div><div class="afdian gt-bg-theme-color-second gt-c-content-color-first"><div class="donation-label">喜欢这篇文章？为什么不考虑打赏一下作者呢？</div><a class="afdian-button button" href="https://afdian.net/@baoshuo" rel="nofollow noopener noreferrer" target="_blank">爱发电</a></div><br><div class="next-prev-post"><div class="prev-post"><div class="prev gt-c-content-color-first">上一篇：<a href="/post/solution-luogu-p1200/" class="post-title gt-a-link">【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</a></div></div><div class="next-post"><div class="next gt-c-content-color-first">下一篇：<a href="/post/solution-luogu-p1724/" class="post-title gt-a-link">【题解】P1724 东风谷早苗</a></div></div></div><div id="disqus_thread" class="gt-c-content-color-first"></div><script>var disqus_options={shortname:"baoshuo",api:"https://baoshuo.ren/api/disqus/",apikey:"SysuSvnZJi7nYvWwH14fu42b1CowDBsAH3Ol3UIsqdRbEcQwGFpWuUPkcX93ffCJ",identifier:location.pathname,title:"使用树莓派搭建 rtmp 直播服务",siteName:"宝硕博客",admin:"renbaoshuo"}</script><script defer src="https://cdn.jsdelivr.net/gh/renbaoshuo/blog/scripts/disqus.lazyload.min.js"></script></div><div class="site-footer gt-c-content-color-first"><div class="footer-main"><span style="text-align:right;float:right">Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a> | Powered by <a href="https://hexo.io" target="_blank">Hexo</a></span><span style="text-align:left"><a href="/atom.xml" target="_blank">RSS</a> | <a href="https://beian.miit.gov.cn" target="_blank">冀ICP备15024669号</a></span></div></div><script async src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js"></script></div></div></body></html>

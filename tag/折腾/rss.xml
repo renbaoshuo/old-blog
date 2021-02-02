@@ -7,17 +7,17 @@
         <language>cn</language>
         <pubDate>Fri, 01 Jan 2021 00:00:00 +0800</pubDate>
         <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0800</lastBuildDate>
-        <category>随笔</category>
+        <category>折腾</category>
         <category>CTF</category>
+        <category>随笔</category>
         <category>Git</category>
         <category>网络</category>
-        <category>折腾</category>
-        <category>题解</category>
         <category>OI</category>
         <category>笔记</category>
+        <category>题解</category>
         <category>游记</category>
-        <category>黑苹果</category>
         <category>Linux</category>
+        <category>黑苹果</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/hello-2021/</guid>
             <title>你好，2021 | 博客迁移记录</title>
@@ -26,43 +26,47 @@
             <pubDate>Fri, 01 Jan 2021 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;再见，2020。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-
 &lt;p&gt;最近总是觉得博客太慢了，于是乎，我把博客迁移到自己的服务器上面了。&lt;/p&gt;
-&lt;h2 id=&#34;服务器端操作&#34;&gt;&lt;a href=&#34;#服务器端操作&#34; class=&#34;headerlink&#34; title=&#34;服务器端操作&#34;&gt;&lt;/a&gt;服务器端操作&lt;/h2&gt;&lt;h3 id=&#34;安装-nginx&#34;&gt;&lt;a href=&#34;#安装-nginx&#34; class=&#34;headerlink&#34; title=&#34;安装 nginx&#34;&gt;&lt;/a&gt;安装 nginx&lt;/h3&gt;&lt;p&gt;apt 一把梭，省时又省力。&lt;/p&gt;
+&lt;h2 id=&#34;服务器端操作&#34;&gt;服务器端操作&lt;/h2&gt;
+&lt;h3 id=&#34;安装-nginx&#34;&gt;安装 nginx&lt;/h3&gt;
+&lt;p&gt;apt 一把梭，省时又省力。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;apt install nginx -y&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;配置-nginx&#34;&gt;&lt;a href=&#34;#配置-nginx&#34; class=&#34;headerlink&#34; title=&#34;配置 nginx&#34;&gt;&lt;/a&gt;配置 nginx&lt;/h3&gt;&lt;p&gt;简简单单配置了一下，没有什么过于复杂的东西。&lt;/p&gt;
+&lt;h3 id=&#34;配置-nginx&#34;&gt;配置 nginx&lt;/h3&gt;
+&lt;p&gt;简简单单配置了一下，没有什么过于复杂的东西。&lt;/p&gt;
 &lt;p&gt;在申请 SSL 证书之前，不要写 HTTPS 的配置。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;server&lt;/span&gt; {
+&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;server&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;      &lt;span class=&#34;hljs-number&#34;&gt;80&lt;/span&gt;;
     &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;      [::]:&lt;span class=&#34;hljs-number&#34;&gt;80&lt;/span&gt;;
     &lt;span class=&#34;hljs-attribute&#34;&gt;server_name&lt;/span&gt; blog.baoshuo.ren;
 
     &lt;span class=&#34;hljs-comment&#34;&gt;# ACME-challenge&lt;/span&gt;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt;&lt;span class=&#34;hljs-regexp&#34;&gt; ^~&lt;/span&gt; /.well-known/acme-challenge/ {
+    &lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt;&lt;span class=&#34;hljs-regexp&#34;&gt; ^~&lt;/span&gt; /.well-known/acme-challenge/ &amp;#123;
         &lt;span class=&#34;hljs-attribute&#34;&gt;allow&lt;/span&gt; all;
         &lt;span class=&#34;hljs-attribute&#34;&gt;root&lt;/span&gt; /var/www/_letsencrypt;
-    }
+    &amp;#125;
 
-    &lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt; / {
+    &lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt; / &amp;#123;
         &lt;span class=&#34;hljs-attribute&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;301&lt;/span&gt; https://blog.baoshuo.ren$request_uri;
-    }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;申请-SSL-证书&#34;&gt;&lt;a href=&#34;#申请-SSL-证书&#34; class=&#34;headerlink&#34; title=&#34;申请 SSL 证书&#34;&gt;&lt;/a&gt;申请 SSL 证书&lt;/h3&gt;&lt;p&gt;由于笔者懒得每年换证书，所以就用了 Let’s Encrypt + acme.sh 的组合套装来配置 SSL 。&lt;br&gt;当然，ECC 证书也是少不了的。&lt;/p&gt;
+    &amp;#125;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;申请-SSL-证书&#34;&gt;申请 SSL 证书&lt;/h3&gt;
+&lt;p&gt;由于笔者懒得每年换证书，所以就用了 Let’s Encrypt + &lt;a href=&#34;http://acme.sh&#34;&gt;acme.sh&lt;/a&gt; 的组合套装来配置 SSL 。&lt;br&gt;
+当然，ECC 证书也是少不了的。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;acme.sh --issue -d baoshuo.ren -d www.baoshuo.ren -d blog.baoshuo.ren \
     -w /var/www/_letsencrypt/ \
-    --renew-hook &#34;acme.sh --install-cert -d baoshuo.ren \
+    --renew-hook &amp;quot;acme.sh --install-cert -d baoshuo.ren \
     --key-file /***/baoshuo.ren.key \
     --fullchain-file /***/baoshuo.ren.cer \
-    --reloadcmd \&#34;service nginx force-reload\&#34;&#34;
+    --reloadcmd \&amp;quot;service nginx force-reload\&amp;quot;&amp;quot;
 acme.sh --issue --keylength ec-256 \
     -d baoshuo.ren -d www.baoshuo.ren -d blog.baoshuo.ren \
     -w /var/www/_letsencrypt/ \
-    --renew-hook &#34;acme.sh --install-cert -d baoshuo.ren --ecc \
+    --renew-hook &amp;quot;acme.sh --install-cert -d baoshuo.ren --ecc \
     --key-file /***/baoshuo.ren.ecc.key \
     --fullchain-file /***/baoshuo.ren.ecc.cer \
-    --reloadcmd \&#34;service nginx force-reload\&#34;&#34;&lt;/code&gt;&lt;/pre&gt;
+    --reloadcmd \&amp;quot;service nginx force-reload\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;申请完成后，将 RSA 和 ECC 证书添加到 nginx 配置中，在配置文件中写入以下内容：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;server&lt;/span&gt; {
+&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;server&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;                               &lt;span class=&#34;hljs-number&#34;&gt;443&lt;/span&gt; ssl http2;
     &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;                               [::]:&lt;span class=&#34;hljs-number&#34;&gt;443&lt;/span&gt; ssl http2;
     &lt;span class=&#34;hljs-attribute&#34;&gt;server_name&lt;/span&gt;                          blog.baoshuo.ren;
@@ -78,19 +82,20 @@ acme.sh --issue --keylength ec-256 \
     &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class=&#34;hljs-literal&#34;&gt;off&lt;/span&gt;;
 
     &lt;span class=&#34;hljs-comment&#34;&gt;# HSTS&lt;/span&gt;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; Strict-Transport-Security &lt;span class=&#34;hljs-string&#34;&gt;&#39;max-age=31536000&#39;&lt;/span&gt;;
+    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; Strict-Transport-Security &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;max-age=31536000&amp;#x27;&lt;/span&gt;;
 
     &lt;span class=&#34;hljs-comment&#34;&gt;# logging&lt;/span&gt;
     &lt;span class=&#34;hljs-attribute&#34;&gt;error_log&lt;/span&gt;                            /var/log/nginx/blog.baoshuo.ren.&lt;span class=&#34;hljs-literal&#34;&gt;error&lt;/span&gt;.log &lt;span class=&#34;hljs-literal&#34;&gt;warn&lt;/span&gt;;
 
     &lt;span class=&#34;hljs-comment&#34;&gt;# 404 page&lt;/span&gt;
     &lt;span class=&#34;hljs-attribute&#34;&gt;error_page&lt;/span&gt;                           &lt;span class=&#34;hljs-number&#34;&gt;404&lt;/span&gt; /&lt;span class=&#34;hljs-number&#34;&gt;404&lt;/span&gt;.html;
-}&lt;/code&gt;&lt;/pre&gt;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;如果需要更好的兼容性，可以使用 Mozilla 提供的配置&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs apache&#34;&gt;&lt;span class=&#34;hljs-attribute&#34;&gt;ssl_protocols&lt;/span&gt; TLSv&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; TLSv&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;;
 &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_ciphers&lt;/span&gt; ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-CHACHA&lt;span class=&#34;hljs-number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;hljs-number&#34;&gt;1305&lt;/span&gt;:ECDHE-RSA-CHACHA&lt;span class=&#34;hljs-number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;hljs-number&#34;&gt;1305&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:DHE-RSA-CHACHA&lt;span class=&#34;hljs-number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;hljs-number&#34;&gt;1305&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA:DHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA:AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA:DES-CBC&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;-SHA;
 &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;将博客文件同步到服务器上&#34;&gt;&lt;a href=&#34;#将博客文件同步到服务器上&#34; class=&#34;headerlink&#34; title=&#34;将博客文件同步到服务器上&#34;&gt;&lt;/a&gt;将博客文件同步到服务器上&lt;/h2&gt;&lt;p&gt;在 &lt;code&gt;.github/workflows&lt;/code&gt; 目录下创建一个 &lt;code&gt;server.yml&lt;/code&gt; 文件，写入以下内容：&lt;/p&gt;
+&lt;h2 id=&#34;将博客文件同步到服务器上&#34;&gt;将博客文件同步到服务器上&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;.github/workflows&lt;/code&gt; 目录下创建一个 &lt;code&gt;server.yml&lt;/code&gt; 文件，写入以下内容：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs yaml&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;Deploy&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;blog&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;Server&lt;/span&gt;
 
 &lt;span class=&#34;hljs-attr&#34;&gt;on:&lt;/span&gt;
@@ -107,12 +112,12 @@ acme.sh --issue --keylength ec-256 \
       &lt;span class=&#34;hljs-bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;Deploy&lt;/span&gt;
         &lt;span class=&#34;hljs-attr&#34;&gt;uses:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;easingthemes/ssh-deploy@v2.1.5&lt;/span&gt;
         &lt;span class=&#34;hljs-attr&#34;&gt;env:&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;SSH_PRIVATE_KEY:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;${{&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.SSH_PRIVATE_KEY&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;}}&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;ARGS:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#34;-avz --delete  --exclude &#39;.git/*&#39; --exclude &#39;.github/*&#39; --exclude &#39;.gitlab-ci.yml&#39; --exclude &#39;.nojekyll&#39;&#34;&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;REMOTE_HOST:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;${{&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.REMOTE_HOST&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;}}&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;REMOTE_USER:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;${{&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.REMOTE_USER&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;}}&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;TARGET:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;${{&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.TARGET&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;}}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;之后在 &lt;code&gt;https://github.com/{username}/{repo}/settings/secrets/actions&lt;/code&gt; 中添加四个 Secrets 。&lt;/p&gt;
+          &lt;span class=&#34;hljs-attr&#34;&gt;SSH_PRIVATE_KEY:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.SSH_PRIVATE_KEY&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;
+          &lt;span class=&#34;hljs-attr&#34;&gt;ARGS:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;-avz --delete  --exclude &amp;#x27;.git/*&amp;#x27; --exclude &amp;#x27;.github/*&amp;#x27; --exclude &amp;#x27;.gitlab-ci.yml&amp;#x27; --exclude &amp;#x27;.nojekyll&amp;#x27;&amp;quot;&lt;/span&gt;
+          &lt;span class=&#34;hljs-attr&#34;&gt;REMOTE_HOST:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.REMOTE_HOST&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;
+          &lt;span class=&#34;hljs-attr&#34;&gt;REMOTE_USER:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.REMOTE_USER&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;
+          &lt;span class=&#34;hljs-attr&#34;&gt;TARGET:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.TARGET&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之后在 &lt;code&gt;https://github.com/&amp;#123;username&amp;#125;/&amp;#123;repo&amp;#125;/settings/secrets/actions&lt;/code&gt; 中添加四个 Secrets 。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -120,7 +125,8 @@ acme.sh --issue --keylength ec-256 \
 &lt;th&gt;内容&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
 &lt;td&gt;REMOTE_HOST&lt;/td&gt;
 &lt;td&gt;服务器 IP 地址&lt;/td&gt;
 &lt;/tr&gt;
@@ -136,7 +142,8 @@ acme.sh --issue --keylength ec-256 \
 &lt;td&gt;TARGET&lt;/td&gt;
 &lt;td&gt;存放文件的路径&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;将博客文件 push 到仓库中，就能在服务器上查看到文件了。&lt;/p&gt;
  ]]></description>
         </item>
@@ -148,44 +155,45 @@ acme.sh --issue --keylength ec-256 \
             <pubDate>Sun, 20 Dec 2020 19:40:16 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;截至目前，洛谷已经有了40余万名用户，本代码爬取了一些样本，以供后续（可能）的数据分析。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-
-&lt;h2 id=&#34;改动之处&#34;&gt;&lt;a href=&#34;#改动之处&#34; class=&#34;headerlink&#34; title=&#34;改动之处&#34;&gt;&lt;/a&gt;改动之处&lt;/h2&gt;&lt;ol&gt;
+&lt;h2 id=&#34;改动之处&#34;&gt;改动之处&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;在 URL 后面加 &lt;code&gt;?_contentOnly=1&lt;/code&gt; 即可直接获取 JSON 格式的信息，无需再使用正则匹配，加快速度&lt;/li&gt;
 &lt;li&gt;修掉了几个出锅的地方&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;成品代码&#34;&gt;&lt;a href=&#34;#成品代码&#34; class=&#34;headerlink&#34; title=&#34;成品代码&#34;&gt;&lt;/a&gt;成品代码&lt;/h2&gt;&lt;p&gt;您可以在 &lt;a href=&#34;https://github.com/renbaoshuo/Luogu/blob/master/tools/spider/user.py&#34; target=&#34;_blank&#34; rel=&#34;noopener external nofollow noreferrer&#34;&gt;GitHub&lt;/a&gt; 上查看到该文件的最新更新。&lt;/p&gt;
+&lt;h2 id=&#34;成品代码&#34;&gt;成品代码&lt;/h2&gt;
+&lt;p&gt;您可以在 &lt;a href=&#34;https://github.com/renbaoshuo/Luogu/blob/master/tools/spider/user.py&#34;&gt;GitHub&lt;/a&gt; 上查看到该文件的最新更新。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; json
 &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; time
 &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; pymongo
 &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; requests
 
-dbclient = pymongo.MongoClient(&lt;span class=&#34;hljs-string&#34;&gt;&#34;mongodb://127.0.0.1:27017/&#34;&lt;/span&gt;)
-luogudb = dbclient[&lt;span class=&#34;hljs-string&#34;&gt;&#34;luogu&#34;&lt;/span&gt;]
-dbcol = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&#34;user&#34;&lt;/span&gt;]
+dbclient = pymongo.MongoClient(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
+luogudb = dbclient[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
+dbcol = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;]
 
-headers = { &lt;span class=&#34;hljs-string&#34;&gt;&#34;User-Agent&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36&#34;&lt;/span&gt;, }
+headers = &amp;#123; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;User-Agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36&amp;quot;&lt;/span&gt;, &amp;#125;
 
 &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;getUser&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;uid&lt;/span&gt;):&lt;/span&gt;
-    url = &lt;span class=&#34;hljs-string&#34;&gt;f&#34;https://www.luogu.com.cn/user/&lt;span class=&#34;hljs-subst&#34;&gt;{uid}&lt;/span&gt;?_contentOnly=1&#34;&lt;/span&gt;
+    url = &lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;https://www.luogu.com.cn/user/&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;?_contentOnly=1&amp;quot;&lt;/span&gt;
     redata = requests.get(url, headers=headers).text
     &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(redata)
 
 &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; uid &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;):
-    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(dbcol.find({&lt;span class=&#34;hljs-string&#34;&gt;&#39;uid&#39;&lt;/span&gt;: uid})) == []:
-        tmpdict = {}
-        tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&#34;_id&#34;&lt;/span&gt;] = uid
-        tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&#34;uid&#34;&lt;/span&gt;] = uid
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(dbcol.find(&amp;#123;&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;uid&amp;#x27;&lt;/span&gt;: uid&amp;#125;)) == []:
+        tmpdict = &amp;#123;&amp;#125;
+        tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;_id&amp;quot;&lt;/span&gt;] = uid
+        tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;uid&amp;quot;&lt;/span&gt;] = uid
         tmpdata = getUser(uid)
-        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;hljs-string&#34;&gt;&#34;code&#34;&lt;/span&gt;] == &lt;span class=&#34;hljs-number&#34;&gt;200&lt;/span&gt;:
-            tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&#34;data&#34;&lt;/span&gt;] = tmpdata[&lt;span class=&#34;hljs-string&#34;&gt;&#34;currentData&#34;&lt;/span&gt;][&lt;span class=&#34;hljs-string&#34;&gt;&#34;user&#34;&lt;/span&gt;]
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;code&amp;quot;&lt;/span&gt;] == &lt;span class=&#34;hljs-number&#34;&gt;200&lt;/span&gt;:
+            tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = tmpdata[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;currentData&amp;quot;&lt;/span&gt;][&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;]
             dbcol.insert_one(tmpdict)
-            print(&lt;span class=&#34;hljs-string&#34;&gt;f&#34;Successfully get user &lt;span class=&#34;hljs-subst&#34;&gt;{uid}&lt;/span&gt;.&#34;&lt;/span&gt;)
+            print(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;Successfully get user &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
             time.sleep(&lt;span class=&#34;hljs-number&#34;&gt;0.5&lt;/span&gt;)
         &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-            print(&lt;span class=&#34;hljs-string&#34;&gt;f&#34;Fail to get user &lt;span class=&#34;hljs-subst&#34;&gt;{uid}&lt;/span&gt;.&#34;&lt;/span&gt;)
+            print(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;Fail to get user &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
             time.sleep(&lt;span class=&#34;hljs-number&#34;&gt;0.5&lt;/span&gt;)
     &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-        print(&lt;span class=&#34;hljs-string&#34;&gt;f&#34;User &lt;span class=&#34;hljs-subst&#34;&gt;{uid}&lt;/span&gt; is already exists.&#34;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt; ]]></description>
+        print(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;User &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/luogu-problem-spider/</guid>
@@ -195,13 +203,13 @@ headers = { &lt;span class=&#34;hljs-string&#34;&gt;&#34;User-Agent&#34;&lt;/spa
             <pubDate>Thu, 26 Nov 2020 14:55:02 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;截至目前，洛谷已经有了近两万道题目，本代码爬取了一些样本，以供后续（可能）的数据分析。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-
 &lt;p&gt;本次爬取遵守洛谷的 &lt;code&gt;robots.txt&lt;/code&gt; 要求，不爬取提交记录页面。为了避免影响洛谷的正常运行，脚本只采用单线程进行爬取。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs groovy&#34;&gt;User-&lt;span class=&#34;hljs-attr&#34;&gt;Agent:&lt;/span&gt; *
 &lt;span class=&#34;hljs-attr&#34;&gt;Disallow:&lt;/span&gt; /record
 &lt;span class=&#34;hljs-attr&#34;&gt;Disallow:&lt;/span&gt; /recordnew&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;题目数据获取&#34;&gt;&lt;a href=&#34;#题目数据获取&#34; class=&#34;headerlink&#34; title=&#34;题目数据获取&#34;&gt;&lt;/a&gt;题目数据获取&lt;/h2&gt;&lt;p&gt;先使用 &lt;code&gt;curl&lt;/code&gt; 分析下洛谷的题目页面&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/JageUdcpXTthIjM.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;题目数据获取&#34;&gt;题目数据获取&lt;/h2&gt;
+&lt;p&gt;先使用 &lt;code&gt;curl&lt;/code&gt; 分析下洛谷的题目页面&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/JageUdcpXTthIjM.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看出我们需要的数据都在传入给 &lt;code&gt;decodeURIComponent()&lt;/code&gt; 函数的字符串中，正则匹配取出即可。&lt;/p&gt;
 &lt;p&gt;下面是代码实现：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
@@ -213,16 +221,17 @@ headers = { &lt;span class=&#34;hljs-string&#34;&gt;&#34;User-Agent&#34;&lt;/spa
 &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; urllib.parse &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; unquote
 
 &lt;span class=&#34;hljs-comment&#34;&gt;# 设置请求头&lt;/span&gt;
-headers = {
-    &lt;span class=&#34;hljs-string&#34;&gt;&#34;User-Agent&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36 Spider/0.1&#34;&lt;/span&gt;
-}
+headers = &amp;#123;
+    &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;User-Agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36 Spider/0.1&amp;quot;&lt;/span&gt;
+&amp;#125;
 
 &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;getProblemJSON&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;pid&lt;/span&gt;):&lt;/span&gt;
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(unquote(&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(re.findall(&lt;span class=&#34;hljs-string&#34;&gt;r&#39;decodeURIComponent\(&#34;(.*)&#34;\)&#39;&lt;/span&gt;, requests.get(url=&lt;span class=&#34;hljs-string&#34;&gt;&#34;https://www.luogu.com.cn/problem/P1000&#34;&lt;/span&gt;, headers=headers).text)[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;])))
+    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(unquote(&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(re.findall(&lt;span class=&#34;hljs-string&#34;&gt;r&amp;#x27;decodeURIComponent\(&amp;quot;(.*)&amp;quot;\)&amp;#x27;&lt;/span&gt;, requests.get(url=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://www.luogu.com.cn/problem/P1000&amp;quot;&lt;/span&gt;, headers=headers).text)[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;])))
 
-data = getProblemJSON(&lt;span class=&#34;hljs-string&#34;&gt;&#34;P1000&#34;&lt;/span&gt;)
-print(json.dumps(data[&lt;span class=&#34;hljs-string&#34;&gt;&#39;currentData&#39;&lt;/span&gt;], sort_keys=&lt;span class=&#34;hljs-literal&#34;&gt;True&lt;/span&gt;, indent=&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;处理信息&#34;&gt;&lt;a href=&#34;#处理信息&#34; class=&#34;headerlink&#34; title=&#34;处理信息&#34;&gt;&lt;/a&gt;处理信息&lt;/h2&gt;&lt;p&gt;这里只留下 &lt;code&gt;problem&lt;/code&gt; 字段里面的内容即可。&lt;/p&gt;
+data = getProblemJSON(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;P1000&amp;quot;&lt;/span&gt;)
+print(json.dumps(data[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;currentData&amp;#x27;&lt;/span&gt;], sort_keys=&lt;span class=&#34;hljs-literal&#34;&gt;True&lt;/span&gt;, indent=&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;处理信息&#34;&gt;处理信息&lt;/h2&gt;
+&lt;p&gt;这里只留下 &lt;code&gt;problem&lt;/code&gt; 字段里面的内容即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
 &lt;span class=&#34;hljs-comment&#34;&gt;# coding: utf-8&lt;/span&gt;
 
@@ -231,45 +240,48 @@ print(json.dumps(data[&lt;span class=&#34;hljs-string&#34;&gt;&#39;currentData&#
 &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; json
 &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; urllib.parse &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; unquote
 
-f = &lt;span class=&#34;hljs-built_in&#34;&gt;open&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&#39;problems.json&#39;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#39;w&#39;&lt;/span&gt;)
+f = &lt;span class=&#34;hljs-built_in&#34;&gt;open&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;problems.json&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;w&amp;#x27;&lt;/span&gt;)
 res = []
 
-headers = {
-    &lt;span class=&#34;hljs-string&#34;&gt;&#34;user-agent&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36 spider/0.1&#34;&lt;/span&gt;,
-}
+headers = &amp;#123;
+    &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;user-agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36 spider/0.1&amp;quot;&lt;/span&gt;,
+&amp;#125;
 
 
 &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;getProblem&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;pid&lt;/span&gt;) -&amp;gt; dict:&lt;/span&gt;
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(unquote(&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(re.findall(&lt;span class=&#34;hljs-string&#34;&gt;r&#39;decodeURIComponent\(&#34;(.*)&#34;\)&#39;&lt;/span&gt;, requests.get(url=&lt;span class=&#34;hljs-string&#34;&gt;&#34;https://www.luogu.com.cn/problem/P1000&#34;&lt;/span&gt;, headers=headers).text)[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;])))[&lt;span class=&#34;hljs-string&#34;&gt;&#39;currentData&#39;&lt;/span&gt;]
+    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(unquote(&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(re.findall(&lt;span class=&#34;hljs-string&#34;&gt;r&amp;#x27;decodeURIComponent\(&amp;quot;(.*)&amp;quot;\)&amp;#x27;&lt;/span&gt;, requests.get(url=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://www.luogu.com.cn/problem/P1000&amp;quot;&lt;/span&gt;, headers=headers).text)[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;])))[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;currentData&amp;#x27;&lt;/span&gt;]
 
 
 &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;1010&lt;/span&gt;):
-    tmpdict = {}
-    tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&#34;pid&#34;&lt;/span&gt;] = &lt;span class=&#34;hljs-string&#34;&gt;&#34;P&#34;&lt;/span&gt;+&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(i)
-    tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&#34;data&#34;&lt;/span&gt;] = getProblem(&lt;span class=&#34;hljs-string&#34;&gt;&#34;P&#34;&lt;/span&gt;+&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(i))[&lt;span class=&#34;hljs-string&#34;&gt;&#34;problem&#34;&lt;/span&gt;]
+    tmpdict = &amp;#123;&amp;#125;
+    tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;pid&amp;quot;&lt;/span&gt;] = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;P&amp;quot;&lt;/span&gt;+&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(i)
+    tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = getProblem(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;P&amp;quot;&lt;/span&gt;+&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(i))[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
     res.append(tmpdict)
     &lt;span class=&#34;hljs-keyword&#34;&gt;del&lt;/span&gt; tmpdict
 
 &lt;span class=&#34;hljs-comment&#34;&gt;# print(res)&lt;/span&gt;
-f.write(json.dumps(res, indent=&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;).replace(&lt;span class=&#34;hljs-string&#34;&gt;&#34;\\t&#34;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&#34;    &#34;&lt;/span&gt;))
+f.write(json.dumps(res, indent=&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;).replace(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;\\t&amp;quot;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;    &amp;quot;&lt;/span&gt;))
 
 &lt;span class=&#34;hljs-keyword&#34;&gt;del&lt;/span&gt; res&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;搭建数据库&#34;&gt;&lt;a href=&#34;#搭建数据库&#34; class=&#34;headerlink&#34; title=&#34;搭建数据库&#34;&gt;&lt;/a&gt;搭建数据库&lt;/h2&gt;&lt;p&gt;本次使用 MongoDB 数据库，只需要本地 docker 跑一个容器并且对外暴露一个端口即可。&lt;/p&gt;
+&lt;h2 id=&#34;搭建数据库&#34;&gt;搭建数据库&lt;/h2&gt;
+&lt;p&gt;本次使用 MongoDB 数据库，只需要本地 docker 跑一个容器并且对外暴露一个端口即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;docker run -v /root/data/mongo:/data/db -itd --name mongo -p 27017:27017 mongo&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;拉取-amp-存储数据&#34;&gt;&lt;a href=&#34;#拉取-amp-存储数据&#34; class=&#34;headerlink&#34; title=&#34;拉取&amp;存储数据&#34;&gt;&lt;/a&gt;拉取&amp;amp;存储数据&lt;/h2&gt;&lt;p&gt;众所周知，MongoDB 的使用非常简单。&lt;/p&gt;
+&lt;h2 id=&#34;拉取-存储数据&#34;&gt;拉取&amp;amp;存储数据&lt;/h2&gt;
+&lt;p&gt;众所周知，MongoDB 的使用非常简单。&lt;/p&gt;
 &lt;p&gt;连接数据库的代码实现：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;dbclient = pymongo.MongoClient(&lt;span class=&#34;hljs-string&#34;&gt;&#34;mongodb://127.0.0.1:27017/&#34;&lt;/span&gt;)
-luogudb = dbclient[&lt;span class=&#34;hljs-string&#34;&gt;&#34;luogu&#34;&lt;/span&gt;]
-dbcol = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&#34;problem&#34;&lt;/span&gt;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;dbclient = pymongo.MongoClient(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
+luogudb = dbclient[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
+dbcol = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;存储数据（如果存在就跳过）&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(dbcol.find({&lt;span class=&#34;hljs-string&#34;&gt;&#39;pid&#39;&lt;/span&gt; : pid})) == []:
+&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(dbcol.find(&amp;#123;&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;pid&amp;#x27;&lt;/span&gt; : pid&amp;#125;)) == []:
     dbcol.insert_one(data)
-    print(&lt;span class=&#34;hljs-string&#34;&gt;&#34;Success.&#34;&lt;/span&gt;)
+    print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Success.&amp;quot;&lt;/span&gt;)
 &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-    print(&lt;span class=&#34;hljs-string&#34;&gt;&#34;Already exists.&#34;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+    print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;读取数据&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;print(&lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(dbcol.find()))&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;最终代码&#34;&gt;&lt;a href=&#34;#最终代码&#34; class=&#34;headerlink&#34; title=&#34;最终代码&#34;&gt;&lt;/a&gt;最终代码&lt;/h2&gt;&lt;p&gt;您可以在 &lt;a href=&#34;https://github.com/renbaoshuo/Luogu/blob/master/tools/spider/problem.py&#34; target=&#34;_blank&#34; rel=&#34;noopener external nofollow noreferrer&#34;&gt;GitHub&lt;/a&gt; 上查看到该文件的最新更新。&lt;/p&gt;
+&lt;h2 id=&#34;最终代码&#34;&gt;最终代码&lt;/h2&gt;
+&lt;p&gt;您可以在 &lt;a href=&#34;https://github.com/renbaoshuo/Luogu/blob/master/tools/spider/problem.py&#34;&gt;GitHub&lt;/a&gt; 上查看到该文件的最新更新。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
 &lt;span class=&#34;hljs-comment&#34;&gt;# coding: utf-8&lt;/span&gt;
 
@@ -280,20 +292,20 @@ dbcol = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&#34;problem&#34;&lt;/sp
 &lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; urllib.parse &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; unquote
 &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; pymongo
 
-dbclient = pymongo.MongoClient(&lt;span class=&#34;hljs-string&#34;&gt;&#34;mongodb://127.0.0.1:27017/&#34;&lt;/span&gt;)
-luogudb = dbclient[&lt;span class=&#34;hljs-string&#34;&gt;&#34;luogu&#34;&lt;/span&gt;]
-dbcol = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&#34;problem&#34;&lt;/span&gt;]
+dbclient = pymongo.MongoClient(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
+luogudb = dbclient[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
+dbcol = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
 
-headers = {
-    &lt;span class=&#34;hljs-string&#34;&gt;&#34;user-agent&#34;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36 spider/0.1&#34;&lt;/span&gt;,
-}
+headers = &amp;#123;
+    &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;user-agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36 spider/0.1&amp;quot;&lt;/span&gt;,
+&amp;#125;
 
 
 &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;getProblem&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;pid&lt;/span&gt;) -&amp;gt; dict:&lt;/span&gt;
-    url = &lt;span class=&#34;hljs-string&#34;&gt;f&#34;https://www.luogu.com.cn/problem/&lt;span class=&#34;hljs-subst&#34;&gt;{pid}&lt;/span&gt;&#34;&lt;/span&gt;
-    redata = re.findall(&lt;span class=&#34;hljs-string&#34;&gt;r&#39;decodeURIComponent\(&#34;(.*)&#34;\)&#39;&lt;/span&gt;, requests.get(url, headers=headers).text)
+    url = &lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;https://www.luogu.com.cn/problem/&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;
+    redata = re.findall(&lt;span class=&#34;hljs-string&#34;&gt;r&amp;#x27;decodeURIComponent\(&amp;quot;(.*)&amp;quot;\)&amp;#x27;&lt;/span&gt;, requests.get(url, headers=headers).text)
     &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;len&lt;/span&gt;(redata) == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:
-        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; {&lt;span class=&#34;hljs-string&#34;&gt;&#39;code&#39;&lt;/span&gt;: &lt;span class=&#34;hljs-number&#34;&gt;403&lt;/span&gt;}
+        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &amp;#123;&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;code&amp;#x27;&lt;/span&gt;: &lt;span class=&#34;hljs-number&#34;&gt;403&lt;/span&gt;&amp;#125;
     &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
         &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(unquote(redata[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;]))
 
@@ -301,31 +313,35 @@ headers = {
     &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(&lt;span class=&#34;hljs-built_in&#34;&gt;type&lt;/span&gt;)+&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(&lt;span class=&#34;hljs-built_in&#34;&gt;id&lt;/span&gt;)
 
 &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;7103&lt;/span&gt;):
-    pid = getProblemID(&lt;span class=&#34;hljs-string&#34;&gt;&#34;P&#34;&lt;/span&gt;, i)
-    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(dbcol.find({&lt;span class=&#34;hljs-string&#34;&gt;&#39;pid&#39;&lt;/span&gt;: pid})) == []:
-        tmpdict = {}
-        tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&#34;pid&#34;&lt;/span&gt;] = pid
+    pid = getProblemID(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;P&amp;quot;&lt;/span&gt;, i)
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(dbcol.find(&amp;#123;&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;pid&amp;#x27;&lt;/span&gt;: pid&amp;#125;)) == []:
+        tmpdict = &amp;#123;&amp;#125;
+        tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;pid&amp;quot;&lt;/span&gt;] = pid
         tmpdata = getProblem(pid)
-        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;hljs-string&#34;&gt;&#34;code&#34;&lt;/span&gt;] == &lt;span class=&#34;hljs-number&#34;&gt;200&lt;/span&gt;:
-            tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&#34;data&#34;&lt;/span&gt;] = getProblem(pid)[&lt;span class=&#34;hljs-string&#34;&gt;&#34;currentData&#34;&lt;/span&gt;][&lt;span class=&#34;hljs-string&#34;&gt;&#34;problem&#34;&lt;/span&gt;]
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;code&amp;quot;&lt;/span&gt;] == &lt;span class=&#34;hljs-number&#34;&gt;200&lt;/span&gt;:
+            tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = getProblem(pid)[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;currentData&amp;quot;&lt;/span&gt;][&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
             dbcol.insert_one(tmpdict)
-            print(&lt;span class=&#34;hljs-string&#34;&gt;&#34;Successfully get problem &#34;&lt;/span&gt;+pid+&lt;span class=&#34;hljs-string&#34;&gt;&#34;.&#34;&lt;/span&gt;)
+            print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Successfully get problem &amp;quot;&lt;/span&gt;+pid+&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;)
             time.sleep(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;)
         &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-            print(&lt;span class=&#34;hljs-string&#34;&gt;&#34;Fail to get problem &#34;&lt;/span&gt;+pid+&lt;span class=&#34;hljs-string&#34;&gt;&#34;.&#34;&lt;/span&gt;)
+            print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Fail to get problem &amp;quot;&lt;/span&gt;+pid+&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;)
     &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-        print(&lt;span class=&#34;hljs-string&#34;&gt;&#34;Problem &#34;&lt;/span&gt;+pid+&lt;span class=&#34;hljs-string&#34;&gt;&#34; is already exists.&#34;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;web-管理数据库&#34;&gt;&lt;a href=&#34;#web-管理数据库&#34; class=&#34;headerlink&#34; title=&#34;web 管理数据库&#34;&gt;&lt;/a&gt;web 管理数据库&lt;/h2&gt;&lt;p&gt;再跑一个 &lt;code&gt;mongo-express&lt;/code&gt; 就行了。&lt;/p&gt;
+        print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Problem &amp;quot;&lt;/span&gt;+pid+&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;web-管理数据库&#34;&gt;web 管理数据库&lt;/h2&gt;
+&lt;p&gt;再跑一个 &lt;code&gt;mongo-express&lt;/code&gt; 就行了。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;docker run -d --name mongo-express -e ME_CONFIG_MONGODB_SERVER=host.docker.internal -p 8081:8081 mongo-express&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;访问 &lt;code&gt;ip:8081&lt;/code&gt; 就能看到管理界面了。&lt;/p&gt;
-&lt;h2 id=&#34;导出数据库&#34;&gt;&lt;a href=&#34;#导出数据库&#34; class=&#34;headerlink&#34; title=&#34;导出数据库&#34;&gt;&lt;/a&gt;导出数据库&lt;/h2&gt;&lt;p&gt;直接运行下方命令导出为 JSON 格式即可。&lt;/p&gt;
+&lt;h2 id=&#34;导出数据库&#34;&gt;导出数据库&lt;/h2&gt;
+&lt;p&gt;直接运行下方命令导出为 JSON 格式即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;mongoexport -d luogu -c problem -o /data/db/problem.json&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;或者点击对应数据库管理界面中的 &lt;code&gt;[JSON]&lt;/code&gt; 按钮导出。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/26/hXtVAynYGcb8B71.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;成果&#34;&gt;&lt;a href=&#34;#成果&#34; class=&#34;headerlink&#34; title=&#34;成果&#34;&gt;&lt;/a&gt;成果&lt;/h2&gt;&lt;p&gt;断断续续爬了一个星期，终于爬完了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/7muojQZM125gWXL.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;后记&#34;&gt;&lt;a href=&#34;#后记&#34; class=&#34;headerlink&#34; title=&#34;后记&#34;&gt;&lt;/a&gt;后记&lt;/h2&gt;&lt;p&gt;前面所使用的 Docker 容器也可以使用 &lt;code&gt;docker-compose&lt;/code&gt; 编排成服务来运行，更加的方便、好用。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs yaml&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;version:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#34;3&#34;&lt;/span&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/26/hXtVAynYGcb8B71.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;成果&#34;&gt;成果&lt;/h2&gt;
+&lt;p&gt;断断续续爬了一个星期，终于爬完了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/7muojQZM125gWXL.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;p&gt;前面所使用的 Docker 容器也可以使用 &lt;code&gt;docker-compose&lt;/code&gt; 编排成服务来运行，更加的方便、好用。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs yaml&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;version:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;3&amp;quot;&lt;/span&gt;
 &lt;span class=&#34;hljs-attr&#34;&gt;services:&lt;/span&gt;
   &lt;span class=&#34;hljs-attr&#34;&gt;mongo:&lt;/span&gt;
     &lt;span class=&#34;hljs-attr&#34;&gt;image:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;mongo&lt;/span&gt;
@@ -333,12 +349,12 @@ headers = {
     &lt;span class=&#34;hljs-attr&#34;&gt;volumes:&lt;/span&gt; 
       &lt;span class=&#34;hljs-bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;./data/mongo:/data/db&lt;/span&gt;
     &lt;span class=&#34;hljs-attr&#34;&gt;ports:&lt;/span&gt; 
-      &lt;span class=&#34;hljs-bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#34;27017:27017&#34;&lt;/span&gt;
+      &lt;span class=&#34;hljs-bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;27017:27017&amp;quot;&lt;/span&gt;
   &lt;span class=&#34;hljs-attr&#34;&gt;mongo-express:&lt;/span&gt;
     &lt;span class=&#34;hljs-attr&#34;&gt;image:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;mongo-express&lt;/span&gt;
     &lt;span class=&#34;hljs-attr&#34;&gt;container_name:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;mongo-express&lt;/span&gt;
     &lt;span class=&#34;hljs-attr&#34;&gt;ports:&lt;/span&gt; 
-      &lt;span class=&#34;hljs-bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#34;8081:8081&#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;span class=&#34;hljs-bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;8081:8081&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在 &lt;code&gt;docker-compose.yml&lt;/code&gt; 同级目录下运行 &lt;code&gt;docker-compose up -d&lt;/code&gt; 即可启动服务。&lt;/p&gt;
  ]]></description>
         </item>
@@ -350,41 +366,44 @@ headers = {
             <pubDate>Mon, 05 Oct 2020 21:35:32 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-
-&lt;h2 id=&#34;烧写系统&#34;&gt;&lt;a href=&#34;#烧写系统&#34; class=&#34;headerlink&#34; title=&#34;烧写系统&#34;&gt;&lt;/a&gt;烧写系统&lt;/h2&gt;&lt;p&gt;先从 &lt;a href=&#34;https://www.raspberrypi.org/downloads/&#34; target=&#34;_blank&#34; rel=&#34;noopener external nofollow noreferrer&#34;&gt;Raspberry Pi Downloads&lt;/a&gt; 页面下载 &lt;code&gt;Raspberry Pi Imager&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/a4fbwYDWkx3PUiS.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;烧写系统&#34;&gt;烧写系统&lt;/h2&gt;
+&lt;p&gt;先从 &lt;a href=&#34;https://www.raspberrypi.org/downloads/&#34;&gt;Raspberry Pi Downloads&lt;/a&gt; 页面下载 &lt;code&gt;Raspberry Pi Imager&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/a4fbwYDWkx3PUiS.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;将 SD 卡插入电脑并打开 &lt;code&gt;Raspberry Pi Imager&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/OslZej6BqdNpJow.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/OslZej6BqdNpJow.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;点击 &lt;code&gt;CHOOSE OS&lt;/code&gt; 按钮，选择系统。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/dXrKCVMAnp1qFNh.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/dXrKCVMAnp1qFNh.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;点击进入 Ubuntu 分类。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/2nvcq7MgXrPD8b3.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/2nvcq7MgXrPD8b3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;根据括号内所列出的支持树莓派版本来选择系统。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/X8Zemi5VsRF1r7U.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/X8Zemi5VsRF1r7U.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;点击 &lt;code&gt;CHOOSE SD CARD&lt;/code&gt; 按钮，选择 SD 卡。&lt;/p&gt;
 &lt;p&gt;选择完毕后点击 &lt;code&gt;WRITE&lt;/code&gt; 按钮烧写镜像。&lt;/p&gt;
-&lt;h2 id=&#34;安装及配置-nginx&#34;&gt;&lt;a href=&#34;#安装及配置-nginx&#34; class=&#34;headerlink&#34; title=&#34;安装及配置 nginx&#34;&gt;&lt;/a&gt;安装及配置 nginx&lt;/h2&gt;&lt;h3 id=&#34;安装&#34;&gt;&lt;a href=&#34;#安装&#34; class=&#34;headerlink&#34; title=&#34;安装&#34;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;依次运行下方命令即可。&lt;/p&gt;
+&lt;h2 id=&#34;安装及配置-nginx&#34;&gt;安装及配置 nginx&lt;/h2&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;p&gt;依次运行下方命令即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;apt update
 apt upgrade -y
 apt install nginx libnginx-mod-rtmp -y&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;访问 IP ，出现如下图所示网页即代表安装成功。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/BdKOhDuxIaYks6q.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;配置&#34;&gt;&lt;a href=&#34;#配置&#34; class=&#34;headerlink&#34; title=&#34;配置&#34;&gt;&lt;/a&gt;配置&lt;/h3&gt;&lt;p&gt;打开 &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; ，在末尾处插入下面的配置&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;rtmp&lt;/span&gt; {
-    &lt;span class=&#34;hljs-section&#34;&gt;server&lt;/span&gt; {
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/BdKOhDuxIaYks6q.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;配置&#34;&gt;配置&lt;/h3&gt;
+&lt;p&gt;打开 &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; ，在末尾处插入下面的配置&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;rtmp&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;hljs-section&#34;&gt;server&lt;/span&gt; &amp;#123;
         &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;     &lt;span class=&#34;hljs-number&#34;&gt;1935&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 服务端口&lt;/span&gt;
         &lt;span class=&#34;hljs-attribute&#34;&gt;chunk_size&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;4096&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 数据传输块的大小&lt;/span&gt;
 
-        &lt;span class=&#34;hljs-attribute&#34;&gt;application&lt;/span&gt; vod {
+        &lt;span class=&#34;hljs-attribute&#34;&gt;application&lt;/span&gt; vod &amp;#123;
             &lt;span class=&#34;hljs-attribute&#34;&gt;play&lt;/span&gt; /opt/video;          &lt;span class=&#34;hljs-comment&#34;&gt;# 视频文件存放位置。&lt;/span&gt;
-        }
+        &amp;#125;
 
-        &lt;span class=&#34;hljs-attribute&#34;&gt;application&lt;/span&gt; rtmplive {
+        &lt;span class=&#34;hljs-attribute&#34;&gt;application&lt;/span&gt; rtmplive &amp;#123;
             &lt;span class=&#34;hljs-attribute&#34;&gt;live&lt;/span&gt;            &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;        &lt;span class=&#34;hljs-comment&#34;&gt;# 开启直播&lt;/span&gt;
             &lt;span class=&#34;hljs-attribute&#34;&gt;max_connections&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;64&lt;/span&gt;;        &lt;span class=&#34;hljs-comment&#34;&gt;# 为 rtmp 引擎设置最大连接数。默认为 off&lt;/span&gt;
-        }
+        &amp;#125;
 
-        &lt;span class=&#34;hljs-attribute&#34;&gt;application&lt;/span&gt; live {
+        &lt;span class=&#34;hljs-attribute&#34;&gt;application&lt;/span&gt; live &amp;#123;
             &lt;span class=&#34;hljs-attribute&#34;&gt;live&lt;/span&gt;                &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 开启直播&lt;/span&gt;
             &lt;span class=&#34;hljs-attribute&#34;&gt;hls&lt;/span&gt;                 &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 这个参数把直播服务器改造成实时回放服务器。&lt;/span&gt;
             &lt;span class=&#34;hljs-attribute&#34;&gt;wait_key&lt;/span&gt;            &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 对视频切片进行保护，这样就不会产生马赛克了。&lt;/span&gt;
@@ -395,36 +414,36 @@ apt install nginx libnginx-mod-rtmp -y&lt;/code&gt;&lt;/pre&gt;
             &lt;span class=&#34;hljs-attribute&#34;&gt;hls_continuous&lt;/span&gt;      &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 连续模式。&lt;/span&gt;
             &lt;span class=&#34;hljs-attribute&#34;&gt;hls_cleanup&lt;/span&gt;         &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 对多余的切片进行删除。&lt;/span&gt;
             &lt;span class=&#34;hljs-attribute&#34;&gt;hls_nested&lt;/span&gt;          &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 嵌套模式。&lt;/span&gt;
-        }
-    }
-}&lt;/code&gt;&lt;/pre&gt;
+        &amp;#125;
+    &amp;#125;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;打开默认站点配置文件 &lt;code&gt;/etc/nginx/sites-available/default&lt;/code&gt; ，在 &lt;code&gt;server&lt;/code&gt; 部分的末尾添加以下内容&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt; /live {
-    &lt;span class=&#34;hljs-section&#34;&gt;types&lt;/span&gt; {
+&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt; /live &amp;#123;
+    &lt;span class=&#34;hljs-section&#34;&gt;types&lt;/span&gt; &amp;#123;
         application/vnd.apple.mpegurl m3u8;
         video/mp2t                    ts;
-    }
+    &amp;#125;
 
     &lt;span class=&#34;hljs-attribute&#34;&gt;autoindex&lt;/span&gt; &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;
     &lt;span class=&#34;hljs-attribute&#34;&gt;alias&lt;/span&gt;     /opt/video/hls;
 
     &lt;span class=&#34;hljs-attribute&#34;&gt;expires&lt;/span&gt; -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
 
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;Cache-Control&#39;&lt;/span&gt;                    &lt;span class=&#34;hljs-string&#34;&gt;&#39;no-cache&#39;&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;Access-Control-Allow-Origin&#39;&lt;/span&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&#39;*&#39;&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;Access-Control-Allow-Credentials&#39;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;true&#39;&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;Access-Control-Allow-Methods&#39;&lt;/span&gt;     &lt;span class=&#34;hljs-string&#34;&gt;&#39;GET, POST, OPTIONS&#39;&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&#39;Access-Control-Allow-Headers&#39;&lt;/span&gt;     &lt;span class=&#34;hljs-string&#34;&gt;&#39;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&#39;&lt;/span&gt;;
-}
-&lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt; /stat {
+    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Cache-Control&amp;#x27;&lt;/span&gt;                    &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;no-cache&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Access-Control-Allow-Origin&amp;#x27;&lt;/span&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Access-Control-Allow-Credentials&amp;#x27;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;true&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Access-Control-Allow-Methods&amp;#x27;&lt;/span&gt;     &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;GET, POST, OPTIONS&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Access-Control-Allow-Headers&amp;#x27;&lt;/span&gt;     &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&amp;#x27;&lt;/span&gt;;
+&amp;#125;
+&lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt; /stat &amp;#123;
     &lt;span class=&#34;hljs-attribute&#34;&gt;rtmp_stat&lt;/span&gt; all;
     &lt;span class=&#34;hljs-comment&#34;&gt;# rtmp_stat_stylesheet stat.xsl;&lt;/span&gt;
-}&lt;/code&gt;&lt;/pre&gt;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;插入完以后配置文件会变成下面的样子&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs diff&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;--- /etc/nginx/sites-available/default&lt;/span&gt;
 &lt;span class=&#34;hljs-comment&#34;&gt;+++ /etc/nginx/sites-available/default&lt;/span&gt;
 &lt;span class=&#34;hljs-meta&#34;&gt;@@ -1,14 +1,35 @@&lt;/span&gt;
- server {
+ server &amp;#123;
      listen 80 default_server;
      listen [::]:80 default_server;
 
@@ -434,38 +453,39 @@ apt install nginx libnginx-mod-rtmp -y&lt;/code&gt;&lt;/pre&gt;
 
      server_name _;
 
-     location / {
+     location / &amp;#123;
          try_files $uri $uri/ =404;
-     }
-&lt;span class=&#34;hljs-addition&#34;&gt;+    location /live {&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        types {&lt;/span&gt;
+     &amp;#125;
+&lt;span class=&#34;hljs-addition&#34;&gt;+    location /live &amp;#123;&lt;/span&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+        types &amp;#123;&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+            application/vnd.apple.mpegurl m3u8;&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+            video/mp2t                    ts;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        }&lt;/span&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+        &amp;#125;&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+        autoindex on;&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+        alias     /opt/video/hls;&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+        expires -1;&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &#39;Cache-Control&#39;                    &#39;no-cache&#39;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &#39;Access-Control-Allow-Origin&#39;      &#39;*&#39;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &#39;Access-Control-Allow-Credentials&#39; &#39;true&#39;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &#39;Access-Control-Allow-Methods&#39;     &#39;GET, POST, OPTIONS&#39;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &#39;Access-Control-Allow-Headers&#39;     &#39;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&#39;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+    }&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+    location /stat {&lt;/span&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Cache-Control&amp;#x27;                    &amp;#x27;no-cache&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Origin&amp;#x27;      &amp;#x27;*&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Credentials&amp;#x27; &amp;#x27;true&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Methods&amp;#x27;     &amp;#x27;GET, POST, OPTIONS&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Headers&amp;#x27;     &amp;#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+    &amp;#125;&lt;/span&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+    location /stat &amp;#123;&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+        rtmp_stat all;&lt;/span&gt;
 &lt;span class=&#34;hljs-addition&#34;&gt;+        # rtmp_stat_stylesheet stat.xsl;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+    }&lt;/span&gt;
- }&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;hljs-addition&#34;&gt;+    &amp;#125;&lt;/span&gt;
+ &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;修改完成后使用 &lt;code&gt;nginx -t&lt;/code&gt; 测试配置文件是否正确&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs vim&#34;&gt;nginx: the configuration &lt;span class=&#34;hljs-keyword&#34;&gt;file&lt;/span&gt; /etc/nginx/nginx.&lt;span class=&#34;hljs-keyword&#34;&gt;conf&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;syntax&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;is&lt;/span&gt; ok
 nginx: configuration &lt;span class=&#34;hljs-keyword&#34;&gt;file&lt;/span&gt; /etc/nginx/nginx.&lt;span class=&#34;hljs-keyword&#34;&gt;conf&lt;/span&gt; test &lt;span class=&#34;hljs-keyword&#34;&gt;is&lt;/span&gt; successful&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;当出现成功提示时，使用 &lt;code&gt;nginx -s reload&lt;/code&gt; 平滑重启 nginx。&lt;/p&gt;
 &lt;p&gt;重启成功后使用 &lt;code&gt;netstat -lnp&lt;/code&gt; 查看 &lt;code&gt;tcp/1935&lt;/code&gt; 端口是否开启。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/Xy3Nq5WZaogLIvR.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;配置OBS&#34;&gt;&lt;a href=&#34;#配置OBS&#34; class=&#34;headerlink&#34; title=&#34;配置OBS&#34;&gt;&lt;/a&gt;配置OBS&lt;/h2&gt;&lt;p&gt;打开 OBS ，在 设置 -&amp;gt; 推流 中配置以下内容&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/Xy3Nq5WZaogLIvR.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;配置OBS&#34;&gt;配置OBS&lt;/h2&gt;
+&lt;p&gt;打开 OBS ，在 设置 -&amp;gt; 推流 中配置以下内容&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -473,54 +493,59 @@ nginx: configuration &lt;span class=&#34;hljs-keyword&#34;&gt;file&lt;/span&gt; 
 &lt;th&gt;值&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
 &lt;td&gt;服务&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;自定义...&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;服务器&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;rtmp://${ip}/live&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;rtmp://$&amp;#123;ip&amp;#125;/live&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;串流密钥&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;${key}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;$&amp;#123;key&amp;#125;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-&lt;p&gt;&lt;small&gt;其中，&lt;code&gt;${ip}&lt;/code&gt; 和 &lt;code&gt;${key}&lt;/code&gt; 设置为你需要的值即可。&lt;/small&gt;&lt;/p&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;small&gt;其中，&lt;code&gt;$&amp;#123;ip&amp;#125;&lt;/code&gt; 和 &lt;code&gt;$&amp;#123;key&amp;#125;&lt;/code&gt; 设置为你需要的值即可。&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;回到主界面，点击 &lt;strong&gt;开始推流&lt;/strong&gt; 进行推流。&lt;/p&gt;
-&lt;h2 id=&#34;使用客户端拉取直播流&#34;&gt;&lt;a href=&#34;#使用客户端拉取直播流&#34; class=&#34;headerlink&#34; title=&#34;使用客户端拉取直播流&#34;&gt;&lt;/a&gt;使用客户端拉取直播流&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/26/jpqVTAgXSW6oyEP.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用客户端拉取直播流&#34;&gt;使用客户端拉取直播流&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/26/jpqVTAgXSW6oyEP.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;在 &lt;code&gt;PotPlayer&lt;/code&gt; &lt;code&gt;QQ影音&lt;/code&gt; 等播放器中选择 &lt;code&gt;打开-&amp;gt;打开URL&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/rzBNukVTntf5xUR.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
-&lt;p&gt;输入 &lt;code&gt;http://${ip}/live/${key}/index.m3u8&lt;/code&gt; ，点击确定。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/crbEBQNC3qH8uOl.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/rzBNukVTntf5xUR.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;http://$&amp;#123;ip&amp;#125;/live/$&amp;#123;key&amp;#125;/index.m3u8&lt;/code&gt; ，点击确定。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/crbEBQNC3qH8uOl.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;此时可以就看到直播画面了。&lt;/p&gt;
-&lt;h2 id=&#34;网页端播放&#34;&gt;&lt;a href=&#34;#网页端播放&#34; class=&#34;headerlink&#34; title=&#34;网页端播放&#34;&gt;&lt;/a&gt;网页端播放&lt;/h2&gt;&lt;p&gt;非常简单的代码，只有一个播放器，其他请自行实现。&lt;/p&gt;
+&lt;h2 id=&#34;网页端播放&#34;&gt;网页端播放&lt;/h2&gt;
+&lt;p&gt;非常简单的代码，只有一个播放器，其他请自行实现。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs html&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;Live Player&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;charset&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;UTF-8&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;charset&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;dplayer&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;https://cdn.jsdelivr.net/npm/hls.js@0.14.13/dist/hls.min.js&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&#34;https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js&#34;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;dplayer&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://cdn.jsdelivr.net/npm/hls.js@0.14.13/dist/hls.min.js&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; dp = &lt;span class=&#34;hljs-keyword&#34;&gt;new&lt;/span&gt; DPlayer({&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;            container: &lt;span class=&#34;hljs-built_in&#34;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&#34;hljs-string&#34;&gt;&#39;dplayer&#39;&lt;/span&gt;),&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; dp = &lt;span class=&#34;hljs-keyword&#34;&gt;new&lt;/span&gt; DPlayer(&amp;#123;&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;            container: &lt;span class=&#34;hljs-built_in&#34;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;dplayer&amp;#x27;&lt;/span&gt;),&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;            live: &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;,&lt;/span&gt;
-            video: {
-&lt;span class=&#34;javascript&#34;&gt;                url: &lt;span class=&#34;hljs-string&#34;&gt;&#39;http://${ip}/live/${key}/index.m3u8&#39;&lt;/span&gt;,&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;                type: &lt;span class=&#34;hljs-string&#34;&gt;&#39;hls&#39;&lt;/span&gt;,&lt;/span&gt;
-            },
-        });
+            video: &amp;#123;
+&lt;span class=&#34;javascript&#34;&gt;                url: &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;http://$&amp;#123;ip&amp;#125;/live/$&amp;#123;key&amp;#125;/index.m3u8&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;                type: &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;hls&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
+            &amp;#125;,
+        &amp;#125;);
     &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/9X6mUtF4fLzdaYn.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;后记&#34;&gt;&lt;a href=&#34;#后记&#34; class=&#34;headerlink&#34; title=&#34;后记&#34;&gt;&lt;/a&gt;后记&lt;/h2&gt;&lt;p&gt;一些注意事项：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/9X6mUtF4fLzdaYn.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;p&gt;一些注意事项：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;如果没有在外直播的需求，不要将 rtmp 端口映射至公网，这可能会带来一些不必要的麻烦。&lt;/li&gt;
 &lt;/ul&gt;
@@ -533,102 +558,117 @@ nginx: configuration &lt;span class=&#34;hljs-keyword&#34;&gt;file&lt;/span&gt; 
             <category>折腾</category>
             <category>黑苹果</category>
             <pubDate>Mon, 03 Aug 2020 12:52:59 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;工具准备&#34;&gt;&lt;a href=&#34;#工具准备&#34; class=&#34;headerlink&#34; title=&#34;工具准备&#34;&gt;&lt;/a&gt;工具准备&lt;/h2&gt;&lt;ul&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;工具准备&#34;&gt;工具准备&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;文件：&lt;code&gt;BigSur.cdr&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;文件：&lt;code&gt;unlocker.zip&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;文件：&lt;code&gt;unlocker.zip&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;软件：&lt;code&gt;VMware Workstation Pro 15&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;文末会给出上述工具的下载地址。&lt;/p&gt;
-&lt;h2 id=&#34;安装-VMware&#34;&gt;&lt;a href=&#34;#安装-VMware&#34; class=&#34;headerlink&#34; title=&#34;安装 VMware&#34;&gt;&lt;/a&gt;安装 VMware&lt;/h2&gt;&lt;p&gt;安装步骤这里不再细说。&lt;/p&gt;
-&lt;p&gt;不过这里来说下 &lt;code&gt;VMware 15.5.5&lt;/code&gt; 以后 VMware 和 微软的新动作：&lt;code&gt;VMware&lt;/code&gt; 和 &lt;code&gt;Hyper-V&lt;/code&gt; 可以共存了~&lt;small&gt;[1][2]&lt;/small&gt;   &lt;/p&gt;
+&lt;h2 id=&#34;安装-VMware&#34;&gt;安装 VMware&lt;/h2&gt;
+&lt;p&gt;安装步骤这里不再细说。&lt;/p&gt;
+&lt;p&gt;不过这里来说下 &lt;code&gt;VMware 15.5.5&lt;/code&gt; 以后 VMware 和 微软的新动作：&lt;code&gt;VMware&lt;/code&gt; 和 &lt;code&gt;Hyper-V&lt;/code&gt; 可以共存了~&lt;small&gt;[1][2]&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;*&lt;em&gt;注：需 Windows 10 2004 以上版本的系统&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;只需要在安装时勾选下图所示的选项即可：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/5OcenBTq1jNzhpV.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/5OcenBTq1jNzhpV.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;于是，我的 WSL2 和我的 Docker Desktop 可以和 VMware 一起愉快的玩耍辣😆~&lt;/p&gt;
-&lt;h2 id=&#34;解锁-VMware&#34;&gt;&lt;a href=&#34;#解锁-VMware&#34; class=&#34;headerlink&#34; title=&#34;解锁 VMware&#34;&gt;&lt;/a&gt;解锁 VMware&lt;/h2&gt;&lt;p&gt;条件：先关闭 VMware 的所有进程。&lt;/p&gt;
-&lt;h3 id=&#34;Windows&#34;&gt;&lt;a href=&#34;#Windows&#34; class=&#34;headerlink&#34; title=&#34;Windows&#34;&gt;&lt;/a&gt;Windows&lt;/h3&gt;&lt;p&gt;解压 Unlocker.zip 内的所有文件到一个文件夹中，右键 &lt;code&gt;win-install.cmd&lt;/code&gt; ，选择“以管理员身份运行”，等待运行完毕即可。&lt;/p&gt;
-&lt;h3 id=&#34;Linux&#34;&gt;&lt;a href=&#34;#Linux&#34; class=&#34;headerlink&#34; title=&#34;Linux&#34;&gt;&lt;/a&gt;Linux&lt;/h3&gt;&lt;p&gt;使用以下命令解锁 VMware ：&lt;/p&gt;
+&lt;h2 id=&#34;解锁-VMware&#34;&gt;解锁 VMware&lt;/h2&gt;
+&lt;p&gt;条件：先关闭 VMware 的所有进程。&lt;/p&gt;
+&lt;h3 id=&#34;Windows&#34;&gt;Windows&lt;/h3&gt;
+&lt;p&gt;解压 Unlocker.zip 内的所有文件到一个文件夹中，右键 &lt;code&gt;win-install.cmd&lt;/code&gt; ，选择“以管理员身份运行”，等待运行完毕即可。&lt;/p&gt;
+&lt;h3 id=&#34;Linux&#34;&gt;Linux&lt;/h3&gt;
+&lt;p&gt;使用以下命令解锁 VMware ：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;unzip unlocker.zip
 chmod +x lnx-install.sh
 sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;检验方法：创建虚拟机时是否可以选择 macOS 系统。&lt;/p&gt;
-&lt;h2 id=&#34;创建虚拟机&#34;&gt;&lt;a href=&#34;#创建虚拟机&#34; class=&#34;headerlink&#34; title=&#34;创建虚拟机&#34;&gt;&lt;/a&gt;创建虚拟机&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/XsklfzviZH52W1b.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;创建虚拟机&#34;&gt;创建虚拟机&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/XsklfzviZH52W1b.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 打开 &lt;code&gt;VMware Workstation 15&lt;/code&gt; ，选择 “新建虚拟机”。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/LkQCmegM7rXo5fv.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/LkQCmegM7rXo5fv.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 初始页面&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/7EHteuSpzjUPXnF.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/7EHteuSpzjUPXnF.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 硬件兼容性&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/V69RyPoevf3a54z.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/V69RyPoevf3a54z.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 镜像配置&lt;/p&gt;
-&lt;p&gt;  我们创建完成后再挂载镜像，选择“稍后安装操作系统”。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/MCty81QcrugavZd.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;我们创建完成后再挂载镜像，选择“稍后安装操作系统”。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/MCty81QcrugavZd.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 选择系统版本&lt;/p&gt;
-&lt;p&gt;  由于 Unlocker 最高只支持 macOS 10.16 ，所以这里选择最高的版本即 macOS 10.16 。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/KtWfMrTvXZGxBVc.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;由于 Unlocker 最高只支持 macOS 10.16 ，所以这里选择最高的版本即 macOS 10.16 。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/KtWfMrTvXZGxBVc.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 设置虚拟机名称、选择存储位置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/gnMWvl6Qhctreyw.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/gnMWvl6Qhctreyw.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 设置 CPU 核心数量&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/fXaZm8Ol6D73TBR.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/fXaZm8Ol6D73TBR.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 调整内存大小&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/8HbAItsv6SQG53j.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/8HbAItsv6SQG53j.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 网络配置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/875sIHFRMbvndLu.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/875sIHFRMbvndLu.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ IO 配置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/MnxHIWXyJGrRDcA.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/MnxHIWXyJGrRDcA.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 磁盘配置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/PodpwtYKNfyrQk1.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/PodpwtYKNfyrQk1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 磁盘配置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/Tcx4GnBXIlJgjRF.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/Tcx4GnBXIlJgjRF.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 磁盘配置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/KhRYtIU692Bx5Cw.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/KhRYtIU692Bx5Cw.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 磁盘配置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/ncrqyEHemAD5kpu.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/ncrqyEHemAD5kpu.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 完成！&lt;/p&gt;
-&lt;h2 id=&#34;配置虚拟机&#34;&gt;&lt;a href=&#34;#配置虚拟机&#34; class=&#34;headerlink&#34; title=&#34;配置虚拟机&#34;&gt;&lt;/a&gt;配置虚拟机&lt;/h2&gt;&lt;p&gt;在 vmx 文件末尾添加以下内容并保存。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;smbios.reflectHost&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&#34;TRUE&#34;&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;hw.model&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&#34;MacBookPro16,1&#34;&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;board-id&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&#34;Mac-E1008331FDC96864&#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;挂载安装镜像&#34;&gt;&lt;a href=&#34;#挂载安装镜像&#34; class=&#34;headerlink&#34; title=&#34;挂载安装镜像&#34;&gt;&lt;/a&gt;挂载安装镜像&lt;/h2&gt;&lt;p&gt;点击“编辑虚拟机设置”，选择“CD/DVD”选项。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/KVdIk9ZXcqH2aBG.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;配置虚拟机&#34;&gt;配置虚拟机&lt;/h2&gt;
+&lt;p&gt;在 vmx 文件末尾添加以下内容并保存。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;smbios.reflectHost&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;TRUE&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;hljs-attr&#34;&gt;hw.model&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;MacBookPro16,1&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;hljs-attr&#34;&gt;board-id&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mac-E1008331FDC96864&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;挂载安装镜像&#34;&gt;挂载安装镜像&lt;/h2&gt;
+&lt;p&gt;点击“编辑虚拟机设置”，选择“CD/DVD”选项。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/KVdIk9ZXcqH2aBG.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如图所示，先勾选“使用 ISO 映像文件”选项，再点击浏览，点击“所有文件”，选中 &lt;code&gt;bigsur.cdr&lt;/code&gt; 并确认。&lt;/p&gt;
 &lt;p&gt;保存以后点击“开启虚拟机”&lt;/p&gt;
-&lt;h2 id=&#34;安装-macOS&#34;&gt;&lt;a href=&#34;#安装-macOS&#34; class=&#34;headerlink&#34; title=&#34;安装 macOS&#34;&gt;&lt;/a&gt;安装 macOS&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/zsFHvAyPN8RBTnc.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装-macOS&#34;&gt;安装 macOS&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/zsFHvAyPN8RBTnc.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 耐心等待加载&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/cK7PEd2wJ4j3shO.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/cK7PEd2wJ4j3shO.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 选择中文并继续&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/qZtEFjMzgTOsVhJ.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/qZtEFjMzgTOsVhJ.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 选中磁盘工具并打开&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/oywQHiUkIALxDcM.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/oywQHiUkIALxDcM.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 找到名称为 &lt;code&gt;VMware Virtual SATA Hard Drive Media&lt;/code&gt; 的磁盘，选中该磁盘&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/KitXEPgHakBNbMO.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/KitXEPgHakBNbMO.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 抹掉名称为 &lt;code&gt;VMware Virtual SATA Hard Drive Media&lt;/code&gt; 的磁盘，格式选择 &lt;code&gt;APFS&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/e6rjZxK4AL9wN8n.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/e6rjZxK4AL9wN8n.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 退出磁盘工具，选择 &lt;code&gt;安装 macOS&lt;/code&gt; 并继续&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/8xAyUC3togLSlQJ.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/8xAyUC3togLSlQJ.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 点击继续开始正式安装&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/axXkKfTndAPVNts.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/axXkKfTndAPVNts.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 同意条款与条件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/QbyZxRqrdDNAuJU.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/QbyZxRqrdDNAuJU.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 选择安装位置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/kaIrlscM1mt87wF.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/kaIrlscM1mt87wF.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 开始安装&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/Wh4qSs2oxYc13E6.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/Wh4qSs2oxYc13E6.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 上面显示的剩余时间通常都是忽悠人的，得等好久&lt;/p&gt;
-&lt;h2 id=&#34;配置-macOS&#34;&gt;&lt;a href=&#34;#配置-macOS&#34; class=&#34;headerlink&#34; title=&#34;配置 macOS&#34;&gt;&lt;/a&gt;配置 macOS&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/14eXWOKTdbUg8kM.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;配置-macOS&#34;&gt;配置 macOS&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/14eXWOKTdbUg8kM.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 首先选择国家和地区&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;接下来按照自己需求配置即可，到&lt;strong&gt;配置迁移助理&lt;/strong&gt;时选择&lt;code&gt;以后&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/9u1R7XxeGNy6c8C.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/9u1R7XxeGNy6c8C.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 选择 &lt;code&gt;以后&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/exTUZudn6WLsKzy.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/exTUZudn6WLsKzy.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 选择 &lt;code&gt;稍后设置&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/8BxFmJTZ13WLYr2.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/12/13/8BxFmJTZ13WLYr2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ All done!&lt;/p&gt;
-&lt;h2 id=&#34;安装-VMware-Tools&#34;&gt;&lt;a href=&#34;#安装-VMware-Tools&#34; class=&#34;headerlink&#34; title=&#34;安装 VMware Tools&#34;&gt;&lt;/a&gt;安装 VMware Tools&lt;/h2&gt;&lt;p&gt;在 VMware 的 &lt;code&gt;虚拟机(M)&lt;/code&gt; 菜单栏中选择 &lt;code&gt;安装 VMware Tools(T)...&lt;/code&gt; 选项。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/6tTqm4uYsl5byAr.png&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装-VMware-Tools&#34;&gt;安装 VMware Tools&lt;/h2&gt;
+&lt;p&gt;在 VMware 的 &lt;code&gt;虚拟机(M)&lt;/code&gt; 菜单栏中选择 &lt;code&gt;安装 VMware Tools(T)...&lt;/code&gt; 选项。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/6tTqm4uYsl5byAr.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;之后按照步骤操作就行啦~&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a href=&#34;#参考资料&#34; class=&#34;headerlink&#34; title=&#34;参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;p&gt;[1] &lt;a href=&#34;https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html&#34; target=&#34;_blank&#34; rel=&#34;noopener external nofollow noreferrer&#34;&gt;VMware Blogs: VMware Workstation 15.5 Now Supports Host Hyper-V Mode&lt;/a&gt;&lt;br&gt;[2] &lt;a href=&#34;https://techcommunity.microsoft.com/t5/virtualization/vmware-workstation-and-hyper-v/ba-p/1419928&#34; target=&#34;_blank&#34; rel=&#34;noopener external nofollow noreferrer&#34;&gt;Microsoft Tech Community: VMware Workstation and Hyper-V&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;文件下载&#34;&gt;&lt;a href=&#34;#文件下载&#34; class=&#34;headerlink&#34; title=&#34;文件下载&#34;&gt;&lt;/a&gt;文件下载&lt;/h2&gt;&lt;h3 id=&#34;百度网盘&#34;&gt;&lt;a href=&#34;#百度网盘&#34; class=&#34;headerlink&#34; title=&#34;百度网盘&#34;&gt;&lt;/a&gt;百度网盘&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;链接：&lt;a href=&#34;https://pan.baidu.com/s/1m_iwiZK1XVIhwrrpCenB3Q&#34; target=&#34;_blank&#34; rel=&#34;noopener external nofollow noreferrer&#34;&gt;https://pan.baidu.com/s/1m_iwiZK1XVIhwrrpCenB3Q&lt;/a&gt; &lt;/li&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html&#34;&gt;VMware Blogs: VMware Workstation 15.5 Now Supports Host Hyper-V Mode&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://techcommunity.microsoft.com/t5/virtualization/vmware-workstation-and-hyper-v/ba-p/1419928&#34;&gt;Microsoft Tech Community: VMware Workstation and Hyper-V&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;文件下载&#34;&gt;文件下载&lt;/h2&gt;
+&lt;h3 id=&#34;百度网盘&#34;&gt;百度网盘&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;链接：&lt;a href=&#34;https://pan.baidu.com/s/1m_iwiZK1XVIhwrrpCenB3Q&#34;&gt;https://pan.baidu.com/s/1m_iwiZK1XVIhwrrpCenB3Q&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;提取码：&lt;code&gt;blog&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
