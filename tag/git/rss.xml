@@ -7,17 +7,18 @@
         <language>cn</language>
         <pubDate>Wed, 25 Nov 2020 20:03:03 +0800</pubDate>
         <lastBuildDate>Wed, 25 Nov 2020 20:03:03 +0800</lastBuildDate>
-        <category>折腾</category>
         <category>CTF</category>
+        <category>Typecho</category>
         <category>随笔</category>
         <category>Git</category>
+        <category>折腾</category>
         <category>网络</category>
+        <category>题解</category>
         <category>OI</category>
         <category>笔记</category>
-        <category>题解</category>
         <category>游记</category>
-        <category>Linux</category>
         <category>黑苹果</category>
+        <category>Linux</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/change-git-submission-email/</guid>
             <title>【随笔】批量修改 Git 仓库的提交邮箱</title>
@@ -59,6 +60,7 @@ git filter-branch --env-filter &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27
             <guid isPermalink="true">https://blog.baoshuo.ren/post/clone-github-repo-faster/</guid>
             <title>【随笔】修改 Git 配置加速 clone GitHub 源码</title>
             <link>https://blog.baoshuo.ren/post/clone-github-repo-faster/</link>
+            <category>随笔</category>
             <category>Git</category>
             <pubDate>Tue, 21 Jul 2020 18:38:23 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;设置代理：&lt;/p&gt;

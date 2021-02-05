@@ -4,50 +4,51 @@
     <title>宝硕博客 • Posts by &#34;ctf&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2020-10-31T08:36:28.000Z</updated>
-    <category term="折腾" />
     <category term="CTF" />
+    <category term="Typecho" />
     <category term="随笔" />
     <category term="Git" />
+    <category term="折腾" />
     <category term="网络" />
+    <category term="题解" />
     <category term="OI" />
     <category term="笔记" />
-    <category term="题解" />
     <category term="游记" />
-    <category term="Linux" />
     <category term="黑苹果" />
+    <category term="Linux" />
     <entry>
         <id>https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</id>
         <title>USTC Hackergame 2020 Write Up</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/"/>
-        <content type="html">&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+        <content type="html">&lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;对于我这种啥也不会的蒟蒻，拿到第676名已经是很不错的了（逃&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-&lt;h2 id=&#34;web&#34;&gt;web&lt;/h2&gt;
-&lt;h3 id=&#34;签到题&#34;&gt;签到题&lt;/h3&gt;
+&lt;h2 id=&#34;web&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#web&#34;&gt;&lt;/a&gt;web&lt;/h2&gt;
+&lt;h3 id=&#34;签到题&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#签到题&#34;&gt;&lt;/a&gt;签到题&lt;/h3&gt;
 &lt;p&gt;web题当然要先看源码了（出题人好恶毒啊）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/FqvWiXe4DIzLnr3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/FqvWiXe4DIzLnr3.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;再就是改值、提交&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/dnqM5sTKEQlIC9w.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/dnqM5sTKEQlIC9w.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;so easy~&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/8kSKomN217XJUEY.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;flag获取成功：&lt;code&gt;flag&amp;#123;hR6Ku81-HappyHacking2020-35a790fff0&amp;#125;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;2048&#34;&gt;2048&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/8kSKomN217XJUEY.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;flag 获取成功：&lt;code&gt;flag&amp;#123;hR6Ku81-HappyHacking2020-35a790fff0&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2048&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#2048&#34;&gt;&lt;/a&gt;2048&lt;/h3&gt;
 &lt;p&gt;首先F12看下源码，看到了一个有趣的东西&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/dJXolhVqNvwSPjs.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/dJXolhVqNvwSPjs.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;s&gt;这么好的东西当然要拖到console里面去啊&lt;/s&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/bsvZc4H8D2JWBAz.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/bsvZc4H8D2JWBAz.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;小彩蛋：JavaScript 中 String 类型转换成数字类型时会得到 &lt;code&gt;NaN&lt;/code&gt;，凑成了 &lt;code&gt;banana&lt;/code&gt; 。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;然后就出来了此题的 “flxg”&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/Nf5gw3cM8opAQ9U.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/25/Nf5gw3cM8opAQ9U.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;flxg获取成功：&lt;code&gt;flxg&amp;#123;8G6so5g-FLXG-7b77994fc5&amp;#125;&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;general&#34;&gt;general&lt;/h2&gt;
-&lt;h3 id=&#34;一闪而过的-Flag&#34;&gt;一闪而过的 Flag&lt;/h3&gt;
+&lt;h2 id=&#34;general&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#general&#34;&gt;&lt;/a&gt;general&lt;/h2&gt;
+&lt;h3 id=&#34;一闪而过的-Flag&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#一闪而过的-Flag&#34;&gt;&lt;/a&gt;一闪而过的 Flag&lt;/h3&gt;
 &lt;p&gt;直接打开是会闪，但是，你闪归你闪，我直接用cmd打开，你总不能 &lt;s&gt;把我cmd窗口关掉吧&lt;/s&gt; 还继续闪吧&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/KavlGwSQoVqi4PZ.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/KavlGwSQoVqi4PZ.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;flag获取成功：&lt;code&gt;flag&amp;#123;Are_you_eyes1ght_g00D?_can_you_dIst1nguish_1iI?&amp;#125;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;猫咪问答&#34;&gt;猫咪问答++&lt;/h3&gt;
+&lt;h3 id=&#34;猫咪问答&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#猫咪问答&#34;&gt;&lt;/a&gt;猫咪问答++&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;第一个以信鸽为载体的 IP 网络标准的 RFC 文档中推荐使用的 MTU (Maximum Transmission Unit) 是多少毫克？&lt;/li&gt;
@@ -65,7 +66,7 @@
 &lt;li&gt;中国科学技术大学第六届信息安全大赛所有人合计提交了多少次 flag？&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/t3di51gVr2R7yvS.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/t3di51gVr2R7yvS.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;至于剩下的… 懒得找了，直接暴力吧&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ol&gt;
@@ -78,14 +79,14 @@ Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，T
 &lt;li&gt;中国科学技术大学西校区图书馆正前方（西南方向） 50 米 L 型灌木处共有几个连通的划线停车位？&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/7YmcOir9tS5xZ28.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/7YmcOir9tS5xZ28.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;附上代码：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt;((i=1;i&amp;lt;=23;i=(&lt;span class=&#34;hljs-variable&#34;&gt;$i&lt;/span&gt;+1))); &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt;((j=1;j&amp;lt;=30;j=(&lt;span class=&#34;hljs-variable&#34;&gt;$j&lt;/span&gt;+1))); &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;[&lt;span class=&#34;hljs-variable&#34;&gt;$i&lt;/span&gt;, &lt;span class=&#34;hljs-variable&#34;&gt;$j&lt;/span&gt;] &lt;span class=&#34;hljs-subst&#34;&gt;$(curl -s &amp;#x27;http://202.38.93.111:10001/&amp;#x27; --data &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;q1=&lt;span class=&#34;hljs-variable&#34;&gt;$i&lt;/span&gt;&amp;amp;q2=256&amp;amp;q3=9&amp;amp;q4=&lt;span class=&#34;hljs-variable&#34;&gt;$j&lt;/span&gt;&amp;amp;q5=17098&amp;quot;&lt;/span&gt; -H &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Cookie: PHPSESSID=******; session=******&amp;quot;&lt;/span&gt; | grep &amp;#x27;flag.*&amp;#x27;)&lt;/span&gt;&amp;quot;&lt;/span&gt; ; &lt;span class=&#34;hljs-keyword&#34;&gt;done&lt;/span&gt; ; &lt;span class=&#34;hljs-keyword&#34;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;flag获取成功：&lt;code&gt;flag&amp;#123;b4a31f2a_G00G1e_1s_y0ur_fr13nd_228b608a32&amp;#125;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;233-同学的-Docker&#34;&gt;233 同学的 Docker&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/pP5dvYI8Tz49QLB.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;233-同学的-Docker&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#233-同学的-Docker&#34;&gt;&lt;/a&gt;233 同学的 Docker&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/pP5dvYI8Tz49QLB.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;众所周知，Docker 镜像是分层存储的，所以这道题可以很轻松地解出来。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/im2bTZqAMNJPf5d.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/im2bTZqAMNJPf5d.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;先pull下来镜像。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;docker inspect 8b8d3c8324c7/stringtool&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后查看镜像的元信息，下面是简化版的结果（json格式）&lt;/p&gt;
@@ -114,9 +115,9 @@ Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，T
     &amp;#125;
 ]&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;查看 diff 文件夹：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/IxlmEhSfRUPKy6G.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/IxlmEhSfRUPKy6G.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后就能看到文件内容了~&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/eLq2mSpCi68wVZQ.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/25/eLq2mSpCi68wVZQ.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;flag获取成功：&lt;code&gt;flag&amp;#123;Docker_Layers!=PS_Layers_hhh&amp;#125;&lt;/code&gt;&lt;/p&gt;
 </content>
         <category term="CTF" />
@@ -127,49 +128,49 @@ Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，T
         <title>Bilibili 1024 节 CTF Write Up</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/"/>
         <content type="html">&lt;p&gt;比赛地址： &lt;a href=&#34;https://security.bilibili.com/sec1024/&#34;&gt;https://security.bilibili.com/sec1024/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T1：页面的背后是什么？&#34;&gt;T1：页面的背后是什么？&lt;/h2&gt;
+&lt;h2 id=&#34;T1：页面的背后是什么？&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#T1：页面的背后是什么？&#34;&gt;&lt;/a&gt;T1：页面的背后是什么？&lt;/h2&gt;
 &lt;p&gt;&lt;s&gt;F12解决一切问题&lt;/s&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/XrLpIf2OHs4YAxJ.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T2：真正的秘密只有特殊的设备才能看到&#34;&gt;T2：真正的秘密只有特殊的设备才能看到&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/XrLpIf2OHs4YAxJ.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;T2：真正的秘密只有特殊的设备才能看到&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#T2：真正的秘密只有特殊的设备才能看到&#34;&gt;&lt;/a&gt;T2：真正的秘密只有特殊的设备才能看到&lt;/h2&gt;
 &lt;p&gt;改下UA就行了，轻松到手&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/WPLCUHNYiE2nFwJ.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/83GrjFbTwJf1BHn.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T3：密码是啥？&#34;&gt;T3：密码是啥？&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/WPLCUHNYiE2nFwJ.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/83GrjFbTwJf1BHn.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;T3：密码是啥？&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#T3：密码是啥？&#34;&gt;&lt;/a&gt;T3：密码是啥？&lt;/h2&gt;
 &lt;p&gt;看了看源码，没啥思路，最后随便试了试 &lt;code&gt;admin&lt;/code&gt; &lt;code&gt;root&lt;/code&gt; &lt;code&gt;bilibili&lt;/code&gt; 什么的，竟然是对的。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;用户名 &lt;code&gt;admin&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;密码 &lt;code&gt;bilibili&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;另外，你告诉我什么是 &lt;strong&gt;falg&lt;/strong&gt; ？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/eg9kBtR1aQizGYE.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T4：对不起，权限不足～&#34;&gt;T4：对不起，权限不足～&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/eg9kBtR1aQizGYE.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;T4：对不起，权限不足～&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#T4：对不起，权限不足～&#34;&gt;&lt;/a&gt;T4：对不起，权限不足～&lt;/h2&gt;
 &lt;p&gt;第一次访问：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/roVjXTfs4v8ibP5.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/roVjXTfs4v8ibP5.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;第二次访问：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/RpEsGn8c9KY16MH.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/RpEsGn8c9KY16MH.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;查看源码可以发现有个 API 请求，查看请求数据得到以下信息。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/nhF7pCTQsVYxKdj.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/nhF7pCTQsVYxKdj.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;role里面的东西，贴进谷歌一搜就知道它是 &lt;code&gt;user&lt;/code&gt; 的 MD5 。&lt;/p&gt;
 &lt;p&gt;和超级管理员相关的名字相信大家都知道，无非就是 &lt;code&gt;admin&lt;/code&gt; &lt;code&gt;Administrator&lt;/code&gt; &lt;code&gt;root&lt;/code&gt; 之类的东西。&lt;/p&gt;
 &lt;p&gt;挨个试，最后发现 &lt;code&gt;Administrator&lt;/code&gt; 是正确的。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;curl &amp;quot;http://45.113.201.36/api/ctf/4&amp;quot; --cookie &amp;quot;role=7b7bc2512ee1fedcd76bdc68926d4f7b; session=***;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/gEhkmTJrnaoMwPv.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T5：别人的秘密&#34;&gt;T5：别人的秘密&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/c4BjYs3nVuCpxmH.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/gEhkmTJrnaoMwPv.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;T5：别人的秘密&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#T5：别人的秘密&#34;&gt;&lt;/a&gt;T5：别人的秘密&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/c4BjYs3nVuCpxmH.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;发现有个API，还有个 UID。&lt;/p&gt;
 &lt;p&gt;最开始没想到需要从代码里面的“初始UID”开始扫，浪费了我好多时间。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;for ((i=100336889;$i&amp;lt;9999999999;i=($i+1))); do echo -e &amp;quot;[$i] \c&amp;quot; &amp;amp;&amp;amp; curl &amp;quot;http://45.113.201.36/api/ctf/5?uid=$&amp;#123;i&amp;#125;&amp;quot; -H &amp;#x27;User-Agent: bilibili Security Browser&amp;#x27; -H &amp;#x27;Cookie: session=*****; role=ee11cbb19052e40b07aac0ca060c23ee&amp;#x27; ; done&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/m1Hr4u8FOJe7ycI.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T6-T10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&#34;&gt;T6~T10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/m1Hr4u8FOJe7ycI.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;T6-T10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#T6-T10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&#34;&gt;&lt;/a&gt;T6~T10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&lt;/h2&gt;
 &lt;p&gt;先扫了扫端口，发现有个 redis&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/E29tLxSiC6Qzn5O.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/E29tLxSiC6Qzn5O.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;redis-cli -h 120.92.151.189 -p 6379&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;登上去看看，发现了第八题的 flag 。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/Oo5vyeEsChmSt2H.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/Oo5vyeEsChmSt2H.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后爆破下目录&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/QEnxZsg8FpiOKwm.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/QEnxZsg8FpiOKwm.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;有个 test.php ，访问下发现是个 JSfuck 加密，丢进浏览器里面解密下&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/G7TWPndrhqBmvAI.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/G7TWPndrhqBmvAI.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;程序员最多的地方，那就肯定是 Github 了。&lt;/p&gt;
 &lt;p&gt;然后找到了一个仓库 &lt;a href=&#34;https://github.com/interesting-1024/end&#34;&gt;interesting-1024/end&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;有个 &lt;code&gt;end.php&lt;/code&gt;&lt;/p&gt;
@@ -196,9 +197,9 @@ Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，T
 &amp;#125;
 &lt;span class=&#34;hljs-meta&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后需要构造出一个 符合 &lt;code&gt;!is_numeric($_GET[&#39;id&#39;]) and preg_match(&#39;/\d/is&#39;, $_GET[&#39;id&#39;]) !== 1 and intval($_GET[&#39;id&#39;]) === 1&lt;/code&gt; 的请求即可。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/mCIevr1HSMBpkdi.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/28/mCIevr1HSMBpkdi.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以得到一个图片的链接 &lt;code&gt;http://45.113.201.36/blog/imgs/bilibili_224a634752448def6c0ec064e49fe797_havefun.jpg&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/iXEgYzjPtH2NhQw.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/28/iXEgYzjPtH2NhQw.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这个图片的末尾就是第十个 flag 了（图中标蓝的地方）。&lt;/p&gt;
 </content>
         <category term="CTF" />

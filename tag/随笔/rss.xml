@@ -7,17 +7,18 @@
         <language>cn</language>
         <pubDate>Sat, 28 Nov 2020 21:39:32 +0800</pubDate>
         <lastBuildDate>Sat, 28 Nov 2020 21:39:32 +0800</lastBuildDate>
-        <category>折腾</category>
         <category>CTF</category>
+        <category>Typecho</category>
         <category>随笔</category>
         <category>Git</category>
+        <category>折腾</category>
         <category>网络</category>
+        <category>题解</category>
         <category>OI</category>
         <category>笔记</category>
-        <category>题解</category>
         <category>游记</category>
-        <category>Linux</category>
         <category>黑苹果</category>
+        <category>Linux</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/download-smms-image/</guid>
             <title>【随笔】下载自己在 SM.MS 图床上的所有图片</title>
@@ -93,21 +94,24 @@ git filter-branch --env-filter &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://blog.baoshuo.ren/post/wsl2-network/</guid>
-            <title>【随笔】WSL2的网络访问问题</title>
-            <link>https://blog.baoshuo.ren/post/wsl2-network/</link>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/clone-github-repo-faster/</guid>
+            <title>【随笔】修改 Git 配置加速 clone GitHub 源码</title>
+            <link>https://blog.baoshuo.ren/post/clone-github-repo-faster/</link>
             <category>随笔</category>
-            <pubDate>Sun, 22 Nov 2020 20:04:04 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;在使用WSL2的时候，由于某些原因，经常需要使用代理，然而网上的各种教程都并不适合我的情况，甚至还搞炸了我的电脑（最后重装了系统）…&lt;/p&gt;
-&lt;p&gt;前提条件：安装了 Docker Desktop 。&lt;/p&gt;
-&lt;p&gt;在 &lt;code&gt;/etc/wsl.conf&lt;/code&gt; 中写入以下内容：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;[network]&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;generateHosts&lt;/span&gt; = &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;generateResolvConf&lt;/span&gt; = &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;重启系统，在 WSL 中运行 &lt;code&gt;cat /etc/hosts&lt;/code&gt; ，会出现如下图所示的内容：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/NMjyJqPa7ucG9Er.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;此时使用 &lt;code&gt;http://host.docker.internal:7890&lt;/code&gt; 连接代理即可。&lt;/p&gt;
- ]]></description>
+            <category>Git</category>
+            <pubDate>Tue, 21 Jul 2020 18:38:23 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;设置代理：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;# socks5协议，1080端口修改成自己的本地代理端口&lt;/span&gt;
+git config --global http.https://github.com.proxy  socks5://127.0.0.1:1080
+git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
+
+&lt;span class=&#34;hljs-comment&#34;&gt;# http协议，7890端口修改成自己的本地代理端口&lt;/span&gt;
+git config --global http.https://github.com.proxy  http://127.0.0.1:7890
+git config --global https.https://github.com.proxy http://127.0.0.1:7890&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之后运行 &lt;code&gt;git config -l&lt;/code&gt; 即可查看代理设置情况。&lt;/p&gt;
+&lt;p&gt;清除代理：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;git config --global --unset http.proxy
+git config --global --unset https.proxy&lt;/code&gt;&lt;/pre&gt; ]]></description>
         </item>
     </channel>
 </rss>
