@@ -13,9 +13,9 @@
         <category>Git</category>
         <category>折腾</category>
         <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>黑苹果</category>
         <category>Linux</category>
@@ -23,8 +23,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/segment-tree/</guid>
             <title>线段树学习笔记</title>
             <link>https://blog.baoshuo.ren/post/segment-tree/</link>
-            <category>OI</category>
             <category>笔记</category>
+            <category>OI</category>
             <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;线段树（Segment Tree）是一种用来维护区间的数据结构。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
