@@ -7,17 +7,17 @@
         <language>cn</language>
         <pubDate>Sat, 31 Oct 2020 16:36:28 +0800</pubDate>
         <lastBuildDate>Sat, 31 Oct 2020 16:36:28 +0800</lastBuildDate>
-        <category>CTF</category>
         <category>随笔</category>
         <category>Git</category>
-        <category>Typecho</category>
+        <category>CTF</category>
         <category>折腾</category>
-        <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
-        <category>笔记</category>
-        <category>游记</category>
+        <category>Typecho</category>
         <category>Linux</category>
+        <category>网络</category>
+        <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
+        <category>游记</category>
         <category>黑苹果</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</guid>
@@ -75,7 +75,7 @@
 &lt;p&gt;至于剩下的… 懒得找了，直接暴力吧&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ol&gt;
-&lt;li&gt;以下编程语言、软件或组织对应标志是哺乳动物的有几个？&lt;br&gt;
+&lt;li&gt;以下编程语言、软件或组织对应标志是哺乳动物的有几个？
 Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，TortoiseSVN，FireFox，MySQL，PostgreSQL，MariaDB，Linux，OpenBSD，FreeDOS，Apache Tomcat，Squid，openSUSE，Kali，Xfce.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;

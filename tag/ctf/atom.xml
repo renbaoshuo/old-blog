@@ -4,17 +4,17 @@
     <title>宝硕博客 • Posts by &#34;ctf&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2020-10-31T08:36:28.000Z</updated>
-    <category term="CTF" />
     <category term="随笔" />
     <category term="Git" />
-    <category term="Typecho" />
+    <category term="CTF" />
     <category term="折腾" />
-    <category term="网络" />
-    <category term="题解" />
-    <category term="OI" />
-    <category term="笔记" />
-    <category term="游记" />
+    <category term="Typecho" />
     <category term="Linux" />
+    <category term="网络" />
+    <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
+    <category term="游记" />
     <category term="黑苹果" />
     <entry>
         <id>https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</id>
@@ -70,7 +70,7 @@
 &lt;p&gt;至于剩下的… 懒得找了，直接暴力吧&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ol&gt;
-&lt;li&gt;以下编程语言、软件或组织对应标志是哺乳动物的有几个？&lt;br&gt;
+&lt;li&gt;以下编程语言、软件或组织对应标志是哺乳动物的有几个？
 Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，TortoiseSVN，FireFox，MySQL，PostgreSQL，MariaDB，Linux，OpenBSD，FreeDOS，Apache Tomcat，Squid，openSUSE，Kali，Xfce.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;

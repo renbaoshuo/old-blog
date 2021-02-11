@@ -4,17 +4,17 @@
     <title>宝硕博客 • Posts by &#34;折腾&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2020-12-31T16:00:00.000Z</updated>
-    <category term="CTF" />
     <category term="随笔" />
     <category term="Git" />
-    <category term="Typecho" />
+    <category term="CTF" />
     <category term="折腾" />
-    <category term="网络" />
-    <category term="题解" />
-    <category term="OI" />
-    <category term="笔记" />
-    <category term="游记" />
+    <category term="Typecho" />
     <category term="Linux" />
+    <category term="网络" />
+    <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
+    <category term="游记" />
     <category term="黑苹果" />
     <entry>
         <id>https://blog.baoshuo.ren/post/hello-2021/</id>
@@ -46,7 +46,7 @@
     &amp;#125;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;申请-SSL-证书&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#申请-SSL-证书&#34;&gt;&lt;/a&gt;申请 SSL 证书&lt;/h3&gt;
-&lt;p&gt;由于笔者懒得每年换证书，所以就用了 &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let’s Encrypt&lt;/a&gt; + &lt;a href=&#34;https://acme.sh&#34;&gt;acme.sh&lt;/a&gt; 的组合套装来配置 SSL 。&lt;br&gt;
+&lt;p&gt;由于笔者懒得每年换证书，所以就用了 &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let’s Encrypt&lt;/a&gt; + &lt;a href=&#34;https://acme.sh&#34;&gt;acme.sh&lt;/a&gt; 的组合套装来配置 SSL 。
 当然，ECC 证书也是少不了的。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;acme.sh --issue -d baoshuo.ren -d www.baoshuo.ren -d blog.baoshuo.ren \
     -w /var/www/_letsencrypt/ \
@@ -630,7 +630,7 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/6tTqm4uYsl5byAr.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;之后按照步骤操作就行啦~&lt;/p&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
-&lt;p&gt;[1] &lt;a href=&#34;https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html&#34;&gt;VMware Blogs: VMware Workstation 15.5 Now Supports Host Hyper-V Mode&lt;/a&gt;&lt;br&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html&#34;&gt;VMware Blogs: VMware Workstation 15.5 Now Supports Host Hyper-V Mode&lt;/a&gt;
 [2] &lt;a href=&#34;https://techcommunity.microsoft.com/t5/virtualization/vmware-workstation-and-hyper-v/ba-p/1419928&#34;&gt;Microsoft Tech Community: VMware Workstation and Hyper-V&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;文件下载&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#文件下载&#34;&gt;&lt;/a&gt;文件下载&lt;/h2&gt;
 &lt;h3 id=&#34;百度网盘&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#百度网盘&#34;&gt;&lt;/a&gt;百度网盘&lt;/h3&gt;

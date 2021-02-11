@@ -221,13 +221,6 @@
 
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/CTF/</loc>
-    <lastmod>2021-02-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.baoshuo.ren/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2021-02-11</lastmod>
     <changefreq>daily</changefreq>
@@ -242,7 +235,7 @@
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/Typecho/</loc>
+    <loc>https://blog.baoshuo.ren/tags/CTF/</loc>
     <lastmod>2021-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -256,21 +249,21 @@
   </url>
   
   <url>
+    <loc>https://blog.baoshuo.ren/tags/Typecho/</loc>
+    <lastmod>2021-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/tags/Linux/</loc>
+    <lastmod>2021-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.baoshuo.ren/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2021-02-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.baoshuo.ren/tags/%E9%A2%98%E8%A7%A3/</loc>
-    <lastmod>2021-02-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.baoshuo.ren/tags/OI/</loc>
     <lastmod>2021-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -284,14 +277,21 @@
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/%E6%B8%B8%E8%AE%B0/</loc>
+    <loc>https://blog.baoshuo.ren/tags/OI/</loc>
     <lastmod>2021-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/Linux/</loc>
+    <loc>https://blog.baoshuo.ren/tags/%E9%A2%98%E8%A7%A3/</loc>
+    <lastmod>2021-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/tags/%E6%B8%B8%E8%AE%B0/</loc>
     <lastmod>2021-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

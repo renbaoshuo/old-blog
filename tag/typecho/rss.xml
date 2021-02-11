@@ -7,17 +7,17 @@
         <language>cn</language>
         <pubDate>Thu, 16 Jul 2020 16:27:58 +0800</pubDate>
         <lastBuildDate>Thu, 16 Jul 2020 16:27:58 +0800</lastBuildDate>
-        <category>CTF</category>
         <category>随笔</category>
         <category>Git</category>
-        <category>Typecho</category>
+        <category>CTF</category>
         <category>折腾</category>
-        <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
-        <category>笔记</category>
-        <category>游记</category>
+        <category>Typecho</category>
         <category>Linux</category>
+        <category>网络</category>
+        <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
+        <category>游记</category>
         <category>黑苹果</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/handsome-leftbar-layout/</guid>
@@ -168,7 +168,7 @@
 &lt;div class=&#34;scode warn&#34;&gt;&lt;p class=&#34;scode-title&#34;&gt;注意&lt;/p&gt;&lt;p&gt;&lt;code&gt;array&lt;/code&gt; 函数的参数中除了最后一行，每一行末尾都有一个 &lt;code&gt;,&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
  
-&lt;p&gt;&lt;em&gt;本文为补档文章，原系统中最后一次修改时间：2020年4月12日 23:31:25&lt;/em&gt;&lt;br&gt;
+&lt;p&gt;&lt;em&gt;本文为补档文章，原系统中最后一次修改时间：2020年4月12日 23:31:25&lt;/em&gt;
 &lt;em&gt;本文代码已经适配 handsome 7.2 版本，可放心使用。&lt;/em&gt;&lt;/p&gt;
  ]]></description>
         </item>
