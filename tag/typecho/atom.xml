@@ -5,17 +5,17 @@
     <link href="https://blog.baoshuo.ren" />
     <updated>2020-07-16T08:27:58.000Z</updated>
     <category term="CTF" />
-    <category term="Typecho" />
     <category term="随笔" />
     <category term="Git" />
+    <category term="Typecho" />
     <category term="折腾" />
     <category term="网络" />
-    <category term="笔记" />
-    <category term="OI" />
     <category term="题解" />
+    <category term="OI" />
+    <category term="笔记" />
     <category term="游记" />
-    <category term="黑苹果" />
     <category term="Linux" />
+    <category term="黑苹果" />
     <entry>
         <id>https://blog.baoshuo.ren/post/handsome-leftbar-layout/</id>
         <title>【补档】handsome 魔改教程：左侧边栏输出优化</title>

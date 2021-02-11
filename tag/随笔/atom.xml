@@ -5,17 +5,17 @@
     <link href="https://blog.baoshuo.ren" />
     <updated>2020-11-28T13:39:32.000Z</updated>
     <category term="CTF" />
-    <category term="Typecho" />
     <category term="随笔" />
     <category term="Git" />
+    <category term="Typecho" />
     <category term="折腾" />
     <category term="网络" />
-    <category term="笔记" />
-    <category term="OI" />
     <category term="题解" />
+    <category term="OI" />
+    <category term="笔记" />
     <category term="游记" />
-    <category term="黑苹果" />
     <category term="Linux" />
+    <category term="黑苹果" />
     <entry>
         <id>https://blog.baoshuo.ren/post/download-smms-image/</id>
         <title>【随笔】下载自己在 SM.MS 图床上的所有图片</title>

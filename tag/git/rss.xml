@@ -8,17 +8,17 @@
         <pubDate>Wed, 25 Nov 2020 20:03:03 +0800</pubDate>
         <lastBuildDate>Wed, 25 Nov 2020 20:03:03 +0800</lastBuildDate>
         <category>CTF</category>
-        <category>Typecho</category>
         <category>随笔</category>
         <category>Git</category>
+        <category>Typecho</category>
         <category>折腾</category>
         <category>网络</category>
-        <category>笔记</category>
-        <category>OI</category>
         <category>题解</category>
+        <category>OI</category>
+        <category>笔记</category>
         <category>游记</category>
-        <category>黑苹果</category>
         <category>Linux</category>
+        <category>黑苹果</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/change-git-submission-email/</guid>
             <title>【随笔】批量修改 Git 仓库的提交邮箱</title>

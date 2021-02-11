@@ -8,17 +8,17 @@
         <pubDate>Thu, 20 Aug 2020 13:22:47 +0800</pubDate>
         <lastBuildDate>Thu, 20 Aug 2020 13:22:47 +0800</lastBuildDate>
         <category>CTF</category>
-        <category>Typecho</category>
         <category>随笔</category>
         <category>Git</category>
+        <category>Typecho</category>
         <category>折腾</category>
         <category>网络</category>
-        <category>笔记</category>
-        <category>OI</category>
         <category>题解</category>
+        <category>OI</category>
+        <category>笔记</category>
         <category>游记</category>
-        <category>黑苹果</category>
         <category>Linux</category>
+        <category>黑苹果</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</guid>
             <title>给腾讯云服务器免费增加第二个 IP</title>

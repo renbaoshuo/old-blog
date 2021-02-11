@@ -5,17 +5,17 @@
     <link href="https://blog.baoshuo.ren" />
     <updated>2020-08-03T04:52:59.000Z</updated>
     <category term="CTF" />
-    <category term="Typecho" />
     <category term="随笔" />
     <category term="Git" />
+    <category term="Typecho" />
     <category term="折腾" />
     <category term="网络" />
-    <category term="笔记" />
-    <category term="OI" />
     <category term="题解" />
+    <category term="OI" />
+    <category term="笔记" />
     <category term="游记" />
-    <category term="黑苹果" />
     <category term="Linux" />
+    <category term="黑苹果" />
     <entry>
         <id>https://blog.baoshuo.ren/post/vmware-macos-bigsur/</id>
         <title>【多图】在 VMware 上安装 macOS 11 Big Sur Beta</title>
