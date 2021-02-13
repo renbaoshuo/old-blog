@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.baoshuo.ren</id>
-    <title>宝硕博客 • Posts by &#34;黑苹果&#34; tag</title>
+    <title>宝硕博客 • Posts by &#34;macos&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2020-08-03T04:52:59.000Z</updated>
+    <category term="CTF" />
     <category term="随笔" />
     <category term="Git" />
-    <category term="CTF" />
     <category term="折腾" />
     <category term="Typecho" />
     <category term="Linux" />
@@ -15,7 +15,7 @@
     <category term="OI" />
     <category term="题解" />
     <category term="游记" />
-    <category term="黑苹果" />
+    <category term="macOS" />
     <entry>
         <id>https://blog.baoshuo.ren/post/vmware-macos-bigsur/</id>
         <title>【多图】在 VMware 上安装 macOS 11 Big Sur Beta</title>
@@ -79,9 +79,10 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;▲ 完成！&lt;/p&gt;
 &lt;h2 id=&#34;配置虚拟机&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#配置虚拟机&#34;&gt;&lt;/a&gt;配置虚拟机&lt;/h2&gt;
 &lt;p&gt;在 vmx 文件末尾添加以下内容并保存。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;smbios.reflectHost&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;TRUE&amp;quot;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;smc.version&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
 &lt;span class=&#34;hljs-attr&#34;&gt;hw.model&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;MacBookPro16,1&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;board-id&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mac-E1008331FDC96864&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;hljs-attr&#34;&gt;board-id&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mac-E1008331FDC96864&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;hljs-attr&#34;&gt;board-id.reflectHost&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;TRUE&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;挂载安装镜像&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#挂载安装镜像&#34;&gt;&lt;/a&gt;挂载安装镜像&lt;/h2&gt;
 &lt;p&gt;点击“编辑虚拟机设置”，选择“CD/DVD”选项。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/KVdIk9ZXcqH2aBG.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
@@ -134,8 +135,7 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;提取码：&lt;code&gt;blog&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="折腾" />
-        <category term="黑苹果" />
+        <category term="macOS" />
         <updated>2020-08-03T04:52:59.000Z</updated>
     </entry>
 </feed>

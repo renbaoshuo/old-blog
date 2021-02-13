@@ -7,9 +7,9 @@
         <language>cn</language>
         <pubDate>Thu, 16 Jul 2020 16:27:58 +0800</pubDate>
         <lastBuildDate>Thu, 16 Jul 2020 16:27:58 +0800</lastBuildDate>
+        <category>CTF</category>
         <category>随笔</category>
         <category>Git</category>
-        <category>CTF</category>
         <category>折腾</category>
         <category>Typecho</category>
         <category>Linux</category>
@@ -18,7 +18,7 @@
         <category>OI</category>
         <category>题解</category>
         <category>游记</category>
-        <category>黑苹果</category>
+        <category>macOS</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/handsome-leftbar-layout/</guid>
             <title>【补档】handsome 魔改教程：左侧边栏输出优化</title>

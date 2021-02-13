@@ -4,9 +4,9 @@
     <title>宝硕博客 • Posts by &#34;linux&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-02-11T16:06:31.000Z</updated>
+    <category term="CTF" />
     <category term="随笔" />
     <category term="Git" />
-    <category term="CTF" />
     <category term="折腾" />
     <category term="Typecho" />
     <category term="Linux" />
@@ -15,7 +15,7 @@
     <category term="OI" />
     <category term="题解" />
     <category term="游记" />
-    <category term="黑苹果" />
+    <category term="macOS" />
     <entry>
         <id>https://blog.baoshuo.ren/post/linux-systemd/</id>
         <title>Linux Systemd 入门</title>

@@ -7,9 +7,9 @@
         <language>cn</language>
         <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
         <lastBuildDate>Sat, 05 Dec 2020 17:30:03 +0800</lastBuildDate>
+        <category>CTF</category>
         <category>随笔</category>
         <category>Git</category>
-        <category>CTF</category>
         <category>折腾</category>
         <category>Typecho</category>
         <category>Linux</category>
@@ -18,7 +18,7 @@
         <category>OI</category>
         <category>题解</category>
         <category>游记</category>
-        <category>黑苹果</category>
+        <category>macOS</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-noip-2020/</guid>
             <title>NOIP 2020 游记 &amp; 题解</title>
