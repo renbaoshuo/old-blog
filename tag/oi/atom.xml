@@ -7,13 +7,13 @@
     <category term="随笔" />
     <category term="Git" />
     <category term="CTF" />
-    <category term="Typecho" />
     <category term="折腾" />
+    <category term="Typecho" />
     <category term="Linux" />
+    <category term="笔记" />
+    <category term="OI" />
     <category term="网络" />
     <category term="题解" />
-    <category term="OI" />
-    <category term="笔记" />
     <category term="游记" />
     <category term="macOS" />
     <entry>
@@ -275,8 +275,8 @@ ostream&amp;amp; &lt;span class=&#34;hljs-keyword&#34;&gt;operator&lt;/span&gt;&
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;/details&gt;
 </content>
-        <category term="题解" />
         <category term="OI" />
+        <category term="题解" />
         <category term="游记" />
         <updated>2020-12-05T09:30:03.000Z</updated>
     </entry>
@@ -762,8 +762,8 @@ ostream&amp;amp; &lt;span class=&#34;hljs-keyword&#34;&gt;operator&lt;/span&gt;&
     &amp;#125;
     &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;</content>
-        <category term="OI" />
         <category term="笔记" />
+        <category term="OI" />
         <updated>2020-12-02T00:08:39.000Z</updated>
     </entry>
     <entry>
@@ -907,8 +907,8 @@ ostream&amp;amp; &lt;span class=&#34;hljs-keyword&#34;&gt;operator&lt;/span&gt;&
     &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 </content>
-        <category term="题解" />
         <category term="OI" />
+        <category term="题解" />
         <updated>2020-11-16T09:24:54.000Z</updated>
     </entry>
     <entry>
@@ -975,8 +975,8 @@ USACO&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="题解" />
         <category term="OI" />
+        <category term="题解" />
         <updated>2020-10-12T12:02:00.000Z</updated>
     </entry>
 </feed>
