@@ -8,9 +8,9 @@
     <category term="Git" />
     <category term="CTF" />
     <category term="Typecho" />
-    <category term="Linux" />
     <category term="折腾" />
     <category term="网络" />
+    <category term="Linux" />
     <category term="笔记" />
     <category term="OI" />
     <category term="题解" />
@@ -88,8 +88,8 @@ ip route add default dev eth1 via 172.21.0.1 table 20&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;配置策略路由&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#配置策略路由&#34;&gt;&lt;/a&gt;配置策略路由&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;ip rule add from 172.21.0.10 table 10
 ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt;</content>
-        <category term="Linux" />
         <category term="网络" />
+        <category term="Linux" />
         <updated>2020-08-20T05:22:47.000Z</updated>
     </entry>
     <entry>

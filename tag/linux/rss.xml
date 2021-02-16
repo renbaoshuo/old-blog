@@ -11,9 +11,9 @@
         <category>Git</category>
         <category>CTF</category>
         <category>Typecho</category>
-        <category>Linux</category>
         <category>折腾</category>
         <category>网络</category>
+        <category>Linux</category>
         <category>笔记</category>
         <category>OI</category>
         <category>题解</category>
@@ -319,8 +319,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</guid>
             <title>给腾讯云服务器免费增加第二个 IP</title>
             <link>https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</link>
-            <category>Linux</category>
             <category>网络</category>
+            <category>Linux</category>
             <pubDate>Thu, 20 Aug 2020 13:22:47 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;良心云果然是良心云，增加了一个IP四舍五入居然不要钱，不过还是要登进系统配置一下双IP的。&lt;/p&gt;
