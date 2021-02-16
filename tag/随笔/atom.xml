@@ -7,12 +7,12 @@
     <category term="随笔" />
     <category term="Git" />
     <category term="CTF" />
-    <category term="折腾" />
     <category term="Typecho" />
     <category term="Linux" />
+    <category term="折腾" />
+    <category term="网络" />
     <category term="笔记" />
     <category term="OI" />
-    <category term="网络" />
     <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
@@ -23,30 +23,30 @@
         <content type="html">&lt;p&gt;前提条件：有 &lt;a href=&#34;http://SM.MS&#34;&gt;SM.MS&lt;/a&gt; 图床账号，并且图片存储在该账号下。&lt;/p&gt;
 &lt;p&gt;思路：先请求API，获取图片列表。遍历列表，判断本地是否存在该图片，若不存在则下载该图片。&lt;/p&gt;
 &lt;p&gt;代码如下。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; requests
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; os
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; json
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; pathlib
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; sys
+&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; requests
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; os
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; json
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; pathlib
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; sys
 
-&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;getUploadedImages&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;token&lt;/span&gt;) -&amp;gt; str:&lt;/span&gt;
-    url = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://sm.ms/api/v2/upload_history&amp;quot;&lt;/span&gt;
-    headers = &amp;#123;&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Authorization&amp;quot;&lt;/span&gt;: token&amp;#125;
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; requests.get(url, headers=headers).text
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;getUploadedImages&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;token&lt;/span&gt;) -&amp;gt; str:&lt;/span&gt;
+    url = &lt;span class=&#34;string&#34;&gt;&amp;quot;https://sm.ms/api/v2/upload_history&amp;quot;&lt;/span&gt;
+    headers = &amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;Authorization&amp;quot;&lt;/span&gt;: token&amp;#125;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; requests.get(url, headers=headers).text
 
-data = json.loads(getUploadedImages(sys.argv[&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;]))
+data = json.loads(getUploadedImages(sys.argv[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]))
 
-&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; img &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; data[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;]:
-    path = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;./data/&amp;quot;&lt;/span&gt; + img[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]
-    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;not&lt;/span&gt; pathlib.Path(path).is_file():
-        pic = requests.get(img[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;]).content
-        f = &lt;span class=&#34;hljs-built_in&#34;&gt;open&lt;/span&gt;(path, &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;wb&amp;quot;&lt;/span&gt;)
+&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; img &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; data[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;]:
+    path = &lt;span class=&#34;string&#34;&gt;&amp;quot;./data/&amp;quot;&lt;/span&gt; + img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;not&lt;/span&gt; pathlib.Path(path).is_file():
+        pic = requests.get(img[&lt;span class=&#34;string&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;]).content
+        f = &lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(path, &lt;span class=&#34;string&#34;&gt;&amp;quot;wb&amp;quot;&lt;/span&gt;)
         f.write(pic)
         f.close()
-        &lt;span class=&#34;hljs-keyword&#34;&gt;del&lt;/span&gt; pic
-        print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Successfully get &amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot; .&amp;quot;&lt;/span&gt;)
-    &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-        print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+        &lt;span class=&#34;keyword&#34;&gt;del&lt;/span&gt; pic
+        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;Successfully get &amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; .&amp;quot;&lt;/span&gt;)
+    &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
+        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用方法：&lt;code&gt;python3 smms-image.py &amp;quot;[your token here]&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;下载下来的图片会存到 &lt;code&gt;./data/&lt;/code&gt; 目录下（请提前新建）。&lt;/p&gt;
 </content>
@@ -59,30 +59,30 @@ data = json.loads(getUploadedImages(sys.argv[&lt;span class=&#34;hljs-number&#34
         <link rel="alternate" href="https://blog.baoshuo.ren/post/change-git-submission-email/"/>
         <content type="html">&lt;p&gt;这几天重装了系统，一个不小心提交了好多 author 为 &lt;code&gt;&amp;quot;root&amp;quot;&amp;lt;root@localhost&amp;gt;&lt;/code&gt; 的 commit ，于是寻找到了一个修改的方法。&lt;/p&gt;
 &lt;p&gt;在仓库根目录下新建一个名为 &lt;code&gt;fix.sh&lt;/code&gt; 的 shell 脚本，输入以下内容：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;&lt;span class=&#34;hljs-meta&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#!/bin/bash&lt;/span&gt;
  
-git filter-branch --env-filter &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;an=&amp;quot;$GIT_AUTHOR_NAME&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;am=&amp;quot;$GIT_AUTHOR_EMAIL&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;cn=&amp;quot;$GIT_COMMITTER_NAME&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;cm=&amp;quot;$GIT_COMMITTER_EMAIL&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt; &lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;if [ &amp;quot;$GIT_COMMITTER_EMAIL&amp;quot; = &amp;quot;错误邮箱&amp;quot; ]&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;then&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    cn=&amp;quot;正确名称&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    cm=&amp;quot;正确邮箱&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;if [ &amp;quot;$GIT_AUTHOR_EMAIL&amp;quot; = &amp;quot;错误邮箱&amp;quot; ]&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;then&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    an=&amp;quot;正确名称&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    am=&amp;quot;正确邮箱&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;export GIT_AUTHOR_NAME=&amp;quot;$an&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;export GIT_AUTHOR_EMAIL=&amp;quot;$am&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;export GIT_COMMITTER_NAME=&amp;quot;$cn&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;export GIT_COMMITTER_EMAIL=&amp;quot;$cm&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;an=&amp;quot;$GIT_AUTHOR_NAME&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;am=&amp;quot;$GIT_AUTHOR_EMAIL&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;cn=&amp;quot;$GIT_COMMITTER_NAME&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;cm=&amp;quot;$GIT_COMMITTER_EMAIL&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt; &lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;if [ &amp;quot;$GIT_COMMITTER_EMAIL&amp;quot; = &amp;quot;错误邮箱&amp;quot; ]&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;then&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    cn=&amp;quot;正确名称&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    cm=&amp;quot;正确邮箱&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;if [ &amp;quot;$GIT_AUTHOR_EMAIL&amp;quot; = &amp;quot;错误邮箱&amp;quot; ]&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;then&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    an=&amp;quot;正确名称&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    am=&amp;quot;正确邮箱&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;fi&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;export GIT_AUTHOR_NAME=&amp;quot;$an&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;export GIT_AUTHOR_EMAIL=&amp;quot;$am&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;export GIT_COMMITTER_NAME=&amp;quot;$cn&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;export GIT_COMMITTER_EMAIL=&amp;quot;$cm&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;完成后运行 &lt;code&gt;./fix.sh&lt;/code&gt; 即可。&lt;/p&gt;
 &lt;p&gt;PS: 跑完记得删脚本，或者直接把脚本内容改好之后拖进终端&lt;/p&gt;
 </content>
@@ -95,16 +95,16 @@ git filter-branch --env-filter &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27
         <title>【随笔】修改 Git 配置加速 clone GitHub 源码</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/clone-github-repo-faster/"/>
         <content type="html">&lt;p&gt;设置代理：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;# socks5协议，1080端口修改成自己的本地代理端口&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# socks5协议，1080端口修改成自己的本地代理端口&lt;/span&gt;
 git config --global http.https://github.com.proxy  socks5://127.0.0.1:1080
 git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
 
-&lt;span class=&#34;hljs-comment&#34;&gt;# http协议，7890端口修改成自己的本地代理端口&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# http协议，7890端口修改成自己的本地代理端口&lt;/span&gt;
 git config --global http.https://github.com.proxy  http://127.0.0.1:7890
 git config --global https.https://github.com.proxy http://127.0.0.1:7890&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;之后运行 &lt;code&gt;git config -l&lt;/code&gt; 即可查看代理设置情况。&lt;/p&gt;
 &lt;p&gt;清除代理：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;git config --global --unset http.proxy
+&lt;pre&gt;&lt;code class=&#34;highlight shell&#34;&gt;git config --global --unset http.proxy
 git config --global --unset https.proxy&lt;/code&gt;&lt;/pre&gt;</content>
         <category term="随笔" />
         <category term="Git" />

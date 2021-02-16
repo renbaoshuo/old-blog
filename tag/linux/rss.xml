@@ -10,12 +10,12 @@
         <category>随笔</category>
         <category>Git</category>
         <category>CTF</category>
-        <category>折腾</category>
         <category>Typecho</category>
         <category>Linux</category>
+        <category>折腾</category>
+        <category>网络</category>
         <category>笔记</category>
         <category>OI</category>
-        <category>网络</category>
         <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
@@ -59,7 +59,7 @@
 &lt;h2 id=&#34;开机启动&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#开机启动&#34;&gt;&lt;/a&gt;开机启动&lt;/h2&gt;
 &lt;p&gt;对于那些支持 Systemd 的软件，安装的时候，会自动在 &lt;code&gt;/usr/lib/systemd/system&lt;/code&gt; 目录添加一个配置文件。&lt;/p&gt;
 &lt;p&gt;如果你想让该软件开机启动，就执行下面的命令（以 &lt;code&gt;sshd.service&lt;/code&gt; 为例）。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;sudo systemctl &lt;span class=&#34;hljs-built_in&#34;&gt;enable&lt;/span&gt; sshd.service&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;sudo systemctl &lt;span class=&#34;built_in&#34;&gt;enable&lt;/span&gt; sshd.service&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;上面的命令相当于在 &lt;code&gt;/etc/systemd/system&lt;/code&gt; 目录添加一个符号链接，指向 &lt;code&gt;/usr/lib/systemd/system&lt;/code&gt; 里面的 &lt;code&gt;sshd.service&lt;/code&gt; 文件。&lt;/p&gt;
 &lt;p&gt;这是因为开机时，Systemd 只执行 &lt;code&gt;/etc/systemd/system&lt;/code&gt; 目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。&lt;/p&gt;
 &lt;h2 id=&#34;Unit&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#Unit&#34;&gt;&lt;/a&gt;Unit&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
@@ -69,30 +69,30 @@
 &lt;/div&gt;
 
 &lt;p&gt;以 &lt;code&gt;sshd.service&lt;/code&gt; 这个配置文件为例子，来分析一下 Systemd 的配置文件：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;# /lib/systemd/system/ssh.service&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# /lib/systemd/system/ssh.service&lt;/span&gt;
 
-&lt;span class=&#34;hljs-section&#34;&gt;[Unit]&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;Description&lt;/span&gt;=OpenBSD Secure Shell server
-&lt;span class=&#34;hljs-attr&#34;&gt;Documentation&lt;/span&gt;=man:sshd(&lt;span class=&#34;hljs-number&#34;&gt;8&lt;/span&gt;) man:sshd_config(&lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;)
-&lt;span class=&#34;hljs-attr&#34;&gt;After&lt;/span&gt;=network.target auditd.service
-&lt;span class=&#34;hljs-attr&#34;&gt;ConditionPathExists&lt;/span&gt;=!/etc/ssh/sshd_not_to_be_run
+&lt;span class=&#34;section&#34;&gt;[Unit]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;Description&lt;/span&gt;=OpenBSD Secure Shell server
+&lt;span class=&#34;attr&#34;&gt;Documentation&lt;/span&gt;=man:sshd(&lt;span class=&#34;number&#34;&gt;8&lt;/span&gt;) man:sshd_config(&lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;)
+&lt;span class=&#34;attr&#34;&gt;After&lt;/span&gt;=network.target auditd.service
+&lt;span class=&#34;attr&#34;&gt;ConditionPathExists&lt;/span&gt;=!/etc/ssh/sshd_not_to_be_run
 
-&lt;span class=&#34;hljs-section&#34;&gt;[Service]&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;EnvironmentFile&lt;/span&gt;=-/etc/default/ssh
-&lt;span class=&#34;hljs-attr&#34;&gt;ExecStartPre&lt;/span&gt;=/usr/sbin/sshd -t
-&lt;span class=&#34;hljs-attr&#34;&gt;ExecStart&lt;/span&gt;=/usr/sbin/sshd -D &lt;span class=&#34;hljs-variable&#34;&gt;$SSHD_OPTS&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;ExecReload&lt;/span&gt;=/usr/sbin/sshd -t
-&lt;span class=&#34;hljs-attr&#34;&gt;ExecReload&lt;/span&gt;=/bin/kill -HUP &lt;span class=&#34;hljs-variable&#34;&gt;$MAINPID&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;KillMode&lt;/span&gt;=process
-&lt;span class=&#34;hljs-attr&#34;&gt;Restart&lt;/span&gt;=&lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;-failure
-&lt;span class=&#34;hljs-attr&#34;&gt;RestartPreventExitStatus&lt;/span&gt;=&lt;span class=&#34;hljs-number&#34;&gt;255&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;Type&lt;/span&gt;=notify
-&lt;span class=&#34;hljs-attr&#34;&gt;RuntimeDirectory&lt;/span&gt;=sshd
-&lt;span class=&#34;hljs-attr&#34;&gt;RuntimeDirectoryMode&lt;/span&gt;=&lt;span class=&#34;hljs-number&#34;&gt;0755&lt;/span&gt;
+&lt;span class=&#34;section&#34;&gt;[Service]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;EnvironmentFile&lt;/span&gt;=-/etc/default/ssh
+&lt;span class=&#34;attr&#34;&gt;ExecStartPre&lt;/span&gt;=/usr/sbin/sshd -t
+&lt;span class=&#34;attr&#34;&gt;ExecStart&lt;/span&gt;=/usr/sbin/sshd -D &lt;span class=&#34;variable&#34;&gt;$SSHD_OPTS&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;ExecReload&lt;/span&gt;=/usr/sbin/sshd -t
+&lt;span class=&#34;attr&#34;&gt;ExecReload&lt;/span&gt;=/bin/kill -HUP &lt;span class=&#34;variable&#34;&gt;$MAINPID&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;KillMode&lt;/span&gt;=process
+&lt;span class=&#34;attr&#34;&gt;Restart&lt;/span&gt;=&lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;-failure
+&lt;span class=&#34;attr&#34;&gt;RestartPreventExitStatus&lt;/span&gt;=&lt;span class=&#34;number&#34;&gt;255&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;Type&lt;/span&gt;=notify
+&lt;span class=&#34;attr&#34;&gt;RuntimeDirectory&lt;/span&gt;=sshd
+&lt;span class=&#34;attr&#34;&gt;RuntimeDirectoryMode&lt;/span&gt;=&lt;span class=&#34;number&#34;&gt;0755&lt;/span&gt;
 
-&lt;span class=&#34;hljs-section&#34;&gt;[Install]&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;WantedBy&lt;/span&gt;=multi-user.target
-&lt;span class=&#34;hljs-attr&#34;&gt;Alias&lt;/span&gt;=sshd.service&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;section&#34;&gt;[Install]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;WantedBy&lt;/span&gt;=multi-user.target
+&lt;span class=&#34;attr&#34;&gt;Alias&lt;/span&gt;=sshd.service&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;可以看出这个文件一共有三个部分：&lt;code&gt;[Unit]&lt;/code&gt;, &lt;code&gt;[Service]&lt;/code&gt; 和 &lt;code&gt;[Install]&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;配置项通常是可以重复的，但靠后的配置项会取代前面同名的配置项。&lt;br&gt;
 因此，如果你想要将某项的设定值归零，可以在该配置所在部分的结尾添加一个空值项（如 &lt;code&gt;After=&lt;/code&gt;），就将该设定归零了。&lt;/p&gt;
@@ -201,66 +201,66 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;模板实例&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#模板实例&#34;&gt;&lt;/a&gt;模板实例&lt;/h3&gt;
 &lt;p&gt;此处以 &lt;code&gt;getty@.service&lt;/code&gt; 文件为例，来分析一下它是如何做到使用一个配置文件启动多个服务的：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;# /lib/systemd/system/getty@.service&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  SPDX-License-Identifier: LGPL-2.1+&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  This file is part of systemd.&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  systemd is free software; you can redistribute it and/or modify it&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  under the terms of the GNU Lesser General Public License as published by&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  the Free Software Foundation; either version 2.1 of the License, or&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  (at your option) any later version.&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# /lib/systemd/system/getty@.service&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  SPDX-License-Identifier: LGPL-2.1+&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  This file is part of systemd.&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  systemd is free software; you can redistribute it and/or modify it&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  under the terms of the GNU Lesser General Public License as published by&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  the Free Software Foundation; either version 2.1 of the License, or&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  (at your option) any later version.&lt;/span&gt;
 
-&lt;span class=&#34;hljs-section&#34;&gt;[Unit]&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;Description&lt;/span&gt;=Getty &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt; %I
-&lt;span class=&#34;hljs-attr&#34;&gt;Documentation&lt;/span&gt;=man:agetty(&lt;span class=&#34;hljs-number&#34;&gt;8&lt;/span&gt;) man:systemd-getty-generator(&lt;span class=&#34;hljs-number&#34;&gt;8&lt;/span&gt;)
-&lt;span class=&#34;hljs-attr&#34;&gt;Documentation&lt;/span&gt;=http://&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;pointer.de/blog/projects/serial-console.html
-&lt;span class=&#34;hljs-attr&#34;&gt;After&lt;/span&gt;=systemd-user-sessions.service plymouth-quit-wait.service getty-pre.target
-&lt;span class=&#34;hljs-attr&#34;&gt;After&lt;/span&gt;=rc-local.service
+&lt;span class=&#34;section&#34;&gt;[Unit]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;Description&lt;/span&gt;=Getty &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt; %I
+&lt;span class=&#34;attr&#34;&gt;Documentation&lt;/span&gt;=man:agetty(&lt;span class=&#34;number&#34;&gt;8&lt;/span&gt;) man:systemd-getty-generator(&lt;span class=&#34;number&#34;&gt;8&lt;/span&gt;)
+&lt;span class=&#34;attr&#34;&gt;Documentation&lt;/span&gt;=http://&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;pointer.de/blog/projects/serial-console.html
+&lt;span class=&#34;attr&#34;&gt;After&lt;/span&gt;=systemd-user-sessions.service plymouth-quit-wait.service getty-pre.target
+&lt;span class=&#34;attr&#34;&gt;After&lt;/span&gt;=rc-local.service
 
-&lt;span class=&#34;hljs-comment&#34;&gt;# If additional gettys are spawned during boot then we should make&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# sure that this is synchronized before getty.target, even though&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# getty.target didn&amp;#x27;t actually pull it in.&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;Before&lt;/span&gt;=getty.target
-&lt;span class=&#34;hljs-attr&#34;&gt;IgnoreOnIsolate&lt;/span&gt;=&lt;span class=&#34;hljs-literal&#34;&gt;yes&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# If additional gettys are spawned during boot then we should make&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# sure that this is synchronized before getty.target, even though&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# getty.target didn&amp;#x27;t actually pull it in.&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;Before&lt;/span&gt;=getty.target
+&lt;span class=&#34;attr&#34;&gt;IgnoreOnIsolate&lt;/span&gt;=&lt;span class=&#34;literal&#34;&gt;yes&lt;/span&gt;
 
-&lt;span class=&#34;hljs-comment&#34;&gt;# IgnoreOnIsolate causes issues with sulogin, if someone isolates&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# rescue.target or starts rescue.service from multi-user.target or&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# graphical.target.&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;Conflicts&lt;/span&gt;=rescue.service
-&lt;span class=&#34;hljs-attr&#34;&gt;Before&lt;/span&gt;=rescue.service
+&lt;span class=&#34;comment&#34;&gt;# IgnoreOnIsolate causes issues with sulogin, if someone isolates&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# rescue.target or starts rescue.service from multi-user.target or&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# graphical.target.&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;Conflicts&lt;/span&gt;=rescue.service
+&lt;span class=&#34;attr&#34;&gt;Before&lt;/span&gt;=rescue.service
 
-&lt;span class=&#34;hljs-comment&#34;&gt;# On systems without virtual consoles, don&amp;#x27;t start any getty. Note&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# that serial gettys are covered by serial-getty@.service, not this&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# unit.&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;ConditionPathExists&lt;/span&gt;=/dev/tty0
+&lt;span class=&#34;comment&#34;&gt;# On systems without virtual consoles, don&amp;#x27;t start any getty. Note&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# that serial gettys are covered by serial-getty@.service, not this&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# unit.&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;ConditionPathExists&lt;/span&gt;=/dev/tty0
 
-&lt;span class=&#34;hljs-section&#34;&gt;[Service]&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# the VT is cleared by TTYVTDisallocate&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# The &amp;#x27;-o&amp;#x27; option value tells agetty to replace &amp;#x27;login&amp;#x27; arguments with an&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# option to preserve environment (-p), followed by &amp;#x27;--&amp;#x27; for safety, and then&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# the entered username.&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;ExecStart&lt;/span&gt;=-/sbin/agetty -o &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;-p -- \\u&amp;#x27;&lt;/span&gt; --noclear %I &lt;span class=&#34;hljs-variable&#34;&gt;$TERM&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;Type&lt;/span&gt;=idle
-&lt;span class=&#34;hljs-attr&#34;&gt;Restart&lt;/span&gt;=always
-&lt;span class=&#34;hljs-attr&#34;&gt;RestartSec&lt;/span&gt;=&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;UtmpIdentifier&lt;/span&gt;=%I
-&lt;span class=&#34;hljs-attr&#34;&gt;TTYPath&lt;/span&gt;=/dev/%I
-&lt;span class=&#34;hljs-attr&#34;&gt;TTYReset&lt;/span&gt;=&lt;span class=&#34;hljs-literal&#34;&gt;yes&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;TTYVHangup&lt;/span&gt;=&lt;span class=&#34;hljs-literal&#34;&gt;yes&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;TTYVTDisallocate&lt;/span&gt;=&lt;span class=&#34;hljs-literal&#34;&gt;yes&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;KillMode&lt;/span&gt;=process
-&lt;span class=&#34;hljs-attr&#34;&gt;IgnoreSIGPIPE&lt;/span&gt;=&lt;span class=&#34;hljs-literal&#34;&gt;no&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;SendSIGHUP&lt;/span&gt;=&lt;span class=&#34;hljs-literal&#34;&gt;yes&lt;/span&gt;
+&lt;span class=&#34;section&#34;&gt;[Service]&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# the VT is cleared by TTYVTDisallocate&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# The &amp;#x27;-o&amp;#x27; option value tells agetty to replace &amp;#x27;login&amp;#x27; arguments with an&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# option to preserve environment (-p), followed by &amp;#x27;--&amp;#x27; for safety, and then&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# the entered username.&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;ExecStart&lt;/span&gt;=-/sbin/agetty -o &lt;span class=&#34;string&#34;&gt;&amp;#x27;-p -- \\u&amp;#x27;&lt;/span&gt; --noclear %I &lt;span class=&#34;variable&#34;&gt;$TERM&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;Type&lt;/span&gt;=idle
+&lt;span class=&#34;attr&#34;&gt;Restart&lt;/span&gt;=always
+&lt;span class=&#34;attr&#34;&gt;RestartSec&lt;/span&gt;=&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;UtmpIdentifier&lt;/span&gt;=%I
+&lt;span class=&#34;attr&#34;&gt;TTYPath&lt;/span&gt;=/dev/%I
+&lt;span class=&#34;attr&#34;&gt;TTYReset&lt;/span&gt;=&lt;span class=&#34;literal&#34;&gt;yes&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;TTYVHangup&lt;/span&gt;=&lt;span class=&#34;literal&#34;&gt;yes&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;TTYVTDisallocate&lt;/span&gt;=&lt;span class=&#34;literal&#34;&gt;yes&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;KillMode&lt;/span&gt;=process
+&lt;span class=&#34;attr&#34;&gt;IgnoreSIGPIPE&lt;/span&gt;=&lt;span class=&#34;literal&#34;&gt;no&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;SendSIGHUP&lt;/span&gt;=&lt;span class=&#34;literal&#34;&gt;yes&lt;/span&gt;
 
-&lt;span class=&#34;hljs-comment&#34;&gt;# Unset locale for the console getty since the console has problems&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# displaying some internationalized messages.&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;UnsetEnvironment&lt;/span&gt;=LANG LANGUAGE LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION
+&lt;span class=&#34;comment&#34;&gt;# Unset locale for the console getty since the console has problems&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# displaying some internationalized messages.&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;UnsetEnvironment&lt;/span&gt;=LANG LANGUAGE LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION
 
-&lt;span class=&#34;hljs-section&#34;&gt;[Install]&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;WantedBy&lt;/span&gt;=getty.target
-&lt;span class=&#34;hljs-attr&#34;&gt;DefaultInstance&lt;/span&gt;=tty1&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;section&#34;&gt;[Install]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;WantedBy&lt;/span&gt;=getty.target
+&lt;span class=&#34;attr&#34;&gt;DefaultInstance&lt;/span&gt;=tty1&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;运行 &lt;code&gt;systemctl status getty@tty1.service&lt;/code&gt; 命令，可以看到如下图所示的输出：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2021/02/11/lhw1BzOUb7TRDrq.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;不难发现图中标橙色的字符与上方配置文件中的 &lt;code&gt;%I&lt;/code&gt; 相对应，并且配置文件的名称也不是 &lt;code&gt;getty@tty1.service&lt;/code&gt; ，而是 &lt;code&gt;getty@.service&lt;/code&gt; ，这种配置文件叫做 「模板实例」 。&lt;/p&gt;
@@ -272,24 +272,24 @@
 &lt;p&gt;图源：&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/bootup.html#System%20Manager%20Bootup&#34;&gt;https://www.freedesktop.org/software/systemd/man/bootup.html#System Manager Bootup&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;配置文件-t2&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#配置文件-t2&#34;&gt;&lt;/a&gt;配置文件&lt;/h3&gt;
 &lt;p&gt;以 &lt;code&gt;multi-user.target&lt;/code&gt; 这个文件为例子，来简要说明一下 Target 的配置文件中的主要项目：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;# /lib/systemd/system/multi-user.target&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  SPDX-License-Identifier: LGPL-2.1+&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  This file is part of systemd.&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  systemd is free software; you can redistribute it and/or modify it&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  under the terms of the GNU Lesser General Public License as published by&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  the Free Software Foundation; either version 2.1 of the License, or&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;#  (at your option) any later version.&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# /lib/systemd/system/multi-user.target&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  SPDX-License-Identifier: LGPL-2.1+&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  This file is part of systemd.&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  systemd is free software; you can redistribute it and/or modify it&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  under the terms of the GNU Lesser General Public License as published by&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  the Free Software Foundation; either version 2.1 of the License, or&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;#  (at your option) any later version.&lt;/span&gt;
 
-&lt;span class=&#34;hljs-section&#34;&gt;[Unit]&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;Description&lt;/span&gt;=Multi-User System
-&lt;span class=&#34;hljs-attr&#34;&gt;Documentation&lt;/span&gt;=man:systemd.special(&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;)
-&lt;span class=&#34;hljs-attr&#34;&gt;Requires&lt;/span&gt;=basic.target
-&lt;span class=&#34;hljs-attr&#34;&gt;Conflicts&lt;/span&gt;=rescue.service rescue.target
-&lt;span class=&#34;hljs-attr&#34;&gt;After&lt;/span&gt;=basic.target rescue.service rescue.target
-&lt;span class=&#34;hljs-attr&#34;&gt;AllowIsolate&lt;/span&gt;=&lt;span class=&#34;hljs-literal&#34;&gt;yes&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;section&#34;&gt;[Unit]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;Description&lt;/span&gt;=Multi-User System
+&lt;span class=&#34;attr&#34;&gt;Documentation&lt;/span&gt;=man:systemd.special(&lt;span class=&#34;number&#34;&gt;7&lt;/span&gt;)
+&lt;span class=&#34;attr&#34;&gt;Requires&lt;/span&gt;=basic.target
+&lt;span class=&#34;attr&#34;&gt;Conflicts&lt;/span&gt;=rescue.service rescue.target
+&lt;span class=&#34;attr&#34;&gt;After&lt;/span&gt;=basic.target rescue.service rescue.target
+&lt;span class=&#34;attr&#34;&gt;AllowIsolate&lt;/span&gt;=&lt;span class=&#34;literal&#34;&gt;yes&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Requires&lt;/code&gt;: 要求于某个 Target 一起运行&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Conflicts&lt;/code&gt;: 冲突的 Target&lt;/li&gt;
@@ -345,33 +345,33 @@
 &lt;p&gt;使用 &lt;code&gt;ip addr&lt;/code&gt; 查看网卡名称，并记录下来&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/26/Ofh8CzvnYKPGsH7.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;切换到网卡配置文件目录&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;&lt;span class=&#34;hljs-built_in&#34;&gt;cd&lt;/span&gt; /etc/sysconfig/network-scripts/&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cd&lt;/span&gt; /etc/sysconfig/network-scripts/&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;编辑 &lt;code&gt;ifcfg-eth0&lt;/code&gt; 文件，将下方内容修改后填入&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;DEVICE&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;eth0&amp;quot;&lt;/span&gt;             &lt;span class=&#34;hljs-comment&#34;&gt;# 弹性网卡名称&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;NM_CONTROLLED&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;       &lt;span class=&#34;hljs-comment&#34;&gt;# 是否由 Network Manager 控制该网络接口&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;ONBOOT&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;              &lt;span class=&#34;hljs-comment&#34;&gt;# 系统启动时是否激活&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;IPADDR&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;172.21.0.10&amp;quot;&lt;/span&gt;      &lt;span class=&#34;hljs-comment&#34;&gt;# 弹性网卡上的 IP 地址&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;NETMASK&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;255.255.240.0&amp;quot;&lt;/span&gt;   &lt;span class=&#34;hljs-comment&#34;&gt;# 子网掩码&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;GATEWAY&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;172.21.0.1&amp;quot;&lt;/span&gt;      &lt;span class=&#34;hljs-comment&#34;&gt;# 网关&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;attr&#34;&gt;DEVICE&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;eth0&amp;quot;&lt;/span&gt;             &lt;span class=&#34;comment&#34;&gt;# 弹性网卡名称&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;NM_CONTROLLED&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;       &lt;span class=&#34;comment&#34;&gt;# 是否由 Network Manager 控制该网络接口&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;ONBOOT&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;              &lt;span class=&#34;comment&#34;&gt;# 系统启动时是否激活&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;IPADDR&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;172.21.0.10&amp;quot;&lt;/span&gt;      &lt;span class=&#34;comment&#34;&gt;# 弹性网卡上的 IP 地址&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;NETMASK&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;255.255.240.0&amp;quot;&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;# 子网掩码&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;GATEWAY&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;172.21.0.1&amp;quot;&lt;/span&gt;      &lt;span class=&#34;comment&#34;&gt;# 网关&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;其中 &lt;code&gt;IPADDR&lt;/code&gt; 填写主网卡的&lt;strong&gt;内网IP&lt;/strong&gt;。&lt;/li&gt;
 &lt;li&gt;子网掩码可以使用 &lt;a href=&#34;https://www.v2ex.com/tools/ipv4&#34;&gt;V2EX 提供的 IPv4 子网查询工具&lt;/a&gt; 查询对应的子网。&lt;/li&gt;
 &lt;li&gt;网关根据创建网卡时选择的子网而定。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;新建 &lt;code&gt;ifcfg-eth1&lt;/code&gt; 文件，将下方内容修改后填入&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;DEVICE&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;eth1&amp;quot;&lt;/span&gt;             &lt;span class=&#34;hljs-comment&#34;&gt;# 需配置的弹性网卡名称（此处是新添加的网卡名称）&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;NM_CONTROLLED&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;       &lt;span class=&#34;hljs-comment&#34;&gt;# 是否由 Network Manager 控制该网络接口&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;ONBOOT&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;              &lt;span class=&#34;hljs-comment&#34;&gt;# 系统启动时是否激活&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;IPADDR&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;172.21.0.12&amp;quot;&lt;/span&gt;      &lt;span class=&#34;hljs-comment&#34;&gt;# 弹性网卡上的 IP 地址&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;NETMASK&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;255.255.240.0&amp;quot;&lt;/span&gt;   &lt;span class=&#34;hljs-comment&#34;&gt;# 子网掩码&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# GATEWAY=&amp;quot;172.21.0.1&amp;quot;    # 网关（若与eth0的网关不同，需要删除注释并修改为正确的网关）&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;attr&#34;&gt;DEVICE&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;eth1&amp;quot;&lt;/span&gt;             &lt;span class=&#34;comment&#34;&gt;# 需配置的弹性网卡名称（此处是新添加的网卡名称）&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;NM_CONTROLLED&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;       &lt;span class=&#34;comment&#34;&gt;# 是否由 Network Manager 控制该网络接口&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;ONBOOT&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;              &lt;span class=&#34;comment&#34;&gt;# 系统启动时是否激活&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;IPADDR&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;172.21.0.12&amp;quot;&lt;/span&gt;      &lt;span class=&#34;comment&#34;&gt;# 弹性网卡上的 IP 地址&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;NETMASK&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;255.255.240.0&amp;quot;&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;# 子网掩码&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# GATEWAY=&amp;quot;172.21.0.1&amp;quot;    # 网关（若与eth0的网关不同，需要删除注释并修改为正确的网关）&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;其中 &lt;code&gt;IPADDR&lt;/code&gt; 填写新添加网卡的&lt;strong&gt;内网IP&lt;/strong&gt;。&lt;/li&gt;
 &lt;li&gt;子网掩码可以 &lt;a href=&#34;https://www.v2ex.com/tools/ipv4&#34;&gt;V2EX 提供的 IPv4 子网查询工具&lt;/a&gt; 查询对应的子网。&lt;/li&gt;
 &lt;li&gt;网关根据创建网卡时选择的子网而定。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;保存后重启网络服务。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;service network restart&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;service network restart&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/ReBSM4C9oF2HbVi.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;配置路由（可选）&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#配置路由（可选）&#34;&gt;&lt;/a&gt;配置路由（可选）&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -379,16 +379,16 @@
 您可通过策略路由让报文从哪个网卡进，并从该网卡返回。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;创建路由表&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#创建路由表&#34;&gt;&lt;/a&gt;创建路由表&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;&lt;span class=&#34;hljs-built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;10 t1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/iproute2/rt_tables
-&lt;span class=&#34;hljs-built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;20 t2&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/iproute2/rt_tables&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;10 t1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/iproute2/rt_tables
+&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;20 t2&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/iproute2/rt_tables&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;添加默认路由&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#添加默认路由&#34;&gt;&lt;/a&gt;添加默认路由&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;ip route add default dev eth0 via 172.21.0.1 table 10
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;ip route add default dev eth0 via 172.21.0.1 table 10
 ip route add default dev eth1 via 172.21.0.1 table 20&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;上述两个命令中，172.21.0.1要分别替换成主网卡所属子网的网关，以及辅助网卡所属子网的网关。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;配置策略路由&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#配置策略路由&#34;&gt;&lt;/a&gt;配置策略路由&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;ip rule add from 172.21.0.10 table 10
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;ip rule add from 172.21.0.10 table 10
 ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt; ]]></description>
         </item>
     </channel>

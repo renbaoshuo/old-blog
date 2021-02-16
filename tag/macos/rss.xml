@@ -10,12 +10,12 @@
         <category>随笔</category>
         <category>Git</category>
         <category>CTF</category>
-        <category>折腾</category>
         <category>Typecho</category>
         <category>Linux</category>
+        <category>折腾</category>
+        <category>网络</category>
         <category>笔记</category>
         <category>OI</category>
-        <category>网络</category>
         <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
@@ -45,7 +45,7 @@
 &lt;p&gt;解压 Unlocker.zip 内的所有文件到一个文件夹中，右键 &lt;code&gt;win-install.cmd&lt;/code&gt; ，选择“以管理员身份运行”，等待运行完毕即可。&lt;/p&gt;
 &lt;h3 id=&#34;Linux&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#Linux&#34;&gt;&lt;/a&gt;Linux&lt;/h3&gt;
 &lt;p&gt;使用以下命令解锁 VMware ：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;unzip unlocker.zip
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;unzip unlocker.zip
 chmod +x lnx-install.sh
 sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;检验方法：创建虚拟机时是否可以选择 macOS 系统。&lt;/p&gt;
@@ -84,10 +84,10 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;▲ 完成！&lt;/p&gt;
 &lt;h2 id=&#34;配置虚拟机&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#配置虚拟机&#34;&gt;&lt;/a&gt;配置虚拟机&lt;/h2&gt;
 &lt;p&gt;在 vmx 文件末尾添加以下内容并保存。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs ini&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;smc.version&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;hw.model&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;MacBookPro16,1&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;board-id&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mac-E1008331FDC96864&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-attr&#34;&gt;board-id.reflectHost&lt;/span&gt; = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;TRUE&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;attr&#34;&gt;smc.version&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;hw.model&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;MacBookPro16,1&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;board-id&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;Mac-E1008331FDC96864&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;board-id.reflectHost&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;TRUE&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;挂载安装镜像&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#挂载安装镜像&#34;&gt;&lt;/a&gt;挂载安装镜像&lt;/h2&gt;
 &lt;p&gt;点击“编辑虚拟机设置”，选择“CD/DVD”选项。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/12/13/KVdIk9ZXcqH2aBG.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;

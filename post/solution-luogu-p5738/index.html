@@ -14,62 +14,62 @@
         } else { 
             element.style.display = 'none';
         }
-    }</script><div class="post-container"><div class="post-detail gt-bg-theme-color-second gt-c-content-color-first"><article class="gt-post-content" id="main"><h1 class="post-title">【题解】P5738 歌唱比赛</h1><div class="post-info"><time class="post-time gt-c-content-color-first">· 2020 年 09 月 22 日 ·</time> <a href="/tags/%E9%A2%98%E8%A7%A3/" class="post-tag">#题解</a></div><hr><div class="post-content gt-c-content-color-first"><h2 id="题面"><a class="header-anchor" href="#题面"></a>题面</h2><h3 id="题目描述"><a class="header-anchor" href="#题目描述"></a>题目描述</h3><p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>≤</mo><mn>100</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">n(n\le 100)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 名同学参加歌唱比赛，并接受 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo stretchy="false">(</mo><mi>m</mi><mo>≤</mo><mn>20</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">m(m\le 20)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">m</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">2</span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 名评委的评分，评分范围是 0 到 10 分。这名同学的得分就是这些评委给分中去掉一个最高分，去掉一个最低分，剩下 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">m-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.66666em;vertical-align:-.08333em"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:.64444em;vertical-align:0"></span><span class="mord">2</span></span></span></span> 个评分的平均数。请问得分最高的同学分数是多少？评分保留 2 位小数。</p><h3 id="输入格式"><a class="header-anchor" href="#输入格式"></a>输入格式</h3><p>无</p><h3 id="输出格式"><a class="header-anchor" href="#输出格式"></a>输出格式</h3><p>无</p><h3 id="输入输出样例"><a class="header-anchor" href="#输入输出样例"></a>输入输出样例</h3><p><strong>输入#1</strong></p><pre><code class="hljs text">7 6
+    }</script><div class="post-container"><div class="post-detail gt-bg-theme-color-second gt-c-content-color-first"><article class="gt-post-content" id="main"><h1 class="post-title">【题解】P5738 歌唱比赛</h1><div class="post-info"><time class="post-time gt-c-content-color-first">· 2020 年 09 月 22 日 ·</time> <a href="/tags/%E9%A2%98%E8%A7%A3/" class="post-tag">#题解</a></div><hr><div class="post-content gt-c-content-color-first"><h2 id="题面"><a class="header-anchor" href="#题面"></a>题面</h2><h3 id="题目描述"><a class="header-anchor" href="#题目描述"></a>题目描述</h3><p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>≤</mo><mn>100</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">n(n\le 100)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 名同学参加歌唱比赛，并接受 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo stretchy="false">(</mo><mi>m</mi><mo>≤</mo><mn>20</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">m(m\le 20)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">m</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">2</span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 名评委的评分，评分范围是 0 到 10 分。这名同学的得分就是这些评委给分中去掉一个最高分，去掉一个最低分，剩下 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">m-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.66666em;vertical-align:-.08333em"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:.64444em;vertical-align:0"></span><span class="mord">2</span></span></span></span> 个评分的平均数。请问得分最高的同学分数是多少？评分保留 2 位小数。</p><h3 id="输入格式"><a class="header-anchor" href="#输入格式"></a>输入格式</h3><p>无</p><h3 id="输出格式"><a class="header-anchor" href="#输出格式"></a>输出格式</h3><p>无</p><h3 id="输入输出样例"><a class="header-anchor" href="#输入输出样例"></a>输入输出样例</h3><p><strong>输入#1</strong></p><pre><code class="highlight text">7 6
 4 7 2 6 10 7
 0 5 0 10 3 10
 2 6 8 4 3 6
 6 3 6 7 5 8
 5 9 3 3 8 1
 5 9 9 3 2 0
-5 8 0 4 1 10</code></pre><p><strong>输出#1</strong></p><pre><code class="hljs text">6.00</code></pre><h2 id="思路"><a class="header-anchor" href="#思路"></a>思路</h2><p>首先定义一个结构体，里面存放各个评委给出的分数、总分数和平均分。</p><p>然后写一个初始化函数：</p><pre><code class="hljs cpp">node() &#123;
-    <span class="hljs-built_in">memset</span>(<span class="hljs-keyword">this</span>-&gt;score, <span class="hljs-number">0x00</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">this</span>-&gt;score));
-    all = sum = <span class="hljs-number">0.00</span>;
-&#125;</code></pre><p>再写一个处理函数：</p><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">t</span><span class="hljs-params">(<span class="hljs-keyword">int</span> m)</span> </span>&#123;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;
-        <span class="hljs-built_in">cin</span> &gt;&gt; score[i];
+5 8 0 4 1 10</code></pre><p><strong>输出#1</strong></p><pre><code class="highlight text">6.00</code></pre><h2 id="思路"><a class="header-anchor" href="#思路"></a>思路</h2><p>首先定义一个结构体，里面存放各个评委给出的分数、总分数和平均分。</p><p>然后写一个初始化函数：</p><pre><code class="highlight cpp">node() &#123;
+    <span class="built_in">memset</span>(<span class="keyword">this</span>-&gt;score, <span class="number">0x00</span>, <span class="keyword">sizeof</span>(<span class="keyword">this</span>-&gt;score));
+    all = sum = <span class="number">0.00</span>;
+&#125;</code></pre><p>再写一个处理函数：</p><pre><code class="highlight cpp"><span class="function"><span class="keyword">void</span> <span class="title">t</span><span class="params">(<span class="keyword">int</span> m)</span> </span>&#123;
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;
+        <span class="built_in">cin</span> &gt;&gt; score[i];
     &#125;
-    <span class="hljs-built_in">std</span>::sort(score, score + m);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i + <span class="hljs-number">1</span> &lt; m; i++) &#123;
+    <span class="built_in">std</span>::sort(score, score + m);
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i + <span class="number">1</span> &lt; m; i++) &#123;
         sum += score[i];
     &#125;
-    all = sum / (m - <span class="hljs-number">2.00</span>);
-&#125;</code></pre><p>这个处理函数分为了三部分：<strong>读入</strong>、<strong>排序</strong>和<strong>按题目要求计算平均分</strong>。</p><h2 id="代码"><a class="header-anchor" href="#代码"></a>代码</h2><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
+    all = sum / (m - <span class="number">2.00</span>);
+&#125;</code></pre><p>这个处理函数分为了三部分：<strong>读入</strong>、<strong>排序</strong>和<strong>按题目要求计算平均分</strong>。</p><h2 id="代码"><a class="header-anchor" href="#代码"></a>代码</h2><pre><code class="highlight cpp"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span>
 
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
 
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span> &#123;</span>
-    <span class="hljs-keyword">int</span>    score[<span class="hljs-number">22</span>];
-    <span class="hljs-keyword">double</span> sum, all;
+<span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span>
+    <span class="keyword">int</span>    score[<span class="number">22</span>];
+    <span class="keyword">double</span> sum, all;
 
     node() &#123;
-        <span class="hljs-built_in">memset</span>(<span class="hljs-keyword">this</span>-&gt;score, <span class="hljs-number">0x00</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">this</span>-&gt;score));
-        all = sum = <span class="hljs-number">0.00</span>;
+        <span class="built_in">memset</span>(<span class="keyword">this</span>-&gt;score, <span class="number">0x00</span>, <span class="keyword">sizeof</span>(<span class="keyword">this</span>-&gt;score));
+        all = sum = <span class="number">0.00</span>;
     &#125;
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">t</span><span class="hljs-params">(<span class="hljs-keyword">int</span> m)</span> </span>&#123;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;
-            <span class="hljs-built_in">cin</span> &gt;&gt; score[i];
+    <span class="function"><span class="keyword">void</span> <span class="title">t</span><span class="params">(<span class="keyword">int</span> m)</span> </span>&#123;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;
+            <span class="built_in">cin</span> &gt;&gt; score[i];
         &#125;
-        <span class="hljs-built_in">std</span>::sort(score, score + m);
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i + <span class="hljs-number">1</span> &lt; m; i++) &#123;
+        <span class="built_in">std</span>::sort(score, score + m);
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i + <span class="number">1</span> &lt; m; i++) &#123;
             sum += score[i];
         &#125;
-        all = sum / (m - <span class="hljs-number">2.00</span>);
+        all = sum / (m - <span class="number">2.00</span>);
     &#125;
 &#125;;
 
-<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(node a, node b)</span> </span>&#123;
-    <span class="hljs-keyword">return</span> a.all &gt; b.all;
+<span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a, node b)</span> </span>&#123;
+    <span class="keyword">return</span> a.all &gt; b.all;
 &#125;
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">int</span>  n, m;
-    node student[<span class="hljs-number">105</span>];
-    <span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; m;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;
+    <span class="keyword">int</span>  n, m;
+    node student[<span class="number">105</span>];
+    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;
         student[i].t(m);
     &#125;
     sort(student, student + n, cmp);
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.2lf&quot;</span>, student[<span class="hljs-number">0</span>].all);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="built_in">printf</span>(<span class="string">&quot;%.2lf&quot;</span>, student[<span class="number">0</span>].all);
+    <span class="keyword">return</span> <span class="number">0</span>;
 &#125;</code></pre></div></article></div><div class="copyright gt-bg-theme-color-second gt-c-content-color-first"><ul class="post-copyright"><li class="post-copyright-author"><b>本文作者：</b> 宝硕</li><li class="post-copyright-link"><b>本文链接：</b> <a href="https://blog.baoshuo.ren/post/solution-luogu-p5738/" title="【题解】P5738 歌唱比赛">https://blog.baoshuo.ren/post/solution-luogu-p5738/</a></li><li class="post-copyright-license"><b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处。</li></ul></div><div class="afdian gt-bg-theme-color-second gt-c-content-color-first"><div class="donation-label">喜欢这篇文章？为什么不考虑打赏一下作者呢？</div><a class="afdian-button button" href="https://afdian.net/@baoshuo" rel="nofollow noopener" target="_blank">爱发电</a></div><div class="next-prev-post"><div class="prev-post"><div class="prev gt-c-content-color-first">上一篇：<a href="/post/solution-luogu-p4994/" class="post-title gt-a-link">【题解】P4994 终于结束的起点</a></div></div><div class="next-post"><div class="next gt-c-content-color-first">下一篇：<a href="/post/solution-luogu-p5660/" class="post-title gt-a-link">【题解】P5660 数字游戏</a></div></div></div><div id="disqus_thread" class="gt-c-content-color-first"></div><script>var disqus_options={shortname:"baoshuo",api:"https://baoshuo.ren/api/disqus/",apikey:"SysuSvnZJi7nYvWwH14fu42b1CowDBsAH3Ol3UIsqdRbEcQwGFpWuUPkcX93ffCJ",identifier:location.pathname,title:"【题解】P5738 歌唱比赛",siteName:"宝硕博客",admin:"renbaoshuo"}</script><script defer src="https://cdn.jsdelivr.net/gh/renbaoshuo/blog/scripts/disqus.lazyload.min.js"></script></div><div class="site-footer gt-c-content-color-first"><div class="footer-main"><span style="text-align:right;float:right">Theme <a href="https://github.com/renbaoshuo/hexo-theme-pure" target="_blank">Pure</a> | Powered by <a href="https://hexo.io" target="_blank">Hexo</a></span><span style="text-align:left"><a href="/atom.xml" target="_blank">RSS</a> | <a target="_blank" href="https://beian.miit.gov.cn">冀ICP备15024669号</a> | <a target="_blank" href="https://twitter.com/renbaoshuo">Twitter @renbaoshuo</a></span></div></div><script async src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js"></script></div></div></body></html>

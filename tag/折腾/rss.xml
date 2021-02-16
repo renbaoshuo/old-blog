@@ -10,12 +10,12 @@
         <category>随笔</category>
         <category>Git</category>
         <category>CTF</category>
-        <category>折腾</category>
         <category>Typecho</category>
         <category>Linux</category>
+        <category>折腾</category>
+        <category>网络</category>
         <category>笔记</category>
         <category>OI</category>
-        <category>网络</category>
         <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
@@ -31,93 +31,93 @@
 &lt;h2 id=&#34;服务器端操作&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#服务器端操作&#34;&gt;&lt;/a&gt;服务器端操作&lt;/h2&gt;
 &lt;h3 id=&#34;安装-nginx&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#安装-nginx&#34;&gt;&lt;/a&gt;安装 nginx&lt;/h3&gt;
 &lt;p&gt;apt 一把梭，省时又省力。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs shell&#34;&gt;apt install nginx -y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight shell&#34;&gt;apt install nginx -y&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;配置-nginx&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#配置-nginx&#34;&gt;&lt;/a&gt;配置 nginx&lt;/h3&gt;
 &lt;p&gt;简简单单配置了一下，没有什么过于复杂的东西。&lt;/p&gt;
 &lt;p&gt;在申请 SSL 证书之前，不要写 HTTPS 的配置。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;server&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;      &lt;span class=&#34;hljs-number&#34;&gt;80&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;      [::]:&lt;span class=&#34;hljs-number&#34;&gt;80&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;server_name&lt;/span&gt; blog.baoshuo.ren;
+&lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;section&#34;&gt;server&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;listen&lt;/span&gt;      &lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;listen&lt;/span&gt;      [::]:&lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;server_name&lt;/span&gt; blog.baoshuo.ren;
 
-    &lt;span class=&#34;hljs-comment&#34;&gt;# ACME-challenge&lt;/span&gt;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt;&lt;span class=&#34;hljs-regexp&#34;&gt; ^~&lt;/span&gt; /.well-known/acme-challenge/ &amp;#123;
-        &lt;span class=&#34;hljs-attribute&#34;&gt;allow&lt;/span&gt; all;
-        &lt;span class=&#34;hljs-attribute&#34;&gt;root&lt;/span&gt; /var/www/_letsencrypt;
+    &lt;span class=&#34;comment&#34;&gt;# ACME-challenge&lt;/span&gt;
+    &lt;span class=&#34;attribute&#34;&gt;location&lt;/span&gt;&lt;span class=&#34;regexp&#34;&gt; ^~&lt;/span&gt; /.well-known/acme-challenge/ &amp;#123;
+        &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; all;
+        &lt;span class=&#34;attribute&#34;&gt;root&lt;/span&gt; /var/www/_letsencrypt;
     &amp;#125;
 
-    &lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt; / &amp;#123;
-        &lt;span class=&#34;hljs-attribute&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;301&lt;/span&gt; https://blog.baoshuo.ren$request_uri;
+    &lt;span class=&#34;attribute&#34;&gt;location&lt;/span&gt; / &amp;#123;
+        &lt;span class=&#34;attribute&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;301&lt;/span&gt; https://blog.baoshuo.ren$request_uri;
     &amp;#125;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;申请-SSL-证书&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#申请-SSL-证书&#34;&gt;&lt;/a&gt;申请 SSL 证书&lt;/h3&gt;
 &lt;p&gt;由于笔者懒得每年换证书，所以就用了 &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let’s Encrypt&lt;/a&gt; + &lt;a href=&#34;https://acme.sh&#34;&gt;acme.sh&lt;/a&gt; 的组合套装来配置 SSL 。
 当然，ECC 证书也是少不了的。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;acme.sh --issue -d baoshuo.ren -d www.baoshuo.ren -d blog.baoshuo.ren \
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;acme.sh --issue -d baoshuo.ren -d www.baoshuo.ren -d blog.baoshuo.ren \
     -w /var/www/_letsencrypt/ \
-    --renew-hook &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;acme.sh --install-cert -d baoshuo.ren \&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    --key-file /***/baoshuo.ren.key \&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    --fullchain-file /***/baoshuo.ren.cer \&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    --reloadcmd \&amp;quot;service nginx force-reload\&amp;quot;&amp;quot;&lt;/span&gt;
+    --renew-hook &lt;span class=&#34;string&#34;&gt;&amp;quot;acme.sh --install-cert -d baoshuo.ren \&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    --key-file /***/baoshuo.ren.key \&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    --fullchain-file /***/baoshuo.ren.cer \&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    --reloadcmd \&amp;quot;service nginx force-reload\&amp;quot;&amp;quot;&lt;/span&gt;
 acme.sh --issue --keylength ec-256 \
     -d baoshuo.ren -d www.baoshuo.ren -d blog.baoshuo.ren \
     -w /var/www/_letsencrypt/ \
-    --renew-hook &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;acme.sh --install-cert -d baoshuo.ren --ecc \&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    --key-file /***/baoshuo.ren.ecc.key \&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    --fullchain-file /***/baoshuo.ren.ecc.cer \&lt;/span&gt;
-&lt;span class=&#34;hljs-string&#34;&gt;    --reloadcmd \&amp;quot;service nginx force-reload\&amp;quot;&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+    --renew-hook &lt;span class=&#34;string&#34;&gt;&amp;quot;acme.sh --install-cert -d baoshuo.ren --ecc \&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    --key-file /***/baoshuo.ren.ecc.key \&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    --fullchain-file /***/baoshuo.ren.ecc.cer \&lt;/span&gt;
+&lt;span class=&#34;string&#34;&gt;    --reloadcmd \&amp;quot;service nginx force-reload\&amp;quot;&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;申请完成后，将 RSA 和 ECC 证书添加到 nginx 配置中，在配置文件中写入以下内容：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;server&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;                               &lt;span class=&#34;hljs-number&#34;&gt;443&lt;/span&gt; ssl http2;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;                               [::]:&lt;span class=&#34;hljs-number&#34;&gt;443&lt;/span&gt; ssl http2;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;server_name&lt;/span&gt;                          blog.baoshuo.ren;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;root&lt;/span&gt;                                 /var/www/blog/;
+&lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;section&#34;&gt;server&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;listen&lt;/span&gt;                               &lt;span class=&#34;number&#34;&gt;443&lt;/span&gt; ssl http2;
+    &lt;span class=&#34;attribute&#34;&gt;listen&lt;/span&gt;                               [::]:&lt;span class=&#34;number&#34;&gt;443&lt;/span&gt; ssl http2;
+    &lt;span class=&#34;attribute&#34;&gt;server_name&lt;/span&gt;                          blog.baoshuo.ren;
+    &lt;span class=&#34;attribute&#34;&gt;root&lt;/span&gt;                                 /var/www/blog/;
 
-    &lt;span class=&#34;hljs-comment&#34;&gt;# SSL&lt;/span&gt;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_certificate&lt;/span&gt;                      /***/baoshuo.ren.cer;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_certificate_key&lt;/span&gt;                  /***/baoshuo.ren.key;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_certificate&lt;/span&gt;                      /***/baoshuo.ren.ecc.cer;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_certificate_key&lt;/span&gt;                  /***/baoshuo.ren.ecc.key;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_protocols&lt;/span&gt;                        TLSv1.&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; TLSv1.&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_ciphers&lt;/span&gt;                          ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class=&#34;hljs-literal&#34;&gt;off&lt;/span&gt;;
+    &lt;span class=&#34;comment&#34;&gt;# SSL&lt;/span&gt;
+    &lt;span class=&#34;attribute&#34;&gt;ssl_certificate&lt;/span&gt;                      /***/baoshuo.ren.cer;
+    &lt;span class=&#34;attribute&#34;&gt;ssl_certificate_key&lt;/span&gt;                  /***/baoshuo.ren.key;
+    &lt;span class=&#34;attribute&#34;&gt;ssl_certificate&lt;/span&gt;                      /***/baoshuo.ren.ecc.cer;
+    &lt;span class=&#34;attribute&#34;&gt;ssl_certificate_key&lt;/span&gt;                  /***/baoshuo.ren.ecc.key;
+    &lt;span class=&#34;attribute&#34;&gt;ssl_protocols&lt;/span&gt;                        TLSv1.&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt; TLSv1.&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;ssl_ciphers&lt;/span&gt;                          ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+    &lt;span class=&#34;attribute&#34;&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;off&lt;/span&gt;;
 
-    &lt;span class=&#34;hljs-comment&#34;&gt;# HSTS&lt;/span&gt;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; Strict-Transport-Security &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;max-age=31536000&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;comment&#34;&gt;# HSTS&lt;/span&gt;
+    &lt;span class=&#34;attribute&#34;&gt;add_header&lt;/span&gt; Strict-Transport-Security &lt;span class=&#34;string&#34;&gt;&amp;#x27;max-age=31536000&amp;#x27;&lt;/span&gt;;
 
-    &lt;span class=&#34;hljs-comment&#34;&gt;# logging&lt;/span&gt;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;error_log&lt;/span&gt;                            /var/log/nginx/blog.baoshuo.ren.&lt;span class=&#34;hljs-literal&#34;&gt;error&lt;/span&gt;.log &lt;span class=&#34;hljs-literal&#34;&gt;warn&lt;/span&gt;;
+    &lt;span class=&#34;comment&#34;&gt;# logging&lt;/span&gt;
+    &lt;span class=&#34;attribute&#34;&gt;error_log&lt;/span&gt;                            /var/log/nginx/blog.baoshuo.ren.&lt;span class=&#34;literal&#34;&gt;error&lt;/span&gt;.log &lt;span class=&#34;literal&#34;&gt;warn&lt;/span&gt;;
 
-    &lt;span class=&#34;hljs-comment&#34;&gt;# 404 page&lt;/span&gt;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;error_page&lt;/span&gt;                           &lt;span class=&#34;hljs-number&#34;&gt;404&lt;/span&gt; /&lt;span class=&#34;hljs-number&#34;&gt;404&lt;/span&gt;.html;
+    &lt;span class=&#34;comment&#34;&gt;# 404 page&lt;/span&gt;
+    &lt;span class=&#34;attribute&#34;&gt;error_page&lt;/span&gt;                           &lt;span class=&#34;number&#34;&gt;404&lt;/span&gt; /&lt;span class=&#34;number&#34;&gt;404&lt;/span&gt;.html;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;上方使用的 SSL 配置是 Mozilla 推荐的现代化配置&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt; ，如果需要更好的兼容性，可以使用 Mozilla 提供的中等安全性配置&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt; ：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs apache&#34;&gt;&lt;span class=&#34;hljs-attribute&#34;&gt;ssl_protocols&lt;/span&gt; TLSv&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; TLSv&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;;
-&lt;span class=&#34;hljs-attribute&#34;&gt;ssl_ciphers&lt;/span&gt; ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-CHACHA&lt;span class=&#34;hljs-number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;hljs-number&#34;&gt;1305&lt;/span&gt;:ECDHE-RSA-CHACHA&lt;span class=&#34;hljs-number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;hljs-number&#34;&gt;1305&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:DHE-RSA-CHACHA&lt;span class=&#34;hljs-number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;hljs-number&#34;&gt;1305&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA:DHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;hljs-number&#34;&gt;384&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;-SHA:AES&lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;-SHA:DES-CBC&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;-SHA;
-&lt;span class=&#34;hljs-attribute&#34;&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight apache&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;ssl_protocols&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;;
+&lt;span class=&#34;attribute&#34;&gt;ssl_ciphers&lt;/span&gt; ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-CHACHA&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;number&#34;&gt;1305&lt;/span&gt;:ECDHE-RSA-CHACHA&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;number&#34;&gt;1305&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:DHE-RSA-CHACHA&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;number&#34;&gt;1305&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA:AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA:DES-CBC&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;-SHA;
+&lt;span class=&#34;attribute&#34;&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;将博客文件同步到服务器上&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#将博客文件同步到服务器上&#34;&gt;&lt;/a&gt;将博客文件同步到服务器上&lt;/h2&gt;
 &lt;p&gt;在 &lt;code&gt;.github/workflows&lt;/code&gt; 目录下创建一个 &lt;code&gt;server.yml&lt;/code&gt; 文件，写入以下内容：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs yaml&#34;&gt;&lt;span class=&#34;hljs-attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;Deploy&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;blog&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;Server&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight yaml&#34;&gt;&lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Deploy&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;blog&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Server&lt;/span&gt;
 
-&lt;span class=&#34;hljs-attr&#34;&gt;on:&lt;/span&gt;
-  &lt;span class=&#34;hljs-attr&#34;&gt;push:&lt;/span&gt;
-    &lt;span class=&#34;hljs-attr&#34;&gt;branches:&lt;/span&gt; [ &lt;span class=&#34;hljs-string&#34;&gt;master&lt;/span&gt; ]
-  &lt;span class=&#34;hljs-attr&#34;&gt;workflow_dispatch:&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;on:&lt;/span&gt;
+  &lt;span class=&#34;attr&#34;&gt;push:&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;branches:&lt;/span&gt; [ &lt;span class=&#34;string&#34;&gt;master&lt;/span&gt; ]
+  &lt;span class=&#34;attr&#34;&gt;workflow_dispatch:&lt;/span&gt;
 
-&lt;span class=&#34;hljs-attr&#34;&gt;jobs:&lt;/span&gt;
-  &lt;span class=&#34;hljs-attr&#34;&gt;deploy:&lt;/span&gt;
-    &lt;span class=&#34;hljs-attr&#34;&gt;runs-on:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;ubuntu-latest&lt;/span&gt;
-    &lt;span class=&#34;hljs-attr&#34;&gt;steps:&lt;/span&gt;
-      &lt;span class=&#34;hljs-bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;Checkout&lt;/span&gt;
-        &lt;span class=&#34;hljs-attr&#34;&gt;uses:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;actions/checkout@v2&lt;/span&gt;
-      &lt;span class=&#34;hljs-bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;Deploy&lt;/span&gt;
-        &lt;span class=&#34;hljs-attr&#34;&gt;uses:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;easingthemes/ssh-deploy@v2.1.5&lt;/span&gt;
-        &lt;span class=&#34;hljs-attr&#34;&gt;env:&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;SSH_PRIVATE_KEY:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.SSH_PRIVATE_KEY&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;ARGS:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;-avz --delete  --exclude &amp;#x27;.git/*&amp;#x27; --exclude &amp;#x27;.github/*&amp;#x27; --exclude &amp;#x27;.gitlab-ci.yml&amp;#x27; --exclude &amp;#x27;.nojekyll&amp;#x27;&amp;quot;&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;REMOTE_HOST:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.REMOTE_HOST&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;REMOTE_USER:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.REMOTE_USER&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;
-          &lt;span class=&#34;hljs-attr&#34;&gt;TARGET:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;secrets.TARGET&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;attr&#34;&gt;jobs:&lt;/span&gt;
+  &lt;span class=&#34;attr&#34;&gt;deploy:&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;runs-on:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;ubuntu-latest&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;steps:&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Checkout&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;uses:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;actions/checkout@v2&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Deploy&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;uses:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;easingthemes/ssh-deploy@v2.1.5&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;env:&lt;/span&gt;
+          &lt;span class=&#34;attr&#34;&gt;SSH_PRIVATE_KEY:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;secrets.SSH_PRIVATE_KEY&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;
+          &lt;span class=&#34;attr&#34;&gt;ARGS:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;-avz --delete  --exclude &amp;#x27;.git/*&amp;#x27; --exclude &amp;#x27;.github/*&amp;#x27; --exclude &amp;#x27;.gitlab-ci.yml&amp;#x27; --exclude &amp;#x27;.nojekyll&amp;#x27;&amp;quot;&lt;/span&gt;
+          &lt;span class=&#34;attr&#34;&gt;REMOTE_HOST:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;secrets.REMOTE_HOST&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;
+          &lt;span class=&#34;attr&#34;&gt;REMOTE_USER:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;secrets.REMOTE_USER&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;
+          &lt;span class=&#34;attr&#34;&gt;TARGET:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;$&amp;#123;&amp;#123;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;secrets.TARGET&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#125;&amp;#125;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;之后在 &lt;code&gt;https://github.com/&amp;#123;username&amp;#125;/&amp;#123;repo&amp;#125;/settings/secrets/actions&lt;/code&gt; 中添加四个 Secrets 。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -167,175 +167,175 @@ acme.sh --issue --keylength ec-256 \
             <description><![CDATA[ &lt;p&gt;截至目前，洛谷已经有了近两万道题目和四十余万名用户。本代码爬取了一些样本，以供后续（可能）的数据分析。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
 &lt;p&gt;本次爬取遵守洛谷的 &lt;code&gt;robots.txt&lt;/code&gt; 中的要求，不爬取提交记录页面。为了避免影响洛谷的正常运行，脚本只采用单线程进行爬取。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs groovy&#34;&gt;User-&lt;span class=&#34;hljs-attr&#34;&gt;Agent:&lt;/span&gt; *
-&lt;span class=&#34;hljs-attr&#34;&gt;Disallow:&lt;/span&gt; /record
-&lt;span class=&#34;hljs-attr&#34;&gt;Disallow:&lt;/span&gt; /recordnew&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight groovy&#34;&gt;User-&lt;span class=&#34;attr&#34;&gt;Agent:&lt;/span&gt; *
+&lt;span class=&#34;attr&#34;&gt;Disallow:&lt;/span&gt; /record
+&lt;span class=&#34;attr&#34;&gt;Disallow:&lt;/span&gt; /recordnew&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;爬取题目信息&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#爬取题目信息&#34;&gt;&lt;/a&gt;爬取题目信息&lt;/h2&gt;
 &lt;h3 id=&#34;题目数据获取&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#题目数据获取&#34;&gt;&lt;/a&gt;题目数据获取&lt;/h3&gt;
 &lt;p&gt;先使用 &lt;code&gt;curl&lt;/code&gt; 获取洛谷的题目页面：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/JageUdcpXTthIjM.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看出我们需要的数据都在传入给 &lt;code&gt;decodeURIComponent()&lt;/code&gt; 函数的字符串中，正则匹配取出即可。&lt;/p&gt;
 &lt;p&gt;下面是代码实现：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# coding: utf-8&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# coding: utf-8&lt;/span&gt;
 
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; requests
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; re
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; json
-&lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; urllib.parse &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; unquote
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; requests
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; re
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; json
+&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt; urllib.parse &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; unquote
 
-&lt;span class=&#34;hljs-comment&#34;&gt;# 设置请求头&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# 设置请求头&lt;/span&gt;
 headers = &amp;#123;
-    &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;User-Agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36 Spider/0.1&amp;quot;&lt;/span&gt;
+    &lt;span class=&#34;string&#34;&gt;&amp;quot;User-Agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36 Spider/0.1&amp;quot;&lt;/span&gt;
 &amp;#125;
 
-&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;getProblemJSON&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;pid&lt;/span&gt;):&lt;/span&gt;
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(unquote(&lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(re.findall(&lt;span class=&#34;hljs-string&#34;&gt;r&amp;#x27;decodeURIComponent\(&amp;quot;(.*)&amp;quot;\)&amp;#x27;&lt;/span&gt;, requests.get(url=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://www.luogu.com.cn/problem/P1000&amp;quot;&lt;/span&gt;, headers=headers).text)[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;])))
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;getProblemJSON&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;pid&lt;/span&gt;):&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; json.loads(unquote(&lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt;(re.findall(&lt;span class=&#34;string&#34;&gt;r&amp;#x27;decodeURIComponent\(&amp;quot;(.*)&amp;quot;\)&amp;#x27;&lt;/span&gt;, requests.get(url=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://www.luogu.com.cn/problem/P1000&amp;quot;&lt;/span&gt;, headers=headers).text)[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;])))
 
-data = getProblemJSON(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;P1000&amp;quot;&lt;/span&gt;)
-print(json.dumps(data[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;currentData&amp;#x27;&lt;/span&gt;], sort_keys=&lt;span class=&#34;hljs-literal&#34;&gt;True&lt;/span&gt;, indent=&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
+data = getProblemJSON(&lt;span class=&#34;string&#34;&gt;&amp;quot;P1000&amp;quot;&lt;/span&gt;)
+print(json.dumps(data[&lt;span class=&#34;string&#34;&gt;&amp;#x27;currentData&amp;#x27;&lt;/span&gt;], sort_keys=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;, indent=&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;scode warn&#34;&gt;&lt;p class=&#34;scode-title&#34;&gt;Update at 2021/02/05&lt;/p&gt;&lt;p&gt;添加参数 &lt;code&gt;_contentOnly=1&lt;/code&gt; 可以直接获取JSON格式的信息，无需再正则匹配。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs diff&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;--- a/tools/spider.py&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;+++ b/tools/spider.py&lt;/span&gt;
-&lt;span class=&#34;hljs-meta&#34;&gt;@@ -19,8 +19,7 @@&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight diff&#34;&gt;&lt;span class=&#34;comment&#34;&gt;--- a/tools/spider.py&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;+++ b/tools/spider.py&lt;/span&gt;
+&lt;span class=&#34;meta&#34;&gt;@@ -19,8 +19,7 @@&lt;/span&gt;
  def getProblem(pid):
-&lt;span class=&#34;hljs-deletion&#34;&gt;-    url = f&amp;quot;https://www.luogu.com.cn/problem/&amp;#123;pid&amp;#125;&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-deletion&#34;&gt;-    redata = re.findall(r&amp;#x27;decodeURIComponent\(&amp;quot;(.*)&amp;quot;\)&amp;#x27;,&lt;/span&gt;
-&lt;span class=&#34;hljs-deletion&#34;&gt;-                        requests.get(url, headers=headers).text)&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+    url = f&amp;quot;https://www.luogu.com.cn/problem/&amp;#123;pid&amp;#125;?_contentOnly=1&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+    redata = requests.get(url, headers=headers).text&lt;/span&gt;
+&lt;span class=&#34;deletion&#34;&gt;-    url = f&amp;quot;https://www.luogu.com.cn/problem/&amp;#123;pid&amp;#125;&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;deletion&#34;&gt;-    redata = re.findall(r&amp;#x27;decodeURIComponent\(&amp;quot;(.*)&amp;quot;\)&amp;#x27;,&lt;/span&gt;
+&lt;span class=&#34;deletion&#34;&gt;-                        requests.get(url, headers=headers).text)&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+    url = f&amp;quot;https://www.luogu.com.cn/problem/&amp;#123;pid&amp;#125;?_contentOnly=1&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+    redata = requests.get(url, headers=headers).text&lt;/span&gt;
      if len(redata) == 0:
          return &amp;#123; &amp;quot;code&amp;quot;: 403 &amp;#125;
      else:
-&lt;span class=&#34;hljs-deletion&#34;&gt;-        return json.loads(unquote(redata[0]))&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        return json.loads(redata)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&#34;deletion&#34;&gt;-        return json.loads(unquote(redata[0]))&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        return json.loads(redata)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&#34;处理题目数据&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#处理题目数据&#34;&gt;&lt;/a&gt;处理题目数据&lt;/h3&gt;
 &lt;p&gt;这里只留下 &lt;code&gt;currentData.problem&lt;/code&gt; 字段里面的内容即可。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# coding: utf-8&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# coding: utf-8&lt;/span&gt;
 
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; requests
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; re
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; json
-&lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; urllib.parse &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; unquote
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; requests
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; re
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; json
+&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt; urllib.parse &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; unquote
 
-f = &lt;span class=&#34;hljs-built_in&#34;&gt;open&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;problems.json&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;w&amp;#x27;&lt;/span&gt;)
+f = &lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;problems.json&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;w&amp;#x27;&lt;/span&gt;)
 res = []
 
 headers = &amp;#123;
-    &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;user-agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36 spider/0.1&amp;quot;&lt;/span&gt;,
+    &lt;span class=&#34;string&#34;&gt;&amp;quot;user-agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36 spider/0.1&amp;quot;&lt;/span&gt;,
 &amp;#125;
 
 
-&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;getProblem&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;pid&lt;/span&gt;):&lt;/span&gt;
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(requests.get(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;https://www.luogu.com.cn/problem/&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;?_contentOnly=1&amp;quot;&lt;/span&gt;, headers=headers).text)[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;currentData&amp;#x27;&lt;/span&gt;]
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;getProblem&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;pid&lt;/span&gt;):&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; json.loads(requests.get(&lt;span class=&#34;string&#34;&gt;f&amp;quot;https://www.luogu.com.cn/problem/&lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;?_contentOnly=1&amp;quot;&lt;/span&gt;, headers=headers).text)[&lt;span class=&#34;string&#34;&gt;&amp;#x27;currentData&amp;#x27;&lt;/span&gt;]
 
 
-&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;1010&lt;/span&gt;):
+&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1000&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1010&lt;/span&gt;):
     tmpdict = &amp;#123;&amp;#125;
-    tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;pid&amp;quot;&lt;/span&gt;] = &lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;P&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;i&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;
-    tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = getProblem(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;P&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;i&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;)[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
+    tmpdict[&lt;span class=&#34;string&#34;&gt;&amp;quot;pid&amp;quot;&lt;/span&gt;] = &lt;span class=&#34;string&#34;&gt;f&amp;quot;P&lt;span class=&#34;subst&#34;&gt;&amp;#123;i&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;
+    tmpdict[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = getProblem(&lt;span class=&#34;string&#34;&gt;f&amp;quot;P&lt;span class=&#34;subst&#34;&gt;&amp;#123;i&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;)[&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
     res.append(tmpdict)
 
-&lt;span class=&#34;hljs-comment&#34;&gt;# print(res)&lt;/span&gt;
-f.write(json.dumps(res, indent=&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;).replace(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;\\t&amp;quot;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;    &amp;quot;&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;comment&#34;&gt;# print(res)&lt;/span&gt;
+f.write(json.dumps(res, indent=&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;).replace(&lt;span class=&#34;string&#34;&gt;&amp;quot;\\t&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;    &amp;quot;&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;最终代码&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#最终代码&#34;&gt;&lt;/a&gt;最终代码&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;# coding: utf-8&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# coding: utf-8&lt;/span&gt;
 
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; requests
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; json
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; time
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; pymongo
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; requests
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; json
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; time
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; pymongo
 
-dbclient = pymongo.MongoClient(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
-luogudb = dbclient[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
-dbcol = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
+dbclient = pymongo.MongoClient(&lt;span class=&#34;string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
+luogudb = dbclient[&lt;span class=&#34;string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
+dbcol = luogudb[&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
 
 headers = &amp;#123;
-    &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;user-agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36 spider/0.1&amp;quot;&lt;/span&gt;,
+    &lt;span class=&#34;string&#34;&gt;&amp;quot;user-agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36 spider/0.1&amp;quot;&lt;/span&gt;,
 &amp;#125;
 
 
-&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;getProblem&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;pid&lt;/span&gt;):&lt;/span&gt;
-    url = &lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;https://www.luogu.com.cn/problem/&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;?_contentOnly=1&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;getProblem&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;pid&lt;/span&gt;):&lt;/span&gt;
+    url = &lt;span class=&#34;string&#34;&gt;f&amp;quot;https://www.luogu.com.cn/problem/&lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;?_contentOnly=1&amp;quot;&lt;/span&gt;
     redata = requests.get(url, headers=headers).text
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(redata)
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; json.loads(redata)
 
-&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;7103&lt;/span&gt;):
-    pid = &lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;P&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;i&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;
-    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(dbcol.find(&amp;#123;&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;pid&amp;#x27;&lt;/span&gt;: pid&amp;#125;)) == []:
+&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1000&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;7103&lt;/span&gt;):
+    pid = &lt;span class=&#34;string&#34;&gt;f&amp;quot;P&lt;span class=&#34;subst&#34;&gt;&amp;#123;i&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;(dbcol.find(&amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;#x27;pid&amp;#x27;&lt;/span&gt;: pid&amp;#125;)) == []:
         tmpdict = &amp;#123;&amp;#125;
-        tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;pid&amp;quot;&lt;/span&gt;] = pid
+        tmpdict[&lt;span class=&#34;string&#34;&gt;&amp;quot;pid&amp;quot;&lt;/span&gt;] = pid
         tmpdata = getProblem(pid)
-        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;code&amp;quot;&lt;/span&gt;] == &lt;span class=&#34;hljs-number&#34;&gt;200&lt;/span&gt;:
-            tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = getProblem(pid)[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;currentData&amp;quot;&lt;/span&gt;][&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
+        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;string&#34;&gt;&amp;quot;code&amp;quot;&lt;/span&gt;] == &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;:
+            tmpdict[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = getProblem(pid)[&lt;span class=&#34;string&#34;&gt;&amp;quot;currentData&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
             dbcol.insert_one(tmpdict)
-            print(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;Successfully get problem &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
-            time.sleep(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;)
-        &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-            print(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;Fail to get problem &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
-    &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-        print(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;Problem &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+            print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Successfully get problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
+            time.sleep(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;)
+        &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
+            print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Fail to get problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
+    &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
+        print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;有关于数据库读写的部分请参考下文的 &lt;a href=&#34;#%E6%95%B0%E6%8D%AE%E5%BA%93&#34;&gt;数据库&lt;/a&gt; 部分。&lt;/p&gt;
 &lt;h2 id=&#34;爬取用户信息&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#爬取用户信息&#34;&gt;&lt;/a&gt;爬取用户信息&lt;/h2&gt;
 &lt;p&gt;结构与题目爬虫类似，故不再作代码说明。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; json
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; time
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; pymongo
-&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; requests
+&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; json
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; time
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; pymongo
+&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; requests
 
-dbclient = pymongo.MongoClient(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
-luogudb = dbclient[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
-dbcol = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;]
+dbclient = pymongo.MongoClient(&lt;span class=&#34;string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
+luogudb = dbclient[&lt;span class=&#34;string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
+dbcol = luogudb[&lt;span class=&#34;string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;]
 
-headers = &amp;#123; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;User-Agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36&amp;quot;&lt;/span&gt;, &amp;#125;
+headers = &amp;#123; &lt;span class=&#34;string&#34;&gt;&amp;quot;User-Agent&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4331.0 Safari/537.36&amp;quot;&lt;/span&gt;, &amp;#125;
 
-&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;getUser&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;uid&lt;/span&gt;):&lt;/span&gt;
-    url = &lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;https://www.luogu.com.cn/user/&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;?_contentOnly=1&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;getUser&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;uid&lt;/span&gt;):&lt;/span&gt;
+    url = &lt;span class=&#34;string&#34;&gt;f&amp;quot;https://www.luogu.com.cn/user/&lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;?_contentOnly=1&amp;quot;&lt;/span&gt;
     redata = requests.get(url, headers=headers).text
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; json.loads(redata)
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; json.loads(redata)
 
-&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; uid &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;):
-    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(dbcol.find(&amp;#123;&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;uid&amp;#x27;&lt;/span&gt;: uid&amp;#125;)) == []:
+&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; uid &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;):
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;(dbcol.find(&amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;#x27;uid&amp;#x27;&lt;/span&gt;: uid&amp;#125;)) == []:
         tmpdict = &amp;#123;&amp;#125;
-        tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;_id&amp;quot;&lt;/span&gt;] = uid
-        tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;uid&amp;quot;&lt;/span&gt;] = uid
+        tmpdict[&lt;span class=&#34;string&#34;&gt;&amp;quot;_id&amp;quot;&lt;/span&gt;] = uid
+        tmpdict[&lt;span class=&#34;string&#34;&gt;&amp;quot;uid&amp;quot;&lt;/span&gt;] = uid
         tmpdata = getUser(uid)
-        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;code&amp;quot;&lt;/span&gt;] == &lt;span class=&#34;hljs-number&#34;&gt;200&lt;/span&gt;:
-            tmpdict[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = tmpdata[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;currentData&amp;quot;&lt;/span&gt;][&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;]
+        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;string&#34;&gt;&amp;quot;code&amp;quot;&lt;/span&gt;] == &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;:
+            tmpdict[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = tmpdata[&lt;span class=&#34;string&#34;&gt;&amp;quot;currentData&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;]
             dbcol.insert_one(tmpdict)
-            print(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;Successfully get user &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
-            time.sleep(&lt;span class=&#34;hljs-number&#34;&gt;0.5&lt;/span&gt;)
-        &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-            print(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;Fail to get user &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
-            time.sleep(&lt;span class=&#34;hljs-number&#34;&gt;0.5&lt;/span&gt;)
-    &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-        print(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;User &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+            print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Successfully get user &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
+            time.sleep(&lt;span class=&#34;number&#34;&gt;0.5&lt;/span&gt;)
+        &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
+            print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Fail to get user &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
+            time.sleep(&lt;span class=&#34;number&#34;&gt;0.5&lt;/span&gt;)
+    &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
+        print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;User &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;数据库&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#数据库&#34;&gt;&lt;/a&gt;数据库&lt;/h2&gt;
 &lt;h3 id=&#34;搭建数据库&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#搭建数据库&#34;&gt;&lt;/a&gt;搭建数据库&lt;/h3&gt;
 &lt;p&gt;搭建 MongoDB 数据库只需要在 docker 里面跑一个容器，非常简便。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;docker run -v /root/data/mongo:/data/db -itd --name mongo -p 27017:27017 mongo&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;docker run -v /root/data/mongo:/data/db -itd --name mongo -p 27017:27017 mongo&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;连接数据库&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#连接数据库&#34;&gt;&lt;/a&gt;连接数据库&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;client = pymongo.MongoClient(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
-luogudb = dbclient[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
-col = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;client = pymongo.MongoClient(&lt;span class=&#34;string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
+luogudb = dbclient[&lt;span class=&#34;string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
+col = luogudb[&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;存储数据&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#存储数据&#34;&gt;&lt;/a&gt;存储数据&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(col.find(&amp;#123;&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;pid&amp;#x27;&lt;/span&gt; : pid&amp;#125;)) == []:
+&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;(col.find(&amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;#x27;pid&amp;#x27;&lt;/span&gt; : pid&amp;#125;)) == []:
     col.insert_one(data)
-    print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Success.&amp;quot;&lt;/span&gt;)
-&lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
-    print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+    print(&lt;span class=&#34;string&#34;&gt;&amp;quot;Success.&amp;quot;&lt;/span&gt;)
+&lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
+    print(&lt;span class=&#34;string&#34;&gt;&amp;quot;Already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;读取数据&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#读取数据&#34;&gt;&lt;/a&gt;读取数据&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;print(&lt;span class=&#34;hljs-built_in&#34;&gt;list&lt;/span&gt;(col.find()))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;print(&lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;(col.find()))&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;web-管理数据库&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#web-管理数据库&#34;&gt;&lt;/a&gt;web 管理数据库&lt;/h2&gt;
 &lt;p&gt;再跑一个 &lt;code&gt;mongo-express&lt;/code&gt; 就行了。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;docker run -d --name mongo-express -e ME_CONFIG_MONGODB_SERVER=host.docker.internal -p 8081:8081 mongo-express&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;docker run -d --name mongo-express -e ME_CONFIG_MONGODB_SERVER=host.docker.internal -p 8081:8081 mongo-express&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;访问 &lt;code&gt;ip:8081&lt;/code&gt; 就能看到管理界面了。&lt;/p&gt;
 &lt;h2 id=&#34;导出数据库&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#导出数据库&#34;&gt;&lt;/a&gt;导出数据库&lt;/h2&gt;
 &lt;p&gt;直接运行下方命令导出为 JSON 格式即可。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;mongoexport -d luogu -c problem -o /data/db/problem.json&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;mongoexport -d luogu -c problem -o /data/db/problem.json&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;或者点击对应数据库管理界面中的 &lt;code&gt;[JSON]&lt;/code&gt; 按钮导出。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2020/11/26/hXtVAynYGcb8B71.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;成果&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#成果&#34;&gt;&lt;/a&gt;成果&lt;/h2&gt;
@@ -354,67 +354,67 @@ col = luogudb[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;problem&amp;quot
 &lt;p&gt;使用 nginx 模块：&lt;a href=&#34;https://github.com/arut/nginx-rtmp-module&#34;&gt;&lt;code&gt;nginx-rtmp-module&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;安装-nginx-nginx-rtmp-module&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#安装-nginx-nginx-rtmp-module&#34;&gt;&lt;/a&gt;安装 nginx &amp;amp; nginx-rtmp-module&lt;/h2&gt;
 &lt;p&gt;apt, yes!&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;apt update
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt update
 apt upgrade -y
 apt install nginx libnginx-mod-rtmp -y&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;访问服务器 IP ，出现如下图所示网页即代表安装成功。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/BdKOhDuxIaYks6q.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;修改-nginx-配置&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#修改-nginx-配置&#34;&gt;&lt;/a&gt;修改 nginx 配置&lt;/h2&gt;
 &lt;p&gt;打开 &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; ，在末尾处插入下面的配置&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-section&#34;&gt;rtmp&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;hljs-section&#34;&gt;server&lt;/span&gt; &amp;#123;
-        &lt;span class=&#34;hljs-attribute&#34;&gt;listen&lt;/span&gt;     &lt;span class=&#34;hljs-number&#34;&gt;1935&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 服务端口&lt;/span&gt;
-        &lt;span class=&#34;hljs-attribute&#34;&gt;chunk_size&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;4096&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 数据传输块的大小&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;section&#34;&gt;rtmp&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;section&#34;&gt;server&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;attribute&#34;&gt;listen&lt;/span&gt;     &lt;span class=&#34;number&#34;&gt;1935&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;# 服务端口&lt;/span&gt;
+        &lt;span class=&#34;attribute&#34;&gt;chunk_size&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;4096&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;# 数据传输块的大小&lt;/span&gt;
 
-        &lt;span class=&#34;hljs-attribute&#34;&gt;application&lt;/span&gt; vod &amp;#123;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;play&lt;/span&gt; /opt/video;          &lt;span class=&#34;hljs-comment&#34;&gt;# 视频文件存放位置。&lt;/span&gt;
+        &lt;span class=&#34;attribute&#34;&gt;application&lt;/span&gt; vod &amp;#123;
+            &lt;span class=&#34;attribute&#34;&gt;play&lt;/span&gt; /opt/video;          &lt;span class=&#34;comment&#34;&gt;# 视频文件存放位置。&lt;/span&gt;
         &amp;#125;
 
-        &lt;span class=&#34;hljs-attribute&#34;&gt;application&lt;/span&gt; rtmplive &amp;#123;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;live&lt;/span&gt;            &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;        &lt;span class=&#34;hljs-comment&#34;&gt;# 开启直播&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;max_connections&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;64&lt;/span&gt;;        &lt;span class=&#34;hljs-comment&#34;&gt;# 为 rtmp 引擎设置最大连接数。默认为 off&lt;/span&gt;
+        &lt;span class=&#34;attribute&#34;&gt;application&lt;/span&gt; rtmplive &amp;#123;
+            &lt;span class=&#34;attribute&#34;&gt;live&lt;/span&gt;            &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;        &lt;span class=&#34;comment&#34;&gt;# 开启直播&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;max_connections&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;64&lt;/span&gt;;        &lt;span class=&#34;comment&#34;&gt;# 为 rtmp 引擎设置最大连接数。默认为 off&lt;/span&gt;
         &amp;#125;
 
-        &lt;span class=&#34;hljs-attribute&#34;&gt;application&lt;/span&gt; live &amp;#123;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;live&lt;/span&gt;                &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 开启直播&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;hls&lt;/span&gt;                 &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 这个参数把直播服务器改造成实时回放服务器。&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;wait_key&lt;/span&gt;            &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 对视频切片进行保护，这样就不会产生马赛克了。&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;hls_path&lt;/span&gt;            /opt/video/hls;  &lt;span class=&#34;hljs-comment&#34;&gt;# 切片视频文件存放位置。&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;hls_fragment&lt;/span&gt;        &lt;span class=&#34;hljs-number&#34;&gt;10s&lt;/span&gt;;             &lt;span class=&#34;hljs-comment&#34;&gt;# 设置HLS片段长度。&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;hls_max_fragment&lt;/span&gt;    &lt;span class=&#34;hljs-number&#34;&gt;10s&lt;/span&gt;;             &lt;span class=&#34;hljs-comment&#34;&gt;# 设置HLS片段最大长度。&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;hls_playlist_length&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;30s&lt;/span&gt;;             &lt;span class=&#34;hljs-comment&#34;&gt;# 设置HLS播放列表长度。&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;hls_continuous&lt;/span&gt;      &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 连续模式。&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;hls_cleanup&lt;/span&gt;         &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 对多余的切片进行删除。&lt;/span&gt;
-            &lt;span class=&#34;hljs-attribute&#34;&gt;hls_nested&lt;/span&gt;          &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;hljs-comment&#34;&gt;# 嵌套模式。&lt;/span&gt;
+        &lt;span class=&#34;attribute&#34;&gt;application&lt;/span&gt; live &amp;#123;
+            &lt;span class=&#34;attribute&#34;&gt;live&lt;/span&gt;                &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;# 开启直播&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;hls&lt;/span&gt;                 &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;# 这个参数把直播服务器改造成实时回放服务器。&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;wait_key&lt;/span&gt;            &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;# 对视频切片进行保护，这样就不会产生马赛克了。&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;hls_path&lt;/span&gt;            /opt/video/hls;  &lt;span class=&#34;comment&#34;&gt;# 切片视频文件存放位置。&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;hls_fragment&lt;/span&gt;        &lt;span class=&#34;number&#34;&gt;10s&lt;/span&gt;;             &lt;span class=&#34;comment&#34;&gt;# 设置HLS片段长度。&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;hls_max_fragment&lt;/span&gt;    &lt;span class=&#34;number&#34;&gt;10s&lt;/span&gt;;             &lt;span class=&#34;comment&#34;&gt;# 设置HLS片段最大长度。&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;hls_playlist_length&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;30s&lt;/span&gt;;             &lt;span class=&#34;comment&#34;&gt;# 设置HLS播放列表长度。&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;hls_continuous&lt;/span&gt;      &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;# 连续模式。&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;hls_cleanup&lt;/span&gt;         &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;# 对多余的切片进行删除。&lt;/span&gt;
+            &lt;span class=&#34;attribute&#34;&gt;hls_nested&lt;/span&gt;          &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;# 嵌套模式。&lt;/span&gt;
         &amp;#125;
     &amp;#125;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;打开默认站点配置文件 &lt;code&gt;/etc/nginx/sites-available/default&lt;/code&gt; ，在 &lt;code&gt;server&lt;/code&gt; 部分的末尾添加以下内容&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs nginx&#34;&gt;&lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt; /live &amp;#123;
-    &lt;span class=&#34;hljs-section&#34;&gt;types&lt;/span&gt; &amp;#123;
+&lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;location&lt;/span&gt; /live &amp;#123;
+    &lt;span class=&#34;section&#34;&gt;types&lt;/span&gt; &amp;#123;
         application/vnd.apple.mpegurl m3u8;
         video/mp2t                    ts;
     &amp;#125;
 
-    &lt;span class=&#34;hljs-attribute&#34;&gt;autoindex&lt;/span&gt; &lt;span class=&#34;hljs-literal&#34;&gt;on&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;alias&lt;/span&gt;     /opt/video/hls;
+    &lt;span class=&#34;attribute&#34;&gt;autoindex&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;alias&lt;/span&gt;     /opt/video/hls;
 
-    &lt;span class=&#34;hljs-attribute&#34;&gt;expires&lt;/span&gt; -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;expires&lt;/span&gt; -&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
 
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Cache-Control&amp;#x27;&lt;/span&gt;                    &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;no-cache&amp;#x27;&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Access-Control-Allow-Origin&amp;#x27;&lt;/span&gt;      &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Access-Control-Allow-Credentials&amp;#x27;&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;true&amp;#x27;&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Access-Control-Allow-Methods&amp;#x27;&lt;/span&gt;     &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;GET, POST, OPTIONS&amp;#x27;&lt;/span&gt;;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;Access-Control-Allow-Headers&amp;#x27;&lt;/span&gt;     &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;Cache-Control&amp;#x27;&lt;/span&gt;                    &lt;span class=&#34;string&#34;&gt;&amp;#x27;no-cache&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;Access-Control-Allow-Origin&amp;#x27;&lt;/span&gt;      &lt;span class=&#34;string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;Access-Control-Allow-Credentials&amp;#x27;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;true&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;Access-Control-Allow-Methods&amp;#x27;&lt;/span&gt;     &lt;span class=&#34;string&#34;&gt;&amp;#x27;GET, POST, OPTIONS&amp;#x27;&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;add_header&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;Access-Control-Allow-Headers&amp;#x27;&lt;/span&gt;     &lt;span class=&#34;string&#34;&gt;&amp;#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&amp;#x27;&lt;/span&gt;;
 &amp;#125;
-&lt;span class=&#34;hljs-attribute&#34;&gt;location&lt;/span&gt; /stat &amp;#123;
-    &lt;span class=&#34;hljs-attribute&#34;&gt;rtmp_stat&lt;/span&gt; all;
-    &lt;span class=&#34;hljs-comment&#34;&gt;# rtmp_stat_stylesheet stat.xsl;&lt;/span&gt;
+&lt;span class=&#34;attribute&#34;&gt;location&lt;/span&gt; /stat &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;rtmp_stat&lt;/span&gt; all;
+    &lt;span class=&#34;comment&#34;&gt;# rtmp_stat_stylesheet stat.xsl;&lt;/span&gt;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;插入完以后配置文件会变成下面的样子&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs diff&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;--- /etc/nginx/sites-available/default&lt;/span&gt;
-&lt;span class=&#34;hljs-comment&#34;&gt;+++ /etc/nginx/sites-available/default&lt;/span&gt;
-&lt;span class=&#34;hljs-meta&#34;&gt;@@ -1,14 +1,36 @@&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight diff&#34;&gt;&lt;span class=&#34;comment&#34;&gt;--- /etc/nginx/sites-available/default&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;+++ /etc/nginx/sites-available/default&lt;/span&gt;
+&lt;span class=&#34;meta&#34;&gt;@@ -1,14 +1,36 @@&lt;/span&gt;
  server &amp;#123;
      listen 80 default_server;
      listen [::]:80 default_server;
@@ -428,32 +428,32 @@ apt install nginx libnginx-mod-rtmp -y&lt;/code&gt;&lt;/pre&gt;
      location / &amp;#123;
          try_files $uri $uri/ =404;
      &amp;#125;
-&lt;span class=&#34;hljs-addition&#34;&gt;+&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+    location /live &amp;#123;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        types &amp;#123;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+            application/vnd.apple.mpegurl m3u8;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+            video/mp2t                    ts;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        &amp;#125;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        autoindex on;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        alias     /opt/video/hls;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        expires -1;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Cache-Control&amp;#x27;                    &amp;#x27;no-cache&amp;#x27;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Origin&amp;#x27;      &amp;#x27;*&amp;#x27;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Credentials&amp;#x27; &amp;#x27;true&amp;#x27;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Methods&amp;#x27;     &amp;#x27;GET, POST, OPTIONS&amp;#x27;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Headers&amp;#x27;     &amp;#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&amp;#x27;;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+    &amp;#125;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+    location /stat &amp;#123;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        rtmp_stat all;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+        # rtmp_stat_stylesheet stat.xsl;&lt;/span&gt;
-&lt;span class=&#34;hljs-addition&#34;&gt;+    &amp;#125;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+    location /live &amp;#123;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        types &amp;#123;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+            application/vnd.apple.mpegurl m3u8;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+            video/mp2t                    ts;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        &amp;#125;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        autoindex on;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        alias     /opt/video/hls;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        expires -1;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        add_header &amp;#x27;Cache-Control&amp;#x27;                    &amp;#x27;no-cache&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Origin&amp;#x27;      &amp;#x27;*&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Credentials&amp;#x27; &amp;#x27;true&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Methods&amp;#x27;     &amp;#x27;GET, POST, OPTIONS&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        add_header &amp;#x27;Access-Control-Allow-Headers&amp;#x27;     &amp;#x27;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&amp;#x27;;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+    &amp;#125;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+    location /stat &amp;#123;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        rtmp_stat all;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+        # rtmp_stat_stylesheet stat.xsl;&lt;/span&gt;
+&lt;span class=&#34;addition&#34;&gt;+    &amp;#125;&lt;/span&gt;
  &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;修改完成后使用 &lt;code&gt;nginx -t&lt;/code&gt; 测试配置文件是否正确&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs vim&#34;&gt;nginx: the configuration &lt;span class=&#34;hljs-keyword&#34;&gt;file&lt;/span&gt; /etc/nginx/nginx.&lt;span class=&#34;hljs-keyword&#34;&gt;conf&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;syntax&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;is&lt;/span&gt; ok
-nginx: configuration &lt;span class=&#34;hljs-keyword&#34;&gt;file&lt;/span&gt; /etc/nginx/nginx.&lt;span class=&#34;hljs-keyword&#34;&gt;conf&lt;/span&gt; test &lt;span class=&#34;hljs-keyword&#34;&gt;is&lt;/span&gt; successful&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight vim&#34;&gt;nginx: the configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/nginx/nginx.&lt;span class=&#34;keyword&#34;&gt;conf&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;syntax&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;is&lt;/span&gt; ok
+nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/nginx/nginx.&lt;span class=&#34;keyword&#34;&gt;conf&lt;/span&gt; test &lt;span class=&#34;keyword&#34;&gt;is&lt;/span&gt; successful&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;当出现成功提示时，使用 &lt;code&gt;nginx -s reload&lt;/code&gt; 平滑重启 nginx。&lt;/p&gt;
 &lt;p&gt;重启成功后使用 &lt;code&gt;netstat -lnp&lt;/code&gt; 查看 &lt;code&gt;tcp/1935&lt;/code&gt; 端口是否开启。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/Xy3Nq5WZaogLIvR.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
@@ -494,30 +494,30 @@ nginx: configuration &lt;span class=&#34;hljs-keyword&#34;&gt;file&lt;/span&gt; 
 &lt;p&gt;此时可以就看到直播画面了。&lt;/p&gt;
 &lt;h2 id=&#34;网页端播放&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#网页端播放&#34;&gt;&lt;/a&gt;网页端播放&lt;/h2&gt;
 &lt;p&gt;页面中只有一个播放器，其他功能请自行实现。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;hljs xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight xml&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;Live Player&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;charset&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;Live Player&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;charset&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;dplayer&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://cdn.jsdelivr.net/npm/hls.js@0.14.13/dist/hls.min.js&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;const&lt;/span&gt; dp = &lt;span class=&#34;hljs-keyword&#34;&gt;new&lt;/span&gt; DPlayer(&amp;#123;&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;            container: &lt;span class=&#34;hljs-built_in&#34;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;dplayer&amp;#x27;&lt;/span&gt;),&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;            live: &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;,&lt;/span&gt;
+&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;dplayer&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://cdn.jsdelivr.net/npm/hls.js@0.14.13/dist/hls.min.js&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; dp = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; DPlayer(&amp;#123;&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;            container: &lt;span class=&#34;built_in&#34;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&#34;string&#34;&gt;&amp;#x27;dplayer&amp;#x27;&lt;/span&gt;),&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;            live: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;,&lt;/span&gt;
             video: &amp;#123;
-&lt;span class=&#34;javascript&#34;&gt;                url: &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;http://$&amp;#123;ip&amp;#125;/live/$&amp;#123;key&amp;#125;/index.m3u8&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;                type: &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;hls&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;                url: &lt;span class=&#34;string&#34;&gt;&amp;#x27;http://$&amp;#123;ip&amp;#125;/live/$&amp;#123;key&amp;#125;/index.m3u8&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;                type: &lt;span class=&#34;string&#34;&gt;&amp;#x27;hls&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
             &amp;#125;,
         &amp;#125;);
-    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2020/11/26/9X6mUtF4fLzdaYn.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;后记&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#后记&#34;&gt;&lt;/a&gt;后记&lt;/h2&gt;
 &lt;p&gt;如果没有在外直播的需求，不要将 rtmp 端口映射至公网，这可能会带来一些不必要的麻烦。&lt;/p&gt;
