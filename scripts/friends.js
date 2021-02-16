@@ -2,7 +2,7 @@ function loadFriends() {
     fetch(`${friends_endpoint}/links.json`)
         .then(response => response.json())
         .catch((error) => {
-            document.getElementById('friends').innerHTML = `<p>加载失败，请 <a href="javascript:loadFriends();">刷新</a> 重试</p>`;
+            document.getElementById('friends').innerHTML = `<p>加载失败，请 <a href="javascript:location.reload();">刷新</a> 重试</p>`;
             console.log(error);
         })
         .then(friends => {
