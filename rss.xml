@@ -5,20 +5,310 @@
         <link>https://blog.baoshuo.ren</link>
         <description></description>
         <language>cn</language>
-        <pubDate>Fri, 12 Feb 2021 00:06:31 +0800</pubDate>
-        <lastBuildDate>Fri, 12 Feb 2021 00:06:31 +0800</lastBuildDate>
+        <pubDate>Wed, 17 Feb 2021 23:25:30 +0800</pubDate>
+        <lastBuildDate>Wed, 17 Feb 2021 23:25:30 +0800</lastBuildDate>
         <category>随笔</category>
         <category>Git</category>
+        <category>Web</category>
         <category>CTF</category>
-        <category>Typecho</category>
         <category>折腾</category>
-        <category>网络</category>
+        <category>web</category>
         <category>Linux</category>
-        <category>笔记</category>
-        <category>OI</category>
+        <category>网络</category>
         <category>题解</category>
+        <category>OI</category>
+        <category>笔记</category>
         <category>游记</category>
         <category>macOS</category>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/about-darkmode/</guid>
+            <title>浅谈网页「深色模式」的实现</title>
+            <link>https://blog.baoshuo.ren/post/about-darkmode/</link>
+            <category>Web</category>
+            <pubDate>Wed, 17 Feb 2021 23:25:30 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 &lt;a href=&#34;https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme&#34;&gt;Media Queries Level 5&lt;/a&gt;，越来越多的网站开始添加深色模式。&lt;/p&gt;
+&lt;p&gt;我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个夜间模式插件&lt;sup&gt;（原文链接已丢失）&lt;/sup&gt;。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的夜间模式是如何实现的。&lt;/p&gt;
+&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2021/02/17/tYEURzvx7LQ4mej.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关于深色模式&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#关于深色模式&#34;&gt;&lt;/a&gt;关于深色模式&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2021/02/17/jXVHb1aAUf5pRhk.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Dark themes reduce the luminance emitted by device screens, while still meeting minimum color contrast ratios. They help improve visual ergonomics by reducing eye strain, adjusting brightness to current lighting conditions, and facilitating screen use in dark environments – all while conserving battery power.&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;scode info&#34;&gt;&lt;p class=&#34;scode-title&#34;&gt;翻译&lt;/p&gt;&lt;p&gt;深色主题能降低设备屏幕发出的亮度，同时仍然满足最小的颜色对比度。它们有助于改善视觉效果、减少眼睛疲劳，调整亮度以适应当前的照明条件，并有助于在黑暗环境中使用屏幕，同时节省电池电量。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;界面设计&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#界面设计&#34;&gt;&lt;/a&gt;界面设计&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1:1&#34;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;颜色&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#颜色&#34;&gt;&lt;/a&gt;颜色&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;不要使用 100% 的纯黑&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Google 在 Material Design 的设计指南中对于深色模式列出了一系列设计规范，其中第一条就是 「不要使用 100% 的纯黑」 。&lt;/p&gt;
+&lt;p&gt;Google 推荐将深色表面和 100% 白色文字的对比度至少设置为为 15.8:1 （Dark surfaces and 100% white body text have a contrast level of at least 15.8:1）&lt;/p&gt;
+&lt;p&gt;为什么呢？因为纯白色会反射所有波长的光线，而纯黑色会吸收所有光线，这是对比度最大的两种颜色，白底黑字时，文字过于刺眼，而黑底白字时，文字又可能难以辨认。如果长时间阅读这样的文字，势必会让眼睛感觉到疲劳，与深色模式开发的初衷背道而驰。&lt;/p&gt;
+&lt;p&gt;Google 推荐使用 &lt;code&gt;#121212&lt;/code&gt; 来作为深色模式的&lt;strong&gt;主背景色&lt;/strong&gt;。&lt;/p&gt;
+&lt;img src=&#34;https://vip2.loli.net/2021/02/17/QOjZ8D2PnW6wtSN.png&#34; class=&#34;&#34; width=&#34;700&#34;&gt;
+&lt;p&gt;A dark theme uses dark grey, rather than black, as the primary surface color for components. Dark grey surfaces can express a wider range of color, elevation, and depth, because it’s easier to see shadows on grey (instead of black).&lt;/p&gt;
+&lt;p&gt;Dark grey surfaces also reduce eye strain, as light text on a dark grey surface has less contrast than light text on a black surface.&lt;/p&gt;
+&lt;div class=&#34;scode info&#34;&gt;&lt;p class=&#34;scode-title&#34;&gt;翻译&lt;/p&gt;&lt;p&gt;深色主题应使用深灰而不是黑色作为组件的主要表面颜色。深灰色表面可以表示更广泛的颜色，高度和深度范围，因为更容易看到灰色阴影（而不是黑色）。&lt;/p&gt;
+&lt;p&gt;深灰色的表面还可以减少眼睛疲劳，因为深灰色表面上的浅色文本的对比度低于黑色表面上的浅色文本。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;许多常见应用的深色模式背景色的 H 值都在 200~250 范围内（即蓝色范围），在纯灰色的基础上稍微偏冷一些。不过也有一些例外，比如网易云音乐的背景色有点偏暖，可能和其品牌色有关（网易云音乐的品牌色是暖红色）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;不要让亮色占据过多面积&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在深色主题中应该尽可能地使用有限的颜色进行强调，并使大部分空间显示出深色表面。&lt;/p&gt;
+&lt;img src=&#34;https://vip2.loli.net/2021/02/17/o1x4jPm92AWECZp.png&#34; class=&#34;&#34; width=&#34;300&#34;&gt;
+&lt;p&gt;▲ 正确示例&lt;/p&gt;
+&lt;img src=&#34;https://vip1.loli.net/2021/02/17/SguCOs4WM5Gqd7I.png&#34; class=&#34;&#34; width=&#34;300&#34;&gt;
+&lt;p&gt;▲ 错误示例&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;不要使用过高的色彩饱和度&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在深色模式下，过高的色彩饱和度可能会使文本像下方这样难以辨识（清晰度降低）：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2021/02/17/u16JvHsZBgeFYER.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;色彩饱和度过高还可能会导致文本在深色背景上产生光学振动，从而引起眼睛疲劳。&lt;/p&gt;
+&lt;p&gt;最佳做法是使用 「去饱和色」 ，这样可以提高清晰度，并减少视觉抖动。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.net/2021/02/17/YxOwh46ZFNIC5Rg.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;层次&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#层次&#34;&gt;&lt;/a&gt;层次&lt;/h3&gt;
+&lt;p&gt;在浅色模式下，我们通常会使用投影来区分页面内元素的层次，但这种方法在深色模式中如果使用不当，不仅起不到区分页面内元素层次的作用，还会影响整体观感，起到反作用。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2021/02/17/O7qzgYK98DGLvCV.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;▲ Google 给出的示例&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;这是 WWDC 2019 中苹果设计师讲到深色模式的文本：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2021/02/17/Amac2CMl4bzurYe.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Apple 认为在浅色模式下投影能轻松地区分两个视觉元素，但是在深色模式下作用甚微。所以他们建议在深色背景下，对前置元素的使用稍亮的灰色。&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.net/2021/02/17/OHZqYmAaQDJ9RBe.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在组件表面&lt;sup&gt;(1)&lt;/sup&gt;上放置一个白色半透明的遮罩层&lt;sup&gt;(2)&lt;/sup&gt;，就可以体现出深色模式中的层次。&lt;/p&gt;
+&lt;h2 id=&#34;代码实现&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#代码实现&#34;&gt;&lt;/a&gt;代码实现&lt;/h2&gt;
+&lt;p&gt;这个主题使用了向 &lt;code&gt;body&lt;/code&gt; 添加 &lt;code&gt;.dark&lt;/code&gt; 类来实现深色模式。&lt;/p&gt;
+&lt;h3 id=&#34;利用-Media-Query-简单实现深色模式&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#利用-Media-Query-简单实现深色模式&#34;&gt;&lt;/a&gt;利用 Media Query 简单实现深色模式&lt;/h3&gt;
+&lt;p&gt;可以直接为深色模式编写独立的样式：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+&amp;#125;
+
+&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme:&lt;/span&gt; dark) &amp;#123;
+    &lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+    &amp;#125;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;更进一步地，还可以使用 CSS Variable 来简化代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+&amp;#125;
+
+&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme:&lt;/span&gt; dark) &amp;#123;
+    &lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+    &amp;#125;
+&amp;#125;
+
+&lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;built_in&#34;&gt;var&lt;/span&gt;(--text);
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;还可以利用 &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; 标签的 Media Query 来有条件地加载文件，节省流量：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;comment&#34;&gt;/* main.css */&lt;/span&gt;
+&lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+&amp;#125;
+
+&lt;span class=&#34;comment&#34;&gt;/* dark.css */&lt;/span&gt;
+&lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;scode warn&#34;&gt;&lt;p&gt;需要注意 CSS 选择器的权重，因此作为可选的 &lt;code&gt;dark.css&lt;/code&gt; 一定要放在 &lt;code&gt;main.css&lt;/code&gt; 之后加载。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;main.css&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;dark.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;media&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;(prefers-color-scheme: dark)&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;使用-Media-Query-JavaScript-实现跟随系统-定时切换深色模式&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#使用-Media-Query-JavaScript-实现跟随系统-定时切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + JavaScript 实现跟随系统/定时切换深色模式&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+&amp;#125;
+
+&lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+&amp;#125;
+
+&lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;built_in&#34;&gt;var&lt;/span&gt;(--text);
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这段 CSS 与先前的并没有什么差别，而且与其相对应的 JavaScript 也很好编写。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;document&lt;/span&gt;.addEventListener(&lt;span class=&#34;string&#34;&gt;&amp;#x27;DOMContentLoaded&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;event&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; ((&lt;span class=&#34;built_in&#34;&gt;window&lt;/span&gt;.matchMedia &amp;amp;&amp;amp; &lt;span class=&#34;built_in&#34;&gt;window&lt;/span&gt;.matchMedia(&lt;span class=&#34;string&#34;&gt;&amp;#x27;(prefers-color-scheme: dark)&amp;#x27;&lt;/span&gt;).matches)
+        || &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;().getHours() &amp;gt;= &lt;span class=&#34;number&#34;&gt;19&lt;/span&gt; || &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;().getHours() &amp;lt; &lt;span class=&#34;number&#34;&gt;7&lt;/span&gt;) &amp;#123;
+        &lt;span class=&#34;built_in&#34;&gt;document&lt;/span&gt;.body.classList.add(&lt;span class=&#34;string&#34;&gt;&amp;#x27;dark&amp;#x27;&lt;/span&gt;);
+    &amp;#125;
+&amp;#125;);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此段代码中开启深色模式的条件有两个：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统开启了深色模式&lt;/li&gt;
+&lt;li&gt;时间在晚7点~早7点之间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;只要满足上述任意一个条件，深色模式就会被开启。&lt;/p&gt;
+&lt;h3 id=&#34;使用-Media-Query-Toggle-Button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#使用-Media-Query-Toggle-Button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+&amp;#125;
+
+&lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+&amp;#125;
+
+&lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;built_in&#34;&gt;var&lt;/span&gt;(--text);
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这段 CSS 与先前的并没有什么差别，下面就是令人头大的 JavaScript 部分了。&lt;/p&gt;
+&lt;p&gt;先定义一些常量：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; rootElement = &lt;span class=&#34;built_in&#34;&gt;document&lt;/span&gt;.documentElement;
+&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; darkModeClassName = &lt;span class=&#34;string&#34;&gt;&amp;#x27;dark&amp;#x27;&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; darkModeStorageKey = &lt;span class=&#34;string&#34;&gt;&amp;#x27;user-color-scheme&amp;#x27;&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; darkModeTogglebuttonElement = &lt;span class=&#34;built_in&#34;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&#34;string&#34;&gt;&amp;#x27;dark-mode-toggle-button&amp;#x27;&lt;/span&gt;);
+&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; validColorModeKeys = &amp;#123; &lt;span class=&#34;string&#34;&gt;&amp;#x27;dark&amp;#x27;&lt;/span&gt;: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;light&amp;#x27;&lt;/span&gt;: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt; &amp;#125;
+&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; invertDarkModeObj = &amp;#123; &lt;span class=&#34;string&#34;&gt;&amp;#x27;dark&amp;#x27;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;light&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;light&amp;#x27;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;dark&amp;#x27;&lt;/span&gt; &amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来使用 &lt;code&gt;try &amp;#123;&amp;#125; catch (e) &amp;#123;&amp;#125;&lt;/code&gt; 封装一下 localStorage 的操作，以应对 HTML5 Storage 被禁用、localStorage 被写满、localStorage 实现不完整的情况：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; setLocalStorage = &lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;key, value&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;try&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;built_in&#34;&gt;localStorage&lt;/span&gt;.setItem(key, value);
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;catch&lt;/span&gt; (e) &amp;#123;&amp;#125;
+&amp;#125;
+
+&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; removeLocalStorage = &lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;key&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;try&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;built_in&#34;&gt;localStorage&lt;/span&gt;.removeItem(key);
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;catch&lt;/span&gt; (e) &amp;#123;&amp;#125;
+&amp;#125;
+
+&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; getLocalStorage = &lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;key&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;try&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;localStorage&lt;/span&gt;.getItem(key);
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;catch&lt;/span&gt; (e) &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt;;    &lt;span class=&#34;comment&#34;&gt;// 与 localStorage 中没有找到对应 key 的行为一致&lt;/span&gt;
+    &amp;#125;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;获取当前 &lt;code&gt;prefers-color-scheme&lt;/code&gt; 的方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; getModeFromCSSMediaQuery = &lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;window&lt;/span&gt;.matchMedia(&lt;span class=&#34;string&#34;&gt;&amp;#x27;(prefers-color-scheme: dark)&amp;#x27;&lt;/span&gt;).matches ? &lt;span class=&#34;string&#34;&gt;&amp;#x27;dark&amp;#x27;&lt;/span&gt; : &lt;span class=&#34;string&#34;&gt;&amp;#x27;light&amp;#x27;&lt;/span&gt;;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;再写一个清除 Class 和 LocalStorage 的函数：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; resetRootDarkModeClassAndLocalStorage = &lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;
+    rootElement.classList.remove(darkModeClassName);
+    rootElement.classList.remove(invertDarkModeObj[darkModeClassName]);
+    removeLocalStorage(darkModeStorageKey);
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来就是起主要作用的函数了，负责为 &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; 标签增删深色模式的 Class ：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; applyCustomDarkModeSettings = &lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;mode&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;comment&#34;&gt;// 接受从「开关」处传来的模式，或者从 localStorage 读取&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; currentSetting = mode || getLocalStorage(darkModeStorageKey);
+
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (currentSetting === getModeFromCSSMediaQuery()) &amp;#123;
+        &lt;span class=&#34;comment&#34;&gt;// 当用户自定义的显示模式和 prefers-color-scheme 相同时重置、恢复到自动模式&lt;/span&gt;
+        resetRootDarkModeClassAndLocalStorage();
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (validColorModeKeys[currentSetting]) &amp;#123;
+        rootElement.classList.add(currentSetting);
+        rootElement.classList.remove(invertDarkModeObj[currentSetting]);
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;comment&#34;&gt;// 首次访问或从未使用过开关、localStorage 中没有存储的值，currentSetting 是 null&lt;/span&gt;
+        &lt;span class=&#34;comment&#34;&gt;// 或者 localStorage 被篡改，currentSetting 不是合法值&lt;/span&gt;
+        resetRootDarkModeClassAndLocalStorage();
+    &amp;#125;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;还需要一个函数负责获取相反的显示模式，并将其存储到 LocalStorage 中&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; toggleCustomDarkMode = &lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; currentSetting = getLocalStorage(darkModeStorageKey);
+
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (validColorModeKeys[currentSetting]) &amp;#123;
+        &lt;span class=&#34;comment&#34;&gt;// 从 localStorage 中读取模式，并取相反的模式&lt;/span&gt;
+        currentSetting = invertDarkModeObj[currentSetting];
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (currentSetting === &lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt;) &amp;#123;
+        &lt;span class=&#34;comment&#34;&gt;// localStorage 中没有相关值，或者 localStorage 抛了 Error&lt;/span&gt;
+        &lt;span class=&#34;comment&#34;&gt;// 从 CSS 中读取当前 prefers-color-scheme 并取相反的模式&lt;/span&gt;
+        currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;comment&#34;&gt;// 不知道出了什么幺蛾子，比如 localStorage 被篡改成非法值&lt;/span&gt;
+        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 直接 return;&lt;/span&gt;
+    &amp;#125;
+    &lt;span class=&#34;comment&#34;&gt;// 将相反的模式写入 localStorage&lt;/span&gt;
+    setLocalStorage(darkModeStorageKey, currentSetting);
+
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; currentSetting;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;相关的函数都定义完了，是时候添加执行了：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 当页面加载时，将显示模式设置为 localStorage 中自定义的值（如果有的话）&lt;/span&gt;
+applyCustomDarkModeSettings();&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 当用户点击「开关」时，获得新的显示模式、写入 localStorage、并在页面上生效&lt;/span&gt;
+darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;&amp;#x27;click&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;
+    applyCustomDarkModeSettings(toggleCustomDarkMode());
+&amp;#125;);&lt;/code&gt;&lt;/pre&gt;
+&lt;iframe src=&#34;https://codesandbox.io/embed/shiyong-media-query-toggle-button-shixiangensuixitongshoudongqiehuanshensemoshi-7d60d?autoresize=1&amp;fontsize=16&amp;theme=dark&amp;view=preview&#34; style=&#34;width:100%; height:500px; border:0; border-radius: 4px; overflow: hidden;&#34; title=&#34;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&#34; allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34; sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;&gt;&lt;/iframe&gt;
+&lt;h3 id=&#34;使用-Media-Query-Toggle-Button-JavaScript-实现跟随系统-定时-手动切换深色模式&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#使用-Media-Query-Toggle-Button-JavaScript-实现跟随系统-定时-手动切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + Toggle Button + JavaScript 实现跟随系统/定时/手动切换深色模式&lt;/h3&gt;
+&lt;p&gt;CSS 和大部分 JavaScript 代码没有变化，此处仅说明有变化的代码。&lt;/p&gt;
+&lt;p&gt;在函数 &lt;code&gt;toggleCustomDarkMode()&lt;/code&gt; 中添加写入一个时间戳的操作：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight diff&#34;&gt; const toggleCustomDarkMode = () =&amp;gt; &amp;#123;
+     let currentSetting = getLocalStorage(darkModeStorageKey);
+ 
+     if (validColorModeKeys[currentSetting]) &amp;#123;
+         // 从 localStorage 中读取模式，并取相反的模式
+         currentSetting = invertDarkModeObj[currentSetting];
+     &amp;#125; else if (currentSetting &lt;span class=&#34;comment&#34;&gt;=== null) &amp;#123;&lt;/span&gt;
+         // localStorage 中没有相关值，或者 localStorage 抛了 Error
+         // 从 CSS 中读取当前 prefers-color-scheme 并取相反的模式
+         currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+     &amp;#125; else &amp;#123;
+         // 不知道出了什么幺蛾子，比如 localStorage 被篡改成非法值
+         return; // 直接 return;
+     &amp;#125;
+     // 将相反的模式写入 localStorage
+     setLocalStorage(darkModeStorageKey, currentSetting);
+&lt;span class=&#34;addition&#34;&gt;+    setLocalStorage(darkModeTimeKey, +new Date());&lt;/span&gt;
+ 
+     return currentSetting;
+ &amp;#125;;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;新编写一个检测函数，用来检测是否符合定时条件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; checkDarkModeTime = &lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;().getHours() &amp;gt;= &lt;span class=&#34;number&#34;&gt;19&lt;/span&gt; || &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;().getHours() &amp;lt; &lt;span class=&#34;number&#34;&gt;7&lt;/span&gt;) &amp;#123;
+        &lt;span class=&#34;comment&#34;&gt;// 晚7点到早7点&lt;/span&gt;
+        &lt;span class=&#34;keyword&#34;&gt;let&lt;/span&gt; darkModeTime = getLocalStorage(darkModeTimeKey);
+        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (darkModeTime === &lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt; || &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;().getTime() - &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;(darkModeTime).getTime() &amp;gt; &lt;span class=&#34;number&#34;&gt;43200&lt;/span&gt;) &amp;#123;
+            &lt;span class=&#34;comment&#34;&gt;// 没有设置过&lt;/span&gt;
+            &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;
+        &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
+            &lt;span class=&#34;comment&#34;&gt;// 设置过&lt;/span&gt;
+            &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;false&lt;/span&gt;;
+        &amp;#125;
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;false&lt;/span&gt;;
+    &amp;#125;
+&amp;#125;;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在页面加载时新增一个 &lt;code&gt;if&lt;/code&gt; 语句判断开启条件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 当页面加载时，先判断时间&lt;/span&gt;
+&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (checkDarkModeTime()) &amp;#123;
+    &lt;span class=&#34;comment&#34;&gt;// 定时开启深色模式&lt;/span&gt;
+    applyCustomDarkModeSettings(darkModeClassName);
+    setLocalStorage(darkModeStorageKey, darkModeClassName);
+    setLocalStorage(darkModeTimeKey, +&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;());
+&amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;comment&#34;&gt;// 将显示模式设置为 localStorage 中自定义的值（如果有的话）&lt;/span&gt;
+    applyCustomDarkModeSettings();
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;iframe src=&#34;https://codesandbox.io/embed/shiyong-media-query-toggle-button-javascript-shixiangensuixitongdingshishoudongqiehuanshensemoshi-dyei7?autoresize=1&amp;fontsize=14&amp;theme=dark&amp;view=preview&#34;
+     style=&#34;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&#34;
+     title=&#34;使用 Media Query + Toggle Button + JavaScript 实现跟随系统/定时/手动切换深色模式&#34;
+     allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34;
+     sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;
+   &gt;&lt;/iframe&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://material.io/design/color/dark-theme.html&#34;&gt;https://material.io/design/color/dark-theme.html&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;hr class=&#34;footnotes-sep&#34;&gt;
+&lt;section class=&#34;footnotes&#34;&gt;
+&lt;ol class=&#34;footnotes-list&#34;&gt;
+&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://material.io/design/color/dark-theme.html&#34;&gt;Dark theme - Material Design&lt;/a&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt; &lt;a href=&#34;#fnref1:1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn2&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/808/&#34;&gt;What’s New in iOS Design - WWDC 2019&lt;/a&gt; &lt;a href=&#34;#fnref2&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn3&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://blog.skk.moe/post/hello-darkmode-my-old-friend/&#34;&gt;你好黑暗，我的老朋友 —— 为网站添加用户友好的深色模式支持 - Sukka’s Blog&lt;/a&gt; &lt;a href=&#34;#fnref3&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/linux-systemd/</guid>
             <title>Linux Systemd 入门</title>
@@ -777,8 +1067,8 @@ naruto&lt;/code&gt;&lt;/pre&gt;
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-noip-2020/</guid>
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
-            <category>OI</category>
             <category>题解</category>
+            <category>OI</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;没想到初中生也能参加 NOIP 。&lt;/p&gt;
@@ -1041,8 +1331,8 @@ ostream&amp;amp; &lt;span class=&#34;keyword&#34;&gt;operator&lt;/span&gt;&amp;l
             <guid isPermalink="true">https://blog.baoshuo.ren/post/segment-tree/</guid>
             <title>线段树学习笔记</title>
             <link>https://blog.baoshuo.ren/post/segment-tree/</link>
-            <category>笔记</category>
             <category>OI</category>
+            <category>笔记</category>
             <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;线段树（Segment Tree）是一种用来维护区间的数据结构。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
@@ -1786,8 +2076,8 @@ git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-csp-j-2020/</guid>
             <title>CSP-J 2020 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-csp-j-2020/</link>
-            <category>OI</category>
             <category>题解</category>
+            <category>OI</category>
             <pubDate>Mon, 16 Nov 2020 17:24:54 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;优秀的拆分&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#优秀的拆分&#34;&gt;&lt;/a&gt;优秀的拆分&lt;/h2&gt;
 &lt;p&gt;前置知识：位运算。&lt;/p&gt;
@@ -2560,8 +2850,8 @@ a_i&amp;amp;(x+y \leq i &amp;lt; n)
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p1200/</guid>
             <title>【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p1200/</link>
-            <category>OI</category>
             <category>题解</category>
+            <category>OI</category>
             <pubDate>Mon, 12 Oct 2020 20:02:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;题面&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#题面&#34;&gt;&lt;/a&gt;题面&lt;/h2&gt;
 &lt;p&gt;难度：&lt;span style=&#34;color: #fe4c61;&#34;&gt;&lt;strong&gt;入门&lt;/strong&gt;&lt;/span&gt;&lt;br&gt;
@@ -2976,92 +3266,6 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
             &lt;span class=&#34;keyword&#34;&gt;break&lt;/span&gt;;
         &amp;#125;
     &amp;#125;
-    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-&amp;#125;&lt;/code&gt;&lt;/pre&gt; ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p5738/</guid>
-            <title>【题解】P5738 歌唱比赛</title>
-            <link>https://blog.baoshuo.ren/post/solution-luogu-p5738/</link>
-            <category>题解</category>
-            <pubDate>Tue, 22 Sep 2020 19:46:59 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;题面&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#题面&#34;&gt;&lt;/a&gt;题面&lt;/h2&gt;
-&lt;h3 id=&#34;题目描述&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#题目描述&#34;&gt;&lt;/a&gt;题目描述&lt;/h3&gt;
-&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;≤&lt;/mo&gt;&lt;mn&gt;100&lt;/mn&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;n(n\le 100)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;≤&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 名同学参加歌唱比赛，并接受 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo&gt;≤&lt;/mo&gt;&lt;mn&gt;20&lt;/mn&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;m(m\le 20)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;≤&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 名评委的评分，评分范围是 0 到 10 分。这名同学的得分就是这些评委给分中去掉一个最高分，去掉一个最低分，剩下 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;m-2&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.66666em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 个评分的平均数。请问得分最高的同学分数是多少？评分保留 2 位小数。&lt;/p&gt;
-&lt;h3 id=&#34;输入格式&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#输入格式&#34;&gt;&lt;/a&gt;输入格式&lt;/h3&gt;
-&lt;p&gt;无&lt;/p&gt;
-&lt;h3 id=&#34;输出格式&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#输出格式&#34;&gt;&lt;/a&gt;输出格式&lt;/h3&gt;
-&lt;p&gt;无&lt;/p&gt;
-&lt;h3 id=&#34;输入输出样例&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#输入输出样例&#34;&gt;&lt;/a&gt;输入输出样例&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;输入#1&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight text&#34;&gt;7 6
-4 7 2 6 10 7
-0 5 0 10 3 10
-2 6 8 4 3 6
-6 3 6 7 5 8
-5 9 3 3 8 1
-5 9 9 3 2 0
-5 8 0 4 1 10&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;输出#1&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight text&#34;&gt;6.00&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;思路&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#思路&#34;&gt;&lt;/a&gt;思路&lt;/h2&gt;
-&lt;p&gt;首先定义一个结构体，里面存放各个评委给出的分数、总分数和平均分。&lt;/p&gt;
-&lt;p&gt;然后写一个初始化函数：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;node() &amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;this&lt;/span&gt;-&amp;gt;score, &lt;span class=&#34;number&#34;&gt;0x00&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;this&lt;/span&gt;-&amp;gt;score));
-    all = sum = &lt;span class=&#34;number&#34;&gt;0.00&lt;/span&gt;;
-&amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;再写一个处理函数：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; m)&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; score[i];
-    &amp;#125;
-    &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;::sort(score, score + m);
-    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; &amp;lt; m; i++) &amp;#123;
-        sum += score[i];
-    &amp;#125;
-    all = sum / (m - &lt;span class=&#34;number&#34;&gt;2.00&lt;/span&gt;);
-&amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这个处理函数分为了三部分：&lt;strong&gt;读入&lt;/strong&gt;、&lt;strong&gt;排序&lt;/strong&gt;和&lt;strong&gt;按题目要求计算平均分&lt;/strong&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;代码&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#代码&#34;&gt;&lt;/a&gt;代码&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
-
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
-
-&lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;node&lt;/span&gt; &amp;#123;&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;    score[&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;];
-    &lt;span class=&#34;keyword&#34;&gt;double&lt;/span&gt; sum, all;
-
-    node() &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;this&lt;/span&gt;-&amp;gt;score, &lt;span class=&#34;number&#34;&gt;0x00&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;this&lt;/span&gt;-&amp;gt;score));
-        all = sum = &lt;span class=&#34;number&#34;&gt;0.00&lt;/span&gt;;
-    &amp;#125;
-
-    &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; m)&lt;/span&gt; &lt;/span&gt;&amp;#123;
-        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; score[i];
-        &amp;#125;
-        &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;::sort(score, score + m);
-        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; &amp;lt; m; i++) &amp;#123;
-            sum += score[i];
-        &amp;#125;
-        all = sum / (m - &lt;span class=&#34;number&#34;&gt;2.00&lt;/span&gt;);
-    &amp;#125;
-&amp;#125;;
-
-&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;cmp&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(node a, node b)&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; a.all &amp;gt; b.all;
-&amp;#125;
-
-&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;  n, m;
-    node student[&lt;span class=&#34;number&#34;&gt;105&lt;/span&gt;];
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
-    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; n; i++) &amp;#123;
-        student[i].t(m);
-    &amp;#125;
-    sort(student, student + n, cmp);
-    &lt;span class=&#34;built_in&#34;&gt;printf&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;%.2lf&amp;quot;&lt;/span&gt;, student[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;].all);
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt; ]]></description>
         </item>

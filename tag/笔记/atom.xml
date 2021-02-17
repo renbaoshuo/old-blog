@@ -6,14 +6,15 @@
     <updated>2020-12-02T00:08:39.000Z</updated>
     <category term="随笔" />
     <category term="Git" />
+    <category term="Web" />
     <category term="CTF" />
-    <category term="Typecho" />
     <category term="折腾" />
-    <category term="网络" />
+    <category term="web" />
     <category term="Linux" />
-    <category term="笔记" />
-    <category term="OI" />
+    <category term="网络" />
     <category term="题解" />
+    <category term="OI" />
+    <category term="笔记" />
     <category term="游记" />
     <category term="macOS" />
     <entry>
@@ -498,8 +499,8 @@
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;</content>
-        <category term="笔记" />
         <category term="OI" />
+        <category term="笔记" />
         <updated>2020-12-02T00:08:39.000Z</updated>
     </entry>
 </feed>
