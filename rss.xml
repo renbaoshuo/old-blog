@@ -10,14 +10,13 @@
         <category>CTF</category>
         <category>随笔</category>
         <category>Git</category>
-        <category>web</category>
         <category>Web</category>
-        <category>Linux</category>
         <category>折腾</category>
+        <category>Linux</category>
         <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
         <item>
@@ -645,11 +644,7 @@ darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;
 &lt;li&gt;&lt;code&gt;AllowIsolate&lt;/code&gt;: 是否允许使用 &lt;code&gt;systemctl isolate&lt;/code&gt; 命令切换到这个 Target&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
-&lt;p&gt;另外，还有一些值得参考，但本文并未引用的资料：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/systemd.unit.html&#34;&gt;systemd.unit - www.freedesktop.org&lt;/a&gt; &lt;sup&gt;英文&lt;/sup&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/systemd.target.html&#34;&gt;systemd.target - www.freedesktop.org&lt;/a&gt; &lt;sup&gt;英文&lt;/sup&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://github.com/systemd/brand.systemd.io/blob/master/assets/png/systemd-dark.png&#34;&gt;https://github.com/systemd/brand.systemd.io/blob/master/assets/png/systemd-dark.png&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;
@@ -1125,8 +1120,8 @@ naruto&lt;/code&gt;&lt;/pre&gt;
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-noip-2020/</guid>
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;没想到初中生也能参加 NOIP 。&lt;/p&gt;
@@ -1389,8 +1384,8 @@ ostream&amp;amp; &lt;span class=&#34;keyword&#34;&gt;operator&lt;/span&gt;&amp;l
             <guid isPermalink="true">https://blog.baoshuo.ren/post/segment-tree/</guid>
             <title>线段树学习笔记</title>
             <link>https://blog.baoshuo.ren/post/segment-tree/</link>
-            <category>OI</category>
             <category>笔记</category>
+            <category>OI</category>
             <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;线段树（Segment Tree）是一种用来维护区间的数据结构。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
@@ -2134,8 +2129,8 @@ git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-csp-j-2020/</guid>
             <title>CSP-J 2020 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-csp-j-2020/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <pubDate>Mon, 16 Nov 2020 17:24:54 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;优秀的拆分&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#优秀的拆分&#34;&gt;&lt;/a&gt;优秀的拆分&lt;/h2&gt;
 &lt;p&gt;前置知识：位运算。&lt;/p&gt;
@@ -2908,8 +2903,8 @@ a_i&amp;amp;(x+y \leq i &amp;lt; n)
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p1200/</guid>
             <title>【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p1200/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <pubDate>Mon, 12 Oct 2020 20:02:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;题面&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#题面&#34;&gt;&lt;/a&gt;题面&lt;/h2&gt;
 &lt;p&gt;难度：&lt;span style=&#34;color: #fe4c61;&#34;&gt;&lt;strong&gt;入门&lt;/strong&gt;&lt;/span&gt;&lt;br&gt;

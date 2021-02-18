@@ -7,14 +7,13 @@
     <category term="CTF" />
     <category term="随笔" />
     <category term="Git" />
-    <category term="web" />
     <category term="Web" />
-    <category term="Linux" />
     <category term="折腾" />
+    <category term="Linux" />
     <category term="网络" />
-    <category term="题解" />
-    <category term="OI" />
     <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
     <entry>
@@ -640,11 +639,7 @@ darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;
 &lt;li&gt;&lt;code&gt;AllowIsolate&lt;/code&gt;: 是否允许使用 &lt;code&gt;systemctl isolate&lt;/code&gt; 命令切换到这个 Target&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
-&lt;p&gt;另外，还有一些值得参考，但本文并未引用的资料：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/systemd.unit.html&#34;&gt;systemd.unit - www.freedesktop.org&lt;/a&gt; &lt;sup&gt;英文&lt;/sup&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/systemd.target.html&#34;&gt;systemd.target - www.freedesktop.org&lt;/a&gt; &lt;sup&gt;英文&lt;/sup&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://github.com/systemd/brand.systemd.io/blob/master/assets/png/systemd-dark.png&#34;&gt;https://github.com/systemd/brand.systemd.io/blob/master/assets/png/systemd-dark.png&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;
@@ -1377,8 +1372,8 @@ ostream&amp;amp; &lt;span class=&#34;keyword&#34;&gt;operator&lt;/span&gt;&amp;l
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;/details&gt;
 </content>
-        <category term="题解" />
         <category term="OI" />
+        <category term="题解" />
         <category term="游记" />
         <updated>2020-12-05T09:30:03.000Z</updated>
     </entry>
@@ -1864,8 +1859,8 @@ ostream&amp;amp; &lt;span class=&#34;keyword&#34;&gt;operator&lt;/span&gt;&amp;l
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;</content>
-        <category term="OI" />
         <category term="笔记" />
+        <category term="OI" />
         <updated>2020-12-02T00:08:39.000Z</updated>
     </entry>
     <entry>
@@ -2268,8 +2263,8 @@ git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 </content>
-        <category term="题解" />
         <category term="OI" />
+        <category term="题解" />
         <updated>2020-11-16T09:24:54.000Z</updated>
     </entry>
     <entry>
@@ -2965,8 +2960,8 @@ USACO&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="题解" />
         <category term="OI" />
+        <category term="题解" />
         <updated>2020-10-12T12:02:00.000Z</updated>
     </entry>
     <entry>

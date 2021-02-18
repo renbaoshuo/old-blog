@@ -10,14 +10,13 @@
         <category>CTF</category>
         <category>随笔</category>
         <category>Git</category>
-        <category>web</category>
         <category>Web</category>
-        <category>Linux</category>
         <category>折腾</category>
+        <category>Linux</category>
         <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
         <item>
@@ -298,11 +297,7 @@
 &lt;li&gt;&lt;code&gt;AllowIsolate&lt;/code&gt;: 是否允许使用 &lt;code&gt;systemctl isolate&lt;/code&gt; 命令切换到这个 Target&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;header-anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
-&lt;p&gt;另外，还有一些值得参考，但本文并未引用的资料：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/systemd.unit.html&#34;&gt;systemd.unit - www.freedesktop.org&lt;/a&gt; &lt;sup&gt;英文&lt;/sup&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/systemd.target.html&#34;&gt;systemd.target - www.freedesktop.org&lt;/a&gt; &lt;sup&gt;英文&lt;/sup&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://github.com/systemd/brand.systemd.io/blob/master/assets/png/systemd-dark.png&#34;&gt;https://github.com/systemd/brand.systemd.io/blob/master/assets/png/systemd-dark.png&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;

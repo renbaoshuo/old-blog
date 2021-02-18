@@ -7,14 +7,13 @@
     <category term="CTF" />
     <category term="随笔" />
     <category term="Git" />
-    <category term="web" />
     <category term="Web" />
-    <category term="Linux" />
     <category term="折腾" />
+    <category term="Linux" />
     <category term="网络" />
-    <category term="题解" />
-    <category term="OI" />
     <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
     <entry>
@@ -514,7 +513,7 @@ darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;
 &lt;p&gt;&lt;em&gt;本文为补档文章，原系统中最后一次修改时间：2020年4月12日 23:31:25&lt;/em&gt;
 &lt;em&gt;本文代码已经适配 handsome 7.2 版本，可放心使用。&lt;/em&gt;&lt;/p&gt;
 </content>
-        <category term="web" />
+        <category term="Web" />
         <updated>2020-07-16T08:27:58.000Z</updated>
     </entry>
 </feed>
