@@ -26,35 +26,7 @@
             <category>随笔</category>
             <category>Git</category>
             <pubDate>Wed, 25 Nov 2020 20:03:03 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;这几天重装了系统，一个不小心提交了好多 author 为 &lt;code&gt;&amp;quot;root&amp;quot;&amp;lt;root@localhost&amp;gt;&lt;/code&gt; 的 commit ，于是寻找到了一个修改的方法。&lt;/p&gt;
-&lt;p&gt;在仓库根目录下新建一个名为 &lt;code&gt;fix.sh&lt;/code&gt; 的 shell 脚本，输入以下内容：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#!/bin/bash&lt;/span&gt;
- 
-git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;an=&amp;quot;$GIT_AUTHOR_NAME&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;am=&amp;quot;$GIT_AUTHOR_EMAIL&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;cn=&amp;quot;$GIT_COMMITTER_NAME&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;cm=&amp;quot;$GIT_COMMITTER_EMAIL&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt; &lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;if [ &amp;quot;$GIT_COMMITTER_EMAIL&amp;quot; = &amp;quot;错误邮箱&amp;quot; ]&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;then&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;    cn=&amp;quot;正确名称&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;    cm=&amp;quot;正确邮箱&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;if [ &amp;quot;$GIT_AUTHOR_EMAIL&amp;quot; = &amp;quot;错误邮箱&amp;quot; ]&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;then&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;    an=&amp;quot;正确名称&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;    am=&amp;quot;正确邮箱&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;fi&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;export GIT_AUTHOR_NAME=&amp;quot;$an&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;export GIT_AUTHOR_EMAIL=&amp;quot;$am&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;export GIT_COMMITTER_NAME=&amp;quot;$cn&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;export GIT_COMMITTER_EMAIL=&amp;quot;$cm&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;完成后运行 &lt;code&gt;./fix.sh&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;p&gt;PS: 跑完记得删脚本，或者直接把脚本内容改好之后拖进终端&lt;/p&gt;
- ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/clone-github-repo-faster/</guid>
@@ -63,18 +35,7 @@ git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;
             <category>随笔</category>
             <category>Git</category>
             <pubDate>Tue, 21 Jul 2020 18:38:23 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;设置代理：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# socks5协议，1080端口修改成自己的本地代理端口&lt;/span&gt;
-git config --global http.https://github.com.proxy  socks5://127.0.0.1:1080
-git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
-
-&lt;span class=&#34;comment&#34;&gt;# http协议，7890端口修改成自己的本地代理端口&lt;/span&gt;
-git config --global http.https://github.com.proxy  http://127.0.0.1:7890
-git config --global https.https://github.com.proxy http://127.0.0.1:7890&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;之后运行 &lt;code&gt;git config -l&lt;/code&gt; 即可查看代理设置情况。&lt;/p&gt;
-&lt;p&gt;清除代理：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight shell&#34;&gt;git config --global --unset http.proxy
-git config --global --unset https.proxy&lt;/code&gt;&lt;/pre&gt; ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
     </channel>
 </rss>

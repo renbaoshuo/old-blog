@@ -1,23 +1,41 @@
+/**
+ * @name DarkMode.JS
+ * @author Ren Baoshuo <i@baoshuo.ren>
+ */
+
 const rootElement = document.documentElement;
 const darkModeClassName = "dark";
 const darkModeStorageKey = "user-color-scheme";
 const darkModeTimeKey = "user-color-scheme-time";
 const validColorModeKeys = { dark: true, light: true };
 const invertDarkModeObj = { dark: "light", light: "dark" };
-const nowTime = new Date();
 
+/**
+ * Set a key's value in LocalStorage
+ * @param {String} key Key
+ * @param {String} value Value
+ */
 const setLocalStorage = (key, value) => {
     try {
         localStorage.setItem(key, value);
     } catch (e) { }
 };
 
+/**
+ * Remove a key in LocalStorage
+ * @param {String} key Key
+ */
 const removeLocalStorage = (key) => {
     try {
         localStorage.removeItem(key);
     } catch (e) { }
 };
 
+/**
+ * Get a key's value in LocalStorage
+ * @param {String} key Key
+ * @returns {String} Value
+ */
 const getLocalStorage = (key) => {
     try {
         return localStorage.getItem(key);
@@ -26,25 +44,38 @@ const getLocalStorage = (key) => {
     }
 };
 
+/**
+ * Get system color mode preference
+ * @returns {String} Mode
+ */
 const getModeFromCSSMediaQuery = () => {
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
 
+/**
+ * Reset DarkMode class and LocalStorage
+ */
 const resetRootDarkModeClassAndLocalStorage = () => {
     rootElement.classList.remove(darkModeClassName);
     rootElement.classList.remove(invertDarkModeObj[darkModeClassName]);
     removeLocalStorage(darkModeStorageKey);
-    removeLocalStorage(darkModeTimeKey);
+    // removeLocalStorage(darkModeTimeKey);
 };
 
+/**
+ * Apply a custom darkmode setting
+ * @param {String} [mode] Mode
+ */
 const applyCustomDarkModeSettings = (mode) => {
     // 接受从「开关」处传来的模式，或者从 localStorage 读取
     const currentSetting = mode || getLocalStorage(darkModeStorageKey);
 
-    if (currentSetting === getModeFromCSSMediaQuery()) {
-        // 当用户自定义的显示模式和 prefers-color-scheme 相同时重置、恢复到自动模式
-        resetRootDarkModeClassAndLocalStorage();
-    } else if (validColorModeKeys[currentSetting]) {
+    // if (currentSetting === getModeFromCSSMediaQuery()) {
+    //     // 当用户自定义的显示模式和 prefers-color-scheme 相同时重置、恢复到自动模式
+    //     resetRootDarkModeClassAndLocalStorage();
+    //     rootElement.classList.add(currentSetting);
+    // } else 
+    if (validColorModeKeys[currentSetting]) {
         rootElement.classList.add(currentSetting);
         rootElement.classList.remove(invertDarkModeObj[currentSetting]);
     } else {
@@ -54,6 +85,9 @@ const applyCustomDarkModeSettings = (mode) => {
     }
 };
 
+/**
+ * Toggle DarkMode
+ */
 const toggleCustomDarkMode = () => {
     let currentSetting = getLocalStorage(darkModeStorageKey);
 
@@ -75,90 +109,39 @@ const toggleCustomDarkMode = () => {
     return currentSetting;
 };
 
-const checkDarkModeTime = () => {
-    if (nowTime.getHours() >= 19 || nowTime.getHours() < 7) {
-        // 晚7点到早7点
-        let darkModeTime = getLocalStorage(darkModeTimeKey);
-        if (darkModeTime === null || nowTime.getTime() - new Date(darkModeTime).getTime() > 43200) {
-            // 没有设置过
-            return true;
+/**
+ * Init DarkMode
+ * @param {Date} nowTime Now Time
+ */
+const initDarkMode = (nowTime) => {
+    const lastSunrise = (nowTime.getHours() < 7 ? new Date(nowTime.getFullYear(), nowTime.getMonth(), nowTime.getDate() - 1, 7) : new Date(nowTime.getFullYear(), nowTime.getMonth(), nowTime.getDate(), 7)).getTime();    // 日出
+    const lastSunset = (nowTime.getHours() < 19 ? new Date(nowTime.getFullYear(), nowTime.getMonth(), nowTime.getDate() - 1, 19) : new Date(nowTime.getFullYear(), nowTime.getMonth(), nowTime.getDate(), 19)).getTime();  // 日落
+    const darkModeTime = new Date(parseInt((getLocalStorage(darkModeTimeKey) || '0'), 10)).getTime();
+    let mode = null;
+    nowTime = nowTime.getTime();
+    if (lastSunrise < lastSunset) {
+        // 日出比日落早表示晚上
+        if (lastSunset < darkModeTime) {
+            // 当晚自行调整过日间/夜间模式
+            applyCustomDarkModeSettings();
         } else {
-            darkModeTime = new Date(darkModeTime);
-            if (nowTime.getHours() >= 19) {
-                if (darkModeTime.getFullYear() === nowTime.getFullYear()
-                    && darkModeTime.getMonth() === nowTime.getMonth()
-                    && darkModeTime.getDate() === nowTime.getDate()
-                    && darkModeTime.getHours() < 19) {
-                    // 切换前设置的
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-            else if (nowTime.getHours() < 7) {
-                // 判断昨晚是否做过切换
-                let tmpTime = new Date(nowTime.getFullYear(), nowTime.getMonth(), nowTime.getDate() - 1);
-                if (darkModeTime.getFullYear() === tmpTime.getFullYear()
-                    && darkModeTime.getMonth() === tmpTime.getMonth()
-                    && darkModeTime.getDate() === tmpTime.getDate()
-                    && darkModeTime.getHours() >= 19) {
-                    // 设置过
-                    return false;
-                } else if (darkModeTime.getFullYear() === nowTime.getFullYear()
-                    && darkModeTime.getMonth() === nowTime.getMonth()
-                    && darkModeTime.getMonth() === nowTime.getMonth()
-                    && darkModeTime.getDate() === nowTime.getDate()
-                    && darkModeTime.getHours() < 7) {
-                    return false;
-                } else {
-                    // 没有设置过
-                    return true;
-                }
-            }
-            // 设置过
-            return false;
+            applyCustomDarkModeSettings(darkModeClassName);
+            mode = darkModeClassName;
         }
     } else {
-        return false;
+        // 日出比日落晚表示白天
+        if (lastSunrise < darkModeTime) {
+            applyCustomDarkModeSettings();
+        }
+        else {
+            applyCustomDarkModeSettings(invertDarkModeObj[darkModeClassName]);
+            mode = invertDarkModeObj[darkModeClassName];
+        }
+    }
+    if (mode) {
+        setLocalStorage(darkModeStorageKey, mode);
+        setLocalStorage(darkModeTimeKey, +new Date());
     }
 };
 
-const checkLightModeTime = () => {
-    if (7 <= new Date().getHours() < 19) {
-        // 早7点到晚7点
-        let darkModeTime = getLocalStorage(darkModeTimeKey);
-        if (darkModeTime === null) {
-            // 没有设置过
-            return true;
-        } else {
-            // 设置过
-            darkModeTime = new Date(darkModeTime);
-            if (darkModeTime.getFullYear() === nowTime.getFullYear()
-                && darkModeTime.getMonth() === nowTime.getMonth()
-                && darkModeTime.getDate() === nowTime.getDate()
-                && darkModeTime.getHours() <= 7) {
-                // 是否为当天切换前设置的
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-    return false;
-}
-
-// 当页面加载时，先判断时间
-if (checkDarkModeTime()) {
-    // 定时开启
-    applyCustomDarkModeSettings(darkModeClassName);
-    setLocalStorage(darkModeStorageKey, darkModeClassName);
-    setLocalStorage(darkModeTimeKey, +new Date());
-} else if (checkLightModeTime()) {
-    applyCustomDarkModeSettings(invertDarkModeObj[darkModeClassName]);
-    setLocalStorage(darkModeStorageKey, invertDarkModeObj[darkModeClassName]);
-    setLocalStorage(darkModeTimeKey, +new Date());
-} else {
-    // 将显示模式设置为 localStorage 中自定义的值（如果有的话）
-    applyCustomDarkModeSettings();
-}
+initDarkMode(new Date());

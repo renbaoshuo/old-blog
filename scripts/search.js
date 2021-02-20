@@ -1,0 +1,1 @@
+/* Hexo Search by renbaoshuo ( https://baoshuo.ren ) */
