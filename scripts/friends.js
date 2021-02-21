@@ -1,27 +1,37 @@
-function loadFriends() {
+/**
+ * @name Friends.JS
+ * @author Ren Baoshuo <i@baoshuo.ren>
+ * @description Friends Loading Script for Baoshuo's Blog
+ */
+
+const loadFriends = () => {
     fetch(`${friends_endpoint}/links.json`)
         .then(response => response.json())
-        .catch((error) => {
-            document.getElementById('friends').innerHTML = `<p>加载失败，请 <a href="javascript:location.reload();">刷新</a> 重试</p>`;
-            console.log(error);
-        })
         .then(friends => {
-            let element = document.getElementById('friends');
+            let resultHTML = '';
             friends.forEach((friend) => {
-                element.innerHTML += `<div class="friend-box">`
+                resultHTML += `<div class="friends-list-item">`
                     + `<a href="${friend.link}" target="_blank" rel="noopener nofollow">`
-                    + `<img class="friend-avatar" src="${friends_endpoint}/img/${friend.logo}" loading="lazy">`
+                    + `<img class="logo" src="${friends_endpoint}/img/${friend.logo}" loading="lazy">`
                     + `</a>`
-                    + `<div class="friend-info">`
-                    + `<a class="friend-info-title" href="${friend.link}" target="_blank" rel="noopener nofollow">`
+                    + `<div class="info">`
+                    + `<a class="title" href="${friend.link}" target="_blank" rel="noopener nofollow">`
                     + friend.name
                     + `</a>`
                     + `<br>`
-                    + `<div class="friend-info-description">`
+                    + `<div class="description">`
                     + friend.slogan
+                    + `</div>`
+                    + `</div>`
                     + `</div>`;
             });
+            document.getElementById('friends').innerHTML = resultHTML;
             console.log('Friends list:', friends);
+        })
+        .catch((error) => {
+            document.getElementById('friends').innerHTML = `<p>加载失败，请尝试 <a href="javascript:loadFriends();">重新加载</a> 。</p>`;
+            console.log(error);
         });
 }
-setTimeout(loadFriends, 0);
+
+loadFriends();
