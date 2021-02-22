@@ -8,12 +8,12 @@
     <category term="随笔" />
     <category term="Git" />
     <category term="CTF" />
+    <category term="折腾" />
     <category term="Linux" />
     <category term="网络" />
-    <category term="折腾" />
-    <category term="题解" />
-    <category term="OI" />
     <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
     <entry>
@@ -45,8 +45,8 @@
         <title>NOIP 2020 游记 &amp; 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-noip-2020/"/>
         <summary type="html"><![CDATA[ &lt;p&gt;没想到初中生也能参加 NOIP 。&lt;/p&gt; ]]></summary>
-        <category term="题解" />
         <category term="OI" />
+        <category term="题解" />
         <category term="游记" />
         <updated>2020-12-05T09:30:03.000Z</updated>
     </entry>
@@ -55,8 +55,8 @@
         <title>CSP-J 2020 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-csp-j-2020/"/>
         <summary type="html"><![CDATA[  ]]></summary>
-        <category term="题解" />
         <category term="OI" />
+        <category term="题解" />
         <updated>2020-11-16T09:24:54.000Z</updated>
     </entry>
     <entry>
@@ -80,8 +80,8 @@
         <title>【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p1200/"/>
         <summary type="html"><![CDATA[  ]]></summary>
-        <category term="题解" />
         <category term="OI" />
+        <category term="题解" />
         <updated>2020-10-12T12:02:00.000Z</updated>
     </entry>
     <entry>
