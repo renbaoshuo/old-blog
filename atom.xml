@@ -3,19 +3,28 @@
     <id>https://blog.baoshuo.ren</id>
     <title>宝硕博客</title>
     <link href="https://blog.baoshuo.ren" />
-    <updated>2021-02-17T15:25:30.000Z</updated>
+    <updated>2021-02-27T16:02:04.000Z</updated>
+    <category term="网络" />
     <category term="CTF" />
     <category term="随笔" />
     <category term="Git" />
-    <category term="折腾" />
-    <category term="网络" />
     <category term="Web" />
+    <category term="折腾" />
     <category term="Linux" />
-    <category term="笔记" />
-    <category term="OI" />
     <category term="题解" />
+    <category term="OI" />
+    <category term="笔记" />
     <category term="游记" />
     <category term="macOS" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/workbox-service-worker/</id>
+        <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/workbox-service-worker/"/>
+        <summary type="html"><![CDATA[ &lt;p&gt;对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。&lt;br&gt;
+其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。&lt;/p&gt; ]]></summary>
+        <category term="Web" />
+        <updated>2021-02-27T16:02:04.000Z</updated>
+    </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/about-darkmode/</id>
         <title>浅谈网页「深色模式」的实现</title>
@@ -70,8 +79,8 @@
         <title>NOIP 2020 游记 &amp; 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-noip-2020/"/>
         <summary type="html"><![CDATA[ &lt;p&gt;没想到初中生也能参加 NOIP 。&lt;/p&gt; ]]></summary>
-        <category term="OI" />
         <category term="题解" />
+        <category term="OI" />
         <category term="游记" />
         <updated>2020-12-05T09:30:03.000Z</updated>
     </entry>
@@ -80,8 +89,8 @@
         <title>线段树学习笔记</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/segment-tree/"/>
         <summary type="html"><![CDATA[ &lt;p&gt;线段树（Segment Tree）是一种用来维护区间的数据结构。&lt;/p&gt; ]]></summary>
-        <category term="笔记" />
         <category term="OI" />
+        <category term="笔记" />
         <updated>2020-12-02T00:08:39.000Z</updated>
     </entry>
     <entry>
@@ -114,8 +123,8 @@
         <title>CSP-J 2020 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-csp-j-2020/"/>
         <summary type="html"><![CDATA[  ]]></summary>
-        <category term="OI" />
         <category term="题解" />
+        <category term="OI" />
         <updated>2020-11-16T09:24:54.000Z</updated>
     </entry>
     <entry>
@@ -156,8 +165,8 @@
         <title>【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p1200/"/>
         <summary type="html"><![CDATA[  ]]></summary>
-        <category term="OI" />
         <category term="题解" />
+        <category term="OI" />
         <updated>2020-10-12T12:02:00.000Z</updated>
     </entry>
     <entry>
@@ -175,13 +184,5 @@
         <summary type="html"><![CDATA[  ]]></summary>
         <category term="题解" />
         <updated>2020-10-04T08:16:41.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://blog.baoshuo.ren/post/solution-luogu-p4994/</id>
-        <title>【题解】P4994 终于结束的起点</title>
-        <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p4994/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
-        <category term="题解" />
-        <updated>2020-10-02T19:44:01.000Z</updated>
     </entry>
 </feed>
