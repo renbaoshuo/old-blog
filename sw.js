@@ -48,7 +48,7 @@ workbox.precaching.precacheAndRoute(
  */
 
 workbox.routing.registerRoute(
-    new RegExp('^https://cdn\.jsdelivr\.net'),
+    new RegExp('^https://cdn\\.jsdelivr\\.net'),
     new workbox.strategies.CacheFirst({
         cacheName: 'static-immutable' + cacheSuffixVersion,
         fetchOptions: {
@@ -65,14 +65,14 @@ workbox.routing.registerRoute(
 );
 
 /*
- * Google Analytics Async - No Cache
+ * Google Analytics Async
  *
  * api.baoshuo.ren
  *
- * Method: networkOnly
+ * Method: NetworkOnly
  */
 workbox.routing.registerRoute(
-    new RegExp('^https://api\.baoshuo\.ren\/cfga\/(.*)'),
+    new RegExp('^https://api\\.baoshuo\\.ren/cfga/(.*)'),
     new workbox.strategies.NetworkOnly({
         plugins: [
             new workbox.backgroundSync.BackgroundSyncPlugin('Optical_Collect', {
@@ -84,14 +84,14 @@ workbox.routing.registerRoute(
 
 
 /*
- * Disqus API - No Cache
+ * Disqus API
  *
  * api.baoshuo.ren
  *
- * Method: networkOnly
+ * Method: NetworkFirst
  */
 workbox.routing.registerRoute(
-    new RegExp('^https://api\.baoshuo\.ren\/disqus\/(.*)'),
+    new RegExp('^https://api\\.baoshuo\\.ren/disqus/(.*)'),
     new workbox.strategies.NetworkFirst({
         cacheName: 'dsqjs-api' + cacheSuffixVersion,
         fetchOptions: {
@@ -108,15 +108,15 @@ workbox.routing.registerRoute(
  * disqus.com
  * *.disquscdn.com
  *
- * Method: NetworkOnly
+ * Method: NetworkOnly, CacheFirst
  */
 workbox.routing.registerRoute(
-    new RegExp('^https://(.*)disqus\.com'),
+    new RegExp('^https://(.*)disqus\\.com'),
     new workbox.strategies.NetworkOnly()
 );
 
 workbox.routing.registerRoute(
-    new RegExp('^https://(.*)disquscdn\.com(.*)'),
+    new RegExp('^https://(.*)disquscdn\\.com(.*)'),
     new workbox.strategies.CacheFirst({
         cacheName: 'disqus-cdn-cache' + cacheSuffixVersion,
         fetchOptions: {
@@ -142,7 +142,7 @@ workbox.routing.registerRoute(
  * Method: StaleWhileRevalidate
  */
 workbox.routing.registerRoute(
-    new RegExp('^https://friends\.baoshuo\.ren(.*)(png|jpg|jpeg|svg|gif)'),
+    new RegExp('^https://friends\\.baoshuo\\.ren(.*)(png|jpg|jpeg|svg|gif)'),
     new workbox.strategies.StaleWhileRevalidate({
         cacheName: 'img-cache' + cacheSuffixVersion,
         fetchOptions: {
@@ -153,7 +153,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-    new RegExp('https://friends\.baoshuo\.ren/links.json'),
+    new RegExp('https://friends\\.baoshuo\\.ren/links.json'),
     new workbox.strategies.StaleWhileRevalidate()
 );
 
@@ -166,22 +166,19 @@ workbox.routing.registerRoute(
  * vip1.loli.io
  * vip2.loli.io
  *
- * Method: staleWhileRevalidate
+ * Method: CacheFirst
  * cacheName: img-cache
+ * cacheTime: 360d
  */
 workbox.routing.registerRoute(
-    new RegExp('^https://(?:i|vip[0-9])\.loli\.(?:io|net)'),
+    new RegExp('^https://(?:i|vip[0-9])\\.loli\\.(?:io|net)'),
     new workbox.strategies.CacheFirst({
         cacheName: 'img-cache' + cacheSuffixVersion,
         plugins: [
-            // 使用 expiration 插件实现缓存条目数目和时间控制
             new workbox.expiration.ExpirationPlugin({
-                // 最大保存项目
                 maxEntries,
-                // 缓存 360 天
                 maxAgeSeconds: 12 * 30 * 24 * 60 * 60,
             }),
-            // 使用 cacheableResponse 插件缓存状态码为 0 的请求
             new workbox.cacheableResponse.CacheableResponsePlugin({
                 statuses: [0, 200],
             }),
@@ -192,12 +189,12 @@ workbox.routing.registerRoute(
 /*
  * Google Fonts
  *
- * Method: staleWhileRevalidate
+ * Method: CacheFirst
  * cacheName: font-cache
  */
 workbox.routing.registerRoute(
-    new RegExp('^https://(?:fonts.googleapis.com|fonts.gstatic.com)'),
-    new workbox.strategies.StaleWhileRevalidate({
+    new RegExp('^https://(?:fonts\\.googleapis\\.com|fonts\\.gstatic\\.com)'),
+    new workbox.strategies.CacheFirst({
         // cache storage 名称和版本号
         cacheName: 'font-cache' + cacheSuffixVersion,
         plugins: [
