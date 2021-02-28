@@ -228,92 +228,92 @@
 
   <url>
     <loc>https://blog.baoshuo.ren/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2021-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.baoshuo.ren/tags/CTF/</loc>
-    <lastmod>2021-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.baoshuo.ren/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/Git/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/tags/CTF/</loc>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/Web/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/Linux/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/tags/%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/%E9%A2%98%E8%A7%A3/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/OI/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/%E6%B8%B8%E8%AE%B0/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/macOS/</loc>
-    <lastmod>2021-02-27</lastmod>
+    <lastmod>2021-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
