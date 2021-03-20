@@ -12,8 +12,8 @@ workbox.setConfig({
 console.log('Successful registered service worker.');
 
 
-let cacheSuffixVersion = '-210227';
-const maxEntries = 100;
+let cacheSuffixVersion = '-210321';
+const maxEntries = 500;
 
 workbox.core.setCacheNameDetails({
     prefix: 'baoshuo-blog',
@@ -168,7 +168,7 @@ workbox.routing.registerRoute(
  *
  * Method: CacheFirst
  * cacheName: img-cache
- * cacheTime: 360d
+ * cacheTime: 30d
  */
 workbox.routing.registerRoute(
     new RegExp('^https://(?:i|vip[0-9])\\.loli\\.(?:io|net)'),
@@ -177,7 +177,7 @@ workbox.routing.registerRoute(
         plugins: [
             new workbox.expiration.ExpirationPlugin({
                 maxEntries,
-                maxAgeSeconds: 12 * 30 * 24 * 60 * 60,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
             }),
             new workbox.cacheableResponse.CacheableResponsePlugin({
                 statuses: [0, 200],
