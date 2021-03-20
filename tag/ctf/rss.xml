@@ -7,26 +7,27 @@
         <language>cn</language>
         <pubDate>Sat, 31 Oct 2020 16:36:28 +0800</pubDate>
         <lastBuildDate>Sat, 31 Oct 2020 16:36:28 +0800</lastBuildDate>
-        <category>随笔</category>
-        <category>Git</category>
+        <category>网络</category>
         <category>CTF</category>
+        <category>Git</category>
         <category>Web</category>
         <category>折腾</category>
         <category>Linux</category>
-        <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
+        <category>前端</category>
+        <category>BGP</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</guid>
             <title>USTC Hackergame 2020 Write Up</title>
             <link>https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</link>
             <category>CTF</category>
             <pubDate>Sat, 31 Oct 2020 16:36:28 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;
-&lt;p&gt;对于我这种啥也不会的蒟蒻，拿到第676名已经是很不错的了（逃&lt;/p&gt; ]]></description>
+            <description><![CDATA[ 前言
+对于我这种啥也不会的蒟蒻，拿到第676名已经是很不错的了（逃 ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/</guid>

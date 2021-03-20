@@ -3,25 +3,35 @@
     <id>https://blog.baoshuo.ren</id>
     <title>宝硕博客</title>
     <link href="https://blog.baoshuo.ren" />
-    <updated>2021-02-27T16:02:04.000Z</updated>
-    <category term="随笔" />
-    <category term="Git" />
+    <updated>2021-03-20T17:06:09.000Z</updated>
+    <category term="网络" />
     <category term="CTF" />
+    <category term="Git" />
     <category term="Web" />
     <category term="折腾" />
     <category term="Linux" />
-    <category term="网络" />
-    <category term="题解" />
-    <category term="OI" />
     <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
+    <category term="前端" />
+    <category term="BGP" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/my-own-asn/</id>
+        <title>年轻人的第一个 ASN</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/my-own-asn/"/>
+        <summary><![CDATA[ 很久之前就有了这样的一个想法：拥有一个自己的 ASN 。2021 年的寒假末尾，我终于找到了一个肯给我这个未成年人申请 ASN 的 LIR 。
+于是这个世界上又多了一个祸害公网的人。 ]]></summary>
+        <category term="BGP" />
+        <updated>2021-03-20T17:06:09.000Z</updated>
+    </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/workbox-service-worker/</id>
         <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/workbox-service-worker/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。&lt;br&gt;
-其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。&lt;/p&gt; ]]></summary>
+        <summary><![CDATA[ 对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。
+其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。 ]]></summary>
         <category term="Web" />
         <updated>2021-02-27T16:02:04.000Z</updated>
     </entry>
@@ -29,16 +39,17 @@
         <id>https://blog.baoshuo.ren/post/about-darkmode/</id>
         <title>浅谈网页「深色模式」的实现</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/about-darkmode/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 &lt;a href=&#34;https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme&#34;&gt;Media Queries Level 5&lt;/a&gt;，越来越多的网站开始添加深色模式。&lt;/p&gt;
-&lt;p&gt;我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个深色模式插件&lt;sup&gt;（原文链接已丢失）&lt;/sup&gt;。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的深色模式是如何实现的。&lt;/p&gt; ]]></summary>
+        <summary><![CDATA[ 随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 Media Queries Level 5，越来越多的网站开始添加深色模式。
+我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个深色模式插件（原文链接已丢失）。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的深色模式是如何实现的。 ]]></summary>
         <category term="Web" />
+        <category term="前端" />
         <updated>2021-02-17T15:25:30.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/linux-systemd/</id>
         <title>Linux Systemd 入门</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/linux-systemd/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
+        <summary><![CDATA[  ]]></summary>
         <category term="Linux" />
         <updated>2021-02-11T16:06:31.000Z</updated>
     </entry>
@@ -46,7 +57,7 @@
         <id>https://blog.baoshuo.ren/post/solution-luogu-p2234/</id>
         <title>【题解】P2234 [HNOI2002]营业额统计</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p2234/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
+        <summary><![CDATA[  ]]></summary>
         <category term="题解" />
         <updated>2021-01-03T11:25:00.000Z</updated>
     </entry>
@@ -54,7 +65,7 @@
         <id>https://blog.baoshuo.ren/post/solution-s2oj-217/</id>
         <title>【题解】S2OJ - #217 QQ空间的说说</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-s2oj-217/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
+        <summary><![CDATA[  ]]></summary>
         <category term="题解" />
         <updated>2021-01-02T08:52:45.000Z</updated>
     </entry>
@@ -62,7 +73,7 @@
         <id>https://blog.baoshuo.ren/post/hello-2021/</id>
         <title>你好，2021 | 博客迁移记录</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/hello-2021/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;再见，2020。&lt;/p&gt; ]]></summary>
+        <summary><![CDATA[ 再见，2020。 ]]></summary>
         <category term="折腾" />
         <updated>2020-12-31T16:00:00.000Z</updated>
     </entry>
@@ -70,7 +81,7 @@
         <id>https://blog.baoshuo.ren/post/solution-luogu-p3879/</id>
         <title>【题解】P3879 [TJOI2010] 阅读理解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p3879/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
+        <summary><![CDATA[  ]]></summary>
         <category term="题解" />
         <updated>2020-12-30T11:26:51.000Z</updated>
     </entry>
@@ -78,9 +89,9 @@
         <id>https://blog.baoshuo.ren/post/solution-noip-2020/</id>
         <title>NOIP 2020 游记 &amp; 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-noip-2020/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;没想到初中生也能参加 NOIP 。&lt;/p&gt; ]]></summary>
-        <category term="题解" />
+        <summary><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></summary>
         <category term="OI" />
+        <category term="题解" />
         <category term="游记" />
         <updated>2020-12-05T09:30:03.000Z</updated>
     </entry>
@@ -88,33 +99,30 @@
         <id>https://blog.baoshuo.ren/post/segment-tree/</id>
         <title>线段树学习笔记</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/segment-tree/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;线段树（Segment Tree）是一种用来维护区间的数据结构。&lt;/p&gt; ]]></summary>
-        <category term="OI" />
+        <summary><![CDATA[ 线段树（Segment Tree）是一种用来维护区间的数据结构。 ]]></summary>
         <category term="笔记" />
+        <category term="OI" />
         <updated>2020-12-02T00:08:39.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/download-smms-image/</id>
         <title>【随笔】下载自己在 SM.MS 图床上的所有图片</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/download-smms-image/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
-        <category term="随笔" />
+        <summary><![CDATA[  ]]></summary>
         <updated>2020-11-28T13:39:32.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/luogu-spider/</id>
         <title>洛谷爬虫</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/luogu-spider/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;截至目前，洛谷已经有了近两万道题目和四十余万名用户。本代码爬取了一些样本，以供后续（可能）的数据分析。&lt;/p&gt; ]]></summary>
-        <category term="折腾" />
+        <summary><![CDATA[ 截至目前，洛谷已经有了近两万道题目和四十余万名用户。本代码爬取了一些样本，以供后续（可能）的数据分析。 ]]></summary>
         <updated>2020-11-26T06:55:02.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/change-git-submission-email/</id>
         <title>【随笔】批量修改 Git 仓库的提交邮箱</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/change-git-submission-email/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
-        <category term="随笔" />
+        <summary><![CDATA[  ]]></summary>
         <category term="Git" />
         <updated>2020-11-25T12:03:03.000Z</updated>
     </entry>
@@ -122,17 +130,17 @@
         <id>https://blog.baoshuo.ren/post/solution-csp-j-2020/</id>
         <title>CSP-J 2020 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-csp-j-2020/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
-        <category term="题解" />
+        <summary><![CDATA[  ]]></summary>
         <category term="OI" />
+        <category term="题解" />
         <updated>2020-11-16T09:24:54.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</id>
         <title>USTC Hackergame 2020 Write Up</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/"/>
-        <summary type="html"><![CDATA[ &lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;
-&lt;p&gt;对于我这种啥也不会的蒟蒻，拿到第676名已经是很不错的了（逃&lt;/p&gt; ]]></summary>
+        <summary><![CDATA[ 前言
+对于我这种啥也不会的蒟蒻，拿到第676名已经是很不错的了（逃 ]]></summary>
         <category term="CTF" />
         <updated>2020-10-31T08:36:28.000Z</updated>
     </entry>
@@ -140,7 +148,7 @@
         <id>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/</id>
         <title>【题解】7612. 2020牛客NOIP赛前集训营-普及组（第五场）</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
+        <summary><![CDATA[  ]]></summary>
         <category term="题解" />
         <updated>2020-10-29T11:52:19.000Z</updated>
     </entry>
@@ -148,7 +156,7 @@
         <id>https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/</id>
         <title>Bilibili 1024 节 CTF Write Up</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
+        <summary><![CDATA[  ]]></summary>
         <category term="CTF" />
         <updated>2020-10-26T10:02:08.000Z</updated>
     </entry>
@@ -156,7 +164,7 @@
         <id>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/</id>
         <title>【题解】7606. 2020牛客NOIP赛前集训营-普及组（第二场）</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
+        <summary><![CDATA[  ]]></summary>
         <category term="题解" />
         <updated>2020-10-20T14:35:21.000Z</updated>
     </entry>
@@ -164,25 +172,17 @@
         <id>https://blog.baoshuo.ren/post/solution-luogu-p1200/</id>
         <title>【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p1200/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
-        <category term="题解" />
+        <summary><![CDATA[  ]]></summary>
         <category term="OI" />
+        <category term="题解" />
         <updated>2020-10-12T12:02:00.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/</id>
         <title>使用树莓派+nginx搭建 rtmp 直播服务</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。&lt;/p&gt; ]]></summary>
+        <summary><![CDATA[ 国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。 ]]></summary>
         <category term="折腾" />
         <updated>2020-10-05T13:35:32.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://blog.baoshuo.ren/post/solution-luogu-p1724/</id>
-        <title>【题解】P1724 东风谷早苗</title>
-        <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p1724/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
-        <category term="题解" />
-        <updated>2020-10-04T08:16:41.000Z</updated>
     </entry>
 </feed>

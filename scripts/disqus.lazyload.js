@@ -25,7 +25,7 @@ function addScript(url) {
 
 function loadDisqus() {
     addScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js');
-    addStyle('https://cdn.jsdelivr.net/npm/bsm@0.1.5/dist/css/disqus.css');
+    addStyle('https://cdn.jsdelivr.net/npm/bsm@0.1.8/dist/css/disqus.css');
 }
 
 var runningOnBrowser = typeof window !== "undefined";

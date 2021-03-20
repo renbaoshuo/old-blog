@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>宝硕博客 • Posts by &#34;随笔&#34; tag</title>
+        <title>宝硕博客 • Posts by &#34;随笔&#34; category</title>
         <link>https://blog.baoshuo.ren</link>
         <description></description>
         <language>cn</language>
         <pubDate>Sat, 28 Nov 2020 21:39:32 +0800</pubDate>
         <lastBuildDate>Sat, 28 Nov 2020 21:39:32 +0800</lastBuildDate>
-        <category>随笔</category>
-        <category>Git</category>
+        <category>网络</category>
         <category>CTF</category>
+        <category>Git</category>
         <category>Web</category>
         <category>折腾</category>
         <category>Linux</category>
-        <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
+        <category>前端</category>
+        <category>BGP</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/download-smms-image/</guid>
             <title>【随笔】下载自己在 SM.MS 图床上的所有图片</title>
             <link>https://blog.baoshuo.ren/post/download-smms-image/</link>
-            <category>随笔</category>
             <pubDate>Sat, 28 Nov 2020 21:39:32 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -31,16 +31,24 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/change-git-submission-email/</guid>
             <title>【随笔】批量修改 Git 仓库的提交邮箱</title>
             <link>https://blog.baoshuo.ren/post/change-git-submission-email/</link>
-            <category>随笔</category>
             <category>Git</category>
             <pubDate>Wed, 25 Nov 2020 20:03:03 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</guid>
+            <title>给腾讯云服务器免费增加第二个 IP</title>
+            <link>https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</link>
+            <category>网络</category>
+            <category>Linux</category>
+            <pubDate>Thu, 20 Aug 2020 13:22:47 +0800</pubDate>
+            <description><![CDATA[ 前言
+良心云果然是良心云，增加了一个IP四舍五入居然不要钱，不过还是要登进系统配置一下双IP的。 ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/clone-github-repo-faster/</guid>
             <title>【随笔】修改 Git 配置加速 clone GitHub 源码</title>
             <link>https://blog.baoshuo.ren/post/clone-github-repo-faster/</link>
-            <category>随笔</category>
             <category>Git</category>
             <pubDate>Tue, 21 Jul 2020 18:38:23 +0800</pubDate>
             <description><![CDATA[  ]]></description>

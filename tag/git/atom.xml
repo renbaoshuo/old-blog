@@ -4,24 +4,24 @@
     <title>宝硕博客 • Posts by &#34;git&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2020-11-25T12:03:03.000Z</updated>
-    <category term="随笔" />
-    <category term="Git" />
+    <category term="网络" />
     <category term="CTF" />
+    <category term="Git" />
     <category term="Web" />
     <category term="折腾" />
     <category term="Linux" />
-    <category term="网络" />
-    <category term="题解" />
-    <category term="OI" />
     <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
+    <category term="前端" />
+    <category term="BGP" />
     <entry>
         <id>https://blog.baoshuo.ren/post/change-git-submission-email/</id>
         <title>【随笔】批量修改 Git 仓库的提交邮箱</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/change-git-submission-email/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
-        <category term="随笔" />
+        <summary><![CDATA[  ]]></summary>
         <category term="Git" />
         <updated>2020-11-25T12:03:03.000Z</updated>
     </entry>
@@ -29,8 +29,7 @@
         <id>https://blog.baoshuo.ren/post/clone-github-repo-faster/</id>
         <title>【随笔】修改 Git 配置加速 clone GitHub 源码</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/clone-github-repo-faster/"/>
-        <summary type="html"><![CDATA[  ]]></summary>
-        <category term="随笔" />
+        <summary><![CDATA[  ]]></summary>
         <category term="Git" />
         <updated>2020-07-21T10:38:23.000Z</updated>
     </entry>

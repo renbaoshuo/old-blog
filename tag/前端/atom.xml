@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.baoshuo.ren</id>
+    <title>宝硕博客 • Posts by &#34;前端&#34; tag</title>
+    <link href="https://blog.baoshuo.ren" />
+    <updated>2021-02-17T15:25:30.000Z</updated>
+    <category term="网络" />
+    <category term="CTF" />
+    <category term="Git" />
+    <category term="Web" />
+    <category term="折腾" />
+    <category term="Linux" />
+    <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
+    <category term="游记" />
+    <category term="macOS" />
+    <category term="前端" />
+    <category term="BGP" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/about-darkmode/</id>
+        <title>浅谈网页「深色模式」的实现</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/about-darkmode/"/>
+        <summary><![CDATA[ 随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 Media Queries Level 5，越来越多的网站开始添加深色模式。
+我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个深色模式插件（原文链接已丢失）。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的深色模式是如何实现的。 ]]></summary>
+        <category term="Web" />
+        <category term="前端" />
+        <updated>2021-02-17T15:25:30.000Z</updated>
+    </entry>
+</feed>

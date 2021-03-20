@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.baoshuo.ren</id>
+    <title>宝硕博客 • Posts by &#34;网络&#34; category</title>
+    <link href="https://blog.baoshuo.ren" />
+    <updated>2021-03-20T17:06:09.000Z</updated>
+    <category term="网络" />
+    <category term="CTF" />
+    <category term="Git" />
+    <category term="Web" />
+    <category term="折腾" />
+    <category term="Linux" />
+    <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
+    <category term="游记" />
+    <category term="macOS" />
+    <category term="前端" />
+    <category term="BGP" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/my-own-asn/</id>
+        <title>年轻人的第一个 ASN</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/my-own-asn/"/>
+        <summary><![CDATA[ 很久之前就有了这样的一个想法：拥有一个自己的 ASN 。2021 年的寒假末尾，我终于找到了一个肯给我这个未成年人申请 ASN 的 LIR 。
+于是这个世界上又多了一个祸害公网的人。 ]]></summary>
+        <category term="BGP" />
+        <updated>2021-03-20T17:06:09.000Z</updated>
+    </entry>
+</feed>

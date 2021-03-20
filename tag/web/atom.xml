@@ -4,24 +4,25 @@
     <title>宝硕博客 • Posts by &#34;web&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-02-27T16:02:04.000Z</updated>
-    <category term="随笔" />
-    <category term="Git" />
+    <category term="网络" />
     <category term="CTF" />
+    <category term="Git" />
     <category term="Web" />
     <category term="折腾" />
     <category term="Linux" />
-    <category term="网络" />
-    <category term="题解" />
-    <category term="OI" />
     <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
+    <category term="前端" />
+    <category term="BGP" />
     <entry>
         <id>https://blog.baoshuo.ren/post/workbox-service-worker/</id>
         <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/workbox-service-worker/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。&lt;br&gt;
-其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。&lt;/p&gt; ]]></summary>
+        <summary><![CDATA[ 对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。
+其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。 ]]></summary>
         <category term="Web" />
         <updated>2021-02-27T16:02:04.000Z</updated>
     </entry>
@@ -29,16 +30,17 @@
         <id>https://blog.baoshuo.ren/post/about-darkmode/</id>
         <title>浅谈网页「深色模式」的实现</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/about-darkmode/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 &lt;a href=&#34;https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme&#34;&gt;Media Queries Level 5&lt;/a&gt;，越来越多的网站开始添加深色模式。&lt;/p&gt;
-&lt;p&gt;我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个深色模式插件&lt;sup&gt;（原文链接已丢失）&lt;/sup&gt;。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的深色模式是如何实现的。&lt;/p&gt; ]]></summary>
+        <summary><![CDATA[ 随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 Media Queries Level 5，越来越多的网站开始添加深色模式。
+我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个深色模式插件（原文链接已丢失）。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的深色模式是如何实现的。 ]]></summary>
         <category term="Web" />
+        <category term="前端" />
         <updated>2021-02-17T15:25:30.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/handsome-leftbar-layout/</id>
         <title>【补档】handsome 魔改教程：左侧边栏输出优化</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/handsome-leftbar-layout/"/>
-        <summary type="html"><![CDATA[ &lt;p&gt;感觉 handsome 自带的左侧边栏显示方法不太合适，于是自己参照了UCW大佬的教程 &lt;a href=&#34;https://ucw.moe/archives/handsome-aside-category.html&#34;&gt;优化侧栏显示：实现更加美观的分类展示&lt;/a&gt; 改了一下。&lt;/p&gt; ]]></summary>
+        <summary><![CDATA[ 感觉 handsome 自带的左侧边栏显示方法不太合适，于是自己参照了UCW大佬的教程 优化侧栏显示：实现更加美观的分类展示 改了一下。 ]]></summary>
         <category term="Web" />
         <updated>2020-07-16T08:27:58.000Z</updated>
     </entry>

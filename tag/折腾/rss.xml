@@ -7,33 +7,26 @@
         <language>cn</language>
         <pubDate>Fri, 01 Jan 2021 00:00:00 +0800</pubDate>
         <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0800</lastBuildDate>
-        <category>随笔</category>
-        <category>Git</category>
+        <category>网络</category>
         <category>CTF</category>
+        <category>Git</category>
         <category>Web</category>
         <category>折腾</category>
         <category>Linux</category>
-        <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
+        <category>前端</category>
+        <category>BGP</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/hello-2021/</guid>
             <title>你好，2021 | 博客迁移记录</title>
             <link>https://blog.baoshuo.ren/post/hello-2021/</link>
             <category>折腾</category>
             <pubDate>Fri, 01 Jan 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;再见，2020。&lt;/p&gt; ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://blog.baoshuo.ren/post/luogu-spider/</guid>
-            <title>洛谷爬虫</title>
-            <link>https://blog.baoshuo.ren/post/luogu-spider/</link>
-            <category>折腾</category>
-            <pubDate>Thu, 26 Nov 2020 14:55:02 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;截至目前，洛谷已经有了近两万道题目和四十余万名用户。本代码爬取了一些样本，以供后续（可能）的数据分析。&lt;/p&gt; ]]></description>
+            <description><![CDATA[ 再见，2020。 ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/</guid>
@@ -41,7 +34,7 @@
             <link>https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/</link>
             <category>折腾</category>
             <pubDate>Mon, 05 Oct 2020 21:35:32 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。&lt;/p&gt; ]]></description>
+            <description><![CDATA[ 国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。 ]]></description>
         </item>
     </channel>
 </rss>
