@@ -17,6 +17,7 @@
     <category term="macOS" />
     <category term="前端" />
     <category term="BGP" />
+    <category term="DN42" />
     <entry>
         <id>https://blog.baoshuo.ren/post/segment-tree/</id>
         <title>线段树学习笔记</title>

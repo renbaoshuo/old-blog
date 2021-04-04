@@ -17,6 +17,7 @@
     <category term="macOS" />
     <category term="前端" />
     <category term="BGP" />
+    <category term="DN42" />
     <entry>
         <id>https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</id>
         <title>给腾讯云服务器免费增加第二个 IP</title>

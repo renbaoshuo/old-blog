@@ -5,8 +5,8 @@
         <link>https://blog.baoshuo.ren</link>
         <description></description>
         <language>cn</language>
-        <pubDate>Sun, 21 Mar 2021 01:06:09 +0800</pubDate>
-        <lastBuildDate>Sun, 21 Mar 2021 01:06:09 +0800</lastBuildDate>
+        <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
+        <lastBuildDate>Sun, 04 Apr 2021 11:29:32 +0800</lastBuildDate>
         <category>网络</category>
         <category>CTF</category>
         <category>Git</category>
@@ -20,6 +20,16 @@
         <category>macOS</category>
         <category>前端</category>
         <category>BGP</category>
+        <category>DN42</category>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/dn42-network/</guid>
+            <title>初探 DN42 网络</title>
+            <link>https://blog.baoshuo.ren/post/dn42-network/</link>
+            <category>BGP</category>
+            <category>DN42</category>
+            <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
+            <description><![CDATA[ DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 VPN 网络。但是 DN42 与其它传统 VPN 不同的是，它本身不提供 VPN 出口服务，即不提供规避网络审查、流媒体解锁等类似服务。相反，DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。 ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/my-own-asn/</guid>
             <title>年轻人的第一个 ASN</title>
@@ -179,14 +189,6 @@
             <category>题解</category>
             <pubDate>Mon, 12 Oct 2020 20:02:00 +0800</pubDate>
             <description><![CDATA[  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/</guid>
-            <title>使用树莓派+nginx搭建 rtmp 直播服务</title>
-            <link>https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/</link>
-            <category>折腾</category>
-            <pubDate>Mon, 05 Oct 2020 21:35:32 +0800</pubDate>
-            <description><![CDATA[ 国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。 ]]></description>
         </item>
     </channel>
 </rss>

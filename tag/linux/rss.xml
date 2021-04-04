@@ -20,6 +20,7 @@
         <category>macOS</category>
         <category>前端</category>
         <category>BGP</category>
+        <category>DN42</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/linux-systemd/</guid>
             <title>Linux Systemd 入门</title>
