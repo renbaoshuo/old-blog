@@ -4,27 +4,27 @@
     <title>宝硕博客 • Posts by &#34;dn42&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-04-04T03:29:32.000Z</updated>
+    <category term="Web" />
+    <category term="DN42" />
     <category term="网络" />
     <category term="CTF" />
     <category term="Git" />
-    <category term="Web" />
-    <category term="折腾" />
+    <category term="BGP" />
     <category term="Linux" />
-    <category term="笔记" />
-    <category term="OI" />
+    <category term="折腾" />
     <category term="题解" />
+    <category term="OI" />
+    <category term="笔记" />
     <category term="游记" />
     <category term="macOS" />
     <category term="前端" />
-    <category term="BGP" />
-    <category term="DN42" />
     <entry>
         <id>https://blog.baoshuo.ren/post/dn42-network/</id>
         <title>初探 DN42 网络</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/dn42-network/"/>
         <summary><![CDATA[ DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 VPN 网络。但是 DN42 与其它传统 VPN 不同的是，它本身不提供 VPN 出口服务，即不提供规避网络审查、流媒体解锁等类似服务。相反，DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。 ]]></summary>
-        <category term="BGP" />
         <category term="DN42" />
+        <category term="BGP" />
         <updated>2021-04-04T03:29:32.000Z</updated>
     </entry>
 </feed>

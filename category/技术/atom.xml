@@ -4,20 +4,20 @@
     <title>宝硕博客 • Posts by &#34;技术&#34; category</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-02-27T16:02:04.000Z</updated>
+    <category term="Web" />
+    <category term="DN42" />
     <category term="网络" />
     <category term="CTF" />
     <category term="Git" />
-    <category term="Web" />
-    <category term="折腾" />
+    <category term="BGP" />
     <category term="Linux" />
-    <category term="笔记" />
-    <category term="OI" />
+    <category term="折腾" />
     <category term="题解" />
+    <category term="OI" />
+    <category term="笔记" />
     <category term="游记" />
     <category term="macOS" />
     <category term="前端" />
-    <category term="BGP" />
-    <category term="DN42" />
     <entry>
         <id>https://blog.baoshuo.ren/post/workbox-service-worker/</id>
         <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>

@@ -7,26 +7,26 @@
         <language>cn</language>
         <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
         <lastBuildDate>Sun, 04 Apr 2021 11:29:32 +0800</lastBuildDate>
+        <category>Web</category>
+        <category>DN42</category>
         <category>网络</category>
         <category>CTF</category>
         <category>Git</category>
-        <category>Web</category>
-        <category>折腾</category>
+        <category>BGP</category>
         <category>Linux</category>
-        <category>笔记</category>
-        <category>OI</category>
+        <category>折腾</category>
         <category>题解</category>
+        <category>OI</category>
+        <category>笔记</category>
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
-        <category>BGP</category>
-        <category>DN42</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/dn42-network/</guid>
             <title>初探 DN42 网络</title>
             <link>https://blog.baoshuo.ren/post/dn42-network/</link>
-            <category>BGP</category>
             <category>DN42</category>
+            <category>BGP</category>
             <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
             <description><![CDATA[ DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 VPN 网络。但是 DN42 与其它传统 VPN 不同的是，它本身不提供 VPN 出口服务，即不提供规避网络审查、流媒体解锁等类似服务。相反，DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。 ]]></description>
         </item>
@@ -102,8 +102,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-noip-2020/</guid>
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
-            <category>OI</category>
             <category>题解</category>
+            <category>OI</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
             <description><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></description>
@@ -112,8 +112,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/segment-tree/</guid>
             <title>线段树学习笔记</title>
             <link>https://blog.baoshuo.ren/post/segment-tree/</link>
-            <category>笔记</category>
             <category>OI</category>
+            <category>笔记</category>
             <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
             <description><![CDATA[ 线段树（Segment Tree）是一种用来维护区间的数据结构。 ]]></description>
         </item>
@@ -143,8 +143,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-csp-j-2020/</guid>
             <title>CSP-J 2020 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-csp-j-2020/</link>
-            <category>OI</category>
             <category>题解</category>
+            <category>OI</category>
             <pubDate>Mon, 16 Nov 2020 17:24:54 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -185,8 +185,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p1200/</guid>
             <title>【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p1200/</link>
-            <category>OI</category>
             <category>题解</category>
+            <category>OI</category>
             <pubDate>Mon, 12 Oct 2020 20:02:00 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>

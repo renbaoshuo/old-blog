@@ -7,20 +7,20 @@
         <language>cn</language>
         <pubDate>Sat, 31 Oct 2020 16:36:28 +0800</pubDate>
         <lastBuildDate>Sat, 31 Oct 2020 16:36:28 +0800</lastBuildDate>
+        <category>Web</category>
+        <category>DN42</category>
         <category>网络</category>
         <category>CTF</category>
         <category>Git</category>
-        <category>Web</category>
-        <category>折腾</category>
+        <category>BGP</category>
         <category>Linux</category>
-        <category>笔记</category>
-        <category>OI</category>
+        <category>折腾</category>
         <category>题解</category>
+        <category>OI</category>
+        <category>笔记</category>
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
-        <category>BGP</category>
-        <category>DN42</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</guid>
             <title>USTC Hackergame 2020 Write Up</title>

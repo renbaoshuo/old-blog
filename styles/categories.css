@@ -1,2 +1,2 @@
-/* build time:Sun Apr 04 2021 11:51:56 GMT+0800 (中国标准时间)*/
+/* build time:Sun Apr 18 2021 01:09:38 GMT+0800 (中国标准时间)*/
 .categories-list{display:flex;flex-wrap:wrap;justify-content:center}.categories-list .categories-list-item{display:flex;justify-content:space-between;padding:1.5rem 2rem;margin:.5rem;border-radius:var(--border-radius);background:var(--theme-second);width:48%}@media (max-width:999px){.categories-list .categories-list-item{width:100%}}.categories-list .categories-list-item .categories-list-item-name{color:var(--content-first);font-size:1.25em}.categories-list .categories-list-item .categories-list-item-count{color:var(--content-first);text-align:right;align-self:center}

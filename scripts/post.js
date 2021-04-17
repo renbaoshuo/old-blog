@@ -7,3 +7,18 @@ Array.from(document.getElementsByClassName('anchor')).forEach((element) => {
 Array.from(document.getElementById('post-content').getElementsByTagName('img')).forEach((element) => {
     element.setAttribute('data-action', 'zoom');
 });
+
+// TOC
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('toc-btn').onclick = () => {
+        document.getElementById('post-toc').classList.add('active');
+    }
+    document.getElementById('post-toc-close').onclick = () => {
+        document.getElementById('post-toc').classList.remove('active');
+    }
+    Array.from(document.getElementsByClassName('toc-link')).forEach((element) => {
+        element.addEventListener('click', (event) => {
+            document.getElementById('post-toc').classList.remove('active');
+        })
+    })
+});
