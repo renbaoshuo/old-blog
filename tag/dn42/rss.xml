@@ -28,7 +28,7 @@
             <category>DN42</category>
             <category>BGP</category>
             <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
-            <description><![CDATA[ DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 VPN 网络。但是 DN42 与其它传统 VPN 不同的是，它本身不提供 VPN 出口服务，即不提供规避网络审查、流媒体解锁等类似服务。相反，DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。 ]]></description>
+            <description><![CDATA[ DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 BGP 网络。DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。 ]]></description>
         </item>
     </channel>
 </rss>

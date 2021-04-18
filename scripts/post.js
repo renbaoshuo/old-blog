@@ -22,3 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 });
+
+if (typeof updateTime !== "undefined") {
+    let updated = Math.floor((new Date().getTime() - updateTime) / 864e5);
+    if (updated > 182) {
+        document.getElementById("article-expire-day").textContent = updated;
+        document.getElementById("article-expire").classList.remove("hidden");
+    }
+}
