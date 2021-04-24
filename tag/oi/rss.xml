@@ -13,11 +13,11 @@
         <category>CTF</category>
         <category>Git</category>
         <category>BGP</category>
-        <category>Linux</category>
         <category>折腾</category>
-        <category>题解</category>
-        <category>OI</category>
+        <category>Linux</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
@@ -25,8 +25,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-noip-2020/</guid>
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
             <description><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></description>
@@ -35,8 +35,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/segment-tree/</guid>
             <title>线段树学习笔记</title>
             <link>https://blog.baoshuo.ren/post/segment-tree/</link>
-            <category>OI</category>
             <category>笔记</category>
+            <category>OI</category>
             <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
             <description><![CDATA[ 线段树（Segment Tree）是一种用来维护区间的数据结构。 ]]></description>
         </item>
@@ -44,8 +44,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-csp-j-2020/</guid>
             <title>CSP-J 2020 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-csp-j-2020/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <pubDate>Mon, 16 Nov 2020 17:24:54 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -53,8 +53,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p1200/</guid>
             <title>【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p1200/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <pubDate>Mon, 12 Oct 2020 20:02:00 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
