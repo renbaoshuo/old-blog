@@ -21,6 +21,7 @@
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
+        <category>BIRD</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/linux-systemd/</guid>
             <title>Linux Systemd 入门</title>

@@ -18,6 +18,7 @@
     <category term="游记" />
     <category term="macOS" />
     <category term="前端" />
+    <category term="BIRD" />
     <entry>
         <id>https://blog.baoshuo.ren/post/segment-tree/</id>
         <title>线段树学习笔记</title>

@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.baoshuo.ren/post/dn42-network/</loc>
+    <loc>https://blog.baoshuo.ren/post/bird-looking-glass/</loc>
     
-    <lastmod>2021-05-01</lastmod>
+    <lastmod>2021-05-03</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.baoshuo.ren/about/</loc>
     
-    <lastmod>2021-04-30</lastmod>
+    <lastmod>2021-05-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/post/dn42-network/</loc>
+    
+    <lastmod>2021-05-01</lastmod>
     
   </url>
   
@@ -348,6 +355,13 @@
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2021-05-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/tags/BIRD/</loc>
     <lastmod>2021-05-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

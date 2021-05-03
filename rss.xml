@@ -5,8 +5,8 @@
         <link>https://blog.baoshuo.ren</link>
         <description>宝硕博客 —— Baoshuo (@renbaoshuo) 随便写东西的地方，以技术向博文为主，生活向博文为辅。</description>
         <language>cn</language>
-        <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
-        <lastBuildDate>Sun, 04 Apr 2021 11:29:32 +0800</lastBuildDate>
+        <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
+        <lastBuildDate>Mon, 03 May 2021 12:23:00 +0800</lastBuildDate>
         <category>DN42</category>
         <category>网络</category>
         <category>Web</category>
@@ -21,6 +21,17 @@
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
+        <category>BIRD</category>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/bird-looking-glass/</guid>
+            <title>搭建 BIRD Looking Glass 速成指北</title>
+            <link>https://blog.baoshuo.ren/post/bird-looking-glass/</link>
+            <category>DN42</category>
+            <category>BGP</category>
+            <category>BIRD</category>
+            <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
+            <description><![CDATA[ BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 蓝天 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。 ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/dn42-network/</guid>
             <title>初探 DN42 网络</title>
@@ -180,15 +191,6 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <link>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/</link>
             <category>题解</category>
             <pubDate>Tue, 20 Oct 2020 22:35:21 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p1200/</guid>
-            <title>【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
-            <link>https://blog.baoshuo.ren/post/solution-luogu-p1200/</link>
-            <category>OI</category>
-            <category>题解</category>
-            <pubDate>Mon, 12 Oct 2020 20:02:00 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
     </channel>
