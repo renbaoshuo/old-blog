@@ -7,21 +7,21 @@
         <language>cn</language>
         <pubDate>Fri, 01 Jan 2021 00:00:00 +0800</pubDate>
         <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0800</lastBuildDate>
-        <category>DN42</category>
-        <category>网络</category>
-        <category>Web</category>
-        <category>Git</category>
-        <category>CTF</category>
+        <category>BIRD</category>
         <category>BGP</category>
+        <category>DN42</category>
+        <category>CTF</category>
+        <category>Git</category>
+        <category>Web</category>
         <category>折腾</category>
         <category>Linux</category>
-        <category>笔记</category>
-        <category>OI</category>
+        <category>网络</category>
         <category>题解</category>
+        <category>OI</category>
+        <category>笔记</category>
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
-        <category>BIRD</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/hello-2021/</guid>
             <title>你好，2021 | 博客迁移记录</title>

@@ -7,27 +7,27 @@
         <language>cn</language>
         <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
         <lastBuildDate>Sat, 05 Dec 2020 17:30:03 +0800</lastBuildDate>
-        <category>DN42</category>
-        <category>网络</category>
-        <category>Web</category>
-        <category>Git</category>
-        <category>CTF</category>
+        <category>BIRD</category>
         <category>BGP</category>
+        <category>DN42</category>
+        <category>CTF</category>
+        <category>Git</category>
+        <category>Web</category>
         <category>折腾</category>
         <category>Linux</category>
-        <category>笔记</category>
-        <category>OI</category>
+        <category>网络</category>
         <category>题解</category>
+        <category>OI</category>
+        <category>笔记</category>
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
-        <category>BIRD</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-noip-2020/</guid>
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
-            <category>OI</category>
             <category>题解</category>
+            <category>OI</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
             <description><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></description>
