@@ -7,18 +7,18 @@
         <language>cn</language>
         <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
         <lastBuildDate>Mon, 03 May 2021 12:23:00 +0800</lastBuildDate>
+        <category>DN42</category>
+        <category>网络</category>
+        <category>Web</category>
+        <category>CTF</category>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>DN42</category>
-        <category>CTF</category>
         <category>Git</category>
-        <category>Web</category>
-        <category>折腾</category>
         <category>Linux</category>
-        <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
+        <category>折腾</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
@@ -26,9 +26,9 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/bird-looking-glass/</guid>
             <title>搭建 BIRD Looking Glass 速成指北</title>
             <link>https://blog.baoshuo.ren/post/bird-looking-glass/</link>
+            <category>DN42</category>
             <category>BIRD</category>
             <category>BGP</category>
-            <category>DN42</category>
             <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
             <description><![CDATA[ BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 蓝天 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。 ]]></description>
         </item>

@@ -4,18 +4,18 @@
     <title>宝硕博客 • Posts by &#34;网络&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2020-08-20T05:22:47.000Z</updated>
+    <category term="DN42" />
+    <category term="网络" />
+    <category term="Web" />
+    <category term="CTF" />
     <category term="BIRD" />
     <category term="BGP" />
-    <category term="DN42" />
-    <category term="CTF" />
     <category term="Git" />
-    <category term="Web" />
-    <category term="折腾" />
     <category term="Linux" />
-    <category term="网络" />
-    <category term="题解" />
-    <category term="OI" />
+    <category term="折腾" />
     <category term="笔记" />
+    <category term="OI" />
+    <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
     <category term="前端" />
@@ -25,8 +25,8 @@
         <link rel="alternate" href="https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/"/>
         <summary><![CDATA[ 前言
 良心云果然是良心云，增加了一个IP四舍五入居然不要钱，不过还是要登进系统配置一下双IP的。 ]]></summary>
-        <category term="Linux" />
         <category term="网络" />
+        <category term="Linux" />
         <updated>2020-08-20T05:22:47.000Z</updated>
     </entry>
     <entry>

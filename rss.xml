@@ -7,18 +7,18 @@
         <language>cn</language>
         <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
         <lastBuildDate>Mon, 03 May 2021 12:23:00 +0800</lastBuildDate>
+        <category>DN42</category>
+        <category>网络</category>
+        <category>Web</category>
+        <category>CTF</category>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>DN42</category>
-        <category>CTF</category>
         <category>Git</category>
-        <category>Web</category>
-        <category>折腾</category>
         <category>Linux</category>
-        <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
+        <category>折腾</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
@@ -26,9 +26,9 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/bird-looking-glass/</guid>
             <title>搭建 BIRD Looking Glass 速成指北</title>
             <link>https://blog.baoshuo.ren/post/bird-looking-glass/</link>
+            <category>DN42</category>
             <category>BIRD</category>
             <category>BGP</category>
-            <category>DN42</category>
             <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
             <description><![CDATA[ BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 蓝天 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。 ]]></description>
         </item>
@@ -36,8 +36,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/dn42-network/</guid>
             <title>初探 DN42 网络</title>
             <link>https://blog.baoshuo.ren/post/dn42-network/</link>
-            <category>BGP</category>
             <category>DN42</category>
+            <category>BGP</category>
             <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
             <description><![CDATA[ DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 BGP 网络。DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。 ]]></description>
         </item>
@@ -114,8 +114,8 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-noip-2020/</guid>
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
             <description><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></description>
@@ -124,8 +124,8 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <guid isPermalink="true">https://blog.baoshuo.ren/post/segment-tree/</guid>
             <title>线段树学习笔记</title>
             <link>https://blog.baoshuo.ren/post/segment-tree/</link>
-            <category>OI</category>
             <category>笔记</category>
+            <category>OI</category>
             <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
             <description><![CDATA[ 线段树（Segment Tree）是一种用来维护区间的数据结构。 ]]></description>
         </item>
@@ -155,8 +155,8 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-csp-j-2020/</guid>
             <title>CSP-J 2020 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-csp-j-2020/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <pubDate>Mon, 16 Nov 2020 17:24:54 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>

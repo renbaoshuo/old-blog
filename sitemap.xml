@@ -263,6 +263,34 @@
 
   
   <url>
+    <loc>https://blog.baoshuo.ren/tags/DN42/</loc>
+    <lastmod>2021-06-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/tags/%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2021-06-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/tags/Web/</loc>
+    <lastmod>2021-06-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/tags/CTF/</loc>
+    <lastmod>2021-06-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.baoshuo.ren/tags/BIRD/</loc>
     <lastmod>2021-06-19</lastmod>
     <changefreq>daily</changefreq>
@@ -277,35 +305,7 @@
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/DN42/</loc>
-    <lastmod>2021-06-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.baoshuo.ren/tags/CTF/</loc>
-    <lastmod>2021-06-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.baoshuo.ren/tags/Git/</loc>
-    <lastmod>2021-06-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.baoshuo.ren/tags/Web/</loc>
-    <lastmod>2021-06-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.baoshuo.ren/tags/%E6%8A%98%E8%85%BE/</loc>
     <lastmod>2021-06-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -319,14 +319,14 @@
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://blog.baoshuo.ren/tags/%E6%8A%98%E8%85%BE/</loc>
     <lastmod>2021-06-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/%E9%A2%98%E8%A7%A3/</loc>
+    <loc>https://blog.baoshuo.ren/tags/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2021-06-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -340,7 +340,7 @@
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://blog.baoshuo.ren/tags/%E9%A2%98%E8%A7%A3/</loc>
     <lastmod>2021-06-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

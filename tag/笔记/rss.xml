@@ -7,18 +7,18 @@
         <language>cn</language>
         <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
         <lastBuildDate>Wed, 02 Dec 2020 08:08:39 +0800</lastBuildDate>
+        <category>DN42</category>
+        <category>网络</category>
+        <category>Web</category>
+        <category>CTF</category>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>DN42</category>
-        <category>CTF</category>
         <category>Git</category>
-        <category>Web</category>
-        <category>折腾</category>
         <category>Linux</category>
-        <category>网络</category>
-        <category>题解</category>
-        <category>OI</category>
+        <category>折腾</category>
         <category>笔记</category>
+        <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
@@ -26,8 +26,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/segment-tree/</guid>
             <title>线段树学习笔记</title>
             <link>https://blog.baoshuo.ren/post/segment-tree/</link>
-            <category>OI</category>
             <category>笔记</category>
+            <category>OI</category>
             <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
             <description><![CDATA[ 线段树（Segment Tree）是一种用来维护区间的数据结构。 ]]></description>
         </item>
