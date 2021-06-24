@@ -4,15 +4,15 @@
     <title>宝硕博客 • Posts by &#34;bird&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-05-03T04:23:00.000Z</updated>
-    <category term="DN42" />
-    <category term="网络" />
-    <category term="Web" />
-    <category term="CTF" />
     <category term="BIRD" />
     <category term="BGP" />
+    <category term="DN42" />
+    <category term="CTF" />
     <category term="Git" />
-    <category term="Linux" />
+    <category term="Web" />
     <category term="折腾" />
+    <category term="Linux" />
+    <category term="网络" />
     <category term="笔记" />
     <category term="OI" />
     <category term="题解" />
@@ -24,9 +24,9 @@
         <title>搭建 BIRD Looking Glass 速成指北</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/bird-looking-glass/"/>
         <summary><![CDATA[ BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 蓝天 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。 ]]></summary>
-        <category term="DN42" />
         <category term="BIRD" />
         <category term="BGP" />
+        <category term="DN42" />
         <updated>2021-05-03T04:23:00.000Z</updated>
     </entry>
 </feed>
