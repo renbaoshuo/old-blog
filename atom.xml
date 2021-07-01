@@ -3,30 +3,38 @@
     <id>https://blog.baoshuo.ren</id>
     <title>宝硕博客</title>
     <link href="https://blog.baoshuo.ren" />
-    <updated>2021-05-03T04:23:00.000Z</updated>
+    <updated>2021-07-01T09:51:50.000Z</updated>
+    <category term="DN42" />
+    <category term="网络" />
+    <category term="题解" />
+    <category term="Web" />
     <category term="BIRD" />
     <category term="BGP" />
-    <category term="DN42" />
     <category term="CTF" />
     <category term="Git" />
-    <category term="Web" />
-    <category term="折腾" />
     <category term="Linux" />
-    <category term="网络" />
+    <category term="折腾" />
     <category term="笔记" />
     <category term="OI" />
-    <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
     <category term="前端" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/solution-s2oj-438/</id>
+        <title>S2OJ - #438 bamboo</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-s2oj-438/"/>
+        <summary><![CDATA[  ]]></summary>
+        <category term="题解" />
+        <updated>2021-07-01T09:51:50.000Z</updated>
+    </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/bird-looking-glass/</id>
         <title>搭建 BIRD Looking Glass 速成指北</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/bird-looking-glass/"/>
         <summary><![CDATA[ BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 蓝天 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。 ]]></summary>
+        <category term="DN42" />
         <category term="BIRD" />
         <category term="BGP" />
-        <category term="DN42" />
         <updated>2021-05-03T04:23:00.000Z</updated>
     </entry>
     <entry>
@@ -34,8 +42,8 @@
         <title>初探 DN42 网络</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/dn42-network/"/>
         <summary><![CDATA[ DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 BGP 网络。DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。 ]]></summary>
-        <category term="BGP" />
         <category term="DN42" />
+        <category term="BGP" />
         <updated>2021-04-04T03:29:32.000Z</updated>
     </entry>
     <entry>
@@ -77,7 +85,7 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p2234/</id>
-        <title>【题解】P2234 [HNOI2002]营业额统计</title>
+        <title>洛谷 - P2234 [HNOI2002]营业额统计</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p2234/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -85,7 +93,7 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-s2oj-217/</id>
-        <title>【题解】S2OJ - #217 QQ空间的说说</title>
+        <title>S2OJ - #217 QQ空间的说说</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-s2oj-217/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -101,7 +109,7 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p3879/</id>
-        <title>【题解】P3879 [TJOI2010] 阅读理解</title>
+        <title>洛谷 - P3879 [TJOI2010] 阅读理解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p3879/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -112,8 +120,8 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
         <title>NOIP 2020 游记 &amp; 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-noip-2020/"/>
         <summary><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></summary>
-        <category term="OI" />
         <category term="题解" />
+        <category term="OI" />
         <category term="游记" />
         <updated>2020-12-05T09:30:03.000Z</updated>
     </entry>
@@ -153,8 +161,8 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
         <title>CSP-J 2020 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-csp-j-2020/"/>
         <summary><![CDATA[  ]]></summary>
-        <category term="OI" />
         <category term="题解" />
+        <category term="OI" />
         <updated>2020-11-16T09:24:54.000Z</updated>
     </entry>
     <entry>
@@ -168,7 +176,7 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/</id>
-        <title>【题解】7612. 2020牛客NOIP赛前集训营-普及组（第五场）</title>
+        <title>牛客网 - 7612. 2020牛客NOIP赛前集训营-普及组（第五场）</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -181,13 +189,5 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
         <summary><![CDATA[  ]]></summary>
         <category term="CTF" />
         <updated>2020-10-26T10:02:08.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/</id>
-        <title>【题解】7606. 2020牛客NOIP赛前集训营-普及组（第二场）</title>
-        <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/"/>
-        <summary><![CDATA[  ]]></summary>
-        <category term="题解" />
-        <updated>2020-10-20T14:35:21.000Z</updated>
     </entry>
 </feed>

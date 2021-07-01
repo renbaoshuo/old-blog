@@ -7,18 +7,18 @@
         <language>cn</language>
         <pubDate>Fri, 12 Feb 2021 00:06:31 +0800</pubDate>
         <lastBuildDate>Fri, 12 Feb 2021 00:06:31 +0800</lastBuildDate>
+        <category>DN42</category>
+        <category>网络</category>
+        <category>题解</category>
+        <category>Web</category>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>DN42</category>
         <category>CTF</category>
         <category>Git</category>
-        <category>Web</category>
-        <category>折腾</category>
         <category>Linux</category>
-        <category>网络</category>
+        <category>折腾</category>
         <category>笔记</category>
         <category>OI</category>
-        <category>题解</category>
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
@@ -35,8 +35,8 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <guid isPermalink="true">https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</guid>
             <title>给腾讯云服务器免费增加第二个 IP</title>
             <link>https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</link>
-            <category>Linux</category>
             <category>网络</category>
+            <category>Linux</category>
             <pubDate>Thu, 20 Aug 2020 13:22:47 +0800</pubDate>
             <description><![CDATA[ 前言
 良心云果然是良心云，增加了一个IP四舍五入居然不要钱，不过还是要登进系统配置一下双IP的。 ]]></description>

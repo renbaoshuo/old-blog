@@ -3,25 +3,33 @@
     <id>https://blog.baoshuo.ren</id>
     <title>宝硕博客 • Posts by &#34;题解&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
-    <updated>2021-01-03T11:25:00.000Z</updated>
+    <updated>2021-07-01T09:51:50.000Z</updated>
+    <category term="DN42" />
+    <category term="网络" />
+    <category term="题解" />
+    <category term="Web" />
     <category term="BIRD" />
     <category term="BGP" />
-    <category term="DN42" />
     <category term="CTF" />
     <category term="Git" />
-    <category term="Web" />
-    <category term="折腾" />
     <category term="Linux" />
-    <category term="网络" />
+    <category term="折腾" />
     <category term="笔记" />
     <category term="OI" />
-    <category term="题解" />
     <category term="游记" />
     <category term="macOS" />
     <category term="前端" />
     <entry>
+        <id>https://blog.baoshuo.ren/post/solution-s2oj-438/</id>
+        <title>S2OJ - #438 bamboo</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-s2oj-438/"/>
+        <summary><![CDATA[  ]]></summary>
+        <category term="题解" />
+        <updated>2021-07-01T09:51:50.000Z</updated>
+    </entry>
+    <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p2234/</id>
-        <title>【题解】P2234 [HNOI2002]营业额统计</title>
+        <title>洛谷 - P2234 [HNOI2002]营业额统计</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p2234/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -29,7 +37,7 @@
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-s2oj-217/</id>
-        <title>【题解】S2OJ - #217 QQ空间的说说</title>
+        <title>S2OJ - #217 QQ空间的说说</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-s2oj-217/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -37,7 +45,7 @@
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p3879/</id>
-        <title>【题解】P3879 [TJOI2010] 阅读理解</title>
+        <title>洛谷 - P3879 [TJOI2010] 阅读理解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p3879/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -48,8 +56,8 @@
         <title>NOIP 2020 游记 &amp; 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-noip-2020/"/>
         <summary><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></summary>
-        <category term="OI" />
         <category term="题解" />
+        <category term="OI" />
         <category term="游记" />
         <updated>2020-12-05T09:30:03.000Z</updated>
     </entry>
@@ -58,13 +66,13 @@
         <title>CSP-J 2020 题解</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-csp-j-2020/"/>
         <summary><![CDATA[  ]]></summary>
-        <category term="OI" />
         <category term="题解" />
+        <category term="OI" />
         <updated>2020-11-16T09:24:54.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/</id>
-        <title>【题解】7612. 2020牛客NOIP赛前集训营-普及组（第五场）</title>
+        <title>牛客网 - 7612. 2020牛客NOIP赛前集训营-普及组（第五场）</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -72,7 +80,7 @@
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/</id>
-        <title>【题解】7606. 2020牛客NOIP赛前集训营-普及组（第二场）</title>
+        <title>牛客网 - 7606. 2020牛客NOIP赛前集训营-普及组（第二场）</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -80,16 +88,16 @@
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p1200/</id>
-        <title>【题解】P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
+        <title>洛谷 - P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p1200/"/>
         <summary><![CDATA[  ]]></summary>
-        <category term="OI" />
         <category term="题解" />
+        <category term="OI" />
         <updated>2020-10-12T12:02:00.000Z</updated>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p1724/</id>
-        <title>【题解】P1724 东风谷早苗</title>
+        <title>洛谷 - P1724 东风谷早苗</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p1724/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -97,7 +105,7 @@
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p4994/</id>
-        <title>【题解】P4994 终于结束的起点</title>
+        <title>洛谷 - P4994 终于结束的起点</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p4994/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -105,7 +113,7 @@
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p5738/</id>
-        <title>【题解】P5738 歌唱比赛</title>
+        <title>洛谷 - P5738 歌唱比赛</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p5738/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
@@ -113,7 +121,7 @@
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p5660/</id>
-        <title>【题解】P5660 数字游戏</title>
+        <title>洛谷 - P5660 数字游戏</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-luogu-p5660/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
