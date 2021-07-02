@@ -5,24 +5,42 @@
         <link>https://blog.baoshuo.ren</link>
         <description>宝硕博客 —— Baoshuo (@renbaoshuo) 随便写东西的地方，以技术向博文为主，生活向博文为辅。</description>
         <language>cn</language>
-        <pubDate>Sun, 03 Jan 2021 19:25:00 +0800</pubDate>
-        <lastBuildDate>Sun, 03 Jan 2021 19:25:00 +0800</lastBuildDate>
+        <pubDate>Fri, 02 Jul 2021 16:10:49 +0800</pubDate>
+        <lastBuildDate>Fri, 02 Jul 2021 16:10:49 +0800</lastBuildDate>
         <category>DN42</category>
         <category>网络</category>
-        <category>题解</category>
         <category>Web</category>
+        <category>CTF</category>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>CTF</category>
         <category>Git</category>
-        <category>Linux</category>
         <category>折腾</category>
+        <category>Linux</category>
         <category>笔记</category>
         <category>OI</category>
+        <category>题解</category>
         <category>游记</category>
+        <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
-        <category>S2OJ</category>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-s2oj-441/</guid>
+            <title>S2OJ - 441. 记分牌</title>
+            <link>https://blog.baoshuo.ren/post/solution-s2oj-441/</link>
+            <category>题解</category>
+            <category>S2OJ</category>
+            <pubDate>Fri, 02 Jul 2021 16:10:49 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-s2oj-438/</guid>
+            <title>S2OJ - 438. bamboo</title>
+            <link>https://blog.baoshuo.ren/post/solution-s2oj-438/</link>
+            <category>题解</category>
+            <category>S2OJ</category>
+            <pubDate>Thu, 01 Jul 2021 17:51:50 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p2234/</guid>
             <title>洛谷 - P2234 [HNOI2002]营业额统计</title>
@@ -36,6 +54,7 @@
             <title>S2OJ - #217 QQ空间的说说</title>
             <link>https://blog.baoshuo.ren/post/solution-s2oj-217/</link>
             <category>题解</category>
+            <category>S2OJ</category>
             <pubDate>Sat, 02 Jan 2021 16:52:45 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -51,8 +70,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-noip-2020/</guid>
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
             <description><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></description>
@@ -70,8 +89,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-csp-j-2020/</guid>
             <title>CSP-J 2020 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-csp-j-2020/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <pubDate>Mon, 16 Nov 2020 17:24:54 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -95,8 +114,8 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p1200/</guid>
             <title>洛谷 - P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p1200/</link>
-            <category>题解</category>
             <category>OI</category>
+            <category>题解</category>
             <pubDate>Mon, 12 Oct 2020 20:02:00 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
