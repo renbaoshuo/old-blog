@@ -3,7 +3,7 @@
     <id>https://blog.baoshuo.ren</id>
     <title>宝硕博客 • Posts by &#34;题解&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
-    <updated>2021-07-01T09:51:50.000Z</updated>
+    <updated>2021-07-02T08:10:49.000Z</updated>
     <category term="DN42" />
     <category term="网络" />
     <category term="题解" />
@@ -19,12 +19,23 @@
     <category term="游记" />
     <category term="macOS" />
     <category term="前端" />
+    <category term="S2OJ" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/solution-s2oj-441/</id>
+        <title>S2OJ - 441. 记分牌</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-s2oj-441/"/>
+        <summary><![CDATA[  ]]></summary>
+        <category term="题解" />
+        <category term="S2OJ" />
+        <updated>2021-07-02T08:10:49.000Z</updated>
+    </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-s2oj-438/</id>
-        <title>S2OJ - #438 bamboo</title>
+        <title>S2OJ - 438. bamboo</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/solution-s2oj-438/"/>
         <summary><![CDATA[  ]]></summary>
         <category term="题解" />
+        <category term="S2OJ" />
         <updated>2021-07-01T09:51:50.000Z</updated>
     </entry>
     <entry>

@@ -5,8 +5,8 @@
         <link>https://blog.baoshuo.ren</link>
         <description>宝硕博客 —— Baoshuo (@renbaoshuo) 随便写东西的地方，以技术向博文为主，生活向博文为辅。</description>
         <language>cn</language>
-        <pubDate>Thu, 01 Jul 2021 17:51:50 +0800</pubDate>
-        <lastBuildDate>Thu, 01 Jul 2021 17:51:50 +0800</lastBuildDate>
+        <pubDate>Fri, 02 Jul 2021 16:10:49 +0800</pubDate>
+        <lastBuildDate>Fri, 02 Jul 2021 16:10:49 +0800</lastBuildDate>
         <category>DN42</category>
         <category>网络</category>
         <category>题解</category>
@@ -22,11 +22,22 @@
         <category>游记</category>
         <category>macOS</category>
         <category>前端</category>
+        <category>S2OJ</category>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-s2oj-441/</guid>
+            <title>S2OJ - 441. 记分牌</title>
+            <link>https://blog.baoshuo.ren/post/solution-s2oj-441/</link>
+            <category>题解</category>
+            <category>S2OJ</category>
+            <pubDate>Fri, 02 Jul 2021 16:10:49 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-s2oj-438/</guid>
-            <title>S2OJ - #438 bamboo</title>
+            <title>S2OJ - 438. bamboo</title>
             <link>https://blog.baoshuo.ren/post/solution-s2oj-438/</link>
             <category>题解</category>
+            <category>S2OJ</category>
             <pubDate>Thu, 01 Jul 2021 17:51:50 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -183,14 +194,6 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <link>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/</link>
             <category>题解</category>
             <pubDate>Thu, 29 Oct 2020 19:52:19 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/</guid>
-            <title>Bilibili 1024 节 CTF Write Up</title>
-            <link>https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/</link>
-            <category>CTF</category>
-            <pubDate>Mon, 26 Oct 2020 18:02:08 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
     </channel>
