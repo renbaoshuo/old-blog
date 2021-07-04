@@ -5,10 +5,12 @@
         <link>https://blog.baoshuo.ren</link>
         <description>宝硕博客 —— Baoshuo (@renbaoshuo) 随便写东西的地方，以技术向博文为主，生活向博文为辅。</description>
         <language>cn</language>
-        <pubDate>Fri, 02 Jul 2021 16:10:49 +0800</pubDate>
-        <lastBuildDate>Fri, 02 Jul 2021 16:10:49 +0800</lastBuildDate>
+        <pubDate>Sun, 04 Jul 2021 15:32:22 +0800</pubDate>
+        <lastBuildDate>Sun, 04 Jul 2021 15:32:22 +0800</lastBuildDate>
         <category>DN42</category>
         <category>网络</category>
+        <category>题解</category>
+        <category>洛谷</category>
         <category>Web</category>
         <category>CTF</category>
         <category>BIRD</category>
@@ -18,11 +20,19 @@
         <category>Linux</category>
         <category>笔记</category>
         <category>OI</category>
-        <category>题解</category>
         <category>游记</category>
         <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p2412/</guid>
+            <title>洛谷 - P2412 查单词</title>
+            <link>https://blog.baoshuo.ren/post/solution-luogu-p2412/</link>
+            <category>题解</category>
+            <category>洛谷</category>
+            <pubDate>Sun, 04 Jul 2021 15:32:22 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-s2oj-441/</guid>
             <title>S2OJ - 441. 记分牌</title>
@@ -134,8 +144,8 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-noip-2020/</guid>
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
-            <category>OI</category>
             <category>题解</category>
+            <category>OI</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
             <description><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></description>
@@ -175,8 +185,8 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-csp-j-2020/</guid>
             <title>CSP-J 2020 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-csp-j-2020/</link>
-            <category>OI</category>
             <category>题解</category>
+            <category>OI</category>
             <pubDate>Mon, 16 Nov 2020 17:24:54 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -188,14 +198,6 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <pubDate>Sat, 31 Oct 2020 16:36:28 +0800</pubDate>
             <description><![CDATA[ 前言
 对于我这种啥也不会的蒟蒻，拿到第676名已经是很不错的了（逃 ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/</guid>
-            <title>牛客网 - 7612. 2020牛客NOIP赛前集训营-普及组（第五场）</title>
-            <link>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/</link>
-            <category>题解</category>
-            <pubDate>Thu, 29 Oct 2020 19:52:19 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
         </item>
     </channel>
 </rss>
