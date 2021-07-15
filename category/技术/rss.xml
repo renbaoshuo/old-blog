@@ -5,8 +5,8 @@
         <link>https://blog.baoshuo.ren</link>
         <description>宝硕博客 —— Baoshuo (@renbaoshuo) 随便写东西的地方，以技术向博文为主，生活向博文为辅。</description>
         <language>cn</language>
-        <pubDate>Sun, 28 Feb 2021 00:02:04 +0800</pubDate>
-        <lastBuildDate>Sun, 28 Feb 2021 00:02:04 +0800</lastBuildDate>
+        <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
+        <lastBuildDate>Thu, 15 Jul 2021 17:57:25 +0800</lastBuildDate>
         <category>DN42</category>
         <category>网络</category>
         <category>题解</category>
@@ -24,6 +24,17 @@
         <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
+        <category>CloudFlare</category>
+        <item>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/vps-cloudflare-warp/</guid>
+            <title>使用 CloudFlare Warp 为单栈 VPS 添加双栈网络访问</title>
+            <link>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</link>
+            <category>折腾</category>
+            <category>Linux</category>
+            <category>CloudFlare</category>
+            <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
+            <description><![CDATA[ Warp 是 CloudFlare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 CloudFlare 的边缘节点实现隐私保护及链路优化。 ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/workbox-service-worker/</guid>
             <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>

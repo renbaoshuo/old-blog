@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.baoshuo.ren</id>
-    <title>宝硕博客 • Posts by &#34;折腾&#34; tag</title>
+    <title>宝硕博客 • Posts by &#34;cloudflare&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-07-15T09:57:25.000Z</updated>
     <category term="DN42" />
@@ -31,21 +31,5 @@
         <category term="Linux" />
         <category term="CloudFlare" />
         <updated>2021-07-15T09:57:25.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://blog.baoshuo.ren/post/hello-2021/</id>
-        <title>你好，2021 | 博客迁移记录</title>
-        <link rel="alternate" href="https://blog.baoshuo.ren/post/hello-2021/"/>
-        <summary><![CDATA[ 再见，2020。 ]]></summary>
-        <category term="折腾" />
-        <updated>2020-12-31T16:00:00.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/</id>
-        <title>使用树莓派+nginx搭建 rtmp 直播服务</title>
-        <link rel="alternate" href="https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/"/>
-        <summary><![CDATA[ 国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。 ]]></summary>
-        <category term="折腾" />
-        <updated>2020-10-05T13:35:32.000Z</updated>
     </entry>
 </feed>

@@ -3,7 +3,7 @@
     <id>https://blog.baoshuo.ren</id>
     <title>宝硕博客</title>
     <link href="https://blog.baoshuo.ren" />
-    <updated>2021-07-04T07:32:22.000Z</updated>
+    <updated>2021-07-15T09:57:25.000Z</updated>
     <category term="DN42" />
     <category term="网络" />
     <category term="题解" />
@@ -21,6 +21,17 @@
     <category term="S2OJ" />
     <category term="macOS" />
     <category term="前端" />
+    <category term="CloudFlare" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</id>
+        <title>使用 CloudFlare Warp 为单栈 VPS 添加双栈网络访问</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/vps-cloudflare-warp/"/>
+        <summary><![CDATA[ Warp 是 CloudFlare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 CloudFlare 的边缘节点实现隐私保护及链路优化。 ]]></summary>
+        <category term="折腾" />
+        <category term="Linux" />
+        <category term="CloudFlare" />
+        <updated>2021-07-15T09:57:25.000Z</updated>
+    </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/solution-luogu-p2412/</id>
         <title>洛谷 - P2412 查单词</title>
@@ -186,14 +197,5 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
         <category term="题解" />
         <category term="OI" />
         <updated>2020-11-16T09:24:54.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</id>
-        <title>USTC Hackergame 2020 Write Up</title>
-        <link rel="alternate" href="https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/"/>
-        <summary><![CDATA[ 前言
-对于我这种啥也不会的蒟蒻，拿到第676名已经是很不错的了（逃 ]]></summary>
-        <category term="CTF" />
-        <updated>2020-10-31T08:36:28.000Z</updated>
     </entry>
 </feed>
