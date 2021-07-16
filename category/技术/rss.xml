@@ -19,12 +19,12 @@
         <category>折腾</category>
         <category>Linux</category>
         <category>笔记</category>
-        <category>OI</category>
         <category>游记</category>
         <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
         <category>CloudFlare</category>
+        <category>牛客网</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vps-cloudflare-warp/</guid>
             <title>使用 CloudFlare Warp 为单栈 VPS 添加双栈网络访问</title>
@@ -33,7 +33,7 @@
             <category>Linux</category>
             <category>CloudFlare</category>
             <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
-            <description><![CDATA[ Warp 是 CloudFlare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 CloudFlare 的边缘节点实现隐私保护及链路优化。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/workbox-service-worker/</guid>
@@ -41,8 +41,7 @@
             <link>https://blog.baoshuo.ren/post/workbox-service-worker/</link>
             <category>Web</category>
             <pubDate>Sun, 28 Feb 2021 00:02:04 +0800</pubDate>
-            <description><![CDATA[ 对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。
-其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/about-darkmode/</guid>
@@ -51,8 +50,7 @@
             <category>Web</category>
             <category>前端</category>
             <pubDate>Wed, 17 Feb 2021 23:25:30 +0800</pubDate>
-            <description><![CDATA[ 随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 Media Queries Level 5，越来越多的网站开始添加深色模式。
-我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个深色模式插件（原文链接已丢失）。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的深色模式是如何实现的。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/linux-systemd/</guid>
@@ -60,8 +58,7 @@
             <link>https://blog.baoshuo.ren/post/linux-systemd/</link>
             <category>Linux</category>
             <pubDate>Fri, 12 Feb 2021 00:06:31 +0800</pubDate>
-            <description><![CDATA[ Systemd 简介
-Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管理程序，包括有守护进程、程序库以及应用软件，由 Lennart Poettering 带头开发。其开发目标是提供更优秀的框架以表示系统服务间的依赖关系，并依此实现系统初始化时服务的并行启动，同时达到降低 Shell 的系统开销的效果，最终代替现在常用的 System V 与 BSD 风格 init 程序。[1] ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/hello-2021/</guid>
@@ -69,14 +66,14 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <link>https://blog.baoshuo.ren/post/hello-2021/</link>
             <category>折腾</category>
             <pubDate>Fri, 01 Jan 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ 再见，2020。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/luogu-spider/</guid>
             <title>洛谷爬虫</title>
             <link>https://blog.baoshuo.ren/post/luogu-spider/</link>
             <pubDate>Thu, 26 Nov 2020 14:55:02 +0800</pubDate>
-            <description><![CDATA[ 截至目前，洛谷已经有了近两万道题目和四十余万名用户。本代码爬取了一些样本，以供后续（可能）的数据分析。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</guid>
@@ -84,8 +81,7 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <link>https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</link>
             <category>CTF</category>
             <pubDate>Sat, 31 Oct 2020 16:36:28 +0800</pubDate>
-            <description><![CDATA[ 前言
-对于我这种啥也不会的蒟蒻，拿到第676名已经是很不错的了（逃 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/</guid>
@@ -101,7 +97,7 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <link>https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/</link>
             <category>折腾</category>
             <pubDate>Mon, 05 Oct 2020 21:35:32 +0800</pubDate>
-            <description><![CDATA[ 国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/nginx-cloudflare-ip-only/</guid>
@@ -109,7 +105,7 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <link>https://blog.baoshuo.ren/post/nginx-cloudflare-ip-only/</link>
             <category>网络</category>
             <pubDate>Tue, 18 Aug 2020 13:32:04 +0800</pubDate>
-            <description><![CDATA[ 配置好 CloudFlare 后，建议禁止非 CloudFlare IP 访问源站来防止一些不好的事情发生。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vmware-macos-bigsur/</guid>
@@ -125,7 +121,7 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <link>https://blog.baoshuo.ren/post/handsome-leftbar-layout/</link>
             <category>Web</category>
             <pubDate>Thu, 16 Jul 2020 16:27:58 +0800</pubDate>
-            <description><![CDATA[ 感觉 handsome 自带的左侧边栏显示方法不太合适，于是自己参照了UCW大佬的教程 优化侧栏显示：实现更加美观的分类展示 改了一下。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
     </channel>
 </rss>

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>宝硕博客 • Posts by &#34;ctf&#34; tag</title>
+        <title>宝硕博客 • Posts by &#34;牛客网&#34; tag</title>
         <link>https://blog.baoshuo.ren</link>
         <description>宝硕博客 —— Baoshuo (@renbaoshuo) 随便写东西的地方，以技术向博文为主，生活向博文为辅。</description>
         <language>cn</language>
-        <pubDate>Sat, 31 Oct 2020 16:36:28 +0800</pubDate>
-        <lastBuildDate>Sat, 31 Oct 2020 16:36:28 +0800</lastBuildDate>
+        <pubDate>Thu, 29 Oct 2020 19:52:19 +0800</pubDate>
+        <lastBuildDate>Thu, 29 Oct 2020 19:52:19 +0800</lastBuildDate>
         <category>DN42</category>
         <category>网络</category>
         <category>题解</category>
@@ -26,19 +26,21 @@
         <category>CloudFlare</category>
         <category>牛客网</category>
         <item>
-            <guid isPermalink="true">https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</guid>
-            <title>USTC Hackergame 2020 Write Up</title>
-            <link>https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</link>
-            <category>CTF</category>
-            <pubDate>Sat, 31 Oct 2020 16:36:28 +0800</pubDate>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/</guid>
+            <title>牛客网 - 7612. 2020牛客NOIP赛前集训营-普及组（第五场）</title>
+            <link>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/</link>
+            <category>题解</category>
+            <category>牛客网</category>
+            <pubDate>Thu, 29 Oct 2020 19:52:19 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/</guid>
-            <title>Bilibili 1024 节 CTF Write Up</title>
-            <link>https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/</link>
-            <category>CTF</category>
-            <pubDate>Mon, 26 Oct 2020 18:02:08 +0800</pubDate>
+            <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/</guid>
+            <title>牛客网 - 7606. 2020牛客NOIP赛前集训营-普及组（第二场）</title>
+            <link>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/</link>
+            <category>题解</category>
+            <category>牛客网</category>
+            <pubDate>Tue, 20 Oct 2020 22:35:21 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
     </channel>

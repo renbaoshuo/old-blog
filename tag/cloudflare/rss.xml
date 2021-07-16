@@ -19,12 +19,12 @@
         <category>折腾</category>
         <category>Linux</category>
         <category>笔记</category>
-        <category>OI</category>
         <category>游记</category>
         <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
         <category>CloudFlare</category>
+        <category>牛客网</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vps-cloudflare-warp/</guid>
             <title>使用 CloudFlare Warp 为单栈 VPS 添加双栈网络访问</title>
@@ -33,7 +33,7 @@
             <category>Linux</category>
             <category>CloudFlare</category>
             <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
-            <description><![CDATA[ Warp 是 CloudFlare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 CloudFlare 的边缘节点实现隐私保护及链路优化。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
     </channel>
 </rss>

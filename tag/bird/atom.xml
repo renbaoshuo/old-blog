@@ -16,16 +16,106 @@
     <category term="折腾" />
     <category term="Linux" />
     <category term="笔记" />
-    <category term="OI" />
     <category term="游记" />
     <category term="S2OJ" />
     <category term="macOS" />
     <category term="前端" />
     <category term="CloudFlare" />
+    <category term="牛客网" />
     <entry>
         <id>https://blog.baoshuo.ren/post/bird-looking-glass/</id>
         <title>搭建 BIRD Looking Glass 速成指北</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/bird-looking-glass/"/>
+        <content type="html"><![CDATA[ <p>BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 <a href="https://lantian.pub">蓝天</a> 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。</p>
+<a id="more"></a>
+<ul>
+<li>项目地址：<a href="https://github.com/xddxdd/bird-lg-go">https://github.com/xddxdd/bird-lg-go</a></li>
+<li>成品： <a href="https://lg.dn42.as141776.net">https://lg.dn42.as141776.net</a></li>
+</ul>
+<h2 id="安装-Docker-和-Docker-Compose">安装 Docker 和 Docker Compose</h2>
+<p>虽然这个程序可以直接运行，但我还是比较喜欢套个 Docker 防止污染环境。</p>
+<pre><code class="highlight bash">curl -sSL https://get.docker.com | sh
+pip install docker-compose</code></pre>
+<h2 id="编排-Docker-Compose-服务">编排 Docker Compose 服务</h2>
+<p>在运行 web 的服务器上找个地方（如 <code>/var/bird-lg/</code>），将下面的内容修改后写入 <code>docker-compose.yml</code> 中：</p>
+<pre><code class="highlight yml"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span>
+
+<span class="attr">services:</span>
+  <span class="attr">bird-lg:</span>
+    <span class="attr">image:</span> <span class="string">xddxdd/bird-lg-go</span>
+    <span class="attr">container_name:</span> <span class="string">bird-lg</span>
+    <span class="attr">restart:</span> <span class="string">always</span>
+    <span class="attr">environment:</span>
+      <span class="bullet">-</span> <span class="string">BIRDLG_SERVERS=cn1,eu1</span>              <span class="comment"># 节点列表，以逗号分隔</span>
+      <span class="bullet">-</span> <span class="string">BIRDLG_DOMAIN=dn42.as141776.net</span>     <span class="comment"># 节点 endpiont 后缀</span>
+      <span class="bullet">-</span> <span class="string">BIRDLG_TITLE_BRAND=Looking</span> <span class="string">Glass</span>    <span class="comment"># 标签栏上显示的名称</span>
+      <span class="bullet">-</span> <span class="string">BIRDLG_NAVBAR_BRAND=Looking</span> <span class="string">Glass</span>   <span class="comment"># 页面上显示的名称</span>
+      <span class="bullet">-</span> <span class="string">BIRDLG_WHOIS=whois.lantian.dn42</span>     <span class="comment"># Whois 服务器地址</span>
+      <span class="bullet">-</span> <span class="string">BIRDLG_DNS_INTERFACE=asn.dn42</span>
+    <span class="attr">ports:</span>
+      <span class="bullet">-</span> <span class="string">&quot;5000:5000&quot;</span>
+  <span class="attr">bird-lgproxy:</span>
+    <span class="attr">image:</span> <span class="string">xddxdd/bird-lgproxy-go</span>
+    <span class="attr">container_name:</span> <span class="string">bird-lgproxy</span>
+    <span class="attr">restart:</span> <span class="string">always</span>
+    <span class="attr">volumes:</span>
+      <span class="bullet">-</span> <span class="string">&quot;/var/run/bird/bird.ctl:/var/run/bird/bird.ctl&quot;</span>
+    <span class="attr">ports:</span>
+      <span class="bullet">-</span> <span class="string">&quot;8000:8000&quot;</span></code></pre>
+<p>在各个节点上只需要写入下面内容即可：</p>
+<pre><code class="highlight yml"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span>
+
+<span class="attr">services:</span>
+  <span class="attr">bird-lgproxy:</span>
+    <span class="attr">image:</span> <span class="string">xddxdd/bird-lgproxy-go</span>
+    <span class="attr">container_name:</span> <span class="string">bird-lgproxy</span>
+    <span class="attr">restart:</span> <span class="string">always</span>
+    <span class="attr">volumes:</span>
+      <span class="bullet">-</span> <span class="string">&quot;/var/run/bird/bird.ctl:/var/run/bird/bird.ctl&quot;</span>
+    <span class="attr">ports:</span>
+      <span class="bullet">-</span> <span class="string">&quot;8000:8000&quot;</span></code></pre>
+<p>之后启动 Docker 容器：</p>
+<pre><code class="highlight bash">docker-compose up -d</code></pre>
+<h2 id="使用-nginx-反代页面">使用 nginx 反代页面</h2>
+<p>使用下方的配置启动反向代理即可。</p>
+<pre><code class="highlight nginx"><span class="section">server</span> &#123;
+    <span class="attribute">listen</span>      *:<span class="number">80</span>;
+    <span class="attribute">listen</span>      [::]:<span class="number">80</span>;
+    <span class="attribute">server_name</span> lg.dn42.as141776.net;
+
+    <span class="comment"># reverse proxy</span>
+    <span class="attribute">location</span> / &#123;
+        <span class="attribute">proxy_pass</span>                         http://127.0.0.1:5000;
+        <span class="attribute">proxy_http_version</span>                 <span class="number">1</span>.<span class="number">1</span>;
+        <span class="attribute">proxy_cache_bypass</span>                 $http_upgrade;
+
+        <span class="comment"># Proxy headers</span>
+        <span class="attribute">proxy_set_header</span> Upgrade           $http_upgrade;
+        <span class="attribute">proxy_set_header</span> Host              $host;
+        <span class="attribute">proxy_set_header</span> X-Real-IP         $remote_addr;
+        <span class="attribute">proxy_set_header</span> X-Forwarded-For   $proxy_add_x_forwarded_for;
+        <span class="attribute">proxy_set_header</span> X-Forwarded-Proto $scheme;
+        <span class="attribute">proxy_set_header</span> X-Forwarded-Host  $host;
+        <span class="attribute">proxy_set_header</span> X-Forwarded-Port  $server_port;
+
+        <span class="comment"># Proxy timeouts</span>
+        <span class="attribute">proxy_connect_timeout</span>              <span class="number">60s</span>;
+        <span class="attribute">proxy_send_timeout</span>                 <span class="number">60s</span>;
+        <span class="attribute">proxy_read_timeout</span>                 <span class="number">60s</span>;
+    &#125;
+&#125;</code></pre>
+<h2 id="配置-DNS-解析">配置 DNS 解析</h2>
+<p>bird-lg-go 的节点 endpiont 生成逻辑是 <code>http://[节点].[endpoint后缀]:8000</code> ，如 <code>http://eu1.dn42.as141776.net:8000</code> ，所以只需要去配置对应的解析。</p>
+<blockquote>
+<p><strong>警告</strong></p>
+<p>建议解析到节点的公网 IP 上，以免 DN42 炸掉时 Looking Glass 也一并炸掉。</p>
+</blockquote>
+<p>配置示例：</p>
+<pre><code class="highlight css"><span class="selector-tag">eu1</span><span class="selector-class">.dn42</span><span class="selector-class">.as141776</span><span class="selector-class">.net</span>.  3600    <span class="selector-tag">IN</span>      <span class="selector-tag">A</span>       136.243.221.96
+<span class="selector-tag">cn1</span><span class="selector-class">.dn42</span><span class="selector-class">.as141776</span><span class="selector-class">.net</span>.  3600    <span class="selector-tag">IN</span>      <span class="selector-tag">CNAME</span>   <span class="selector-tag">home</span><span class="selector-class">.baoshuo</span><span class="selector-class">.ren</span>.</code></pre>
+<h2 id="成果">成果</h2>
+<p><img src="https://vip2.loli.io/2021/05/03/iaFfTWAhpdZGJ9t.png" alt="" loading="lazy" data-action="zoom"></p>
+ ]]></content>
         <summary><![CDATA[ BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 蓝天 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。 ]]></summary>
         <category term="DN42" />
         <category term="BIRD" />

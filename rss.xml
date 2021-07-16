@@ -19,12 +19,12 @@
         <category>折腾</category>
         <category>Linux</category>
         <category>笔记</category>
-        <category>OI</category>
         <category>游记</category>
         <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
         <category>CloudFlare</category>
+        <category>牛客网</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vps-cloudflare-warp/</guid>
             <title>使用 CloudFlare Warp 为单栈 VPS 添加双栈网络访问</title>
@@ -33,7 +33,7 @@
             <category>Linux</category>
             <category>CloudFlare</category>
             <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
-            <description><![CDATA[ Warp 是 CloudFlare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 CloudFlare 的边缘节点实现隐私保护及链路优化。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p2412/</guid>
@@ -70,7 +70,7 @@
             <category>BIRD</category>
             <category>BGP</category>
             <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
-            <description><![CDATA[ BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 蓝天 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/dn42-network/</guid>
@@ -79,7 +79,7 @@
             <category>DN42</category>
             <category>BGP</category>
             <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
-            <description><![CDATA[ DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 BGP 网络。DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/my-own-asn/</guid>
@@ -87,8 +87,7 @@
             <link>https://blog.baoshuo.ren/post/my-own-asn/</link>
             <category>BGP</category>
             <pubDate>Sun, 21 Mar 2021 01:06:09 +0800</pubDate>
-            <description><![CDATA[ 很久之前就有了这样的一个想法：拥有一个自己的 ASN 。2021 年的寒假末尾，我终于找到了一个肯给我这个未成年人申请 ASN 的 LIR 。
-于是这个世界上又多了一个祸害公网的人。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/workbox-service-worker/</guid>
@@ -96,8 +95,7 @@
             <link>https://blog.baoshuo.ren/post/workbox-service-worker/</link>
             <category>Web</category>
             <pubDate>Sun, 28 Feb 2021 00:02:04 +0800</pubDate>
-            <description><![CDATA[ 对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。
-其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/about-darkmode/</guid>
@@ -106,8 +104,7 @@
             <category>Web</category>
             <category>前端</category>
             <pubDate>Wed, 17 Feb 2021 23:25:30 +0800</pubDate>
-            <description><![CDATA[ 随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 Media Queries Level 5，越来越多的网站开始添加深色模式。
-我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个深色模式插件（原文链接已丢失）。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的深色模式是如何实现的。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/linux-systemd/</guid>
@@ -115,14 +112,14 @@
             <link>https://blog.baoshuo.ren/post/linux-systemd/</link>
             <category>Linux</category>
             <pubDate>Fri, 12 Feb 2021 00:06:31 +0800</pubDate>
-            <description><![CDATA[ Systemd 简介
-Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管理程序，包括有守护进程、程序库以及应用软件，由 Lennart Poettering 带头开发。其开发目标是提供更优秀的框架以表示系统服务间的依赖关系，并依此实现系统初始化时服务的并行启动，同时达到降低 Shell 的系统开销的效果，最终代替现在常用的 System V 与 BSD 风格 init 程序。[1] ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p2234/</guid>
             <title>洛谷 - P2234 [HNOI2002]营业额统计</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p2234/</link>
             <category>题解</category>
+            <category>洛谷</category>
             <pubDate>Sun, 03 Jan 2021 19:25:00 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -141,13 +138,14 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <link>https://blog.baoshuo.ren/post/hello-2021/</link>
             <category>折腾</category>
             <pubDate>Fri, 01 Jan 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ 再见，2020。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p3879/</guid>
             <title>洛谷 - P3879 [TJOI2010] 阅读理解</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p3879/</link>
             <category>题解</category>
+            <category>洛谷</category>
             <pubDate>Wed, 30 Dec 2020 19:26:51 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -156,19 +154,17 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
             <category>题解</category>
-            <category>OI</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
-            <description><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/segment-tree/</guid>
             <title>线段树学习笔记</title>
             <link>https://blog.baoshuo.ren/post/segment-tree/</link>
             <category>笔记</category>
-            <category>OI</category>
             <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
-            <description><![CDATA[ 线段树（Segment Tree）是一种用来维护区间的数据结构。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/download-smms-image/</guid>
@@ -182,7 +178,7 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <title>洛谷爬虫</title>
             <link>https://blog.baoshuo.ren/post/luogu-spider/</link>
             <pubDate>Thu, 26 Nov 2020 14:55:02 +0800</pubDate>
-            <description><![CDATA[ 截至目前，洛谷已经有了近两万道题目和四十余万名用户。本代码爬取了一些样本，以供后续（可能）的数据分析。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/change-git-submission-email/</guid>
@@ -197,7 +193,6 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
             <title>CSP-J 2020 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-csp-j-2020/</link>
             <category>题解</category>
-            <category>OI</category>
             <pubDate>Mon, 16 Nov 2020 17:24:54 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>

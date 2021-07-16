@@ -19,20 +19,19 @@
         <category>折腾</category>
         <category>Linux</category>
         <category>笔记</category>
-        <category>OI</category>
         <category>游记</category>
         <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
         <category>CloudFlare</category>
+        <category>牛客网</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/segment-tree/</guid>
             <title>线段树学习笔记</title>
             <link>https://blog.baoshuo.ren/post/segment-tree/</link>
             <category>笔记</category>
-            <category>OI</category>
             <pubDate>Wed, 02 Dec 2020 08:08:39 +0800</pubDate>
-            <description><![CDATA[ 线段树（Segment Tree）是一种用来维护区间的数据结构。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
     </channel>
 </rss>

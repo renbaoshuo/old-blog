@@ -19,12 +19,12 @@
         <category>折腾</category>
         <category>Linux</category>
         <category>笔记</category>
-        <category>OI</category>
         <category>游记</category>
         <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
         <category>CloudFlare</category>
+        <category>牛客网</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/change-git-submission-email/</guid>
             <title>【随笔】批量修改 Git 仓库的提交邮箱</title>

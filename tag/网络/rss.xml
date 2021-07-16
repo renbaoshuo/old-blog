@@ -19,12 +19,12 @@
         <category>折腾</category>
         <category>Linux</category>
         <category>笔记</category>
-        <category>OI</category>
         <category>游记</category>
         <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
         <category>CloudFlare</category>
+        <category>牛客网</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</guid>
             <title>给腾讯云服务器免费增加第二个 IP</title>
@@ -32,8 +32,7 @@
             <category>网络</category>
             <category>Linux</category>
             <pubDate>Thu, 20 Aug 2020 13:22:47 +0800</pubDate>
-            <description><![CDATA[ 前言
-良心云果然是良心云，增加了一个IP四舍五入居然不要钱，不过还是要登进系统配置一下双IP的。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/nginx-cloudflare-ip-only/</guid>
@@ -41,7 +40,7 @@
             <link>https://blog.baoshuo.ren/post/nginx-cloudflare-ip-only/</link>
             <category>网络</category>
             <pubDate>Tue, 18 Aug 2020 13:32:04 +0800</pubDate>
-            <description><![CDATA[ 配置好 CloudFlare 后，建议禁止非 CloudFlare IP 访问源站来防止一些不好的事情发生。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
     </channel>
 </rss>

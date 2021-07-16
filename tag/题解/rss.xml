@@ -19,12 +19,12 @@
         <category>折腾</category>
         <category>Linux</category>
         <category>笔记</category>
-        <category>OI</category>
         <category>游记</category>
         <category>S2OJ</category>
         <category>macOS</category>
         <category>前端</category>
         <category>CloudFlare</category>
+        <category>牛客网</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p2412/</guid>
             <title>洛谷 - P2412 查单词</title>
@@ -57,6 +57,7 @@
             <title>洛谷 - P2234 [HNOI2002]营业额统计</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p2234/</link>
             <category>题解</category>
+            <category>洛谷</category>
             <pubDate>Sun, 03 Jan 2021 19:25:00 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -74,6 +75,7 @@
             <title>洛谷 - P3879 [TJOI2010] 阅读理解</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p3879/</link>
             <category>题解</category>
+            <category>洛谷</category>
             <pubDate>Wed, 30 Dec 2020 19:26:51 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -82,17 +84,15 @@
             <title>NOIP 2020 游记 &amp; 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-noip-2020/</link>
             <category>题解</category>
-            <category>OI</category>
             <category>游记</category>
             <pubDate>Sat, 05 Dec 2020 17:30:03 +0800</pubDate>
-            <description><![CDATA[ 没想到初中生也能参加 NOIP 。 ]]></description>
+            <description><![CDATA[  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-csp-j-2020/</guid>
             <title>CSP-J 2020 题解</title>
             <link>https://blog.baoshuo.ren/post/solution-csp-j-2020/</link>
             <category>题解</category>
-            <category>OI</category>
             <pubDate>Mon, 16 Nov 2020 17:24:54 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -101,6 +101,7 @@
             <title>牛客网 - 7612. 2020牛客NOIP赛前集训营-普及组（第五场）</title>
             <link>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7612/</link>
             <category>题解</category>
+            <category>牛客网</category>
             <pubDate>Thu, 29 Oct 2020 19:52:19 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -109,6 +110,7 @@
             <title>牛客网 - 7606. 2020牛客NOIP赛前集训营-普及组（第二场）</title>
             <link>https://blog.baoshuo.ren/post/solution-nowcoder-contest-7606/</link>
             <category>题解</category>
+            <category>牛客网</category>
             <pubDate>Tue, 20 Oct 2020 22:35:21 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -117,7 +119,7 @@
             <title>洛谷 - P1200 [USACO1.1] 你的飞碟在这儿 Your Ride Is Here</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p1200/</link>
             <category>题解</category>
-            <category>OI</category>
+            <category>洛谷</category>
             <pubDate>Mon, 12 Oct 2020 20:02:00 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -126,6 +128,7 @@
             <title>洛谷 - P1724 东风谷早苗</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p1724/</link>
             <category>题解</category>
+            <category>洛谷</category>
             <pubDate>Sun, 04 Oct 2020 16:16:41 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -134,6 +137,7 @@
             <title>洛谷 - P4994 终于结束的起点</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p4994/</link>
             <category>题解</category>
+            <category>洛谷</category>
             <pubDate>Sat, 03 Oct 2020 03:44:01 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -142,6 +146,7 @@
             <title>洛谷 - P5738 歌唱比赛</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p5738/</link>
             <category>题解</category>
+            <category>洛谷</category>
             <pubDate>Tue, 22 Sep 2020 19:46:59 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -150,6 +155,7 @@
             <title>洛谷 - P5660 数字游戏</title>
             <link>https://blog.baoshuo.ren/post/solution-luogu-p5660/</link>
             <category>题解</category>
+            <category>洛谷</category>
             <pubDate>Sun, 13 Sep 2020 18:16:55 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>

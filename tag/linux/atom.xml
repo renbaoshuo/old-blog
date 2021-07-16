@@ -16,16 +16,82 @@
     <category term="折腾" />
     <category term="Linux" />
     <category term="笔记" />
-    <category term="OI" />
     <category term="游记" />
     <category term="S2OJ" />
     <category term="macOS" />
     <category term="前端" />
     <category term="CloudFlare" />
+    <category term="牛客网" />
     <entry>
         <id>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</id>
         <title>使用 CloudFlare Warp 为单栈 VPS 添加双栈网络访问</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/vps-cloudflare-warp/"/>
+        <content type="html"><![CDATA[ <p><a href="https://blog.cloudflare.com/1111-warp-better-vpn/">Warp</a> 是 CloudFlare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 CloudFlare 的边缘节点实现隐私保护及链路优化。</p>
+<a id="more"></a>
+<p>由于 CloudFlare 官方的 <a href="https://developers.cloudflare.com/warp-client/setting-up/linux">Warp Client</a> 过于臃肿，导致我看到安装包大小后就决定直接放弃安装，于是我选择了 <a href="https://github.com/ViRb3/wgcf">ViRb3/wgcf</a> 替代。</p>
+<p><img src="https://vip1.loli.io/2021/07/15/dHClLqSsvDKbrBc.png" alt="使用 apt 安装 cloudflare-warp 时的提示" loading="lazy" data-action="zoom"><span class="image-description">使用 apt 安装 cloudflare-warp 时的提示</span></p>
+<h2 id="安装依赖">安装依赖</h2>
+<p>可以前往 <a href="https://github.com/ViRb3/wgcf/releases/latest">Releases 页面</a> 下载编译好的二进制文件以供使用。</p>
+<p>也可使用如下命令安装：</p>
+<pre><code class="highlight bash">curl -Ls https://git.io/wgcf-installer.sh | bash</code></pre>
+<p>安装好之后运行 <code>wgcf --help</code> ，得到类似下图的输出即为安装成功：</p>
+<p><img src="https://vip1.loli.io/2021/07/15/lDaywAzQGd8HI9S.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>另外还需按照 <a href="https://www.wireguard.com/install/">WireGuard 官网</a> 上的说明安装 WireGuard 。</p>
+<p>根据需求可能还需要安装 <code>resolvconf</code> 。</p>
+<h2 id="生成-WireGuard-配置文件">生成 WireGuard 配置文件</h2>
+<p>先使用 <code>wgcf register</code> 命令注册 Warp 。</p>
+<p><img src="https://vip2.loli.io/2021/07/15/MYT5bkX4r2pGHUv.png" alt="使用键盘上的方向键选择 &quot;Yes&quot; 并回车确认" loading="lazy" data-action="zoom"><span class="image-description">使用键盘上的方向键选择 &quot;Yes&quot; 并回车确认</span></p>
+<p>注册成功后的提示：</p>
+<p><img src="https://vip2.loli.io/2021/07/15/y4homkVbqsr9PYj.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>之后使用 <code>wgcf generate</code> 命令生成配置文件。</p>
+<p><img src="https://vip1.loli.io/2021/07/15/3zWUZYTdGhn9qkP.png" alt="" loading="lazy" data-action="zoom"></p>
+<h2 id="修改-WireGuard-配置文件">修改 WireGuard 配置文件</h2>
+<p>这是一份生成出来的配置文件：</p>
+<pre><code class="highlight ini"><span class="section">[Interface]</span>
+<span class="attr">PrivateKey</span> = ******
+<span class="attr">Address</span> = <span class="number">172.16</span>.*.*/<span class="number">32</span>
+<span class="attr">Address</span> = fd01:******/<span class="number">128</span>
+<span class="attr">DNS</span> = <span class="number">1.1</span>.<span class="number">1.1</span>
+<span class="attr">MTU</span> = <span class="number">1280</span>
+
+<span class="section">[Peer]</span>
+<span class="attr">PublicKey</span> = ******
+<span class="attr">AllowedIPs</span> = <span class="number">0.0</span>.<span class="number">0.0</span>/<span class="number">0</span>
+<span class="attr">AllowedIPs</span> = ::/<span class="number">0</span>
+<span class="attr">Endpoint</span> = engage.cloudflareclient.com:<span class="number">2408</span></code></pre>
+<ul>
+<li>添加 IPv4 网络访问
+<ol>
+<li>删去 <code>[Interface]</code> 中的 <code>Address = fd01:******/128</code> ；</li>
+<li>删去 <code>[Peer]</code> 中的 <code>AllowedIPs = ::/0</code> ；</li>
+<li>将 Endpoint 的域名替换为解析出来的 IPv6 地址，如 <code>[2606:4700:d0::a29f:c001]:2408</code> 。</li>
+</ol>
+</li>
+<li>添加 IPv6 网络访问
+<ol>
+<li>删去 <code>[Interface]</code> 中的 <code>Address = 172.16.*.*/32</code> ；</li>
+<li>删去 <code>[Peer]</code> 中的 <code>AllowedIPs = 0.0.0.0/0</code> ；</li>
+<li>将 Endpoint 的域名替换为解析出来的 IPv4 地址，如 <code>162.159.192.1:2408</code> 。</li>
+</ol>
+</li>
+</ul>
+<p>如果不需要使用 CloudFlare 的 DNS 服务可以删去 <code>DNS = 1.1.1.1</code> 这一行，使用的话需要安装 <code>resolvconf</code> 。</p>
+<h2 id="启动-WireGuard-隧道">启动 WireGuard 隧道</h2>
+<p>将刚才修改好的配置文件移动到 <code>/etc/wireguard/</code> 目录下，推荐命名为 <code>wgcf.conf</code> ，下面的操作以这个文件名为准。</p>
+<p>使用 <code>systemd enable --now wg-quick@wgcf</code> 命令启动隧道，然后使用 <code>wg show wgcf</code> 命令查看隧道状态。</p>
+<p>如果在启动时出现了错误，可以使用 <code>systemd status wg-quick@wgcf</code> 命令查看错误信息，修复后使用 <code>systemd start wg-quick@wgcf</code> 启动隧道。</p>
+<p><img src="https://vip1.loli.io/2021/07/15/M9D1L2rFfHCPtcU.png" alt="一切正常" loading="lazy" data-action="zoom"><span class="image-description">一切正常</span></p>
+<p>之后就可以享受双栈网络带来的便利了~</p>
+<p>注：日常如果需要重启隧道可以使用 <code>systemctl restart wg-quick@wgcf</code> 命令。</p>
+<h2 id="后记">后记</h2>
+<p>折腾这些的原因是我从某个 Player IX 那里嫖的 VM 没有提供 IPv4 网络访问权限，这让我日常的维护工作麻烦了很多，于是我想到了 CloudFlare Warp 这个东西。CloudFlare Warp 提供的网络访问相较于 <a href="http://TunnelBroker.net">TunnelBroker.net</a> 、 <a href="http://TunnelBroker.ch">TunnelBroker.ch</a> 等一众隧道要好很多，延迟并不像其他隧道那样高。</p>
+<p>在查找资料的过程中我也发现了很多博客里面所描述的内容有误或已经过时，所以综合其他文章的内容加上自己的实践，写下了这篇文章。</p>
+<h2 id="参考资料">参考资料</h2>
+<ol>
+<li><a href="https://luotianyi.vc/5252.html">【WGCF】连接CF WARP为服务器添加IPv4/IPv6网络 - Luminous’ Home</a></li>
+<li><a href="https://p3terx.com/archives/use-cloudflare-warp-to-add-extra-ipv4-or-ipv6-network-support-to-vps-servers-for-free.html">Cloudflare WARP 给 VPS 服务器额外添加 IPv4 或 IPv6 网络获得“原生”IP - P3TERX</a></li>
+</ol>
+ ]]></content>
         <summary><![CDATA[ Warp 是 CloudFlare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 CloudFlare 的边缘节点实现隐私保护及链路优化。 ]]></summary>
         <category term="折腾" />
         <category term="Linux" />
@@ -36,6 +102,291 @@
         <id>https://blog.baoshuo.ren/post/linux-systemd/</id>
         <title>Linux Systemd 入门</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/linux-systemd/"/>
+        <content type="html"><![CDATA[ <h2 id="Systemd-简介">Systemd 简介</h2>
+<p>Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管理程序，包括有守护进程、程序库以及应用软件，由 Lennart Poettering 带头开发。其开发目标是提供更优秀的框架以表示系统服务间的依赖关系，并依此实现系统初始化时服务的并行启动，同时达到降低 Shell 的系统开销的效果，最终代替现在常用的 System V 与 BSD 风格 init 程序。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<a id="more"></a>
+<p>目前绝大多数的 Linux 发行版都已采用 systemd 代替原来的 System V。</p>
+<h2 id="常用命令列表">常用命令列表<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h2>
+<ul>
+<li>列出所有已加载的单元：<code>systemctl list-units</code></li>
+<li>查看指定的单元的配置：<code>systemctl cat [serviceName]</code> <em>(e.g. <code>systemctl cat sshd.service</code>)</em></li>
+<li>修改指定单元的配置：<code>systemctl edit [serviceName]</code> <em>(e.g. <code>systemctl edit sshd.service</code>)</em></li>
+<li>查看指定的单元的运行状态： <code>systemctl status [serviceName|pid]</code> <em>(e.g. <code>systemctl status sshd.service</code>)</em>
+<ul>
+<li>如果指定了单元名称，那么显示指定单元的运行时状态信息，以及这些单元最近的日志数据。</li>
+<li>如果指定了 PID ，那么显示指定 PID 所属单元的运行时状态信息，以及这些单元最近的日志数据。</li>
+<li>如果未指定任何单元或 PID ，那么显示整个系统的状态信息， 此时若与 <code>--all</code> 连用，则同时显示所有已加载的单元（可以用 <code>-t</code> 限定单元类型）的状态信息。</li>
+</ul>
+</li>
+<li>启动指定的单元：<code>systemctl start [serviceName]</code> <em>(e.g. <code>systemctl start sshd.service</code>)</em>
+<ul>
+<li>被指定的单元必须是已经被加载的。</li>
+</ul>
+</li>
+<li>重新启动指定的单元：<code>systemctl restart [serviceName]</code> <em>(e.g. <code>systemctl restart sshd.service</code>)</em>
+<ul>
+<li>如果指定的单元没有启动，则直接启动它们。</li>
+</ul>
+</li>
+<li>停止指定的单元：<code>systemctl stop [serviceName]</code> <em>(e.g. <code>systemctl stop sshd.service</code>)</em></li>
+<li>启用指定的单元：<code>systemctl enable [serviceName]</code> <em>(e.g. <code>systemctl enable sshd.service</code>)</em></li>
+<li>停用指定的单元：<code>systemctl disable [serviceName]</code> <em>(e.g. <code>systemctl disable sshd.service</code>)</em></li>
+<li>重新加载指定的单元的配置：<code>systemctl reload [serviceName]</code> <em>(e.g. <code>systemctl reload sshd.service</code>)</em></li>
+<li>重新加载所有已修改过的配置文件：<code>systemctl daemon-reload</code></li>
+</ul>
+<h2 id="开机启动">开机启动</h2>
+<p>对于那些支持 Systemd 的软件，安装的时候，会自动在 <code>/usr/lib/systemd/system</code> 目录添加一个配置文件。</p>
+<p>如果你想让该软件开机启动，就执行下面的命令（以 <code>sshd.service</code> 为例）。</p>
+<pre><code class="highlight bash">sudo systemctl <span class="built_in">enable</span> sshd.service</code></pre>
+<p>上面的命令相当于在 <code>/etc/systemd/system</code> 目录添加一个符号链接，指向 <code>/usr/lib/systemd/system</code> 里面的 <code>sshd.service</code> 文件。</p>
+<p>这是因为开机时，Systemd 只执行 <code>/etc/systemd/system</code> 目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。</p>
+<h2 id="Unit">Unit<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></h2>
+<h3 id="配置文件">配置文件</h3>
+<p>对于那些没有原生支持 Systemd 的软件，可以自行编写配置文件来达到开机自启的目的。</p>
+<blockquote>
+<p>我曾经为 Sakura Frp 编写过一个脚本：<a href="https://getfrp.sh">getfrp.sh</a> <sup>（<a href="https://gist.github.com/renbaoshuo/9c351b3e5750a2f6d453d035e0fd071a#file-getfrp-sh-L200-L213">存档</a> 于 GitHub Gist）</sup> ，里面便是使用了自行编写配置文件的方法。</p>
+</blockquote>
+<p>以 <code>sshd.service</code> 这个配置文件为例子，来分析一下 Systemd 的配置文件：</p>
+<pre><code class="highlight ini"><span class="comment"># /lib/systemd/system/ssh.service</span>
+
+<span class="section">[Unit]</span>
+<span class="attr">Description</span>=OpenBSD Secure Shell server
+<span class="attr">Documentation</span>=man:sshd(<span class="number">8</span>) man:sshd_config(<span class="number">5</span>)
+<span class="attr">After</span>=network.target auditd.service
+<span class="attr">ConditionPathExists</span>=!/etc/ssh/sshd_not_to_be_run
+
+<span class="section">[Service]</span>
+<span class="attr">EnvironmentFile</span>=-/etc/default/ssh
+<span class="attr">ExecStartPre</span>=/usr/sbin/sshd -t
+<span class="attr">ExecStart</span>=/usr/sbin/sshd -D <span class="variable">$SSHD_OPTS</span>
+<span class="attr">ExecReload</span>=/usr/sbin/sshd -t
+<span class="attr">ExecReload</span>=/bin/kill -HUP <span class="variable">$MAINPID</span>
+<span class="attr">KillMode</span>=process
+<span class="attr">Restart</span>=<span class="literal">on</span>-failure
+<span class="attr">RestartPreventExitStatus</span>=<span class="number">255</span>
+<span class="attr">Type</span>=notify
+<span class="attr">RuntimeDirectory</span>=sshd
+<span class="attr">RuntimeDirectoryMode</span>=<span class="number">0755</span>
+
+<span class="section">[Install]</span>
+<span class="attr">WantedBy</span>=multi-user.target
+<span class="attr">Alias</span>=sshd.service</code></pre>
+<p>可以看出这个文件一共有三个部分：<code>[Unit]</code>, <code>[Service]</code> 和 <code>[Install]</code> 。</p>
+<p>配置项通常是可以重复的，但靠后的配置项会取代前面同名的配置项。<br>
+因此，如果你想要将某项的设定值归零，可以在该配置所在部分的结尾添加一个空值项（如 <code>After=</code>），就将该设定归零了。</p>
+<h4 id="Unit-启动顺序与依赖关系">[Unit]: 启动顺序与依赖关系</h4>
+<p>这个部分主要有以下几个配置项：</p>
+<ul>
+<li><code>Description</code>: 当前服务的简易说明</li>
+<li><code>Documentation</code>: 文档位置（以空格分隔）
+<ul>
+<li>该项可以是网页链接，也可以是 manpages 的名称，亦或是文件路径。</li>
+</ul>
+</li>
+<li><code>Before</code>: 在哪些服务之前启动
+<ul>
+<li>本字段不涉及依赖关系，只是说明了启动顺序</li>
+</ul>
+</li>
+<li><code>After</code>: 在哪些服务之后启动
+<ul>
+<li>本字段不涉及依赖关系，只是说明了启动顺序</li>
+<li>以 <code>sshd.service</code> 中的配置为例，该服务需要在 <code>network.target</code> 和 <code>auditd.service</code> 之后启动</li>
+</ul>
+</li>
+<li><code>Wants</code>: 弱依赖的服务
+<ul>
+<li>若被依赖的服务被停止，这个服务不需要停止</li>
+</ul>
+</li>
+<li><code>Requires</code>: 强依赖的服务
+<ul>
+<li>若被依赖的服务没有启动，则不能启动这个服务</li>
+<li>若被依赖的服务被停止，则这个服务也必须停止</li>
+</ul>
+</li>
+<li><code>Conflicts</code>: 冲突的服务
+<ul>
+<li>如果列出的服务中有一个已经运行，那么就不能启动这个服务</li>
+</ul>
+</li>
+</ul>
+<h4 id="Service-启动行为">[Service]: 启动行为</h4>
+<p>这个部分主要有以下几个配置项：</p>
+<ul>
+<li><code>Type</code>: 启动类型。默认值为 <code>simple</code> ，可选值如下：
+<ul>
+<li><code>simple</code>: 使 <code>ExecStart</code> 项启动的项成为主进程</li>
+<li><code>forking</code>: <code>ExecStart</code> 项将会以 <code>fork()</code> 的形式启动，此时父进程将会退出，子进程将成为主进程</li>
+<li><code>oneshot</code>: 类似于 <code>simple</code> ，但只执行一次，Systemd 会等它执行完，才启动其他服务</li>
+<li><code>dbus</code>: 类似于 <code>simple</code> ，但会等待 <code>D-Bus</code> 信号后启动</li>
+<li><code>notify</code>: 类似于 <code>simple</code> ，启动结束后会发出通知信号，然后 Systemd 再启动其他服务</li>
+<li><code>idle</code>: 类似于 <code>simple</code> ，但是要等到其他任务都执行完，才会启动该服务。
+<ul>
+<li>这个选项的其中一种使用场合是为让该服务的输出，不与其他服务的输出相混合</li>
+<li>这个选项的另外一种使用场合是执行只需要再开机的时候执行一次的程序</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>Environment</code>: 指定环境变量</li>
+<li><code>EnvironmentFile</code>: 环境变量配置文件，该文件内部的 <code>key=value</code> 形式的配置可以在当前文件中以 <code>$key</code> 获取</li>
+<li><code>ExecStart</code>: 服务启动时执行的命令</li>
+<li><code>ExecReload</code>: 服务重启时执行的命令</li>
+<li><code>ExecStop</code>: 服务停止时执行的命令</li>
+<li><code>ExecStartPre</code>: 服务启动之前执行的命令</li>
+<li><code>ExecStartPost</code>: 服务启动之后执行的命令</li>
+<li><code>ExecStopPost</code>: 服务停止之后执行的命令</li>
+<li><code>Restart</code>: 服务退出后的重启方式，默认值为 <code>no</code>
+<ul>
+<li><code>no</code>: 进程退出后不会重启</li>
+<li><code>on-success</code>: 当进程正常退出时（退出状态码为 0）重启</li>
+<li><code>on-failure</code>: 当进程非正常退出时（退出状态码不为 0、被信号终止、程序超时）重启</li>
+<li><code>on-abnormal</code>: 当进程被信号终止或程序超时时重启</li>
+<li><code>on-abort</code>: 当收到没有捕捉到的信号终止时重启</li>
+<li><code>on-watchdog</code>: 当进程超时退出时重启</li>
+<li><code>always</code>: 总是重启（不论原因）</li>
+<li>对于守护进程，推荐设为 <code>on-failure</code>。对于那些允许发生错误退出的服务，可以设为 <code>on-abnormal</code>。</li>
+</ul>
+</li>
+<li><code>RemainAfterExit</code>: 退出后是否重新启动
+<ul>
+<li>当设定为 <code>RemainAfterExit=1</code> 时，则当这个服务所属的所有程序都终止之后，此服务会再尝试启动。这对于 <code>Type=oneshot</code> 的服务很有帮助</li>
+</ul>
+</li>
+<li><code>TimeoutSec</code>: 当这个服务在启动或停止时失败进入&quot;强制结束&quot;状态的等待秒数。</li>
+<li><code>KillMode</code>: 定义 Systemd 如何停止这个服务，默认值为 <code>control-group</code>
+<ul>
+<li><code>control-group</code>: 服务停止时关闭此控制组中所有的进程</li>
+<li><code>process</code>: 服务停止时只终止主进程（ExecStart 接的后面那串指令）</li>
+<li><code>mixed</code>: 主进程将收到 <strong>SIGTERM</strong> 信号，子进程收到 <strong>SIGKILL</strong> 信号</li>
+<li><code>none</code>: 没有进程会被杀掉，只是执行服务的 stop 命令</li>
+</ul>
+</li>
+<li><code>RestartSec</code>: 表示 Systemd 重启服务之前，需要等待的秒数（默认是 100ms）</li>
+</ul>
+<p>所有的启动设置之前，都可以加上一个连词号 (<code>-</code>) ，表示 「抑制错误」 ，即发生错误的时候，不影响其他命令的执行。以 <code>sshd.service</code> 为例，文件中的 <code>EnvironmentFile=-/etc/sysconfig/sshd</code>（注意等号后面的那个连词号），表示 <code>/etc/sysconfig/sshd</code> 文件不存在，也不会抛出错误。</p>
+<h4 id="Install-安装行为">[Install]: 安装行为</h4>
+<p>这个部分主要有以下几个配置项：</p>
+<ul>
+<li><code>WantedBy</code>: 表示该服务所在的 Target
+<ul>
+<li>一般来说，服务性质的单元都是挂在 <code>multi-user.target</code> 下的</li>
+</ul>
+</li>
+<li><code>Also</code>: 当该服务被启用时需要同时启用的单元</li>
+<li><code>Alias</code>: 指定创建软链接时链接至本单元配置文件的别名文件</li>
+</ul>
+<h3 id="模板实例">模板实例</h3>
+<p>此处以 <code>getty@.service</code> 文件为例，来分析一下它是如何做到使用一个配置文件启动多个服务的：</p>
+<pre><code class="highlight ini"><span class="comment"># /lib/systemd/system/getty@.service</span>
+<span class="comment">#</span>
+<span class="comment">#  SPDX-License-Identifier: LGPL-2.1+</span>
+<span class="comment">#</span>
+<span class="comment">#  This file is part of systemd.</span>
+<span class="comment">#</span>
+<span class="comment">#  systemd is free software; you can redistribute it and/or modify it</span>
+<span class="comment">#  under the terms of the GNU Lesser General Public License as published by</span>
+<span class="comment">#  the Free Software Foundation; either version 2.1 of the License, or</span>
+<span class="comment">#  (at your option) any later version.</span>
+
+<span class="section">[Unit]</span>
+<span class="attr">Description</span>=Getty <span class="literal">on</span> %I
+<span class="attr">Documentation</span>=man:agetty(<span class="number">8</span>) man:systemd-getty-generator(<span class="number">8</span>)
+<span class="attr">Documentation</span>=http://<span class="number">0</span>pointer.de/blog/projects/serial-console.html
+<span class="attr">After</span>=systemd-user-sessions.service plymouth-quit-wait.service getty-pre.target
+<span class="attr">After</span>=rc-local.service
+
+<span class="comment"># If additional gettys are spawned during boot then we should make</span>
+<span class="comment"># sure that this is synchronized before getty.target, even though</span>
+<span class="comment"># getty.target didn&#x27;t actually pull it in.</span>
+<span class="attr">Before</span>=getty.target
+<span class="attr">IgnoreOnIsolate</span>=<span class="literal">yes</span>
+
+<span class="comment"># IgnoreOnIsolate causes issues with sulogin, if someone isolates</span>
+<span class="comment"># rescue.target or starts rescue.service from multi-user.target or</span>
+<span class="comment"># graphical.target.</span>
+<span class="attr">Conflicts</span>=rescue.service
+<span class="attr">Before</span>=rescue.service
+
+<span class="comment"># On systems without virtual consoles, don&#x27;t start any getty. Note</span>
+<span class="comment"># that serial gettys are covered by serial-getty@.service, not this</span>
+<span class="comment"># unit.</span>
+<span class="attr">ConditionPathExists</span>=/dev/tty0
+
+<span class="section">[Service]</span>
+<span class="comment"># the VT is cleared by TTYVTDisallocate</span>
+<span class="comment"># The &#x27;-o&#x27; option value tells agetty to replace &#x27;login&#x27; arguments with an</span>
+<span class="comment"># option to preserve environment (-p), followed by &#x27;--&#x27; for safety, and then</span>
+<span class="comment"># the entered username.</span>
+<span class="attr">ExecStart</span>=-/sbin/agetty -o <span class="string">&#x27;-p -- \\u&#x27;</span> --noclear %I <span class="variable">$TERM</span>
+<span class="attr">Type</span>=idle
+<span class="attr">Restart</span>=always
+<span class="attr">RestartSec</span>=<span class="number">0</span>
+<span class="attr">UtmpIdentifier</span>=%I
+<span class="attr">TTYPath</span>=/dev/%I
+<span class="attr">TTYReset</span>=<span class="literal">yes</span>
+<span class="attr">TTYVHangup</span>=<span class="literal">yes</span>
+<span class="attr">TTYVTDisallocate</span>=<span class="literal">yes</span>
+<span class="attr">KillMode</span>=process
+<span class="attr">IgnoreSIGPIPE</span>=<span class="literal">no</span>
+<span class="attr">SendSIGHUP</span>=<span class="literal">yes</span>
+
+<span class="comment"># Unset locale for the console getty since the console has problems</span>
+<span class="comment"># displaying some internationalized messages.</span>
+<span class="attr">UnsetEnvironment</span>=LANG LANGUAGE LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION
+
+<span class="section">[Install]</span>
+<span class="attr">WantedBy</span>=getty.target
+<span class="attr">DefaultInstance</span>=tty1</code></pre>
+<p>运行 <code>systemctl status getty@tty1.service</code> 命令，可以看到如下图所示的输出：</p>
+<p><img src="https://vip1.loli.io/2021/02/11/lhw1BzOUb7TRDrq.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>不难发现图中标橙色的字符与上方配置文件中的 <code>%I</code> 相对应，并且配置文件的名称也不是 <code>getty@tty1.service</code> ，而是 <code>getty@.service</code> ，这种配置文件叫做 「模板实例」 。</p>
+<p>启动时只需要在 <code>@</code> 后面添加需要填入 <code>%I</code> 位置的参数即可，如 <code>getty@tty9.service</code> 。</p>
+<h2 id="Target">Target</h2>
+<p>一般来说，常用的 Target 有两个：一个是 <code>multi-user.target</code> ，表示多用户命令行状态；另一个是 <code>graphical.target</code> ，表示图形用户状态（它依赖于 <code>multi-user.target</code>），这一点和 SysVinit 的运行级别很是相似。</p>
+<p>官方提供了一张非常清晰的 Target 依赖关系图：</p>
+<p><img src="https://vip2.loli.io/2021/02/11/ubmqlLdiGeCtUg7.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>图源：<a href="https://www.freedesktop.org/software/systemd/man/bootup.html#System%20Manager%20Bootup">https://www.freedesktop.org/software/systemd/man/bootup.html#System Manager Bootup</a></p>
+<h3 id="配置文件-2">配置文件</h3>
+<p>以 <code>multi-user.target</code> 这个文件为例子，来简要说明一下 Target 的配置文件中的主要项目：</p>
+<pre><code class="highlight ini"><span class="comment"># /lib/systemd/system/multi-user.target</span>
+<span class="comment">#</span>
+<span class="comment">#  SPDX-License-Identifier: LGPL-2.1+</span>
+<span class="comment">#</span>
+<span class="comment">#  This file is part of systemd.</span>
+<span class="comment">#</span>
+<span class="comment">#  systemd is free software; you can redistribute it and/or modify it</span>
+<span class="comment">#  under the terms of the GNU Lesser General Public License as published by</span>
+<span class="comment">#  the Free Software Foundation; either version 2.1 of the License, or</span>
+<span class="comment">#  (at your option) any later version.</span>
+
+<span class="section">[Unit]</span>
+<span class="attr">Description</span>=Multi-User System
+<span class="attr">Documentation</span>=man:systemd.special(<span class="number">7</span>)
+<span class="attr">Requires</span>=basic.target
+<span class="attr">Conflicts</span>=rescue.service rescue.target
+<span class="attr">After</span>=basic.target rescue.service rescue.target
+<span class="attr">AllowIsolate</span>=<span class="literal">yes</span></code></pre>
+<ul>
+<li><code>Requires</code>: 要求于某个 Target 一起运行</li>
+<li><code>Conflicts</code>: 冲突的 Target</li>
+<li><code>After</code>: 在哪些 Target 之后启动</li>
+<li><code>AllowIsolate</code>: 是否允许使用 <code>systemctl isolate</code> 命令切换到这个 Target</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Systemd">Systemd - Wikipedia</a> <sup>（<a href="https://web.archive.org/web/20210210150200/https://en.wikipedia.org/wiki/Systemd">存档</a> 于 <a href="https://archive.org">互联网档案馆</a>）</sup> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://manpages.ubuntu.com/manpages/bionic/zh_CN/man1/systemctl.1.html">Systemd - Ubuntu Manpages</a> <sup>（<a href="https://web.archive.org/web/20210210150518/https://manpages.ubuntu.com/manpages/bionic/zh_CN/man1/systemctl.1.html">存档</a> 于 <a href="https://archive.org">互联网档案馆</a>）</sup> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="http://linux.vbird.org/linux_basic/0560daemons.php">第十七章 认识系统服务(daemons) - 鸟哥的Linux私房菜</a> <sup>（<a href="https://web.archive.org/web/20200810204650/http://linux.vbird.org/linux_basic/0560daemons.php">存档</a> 于 <a href="https://archive.org">互联网档案馆</a>）</sup> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+ ]]></content>
         <summary><![CDATA[ Systemd 简介
 Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管理程序，包括有守护进程、程序库以及应用软件，由 Lennart Poettering 带头开发。其开发目标是提供更优秀的框架以表示系统服务间的依赖关系，并依此实现系统初始化时服务的并行启动，同时达到降低 Shell 的系统开销的效果，最终代替现在常用的 System V 与 BSD 风格 init 程序。[1] ]]></summary>
         <category term="Linux" />
@@ -45,6 +396,74 @@ Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管�
         <id>https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</id>
         <title>给腾讯云服务器免费增加第二个 IP</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/"/>
+        <content type="html"><![CDATA[ <h2 id="前言">前言</h2>
+<p>良心云果然是良心云，增加了一个IP四舍五入居然不要钱，不过还是要登进系统配置一下双IP的。</p>
+<a id="more"></a>
+<p><img src="https://vip2.loli.io/2020/11/26/rAyvBmDw2bdMP6t.jpg" alt="" loading="lazy" data-action="zoom"></p>
+<p>和客服的对话</p>
+<h2 id="增加网卡-公网IP">增加网卡&amp;公网IP</h2>
+<p><img src="https://vip2.loli.io/2020/11/26/SWwlbLRaHACnuBz.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>点击按钮新建一个弹性网卡并绑定</p>
+<p><img src="https://vip1.loli.io/2020/11/26/sJqBfdbv4eRzZFm.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>绑定完以后可以在服务器的弹性网卡管理页面看到详情</p>
+<p><img src="https://vip1.loli.io/2020/11/26/ivPFgfH69XTCo8Z.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>点击新建的弹性网卡，进入管理页面，并记录下这张网卡的<strong>内网IP</strong>，稍后会用到</p>
+<p><img src="https://vip1.loli.io/2020/11/26/FAy8U5lpzNtuMTi.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>点击绑定按钮，并申请一个弹性公网IP</p>
+<p><img src="https://vip2.loli.io/2020/11/26/AbZ4vTwr1UCdz2n.png" alt="" loading="lazy" data-action="zoom">
+<img src="https://vip2.loli.io/2020/11/26/2G5jsdTSZrocqwh.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>此时弹性公网IP已经绑定成功，并且可以看到已经变为不收取IP资源费的状态了</p>
+<p><img src="https://vip1.loli.io/2020/11/26/x8q7I5E2dMSDt4B.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>查看主网卡的<strong>内网IP</strong>，并记录下这个IP，稍后会用到</p>
+<h2 id="配置服务器的网络设置">配置服务器的网络设置</h2>
+<p>使用 <code>ip addr</code> 查看网卡名称，并记录下来</p>
+<p><img src="https://vip2.loli.io/2020/11/26/Ofh8CzvnYKPGsH7.png" alt="" loading="lazy" data-action="zoom"></p>
+<p>切换到网卡配置文件目录</p>
+<pre><code class="highlight bash"><span class="built_in">cd</span> /etc/sysconfig/network-scripts/</code></pre>
+<p>编辑 <code>ifcfg-eth0</code> 文件，将下方内容修改后填入</p>
+<pre><code class="highlight ini"><span class="attr">DEVICE</span>=<span class="string">&quot;eth0&quot;</span>             <span class="comment"># 弹性网卡名称</span>
+<span class="attr">NM_CONTROLLED</span>=<span class="string">&quot;yes&quot;</span>       <span class="comment"># 是否由 Network Manager 控制该网络接口</span>
+<span class="attr">ONBOOT</span>=<span class="string">&quot;yes&quot;</span>              <span class="comment"># 系统启动时是否激活</span>
+<span class="attr">IPADDR</span>=<span class="string">&quot;172.21.0.10&quot;</span>      <span class="comment"># 弹性网卡上的 IP 地址</span>
+<span class="attr">NETMASK</span>=<span class="string">&quot;255.255.240.0&quot;</span>   <span class="comment"># 子网掩码</span>
+<span class="attr">GATEWAY</span>=<span class="string">&quot;172.21.0.1&quot;</span>      <span class="comment"># 网关</span></code></pre>
+<ul>
+<li>其中 <code>IPADDR</code> 填写主网卡的<strong>内网IP</strong>。</li>
+<li>子网掩码可以使用 <a href="https://www.v2ex.com/tools/ipv4">V2EX 提供的 IPv4 子网查询工具</a> 查询对应的子网。</li>
+<li>网关根据创建网卡时选择的子网而定。</li>
+</ul>
+<p>新建 <code>ifcfg-eth1</code> 文件，将下方内容修改后填入</p>
+<pre><code class="highlight ini"><span class="attr">DEVICE</span>=<span class="string">&quot;eth1&quot;</span>             <span class="comment"># 需配置的弹性网卡名称（此处是新添加的网卡名称）</span>
+<span class="attr">NM_CONTROLLED</span>=<span class="string">&quot;yes&quot;</span>       <span class="comment"># 是否由 Network Manager 控制该网络接口</span>
+<span class="attr">ONBOOT</span>=<span class="string">&quot;yes&quot;</span>              <span class="comment"># 系统启动时是否激活</span>
+<span class="attr">IPADDR</span>=<span class="string">&quot;172.21.0.12&quot;</span>      <span class="comment"># 弹性网卡上的 IP 地址</span>
+<span class="attr">NETMASK</span>=<span class="string">&quot;255.255.240.0&quot;</span>   <span class="comment"># 子网掩码</span>
+<span class="comment"># GATEWAY=&quot;172.21.0.1&quot;    # 网关（若与eth0的网关不同，需要删除注释并修改为正确的网关）</span></code></pre>
+<ul>
+<li>其中 <code>IPADDR</code> 填写新添加网卡的<strong>内网IP</strong>。</li>
+<li>子网掩码可以 <a href="https://www.v2ex.com/tools/ipv4">V2EX 提供的 IPv4 子网查询工具</a> 查询对应的子网。</li>
+<li>网关根据创建网卡时选择的子网而定。</li>
+</ul>
+<p>保存后重启网络服务。</p>
+<pre><code class="highlight bash">service network restart</code></pre>
+<p><img src="https://vip1.loli.io/2020/11/26/ReBSM4C9oF2HbVi.png" alt="" loading="lazy" data-action="zoom"></p>
+<h2 id="配置路由（可选）">配置路由（可选）</h2>
+<blockquote>
+<p>按照上述步骤配置好后，Linux 还是默认都从主网卡发包。
+您可通过策略路由让报文从哪个网卡进，并从该网卡返回。</p>
+</blockquote>
+<h3 id="创建路由表">创建路由表</h3>
+<pre><code class="highlight bash"><span class="built_in">echo</span> <span class="string">&quot;10 t1&quot;</span> &gt;&gt; /etc/iproute2/rt_tables
+<span class="built_in">echo</span> <span class="string">&quot;20 t2&quot;</span> &gt;&gt; /etc/iproute2/rt_tables</code></pre>
+<h3 id="添加默认路由">添加默认路由</h3>
+<pre><code class="highlight bash">ip route add default dev eth0 via 172.21.0.1 table 10
+ip route add default dev eth1 via 172.21.0.1 table 20</code></pre>
+<blockquote>
+<p>上述两个命令中，172.21.0.1要分别替换成主网卡所属子网的网关，以及辅助网卡所属子网的网关。</p>
+</blockquote>
+<h3 id="配置策略路由">配置策略路由</h3>
+<pre><code class="highlight bash">ip rule add from 172.21.0.10 table 10
+ip rule add from 172.21.0.12 table 20</code></pre> ]]></content>
         <summary><![CDATA[ 前言
 良心云果然是良心云，增加了一个IP四舍五入居然不要钱，不过还是要登进系统配置一下双IP的。 ]]></summary>
         <category term="网络" />
