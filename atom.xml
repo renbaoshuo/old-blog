@@ -4,24 +4,24 @@
     <title>宝硕博客</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-07-15T09:57:25.000Z</updated>
-    <category term="DN42" />
-    <category term="网络" />
-    <category term="题解" />
-    <category term="洛谷" />
-    <category term="Web" />
-    <category term="CTF" />
     <category term="BIRD" />
     <category term="BGP" />
+    <category term="DN42" />
+    <category term="网络" />
+    <category term="Web" />
+    <category term="CTF" />
     <category term="Git" />
     <category term="折腾" />
     <category term="Linux" />
     <category term="笔记" />
+    <category term="题解" />
+    <category term="洛谷" />
     <category term="游记" />
+    <category term="牛客网" />
     <category term="S2OJ" />
+    <category term="CloudFlare" />
     <category term="macOS" />
     <category term="前端" />
-    <category term="CloudFlare" />
-    <category term="牛客网" />
     <entry>
         <id>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</id>
         <title>使用 CloudFlare Warp 为单栈 VPS 添加双栈网络访问</title>
@@ -621,9 +621,9 @@ pip install docker-compose</code></pre>
 <p><img src="https://vip2.loli.io/2021/05/03/iaFfTWAhpdZGJ9t.png" alt="" loading="lazy" data-action="zoom"></p>
  ]]></content>
         <summary><![CDATA[ BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 蓝天 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。 ]]></summary>
-        <category term="DN42" />
         <category term="BIRD" />
         <category term="BGP" />
+        <category term="DN42" />
         <updated>2021-05-03T04:23:00.000Z</updated>
     </entry>
     <entry>
@@ -829,8 +829,8 @@ protocol bgp &lt;NEIGHBOR_NAME&gt;_v6 from dnpeers &#123;
 </ul>
  ]]></content>
         <summary><![CDATA[ DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 BGP 网络。DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。 ]]></summary>
-        <category term="DN42" />
         <category term="BGP" />
+        <category term="DN42" />
         <updated>2021-04-04T03:29:32.000Z</updated>
     </entry>
     <entry>
