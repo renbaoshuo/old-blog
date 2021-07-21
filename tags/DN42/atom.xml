@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.baoshuo.ren</id>
+    <title>宝硕博客 • Posts by &#34;dn42&#34; tag</title>
+    <link href="https://blog.baoshuo.ren" />
+    <updated>2021-05-03T04:23:00.000Z</updated>
+    <category term="BIRD" />
+    <category term="BGP" />
+    <category term="DN42" />
+    <category term="网络" />
+    <category term="Web" />
+    <category term="CTF" />
+    <category term="Git" />
+    <category term="折腾" />
+    <category term="Linux" />
+    <category term="题解" />
+    <category term="洛谷" />
+    <category term="笔记" />
+    <category term="牛客网" />
+    <category term="S2OJ" />
+    <category term="游记" />
+    <category term="macOS" />
+    <category term="CloudFlare" />
+    <category term="前端" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/bird-looking-glass/</id>
+        <title>搭建 BIRD Looking Glass 速成指北</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/bird-looking-glass/"/>
+        <content type="html">&lt;p&gt;BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 &lt;a href=&#34;https://lantian.pub&#34;&gt;蓝天&lt;/a&gt; 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。&lt;/p&gt;
+&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;项目地址：&lt;a href=&#34;https://github.com/xddxdd/bird-lg-go&#34;&gt;https://github.com/xddxdd/bird-lg-go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;成品： &lt;a href=&#34;https://lg.dn42.as141776.net&#34;&gt;https://lg.dn42.as141776.net&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装-Docker-和-Docker-Compose&#34;&gt;安装 Docker 和 Docker Compose&lt;/h2&gt;
+&lt;p&gt;虽然这个程序可以直接运行，但我还是比较喜欢套个 Docker 防止污染环境。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;curl -sSL https://get.docker.com | sh
+pip install docker-compose&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;编排-Docker-Compose-服务&#34;&gt;编排 Docker Compose 服务&lt;/h2&gt;
+&lt;p&gt;在运行 web 的服务器上找个地方（如 &lt;code&gt;/var/bird-lg/&lt;/code&gt;），将下面的内容修改后写入 &lt;code&gt;docker-compose.yml&lt;/code&gt; 中：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight yml&#34;&gt;&lt;span class=&#34;attr&#34;&gt;version:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;3&amp;#x27;&lt;/span&gt;
+
+&lt;span class=&#34;attr&#34;&gt;services:&lt;/span&gt;
+  &lt;span class=&#34;attr&#34;&gt;bird-lg:&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;image:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;xddxdd/bird-lg-go&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;container_name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;bird-lg&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;restart:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;always&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;environment:&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;BIRDLG_SERVERS=cn1,eu1&lt;/span&gt;              &lt;span class=&#34;comment&#34;&gt;# 节点列表，以逗号分隔&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;BIRDLG_DOMAIN=dn42.as141776.net&lt;/span&gt;     &lt;span class=&#34;comment&#34;&gt;# 节点 endpiont 后缀&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;BIRDLG_TITLE_BRAND=Looking&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Glass&lt;/span&gt;    &lt;span class=&#34;comment&#34;&gt;# 标签栏上显示的名称&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;BIRDLG_NAVBAR_BRAND=Looking&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Glass&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;# 页面上显示的名称&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;BIRDLG_WHOIS=whois.lantian.dn42&lt;/span&gt;     &lt;span class=&#34;comment&#34;&gt;# Whois 服务器地址&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;BIRDLG_DNS_INTERFACE=asn.dn42&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;ports:&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;5000:5000&amp;quot;&lt;/span&gt;
+  &lt;span class=&#34;attr&#34;&gt;bird-lgproxy:&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;image:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;xddxdd/bird-lgproxy-go&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;container_name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;bird-lgproxy&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;restart:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;always&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;volumes:&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;/var/run/bird/bird.ctl:/var/run/bird/bird.ctl&amp;quot;&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;ports:&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;8000:8000&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在各个节点上只需要写入下面内容即可：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight yml&#34;&gt;&lt;span class=&#34;attr&#34;&gt;version:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;3&amp;#x27;&lt;/span&gt;
+
+&lt;span class=&#34;attr&#34;&gt;services:&lt;/span&gt;
+  &lt;span class=&#34;attr&#34;&gt;bird-lgproxy:&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;image:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;xddxdd/bird-lgproxy-go&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;container_name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;bird-lgproxy&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;restart:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;always&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;volumes:&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;/var/run/bird/bird.ctl:/var/run/bird/bird.ctl&amp;quot;&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;ports:&lt;/span&gt;
+      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;8000:8000&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之后启动 Docker 容器：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;docker-compose up -d&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;使用-nginx-反代页面&#34;&gt;使用 nginx 反代页面&lt;/h2&gt;
+&lt;p&gt;使用下方的配置启动反向代理即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;section&#34;&gt;server&lt;/span&gt; &amp;#123;
+    &lt;span class=&#34;attribute&#34;&gt;listen&lt;/span&gt;      *:&lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;listen&lt;/span&gt;      [::]:&lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;;
+    &lt;span class=&#34;attribute&#34;&gt;server_name&lt;/span&gt; lg.dn42.as141776.net;
+
+    &lt;span class=&#34;comment&#34;&gt;# reverse proxy&lt;/span&gt;
+    &lt;span class=&#34;attribute&#34;&gt;location&lt;/span&gt; / &amp;#123;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_pass&lt;/span&gt;                         http://127.0.0.1:5000;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_http_version&lt;/span&gt;                 &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_cache_bypass&lt;/span&gt;                 $http_upgrade;
+
+        &lt;span class=&#34;comment&#34;&gt;# Proxy headers&lt;/span&gt;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_set_header&lt;/span&gt; Upgrade           $http_upgrade;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_set_header&lt;/span&gt; Host              $host;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_set_header&lt;/span&gt; X-Real-IP         $remote_addr;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_set_header&lt;/span&gt; X-Forwarded-For   $proxy_add_x_forwarded_for;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_set_header&lt;/span&gt; X-Forwarded-Proto $scheme;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_set_header&lt;/span&gt; X-Forwarded-Host  $host;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_set_header&lt;/span&gt; X-Forwarded-Port  $server_port;
+
+        &lt;span class=&#34;comment&#34;&gt;# Proxy timeouts&lt;/span&gt;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_connect_timeout&lt;/span&gt;              &lt;span class=&#34;number&#34;&gt;60s&lt;/span&gt;;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_send_timeout&lt;/span&gt;                 &lt;span class=&#34;number&#34;&gt;60s&lt;/span&gt;;
+        &lt;span class=&#34;attribute&#34;&gt;proxy_read_timeout&lt;/span&gt;                 &lt;span class=&#34;number&#34;&gt;60s&lt;/span&gt;;
+    &amp;#125;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;配置-DNS-解析&#34;&gt;配置 DNS 解析&lt;/h2&gt;
+&lt;p&gt;bird-lg-go 的节点 endpiont 生成逻辑是 &lt;code&gt;http://[节点].[endpoint后缀]:8000&lt;/code&gt; ，如 &lt;code&gt;http://eu1.dn42.as141776.net:8000&lt;/code&gt; ，所以只需要去配置对应的解析。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;警告&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;建议解析到节点的公网 IP 上，以免 DN42 炸掉时 Looking Glass 也一并炸掉。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;配置示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-tag&#34;&gt;eu1&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.as141776&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.net&lt;/span&gt;.  3600    &lt;span class=&#34;selector-tag&#34;&gt;IN&lt;/span&gt;      &lt;span class=&#34;selector-tag&#34;&gt;A&lt;/span&gt;       136.243.221.96
+&lt;span class=&#34;selector-tag&#34;&gt;cn1&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.as141776&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.net&lt;/span&gt;.  3600    &lt;span class=&#34;selector-tag&#34;&gt;IN&lt;/span&gt;      &lt;span class=&#34;selector-tag&#34;&gt;CNAME&lt;/span&gt;   &lt;span class=&#34;selector-tag&#34;&gt;home&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.baoshuo&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.ren&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;成果&#34;&gt;成果&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/05/03/iaFfTWAhpdZGJ9t.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
+</content>
+        <category term="BIRD" />
+        <category term="BGP" />
+        <category term="DN42" />
+        <updated>2021-05-03T04:23:00.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://blog.baoshuo.ren/post/dn42-network/</id>
+        <title>初探 DN42 网络</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/dn42-network/"/>
+        <content type="html">&lt;p&gt;DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 BGP 网络。DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。&lt;/p&gt;
+&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;p&gt;DN42 适合以下类别的用户：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;想要研究网络技术，练习服务器、路由器等网络设备配置，甚至后续在真实互联网建立 AS 的用户&lt;/li&gt;
+&lt;li&gt;拥有真实 AS，但担心自己&lt;a href=&#34;https://blog.cloudflare.com/how-verizon-and-a-bgp-optimizer-knocked-large-parts-of-the-internet-offline-today/&#34;&gt;配置错误广播出错误路由、干掉半个互联网&lt;/a&gt;，希望有个地方测试的用户（比如我）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;DN42 不适合以下类别的用户：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单纯想要保护隐私、规避网络审查的用户&lt;/li&gt;
+&lt;li&gt;在网内消耗大量流量，例如用于解锁流媒体服务的用户&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，DN42 的使用门槛还是比较高的。这与在真实互联网中一样，你要扮演一个 ISP（互联网服务提供商），注册自己的个人信息，ASN 号码，IPv4 和 IPv6 的地址池，并且使用 BGP 在自己的服务器上广播它们。你还要和其它的用户联系，和他们做 Peering（对等互联），一步步进入完整的 DN42 网络。&lt;/p&gt;
+&lt;p&gt;DN42 在 &lt;code&gt;172.20.0.0/14&lt;/code&gt; 和 &lt;code&gt;fd00::/8&lt;/code&gt; 上运行，而这两个 IP 段都是分配给内网使用的。换句话说，你在 DN42 上怎么折腾，都不会影响到服务器其它的互联网连接。&lt;/p&gt;
+&lt;p&gt;你可以通过加入这个 &lt;a href=&#34;https://t.me/Dn42Chat&#34;&gt;非官方 Telegram 群组&lt;/a&gt; 或者 &lt;a href=&#34;irc://irc.hackint.org/#dn42&#34;&gt;IRC 频道&lt;/a&gt; 来寻求帮助。&lt;/p&gt;
+&lt;p&gt;注意：DN42 是一个&lt;strong&gt;测试网络&lt;/strong&gt;，所有人都在帮助所有人。即使你不小心搞砸了，也没有人会指责你。&lt;/p&gt;
+&lt;h2 id=&#34;注册-DN42&#34;&gt;注册 DN42&lt;/h2&gt;
+&lt;p&gt;在注册过程中会大量使用到一些 UNIX 工具（如 Git、GnuPG 等），所以最好使用 Linux 或者 macOS 系统完成整个流程，如果你正在使用 Windows 系统，那么可以使用 &lt;a href=&#34;http://aka.ms/wsl&#34;&gt;WSL&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;首先在 &lt;a href=&#34;https://git.dn42.dev/&#34;&gt;DN42 Git&lt;/a&gt; 中注册一个账户，并将 &lt;a href=&#34;https://git.dn42.dev/dn42/registry&#34;&gt;dn42/registry&lt;/a&gt; 这个仓库 clone 到本地。&lt;/p&gt;
+&lt;p&gt;新建一个名为 &lt;code&gt;[用户名]-[日期, YYYYMMDD]/[自定义名称]&lt;/code&gt; 的分支。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;git checkout -b renbaoshuo-20210403/register
+git push --set-upstream origin renbaoshuo-20210403/register&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在仓库内新建以下文件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;data/mntner/[昵称]-MNT&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mntner&lt;/code&gt; ：Maintainer（维护者），这个账户的名称，与文件名相同。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：Admin Contact（管理员联系信息），需要指向后续创建的 person 文件，一般为 &lt;code&gt;[昵称]-DN42&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：Tech Contact（技术员联系信息），需要指向后续创建的 person 文件，一般为 &lt;code&gt;[昵称]-DN42&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），指向这个账户本身。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;auth&lt;/code&gt; ：身份验证信息，接受 &lt;strong&gt;SSH 公钥&lt;/strong&gt; 和 &lt;strong&gt;GPG 公钥&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;你&lt;strong&gt;必须&lt;/strong&gt;选择这两种验证方式中的至少一种，可以前往 &lt;a href=&#34;https://dn42.dev/howto/Registry-Authentication&#34;&gt;官方 Wiki 中的身份认证页面&lt;/a&gt; 了解更多信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;remarks&lt;/code&gt; ：备注信息，可以不填。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;data/person/[昵称]-DN42&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;person&lt;/code&gt; ：昵称。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;contact&lt;/code&gt; ：你的联系方式，一般是你的邮箱。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nic-hdl&lt;/code&gt; ：NIC handle，指向文件本身，与文件名相同。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），由谁维护，指向你的 mntner 文件，&lt;code&gt;[昵称]-MNT&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;data/aut-num/[ASN]&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;aut-num&lt;/code&gt; ：AS 号。
+&lt;ul&gt;
+&lt;li&gt;在国际互联网上，ASN 范围 4200000000 - 4294967294 是被保留作私下使用（private use）的，DN42 占用的就是其中的一块：4242420000 - 4242423999。只需要在这个区间内挑选一个你喜欢的、没有被他人占用的号码即可。&lt;/li&gt;
+&lt;li&gt;如果你有自己的公网 ASN 的话，也可以直接在 DN42 中使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;as-name&lt;/code&gt; ：AS 的名称，一般只在 DN42 的一些网络结构示意图中看到。可以设置为 &lt;code&gt;[昵称]-AS&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：AS 简介，一般只在结构图中看到，随意填写。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：Admin Contact（管理员联系信息），指向你的 person 文件，&lt;code&gt;[昵称]-DN42&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：Tech Contact（技术员联系信息），指向你的 person 文件，&lt;code&gt;[昵称]-DN42&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），由谁维护，指向你的 mntner 文件，&lt;code&gt;[昵称]-MNT&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt; 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;data/inetnum/[IPv4 Block]&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;inetnum&lt;/code&gt; ：这个地址块的范围。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cidr&lt;/code&gt; ：这个地址块的范围，与 &lt;code&gt;inetnum&lt;/code&gt; 相同，只是以 CIDR 方式表示。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;netname&lt;/code&gt; ：这个地址块的名称。可以设置为 &lt;code&gt;[昵称]-IPV4&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：简介，随意填写。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;country&lt;/code&gt; ：你的国家代号，填 CN 代表中国大陆。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：Admin Contact（管理员联系信息），指向你的 person 文件，&lt;code&gt;[昵称]-DN42&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：Tech Contact（技术员联系信息），指向你的 person 文件，&lt;code&gt;[昵称]-DN42&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），由谁维护，指向你的 mntner 文件，&lt;code&gt;[昵称]-MNT&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nserver&lt;/code&gt; ：IP 地址反向解析的 DNS 服务器。如果你不知道/不需要反向DNS，可以去掉。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;status&lt;/code&gt; ：固定为 &lt;code&gt;ASSIGNED&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;remarks&lt;/code&gt; ：备注信息，可以不填。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;data/route/[IPv4 Block]&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;route&lt;/code&gt; ：这个地址块的范围。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：简介，随意填写。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;origin&lt;/code&gt; ：填写你的 AS 号。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），由谁维护，指向你的 mntner 文件，&lt;code&gt;[昵称]-MNT&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;data/inet6num/[IPv6 Block]&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;与 IPv4 并无太大区别，只需将 &lt;code&gt;inetnum&lt;/code&gt; 字段改为 &lt;code&gt;inet6num&lt;/code&gt; 即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;data/route6/[IPv6 Block]&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;与 IPv4 并无太大区别，只需将 &lt;code&gt;route&lt;/code&gt; 字段改为 &lt;code&gt;route6&lt;/code&gt; 即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你可以查看我提交的注册信息：&lt;a href=&#34;https://git.dn42.dev/dn42/registry/pulls/673/files&#34;&gt;Add AS141776 &lt;small&gt;(#673)&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注意：各个项目的名称和值之间有一长串空格。这段空格的长度是不能随意修改的，当然也不能替换成 Tab。名称 + 冒号 + 空格的总长度 &lt;strong&gt;必须是 20 个字符&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;创建完成之后，切换到仓库的根目录，执行 &lt;code&gt;git add .&lt;/code&gt; 暂存更改。&lt;/p&gt;
+&lt;p&gt;你可以使用 &lt;code&gt;git commit -S&lt;/code&gt; 使用 GPG 对提交进行签名，或者暂时不对提交进行签名，使用 SSH 公钥进行验证：在 commit 之后执行 &lt;code&gt;git rev-parse HEAD | ssh-keygen -Y sign -f ~/.ssh/id_rsa -n dn42&lt;/code&gt; 命令，将输出的信息贴到 Pull Request 里面。&lt;/p&gt;
+&lt;p&gt;执行 &lt;code&gt;git push -f&lt;/code&gt; 命令，将修改上传到服务器上。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/04/04/1YwNjs8uvOJMFoq.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
+&lt;p&gt;使用黄色高亮标记出的菜单切换到你的分支，然后点击 &lt;strong&gt;New Pull Request&lt;/strong&gt; 新建一个 Pull Request 即可。&lt;/p&gt;
+&lt;p&gt;注意：&lt;strong&gt;请使用英文发 Pull Request ，否则审核人员会看不懂。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;DN42-WireGuard-使用入门&#34;&gt;DN42 WireGuard 使用入门&lt;/h2&gt;
+&lt;h3 id=&#34;安装-WireGuard&#34;&gt;安装 WireGuard&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt install wireguard wireguard-tools -y&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;系统配置&#34;&gt;系统配置&lt;/h3&gt;
+&lt;p&gt;打开 Linux 内核的数据包转发功能：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv4.ip_forward=1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv6.conf.default.forwarding=1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv6.conf.all.forwarding=1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
+sysctl -p&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;关闭 Linux 内核 &lt;code&gt;rp_filter&lt;/code&gt; 的严格模式：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv4.conf.default.rp_filter=0&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv4.conf.all.rp_filter=0&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;关闭 UFW 等帮你配置 iptables 的工具。&lt;/p&gt;
+&lt;h3 id=&#34;生成公钥和私钥&#34;&gt;生成公钥和私钥&lt;/h3&gt;
+&lt;p&gt;先使用 &lt;code&gt;wg genkey&lt;/code&gt; 命令生成一个私钥，然后使用 &lt;code&gt;echo &amp;quot;&amp;lt;PUBLIC_KEY&amp;gt;&amp;quot; | wg pubkey&lt;/code&gt; 算出所对应的公钥。&lt;/p&gt;
+&lt;p&gt;这是 WireGuard 隧道中双方的唯一认证方式，务必将其保管好，不要泄漏。&lt;/p&gt;
+&lt;h3 id=&#34;添加配置&#34;&gt;添加配置&lt;/h3&gt;
+&lt;p&gt;新建一个文件：&lt;code&gt;/etc/wireguard/dn42-&amp;lt;PEER_NAME&amp;gt;.conf&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;将下方示例中用 &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; 括住的内容替换为实际信息，然后写入文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;section&#34;&gt;[Interface]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;PrivateKey&lt;/span&gt; = &amp;lt;PRIVATE_KEY&amp;gt;
+&lt;span class=&#34;attr&#34;&gt;ListenPort&lt;/span&gt; = &amp;lt;PORT&amp;gt;
+&lt;span class=&#34;attr&#34;&gt;Address&lt;/span&gt; = &amp;lt;YOUR_IPv4&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;, &amp;lt;YOUR_IPv6&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;PostUp&lt;/span&gt; = /usr/sbin/ip addr del dev dn42-&amp;lt;PEER_NAME&amp;gt; &amp;lt;YOUR_IPv4&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt; &amp;amp;&amp;amp; /usr/sbin/ip addr add dev dn42-&amp;lt;PEER_NAME&amp;gt; &amp;lt;YOUR_IPv4&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt; peer &amp;lt;PEER_IPv4&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;PostUp&lt;/span&gt; = /usr/sbin/ip addr del dev dn42-&amp;lt;PEER_NAME&amp;gt; &amp;lt;YOUR_IPv6&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt; &amp;amp;&amp;amp; /usr/sbin/ip addr add dev dn42-&amp;lt;PEER_NAME&amp;gt; &amp;lt;YOUR_IPv6&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt; peer &amp;lt;PEER_IPv6&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;Table&lt;/span&gt; = &lt;span class=&#34;literal&#34;&gt;off&lt;/span&gt;
+
+&lt;span class=&#34;section&#34;&gt;[Peer]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;PublicKey&lt;/span&gt; = &amp;lt;PEER_PUBLIC_KEY&amp;gt;
+&lt;span class=&#34;attr&#34;&gt;Endpoint&lt;/span&gt; = &amp;lt;IP/DOMAIN&amp;gt;:&amp;lt;PORT&amp;gt; &lt;span class=&#34;comment&#34;&gt;# 仅当你向对方发起连接时才需要填写此项配置&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;AllowedIPs&lt;/span&gt; = &lt;span class=&#34;number&#34;&gt;0.0&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;0.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;,::/&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后启动对应的 WireGuard 隧道：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;systemctl start wg-quick@dn42-&amp;lt;PEER_NAME&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用 &lt;code&gt;systemctl status wg-quick@dn42-&amp;lt;PEER_NAME&amp;gt;&lt;/code&gt; 查看启动状态。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/04/04/2wuXdEisnxvPCZJ.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
+&lt;p&gt;之后就可以使用 &lt;code&gt;wg&lt;/code&gt; 命令查看隧道状态了。&lt;/p&gt;
+&lt;h2 id=&#34;与他人进行对等互联（Peer）&#34;&gt;与他人进行对等互联（Peer）&lt;/h2&gt;
+&lt;h3 id=&#34;安装-BIRD2&#34;&gt;安装 BIRD2&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt install bird2 -y&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装完成后先停止 bird2 的服务：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;systemctl stop bird&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;编写配置文件&#34;&gt;编写配置文件&lt;/h3&gt;
+&lt;p&gt;可以在 &lt;a href=&#34;https://dn42.dev/howto/Bird2&#34;&gt;howto/Bird2 - DN42 Wiki&lt;/a&gt; 页面上找到一份示例配置文件。&lt;/p&gt;
+&lt;p&gt;apt 安装的 bird2 的配置文件一般是 &lt;code&gt;/etc/bird/bird.conf&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;然后下载 ROA 配置文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;curl -sfSLR &amp;#123;-o,-z&amp;#125;/etc/bird/roa_dn42.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf
+curl -sfSLR &amp;#123;-o,-z&amp;#125;/etc/bird/roa_dn42_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf
+birdc configure&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;ROA-配置文件的自动下载与更新&#34;&gt;ROA 配置文件的自动下载与更新&lt;/h3&gt;
+&lt;p&gt;添加下面两个 crontab 定时任务：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight cron&#34;&gt;*&amp;#x2F;15 * * * * curl -sfSLR &amp;#123;-o,-z&amp;#125;&amp;#x2F;etc&amp;#x2F;bird&amp;#x2F;roa_dn42.conf https:&amp;#x2F;&amp;#x2F;dn42.burble.com&amp;#x2F;roa&amp;#x2F;dn42_roa_bird2_4.conf &amp;amp;&amp;amp; chronic birdc configure
+*&amp;#x2F;15 * * * * curl -sfSLR &amp;#123;-o,-z&amp;#125;&amp;#x2F;etc&amp;#x2F;bird&amp;#x2F;roa_dn42_v6.conf https:&amp;#x2F;&amp;#x2F;dn42.burble.com&amp;#x2F;roa&amp;#x2F;dn42_roa_bird2_6.conf &amp;amp;&amp;amp; chronic birdc configure&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;建立对等互联&#34;&gt;建立对等互联&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;/etc/bird/peers&lt;/code&gt; 目录下新建名为 &lt;code&gt;&amp;lt;PEER_NAME&amp;gt;.conf&lt;/code&gt; 的文件，填入以下内容：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bird&#34;&gt;protocol bgp &amp;lt;NEIGHBOR_NAME&amp;gt; from dnpeers &amp;#123;
+    neighbor &amp;lt;NEIGHBOR_IP&amp;gt; as &amp;lt;NEIGHBOR_ASN&amp;gt;;
+    direct;
+    # 在 IPv4 BGP 中禁用 IPv6 路由传递
+    ipv6 &amp;#123;
+        import none;
+        export none;
+    &amp;#125;;
+&amp;#125;
+
+protocol bgp &amp;lt;NEIGHBOR_NAME&amp;gt;_v6 from dnpeers &amp;#123;
+    neighbor &amp;lt;NEIGHBOR_IPv6&amp;gt; as &amp;lt;NEIGHBOR_ASN&amp;gt;; # 或 neighbor &amp;lt;NEIGHBOR_LINK_LOCAL_IP&amp;gt; % &amp;#39;dn42-&amp;lt;PEER_NAME&amp;gt;&amp;#39; as &amp;lt;NEIGHBOR_ASN&amp;gt;;
+    direct;
+    # 在 IPv6 BGP 中禁用 IPv4 路由传递
+    ipv4 &amp;#123;
+        import none;
+        export none;
+    &amp;#125;;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当然，BIRD2 也是支持多协议会话的，只需要像下面这样写就可以同时建立 IPv4 和 IPv6 会话了：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bird&#34;&gt;protocol bgp &amp;lt;NEIGHBOR_NAME&amp;gt; from dnpeers &amp;#123;
+    neighbor &amp;lt;NEIGHBOR_IPv6&amp;gt; as &amp;lt;NEIGHBOR_ASN&amp;gt;; # 或 neighbor &amp;lt;NEIGHBOR_LINK_LOCAL_IP&amp;gt; % &amp;#39;dn42-&amp;lt;PEER_NAME&amp;gt;&amp;#39; as &amp;lt;NEIGHBOR_ASN&amp;gt;;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;配置完成后就可以开启 bird2 服务了：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;systemctl start bird&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enjoy it!&lt;/p&gt;
+&lt;h2 id=&#34;我的-DN42-网络信息&#34;&gt;我的 DN42 网络信息&lt;/h2&gt;
+&lt;iframe src=&#34;https://as141776.net/dn42.html&#34; width=&#34;100%&#34; height=&#34;500px&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;small&gt;如果看不到上方的嵌入式页面，请访问 &lt;a href=&#34;https://as141776.net/dn42.html&#34;&gt;https://as141776.net/dn42.html&lt;/a&gt; 。&lt;/small&gt;&lt;/p&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dn42.dev/howto/Getting-Started&#34;&gt;Getting Started - DN42 Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://git.dn42.dev/dn42/registry/src/branch/master/README.md&#34;&gt;Guide for creating a Pull Request - dn42/registry - DN42 Git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://lantian.pub/article/modify-website/dn42-experimental-network-2020.lantian/&#34;&gt;DN42 实验网络介绍及注册教程（2020-10-01 更新） - Lan Tian @ Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="BGP" />
+        <category term="DN42" />
+        <updated>2021-04-04T03:29:32.000Z</updated>
+    </entry>
+</feed>
