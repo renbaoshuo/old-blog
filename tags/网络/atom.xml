@@ -20,8 +20,8 @@
     <category term="S2OJ" />
     <category term="游记" />
     <category term="macOS" />
-    <category term="CloudFlare" />
     <category term="前端" />
+    <category term="Cloudflare" />
     <entry>
         <id>https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</id>
         <title>给腾讯云服务器免费增加第二个 IP</title>
@@ -100,13 +100,13 @@ ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt;</content>
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/nginx-cloudflare-ip-only/</id>
-        <title>配置 nginx 只允许 CloudFlare 的 IP 回源</title>
+        <title>配置 nginx 只允许 Cloudflare 的 IP 回源</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/nginx-cloudflare-ip-only/"/>
-        <content type="html">&lt;p&gt;配置好 CloudFlare 后，建议禁止非 CloudFlare IP 访问源站来防止一些不好的事情发生。&lt;/p&gt;
+        <content type="html">&lt;p&gt;配置好 Cloudflare 后，建议禁止非 Cloudflare IP 访问源站来防止一些不好的事情发生。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
 &lt;p&gt;在站点配置文件中增加以下内容&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt; :&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# CloudFlare (IPv4 - https://www.cloudflare.com/ips-v4)&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Cloudflare (IPv4 - https://www.cloudflare.com/ips-v4)&lt;/span&gt;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;173.245.48.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;103.21.244.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;103.22.200.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;;
@@ -124,7 +124,7 @@ ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt;</content>
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;36.27.212.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;123.129.232.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt;;
 
-&lt;span class=&#34;comment&#34;&gt;# CloudFlare (IPv6 - https://www.cloudflare.com/ips-v6)&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# Cloudflare (IPv6 - https://www.cloudflare.com/ips-v6)&lt;/span&gt;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2400&lt;/span&gt;:cb00::/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2405&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;8100&lt;/span&gt;::/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2405&lt;/span&gt;:b500::/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;;
@@ -141,7 +141,7 @@ ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt;</content>
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;
-&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://www.cloudflare.com/ips/&#34;&gt;CloudFlare IP Ranges (Last updated: February 21, 2019)&lt;/a&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://www.cloudflare.com/ips/&#34;&gt;Cloudflare IP Ranges (Last updated: February 21, 2019)&lt;/a&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;

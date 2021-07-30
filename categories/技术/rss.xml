@@ -24,19 +24,19 @@
         <category>S2OJ</category>
         <category>游记</category>
         <category>macOS</category>
-        <category>CloudFlare</category>
         <category>前端</category>
+        <category>Cloudflare</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vps-cloudflare-warp/</guid>
-            <title>使用 CloudFlare Warp 为单栈 VPS 添加双栈网络访问</title>
+            <title>使用 Cloudflare Warp 为单栈 VPS 添加双栈网络访问</title>
             <link>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</link>
             <category>折腾</category>
             <category>Linux</category>
-            <category>CloudFlare</category>
+            <category>Cloudflare</category>
             <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;&lt;a href=&#34;https://blog.cloudflare.com/1111-warp-better-vpn/&#34;&gt;Warp&lt;/a&gt; 是 CloudFlare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 CloudFlare 的边缘节点实现隐私保护及链路优化。&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;&lt;a href=&#34;https://blog.cloudflare.com/1111-warp-better-vpn/&#34;&gt;Warp&lt;/a&gt; 是 Cloudflare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 Cloudflare 的边缘节点实现隐私保护及链路优化。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-&lt;p&gt;由于 CloudFlare 官方的 &lt;a href=&#34;https://developers.cloudflare.com/warp-client/setting-up/linux&#34;&gt;Warp Client&lt;/a&gt; 过于臃肿，导致我看到安装包大小后就决定直接放弃安装，于是我选择了 &lt;a href=&#34;https://github.com/ViRb3/wgcf&#34;&gt;ViRb3/wgcf&lt;/a&gt; 替代。&lt;/p&gt;
+&lt;p&gt;由于 Cloudflare 官方的 &lt;a href=&#34;https://developers.cloudflare.com/warp-client/setting-up/linux&#34;&gt;Warp Client&lt;/a&gt; 过于臃肿，导致我看到安装包大小后就决定直接放弃安装，于是我选择了 &lt;a href=&#34;https://github.com/ViRb3/wgcf&#34;&gt;ViRb3/wgcf&lt;/a&gt; 替代。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/07/15/dHClLqSsvDKbrBc.png&#34; alt=&#34;使用 apt 安装 cloudflare-warp 时的提示&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;使用 apt 安装 cloudflare-warp 时的提示&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;安装依赖&#34;&gt;安装依赖&lt;/h2&gt;
 &lt;p&gt;可以前往 &lt;a href=&#34;https://github.com/ViRb3/wgcf/releases/latest&#34;&gt;Releases 页面&lt;/a&gt; 下载编译好的二进制文件以供使用。&lt;/p&gt;
@@ -83,7 +83,7 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;如果不需要使用 CloudFlare 的 DNS 服务可以删去 &lt;code&gt;DNS = 1.1.1.1&lt;/code&gt; 这一行，使用的话需要安装 &lt;code&gt;resolvconf&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;如果不需要使用 Cloudflare 的 DNS 服务可以删去 &lt;code&gt;DNS = 1.1.1.1&lt;/code&gt; 这一行，使用的话需要安装 &lt;code&gt;resolvconf&lt;/code&gt; 。&lt;/p&gt;
 &lt;h2 id=&#34;启动-WireGuard-隧道&#34;&gt;启动 WireGuard 隧道&lt;/h2&gt;
 &lt;p&gt;将刚才修改好的配置文件移动到 &lt;code&gt;/etc/wireguard/&lt;/code&gt; 目录下，推荐命名为 &lt;code&gt;wgcf.conf&lt;/code&gt; ，下面的操作以这个文件名为准。&lt;/p&gt;
 &lt;p&gt;使用 &lt;code&gt;systemd enable --now wg-quick@wgcf&lt;/code&gt; 命令启动隧道，然后使用 &lt;code&gt;wg show wgcf&lt;/code&gt; 命令查看隧道状态。&lt;/p&gt;
@@ -92,7 +92,7 @@
 &lt;p&gt;之后就可以享受双栈网络带来的便利了~&lt;/p&gt;
 &lt;p&gt;注：日常如果需要重启隧道可以使用 &lt;code&gt;systemctl restart wg-quick@wgcf&lt;/code&gt; 命令。&lt;/p&gt;
 &lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
-&lt;p&gt;折腾这些的原因是我从某个 Player IX 那里嫖的 VM 没有提供 IPv4 网络访问权限，这让我日常的维护工作麻烦了很多，于是我想到了 CloudFlare Warp 这个东西。CloudFlare Warp 提供的网络访问相较于 &lt;a href=&#34;http://TunnelBroker.net&#34;&gt;TunnelBroker.net&lt;/a&gt; 、 &lt;a href=&#34;http://TunnelBroker.ch&#34;&gt;TunnelBroker.ch&lt;/a&gt; 等一众隧道要好很多，延迟并不像其他隧道那样高。&lt;/p&gt;
+&lt;p&gt;折腾这些的原因是我从某个 Player IX 那里嫖的 VM 没有提供 IPv4 网络访问权限，这让我日常的维护工作麻烦了很多，于是我想到了 Cloudflare Warp 这个东西。CloudFlare Warp 提供的网络访问相较于 &lt;a href=&#34;http://TunnelBroker.net&#34;&gt;TunnelBroker.net&lt;/a&gt; 、 &lt;a href=&#34;http://TunnelBroker.ch&#34;&gt;TunnelBroker.ch&lt;/a&gt; 等一众隧道要好很多，延迟并不像其他隧道那样高。&lt;/p&gt;
 &lt;p&gt;在查找资料的过程中我也发现了很多博客里面所描述的内容有误或已经过时，所以综合其他文章的内容加上自己的实践，写下了这篇文章。&lt;/p&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
 &lt;ol&gt;
@@ -1678,15 +1678,15 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/nginx-cloudflare-ip-only/</guid>
-            <title>配置 nginx 只允许 CloudFlare 的 IP 回源</title>
+            <title>配置 nginx 只允许 Cloudflare 的 IP 回源</title>
             <link>https://blog.baoshuo.ren/post/nginx-cloudflare-ip-only/</link>
             <category>网络</category>
             <pubDate>Tue, 18 Aug 2020 13:32:04 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;配置好 CloudFlare 后，建议禁止非 CloudFlare IP 访问源站来防止一些不好的事情发生。&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;配置好 Cloudflare 后，建议禁止非 Cloudflare IP 访问源站来防止一些不好的事情发生。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
 &lt;p&gt;在站点配置文件中增加以下内容&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt; :&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# CloudFlare (IPv4 - https://www.cloudflare.com/ips-v4)&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Cloudflare (IPv4 - https://www.cloudflare.com/ips-v4)&lt;/span&gt;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;173.245.48.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;103.21.244.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;103.22.200.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;;
@@ -1704,7 +1704,7 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;36.27.212.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;123.129.232.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt;;
 
-&lt;span class=&#34;comment&#34;&gt;# CloudFlare (IPv6 - https://www.cloudflare.com/ips-v6)&lt;/span&gt;
+&lt;span class=&#34;comment&#34;&gt;# Cloudflare (IPv6 - https://www.cloudflare.com/ips-v6)&lt;/span&gt;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2400&lt;/span&gt;:cb00::/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2405&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;8100&lt;/span&gt;::/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2405&lt;/span&gt;:b500::/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;;
@@ -1721,7 +1721,7 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;
-&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://www.cloudflare.com/ips/&#34;&gt;CloudFlare IP Ranges (Last updated: February 21, 2019)&lt;/a&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://www.cloudflare.com/ips/&#34;&gt;Cloudflare IP Ranges (Last updated: February 21, 2019)&lt;/a&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;

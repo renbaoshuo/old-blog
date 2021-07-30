@@ -20,8 +20,8 @@
     <category term="S2OJ" />
     <category term="游记" />
     <category term="macOS" />
-    <category term="CloudFlare" />
     <category term="前端" />
+    <category term="Cloudflare" />
     <entry>
         <id>https://blog.baoshuo.ren/post/change-git-submission-email/</id>
         <title>【随笔】批量修改 Git 仓库的提交邮箱</title>

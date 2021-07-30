@@ -24,8 +24,8 @@
         <category>S2OJ</category>
         <category>游记</category>
         <category>macOS</category>
-        <category>CloudFlare</category>
         <category>前端</category>
+        <category>Cloudflare</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/workbox-service-worker/</guid>
             <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>
