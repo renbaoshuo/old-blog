@@ -8,24 +8,24 @@
         <language>cn</language>
         <pubDate>Sun, 28 Feb 2021 00:02:04 +0800</pubDate>
         <lastBuildDate>Sun, 28 Feb 2021 00:02:04 +0800</lastBuildDate>
-        <category>BIRD</category>
-        <category>BGP</category>
         <category>DN42</category>
         <category>网络</category>
+        <category>BIRD</category>
+        <category>BGP</category>
+        <category>Linux</category>
         <category>Web</category>
         <category>CTF</category>
         <category>Git</category>
         <category>折腾</category>
-        <category>Linux</category>
+        <category>笔记</category>
         <category>题解</category>
         <category>洛谷</category>
-        <category>笔记</category>
-        <category>牛客网</category>
-        <category>S2OJ</category>
         <category>游记</category>
+        <category>S2OJ</category>
+        <category>牛客网</category>
+        <category>Cloudflare</category>
         <category>macOS</category>
         <category>前端</category>
-        <category>Cloudflare</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/workbox-service-worker/</guid>
             <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>

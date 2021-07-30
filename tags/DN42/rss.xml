@@ -8,31 +8,31 @@
         <language>cn</language>
         <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
         <lastBuildDate>Mon, 03 May 2021 12:23:00 +0800</lastBuildDate>
-        <category>BIRD</category>
-        <category>BGP</category>
         <category>DN42</category>
         <category>网络</category>
+        <category>BIRD</category>
+        <category>BGP</category>
+        <category>Linux</category>
         <category>Web</category>
         <category>CTF</category>
         <category>Git</category>
         <category>折腾</category>
-        <category>Linux</category>
+        <category>笔记</category>
         <category>题解</category>
         <category>洛谷</category>
-        <category>笔记</category>
-        <category>牛客网</category>
-        <category>S2OJ</category>
         <category>游记</category>
+        <category>S2OJ</category>
+        <category>牛客网</category>
+        <category>Cloudflare</category>
         <category>macOS</category>
         <category>前端</category>
-        <category>Cloudflare</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/bird-looking-glass/</guid>
             <title>搭建 BIRD Looking Glass 速成指北</title>
             <link>https://blog.baoshuo.ren/post/bird-looking-glass/</link>
+            <category>DN42</category>
             <category>BIRD</category>
             <category>BGP</category>
-            <category>DN42</category>
             <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 &lt;a href=&#34;https://lantian.pub&#34;&gt;蓝天&lt;/a&gt; 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
@@ -129,8 +129,8 @@ pip install docker-compose&lt;/code&gt;&lt;/pre&gt;
             <guid isPermalink="true">https://blog.baoshuo.ren/post/dn42-network/</guid>
             <title>初探 DN42 网络</title>
             <link>https://blog.baoshuo.ren/post/dn42-network/</link>
-            <category>BGP</category>
             <category>DN42</category>
+            <category>BGP</category>
             <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 BGP 网络。DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
