@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.baoshuo.ren/about/</loc>
+    
+    <lastmod>2021-07-31</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.baoshuo.ren/friends/</loc>
     
     <lastmod>2021-07-30</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://blog.baoshuo.ren/post/handsome-leftbar-layout/</loc>
     
     <lastmod>2021-07-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.baoshuo.ren/about/</loc>
-    
-    <lastmod>2021-07-20</lastmod>
     
   </url>
   
