@@ -31,11 +31,11 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST_2 }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.TARGET }}
-      # - name: Deploy to Server 3
-      #   uses: easingthemes/ssh-deploy@v2.1.5
-      #   env:
-      #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     ARGS: "-avz --delete  --exclude '.git' --exclude '.github' --exclude '.gitlab-ci.yml' --exclude '.nojekyll'"
-      #     REMOTE_HOST: ${{ secrets.REMOTE_HOST_3 }}
-      #     REMOTE_USER: ${{ secrets.REMOTE_USER }}
-      #     TARGET: ${{ secrets.TARGET }}
+      - name: Deploy to Server 3
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-avz --delete  --exclude '.git' --exclude '.github' --exclude '.gitlab-ci.yml' --exclude '.nojekyll'"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST_3 }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.TARGET }}
