@@ -22,6 +22,7 @@
     <category term="Cloudflare" />
     <category term="macOS" />
     <category term="前端" />
+    <category term="比赛" />
     <entry>
         <id>https://blog.baoshuo.ren/post/workbox-service-worker/</id>
         <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>

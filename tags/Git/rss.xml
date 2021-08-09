@@ -26,6 +26,7 @@
         <category>Cloudflare</category>
         <category>macOS</category>
         <category>前端</category>
+        <category>比赛</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/change-git-submission-email/</guid>
             <title>【随笔】批量修改 Git 仓库的提交邮箱</title>

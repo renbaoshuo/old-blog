@@ -22,6 +22,7 @@
     <category term="Cloudflare" />
     <category term="macOS" />
     <category term="前端" />
+    <category term="比赛" />
     <entry>
         <id>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</id>
         <title>使用 Cloudflare Warp 为单栈 VPS 添加双栈网络访问</title>
