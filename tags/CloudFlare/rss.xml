@@ -8,31 +8,33 @@
         <language>cn</language>
         <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
         <lastBuildDate>Thu, 15 Jul 2021 17:57:25 +0800</lastBuildDate>
-        <category>DN42</category>
-        <category>网络</category>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>Linux</category>
-        <category>Web</category>
-        <category>CTF</category>
-        <category>Git</category>
-        <category>折腾</category>
+        <category>算法</category>
+        <category>图论</category>
         <category>笔记</category>
+        <category>Web</category>
+        <category>DN42</category>
+        <category>Git</category>
+        <category>CTF</category>
+        <category>折腾</category>
+        <category>Linux</category>
+        <category>网络</category>
         <category>题解</category>
         <category>洛谷</category>
         <category>游记</category>
-        <category>S2OJ</category>
         <category>牛客网</category>
-        <category>Cloudflare</category>
+        <category>S2OJ</category>
         <category>macOS</category>
+        <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vps-cloudflare-warp/</guid>
             <title>使用 Cloudflare Warp 为单栈 VPS 添加双栈网络访问</title>
             <link>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</link>
-            <category>Linux</category>
             <category>折腾</category>
+            <category>Linux</category>
             <category>Cloudflare</category>
             <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;a href=&#34;https://blog.cloudflare.com/1111-warp-better-vpn/&#34;&gt;Warp&lt;/a&gt; 是 Cloudflare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 Cloudflare 的边缘节点实现隐私保护及链路优化。&lt;/p&gt;

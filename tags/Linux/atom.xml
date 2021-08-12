@@ -4,23 +4,25 @@
     <title>宝硕博客 • Posts by &#34;linux&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-08-08T13:44:33.000Z</updated>
-    <category term="DN42" />
-    <category term="网络" />
     <category term="BIRD" />
     <category term="BGP" />
-    <category term="Linux" />
-    <category term="Web" />
-    <category term="CTF" />
-    <category term="Git" />
-    <category term="折腾" />
+    <category term="算法" />
+    <category term="图论" />
     <category term="笔记" />
+    <category term="Web" />
+    <category term="DN42" />
+    <category term="Git" />
+    <category term="CTF" />
+    <category term="折腾" />
+    <category term="Linux" />
+    <category term="网络" />
     <category term="题解" />
     <category term="洛谷" />
     <category term="游记" />
-    <category term="S2OJ" />
     <category term="牛客网" />
-    <category term="Cloudflare" />
+    <category term="S2OJ" />
     <category term="macOS" />
+    <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
     <entry>
@@ -157,8 +159,8 @@
 &lt;li&gt;&lt;a href=&#34;https://p3terx.com/archives/use-cloudflare-warp-to-add-extra-ipv4-or-ipv6-network-support-to-vps-servers-for-free.html&#34;&gt;Cloudflare WARP 给 VPS 服务器额外添加 IPv4 或 IPv6 网络获得“原生”IP - P3TERX&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <category term="Linux" />
         <category term="折腾" />
+        <category term="Linux" />
         <category term="Cloudflare" />
         <updated>2021-07-15T09:57:25.000Z</updated>
     </entry>
@@ -526,8 +528,8 @@ ip route add default dev eth1 via 172.21.0.1 table 20&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;配置策略路由&#34;&gt;配置策略路由&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;ip rule add from 172.21.0.10 table 10
 ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt;</content>
-        <category term="网络" />
         <category term="Linux" />
+        <category term="网络" />
         <updated>2020-08-20T05:22:47.000Z</updated>
     </entry>
 </feed>
