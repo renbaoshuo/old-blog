@@ -6,23 +6,23 @@
     <updated>2021-02-27T16:02:04.000Z</updated>
     <category term="BIRD" />
     <category term="BGP" />
+    <category term="Web" />
     <category term="算法" />
     <category term="图论" />
     <category term="笔记" />
-    <category term="Web" />
+    <category term="CTF" />
     <category term="DN42" />
     <category term="Git" />
-    <category term="CTF" />
     <category term="折腾" />
-    <category term="Linux" />
     <category term="网络" />
+    <category term="Linux" />
     <category term="题解" />
     <category term="洛谷" />
     <category term="游记" />
     <category term="牛客网" />
     <category term="S2OJ" />
-    <category term="macOS" />
     <category term="Cloudflare" />
+    <category term="macOS" />
     <category term="前端" />
     <category term="比赛" />
     <entry>
@@ -765,10 +765,8 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;array&lt;/code&gt; 函数的参数中除了最后一行，每一行末尾都有一个 &lt;code&gt;,&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;本文为补档文章，原系统中最后一次修改时间：2020年4月12日 23:31:25&lt;/em&gt;
-&lt;em&gt;本文代码已经适配 handsome 7.2 版本，可放心使用。&lt;/em&gt;&lt;/p&gt;
 </content>
         <category term="Web" />
-        <updated>2020-07-16T08:27:58.000Z</updated>
+        <updated>2020-04-12T15:31:25.000Z</updated>
     </entry>
 </feed>

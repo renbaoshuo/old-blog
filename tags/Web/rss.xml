@@ -10,23 +10,23 @@
         <lastBuildDate>Sun, 28 Feb 2021 00:02:04 +0800</lastBuildDate>
         <category>BIRD</category>
         <category>BGP</category>
+        <category>Web</category>
         <category>算法</category>
         <category>图论</category>
         <category>笔记</category>
-        <category>Web</category>
+        <category>CTF</category>
         <category>DN42</category>
         <category>Git</category>
-        <category>CTF</category>
         <category>折腾</category>
-        <category>Linux</category>
         <category>网络</category>
+        <category>Linux</category>
         <category>题解</category>
         <category>洛谷</category>
         <category>游记</category>
         <category>牛客网</category>
         <category>S2OJ</category>
-        <category>macOS</category>
         <category>Cloudflare</category>
+        <category>macOS</category>
         <category>前端</category>
         <category>比赛</category>
         <item>
@@ -626,7 +626,7 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
             <title>【补档】handsome 魔改教程：左侧边栏输出优化</title>
             <link>https://blog.baoshuo.ren/post/handsome-leftbar-layout/</link>
             <category>Web</category>
-            <pubDate>Thu, 16 Jul 2020 16:27:58 +0800</pubDate>
+            <pubDate>Sun, 12 Apr 2020 23:31:25 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;感觉 handsome 自带的左侧边栏显示方法不太合适，于是自己参照了UCW大佬的教程 &lt;a href=&#34;https://ucw.moe/archives/handsome-aside-category.html&#34;&gt;优化侧栏显示：实现更加美观的分类展示&lt;/a&gt; 改了一下。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
 &lt;h2 id=&#34;修改方法&#34;&gt;修改方法&lt;/h2&gt;
@@ -771,8 +771,6 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;array&lt;/code&gt; 函数的参数中除了最后一行，每一行末尾都有一个 &lt;code&gt;,&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;本文为补档文章，原系统中最后一次修改时间：2020年4月12日 23:31:25&lt;/em&gt;
-&lt;em&gt;本文代码已经适配 handsome 7.2 版本，可放心使用。&lt;/em&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
