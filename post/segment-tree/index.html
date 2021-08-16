@@ -2,10 +2,10 @@
     <span class="keyword">int</span> l, r;
     <span class="keyword">long</span> <span class="keyword">long</span> s, d;
 
-    node() &#123;
+    <span class="built_in">node</span>() &#123;
         l = r = s = d = <span class="number">0</span>;
     &#125;
-    node(<span class="keyword">int</span> _l, <span class="keyword">int</span> _r) &#123;
+    <span class="built_in">node</span>(<span class="keyword">int</span> _l, <span class="keyword">int</span> _r) &#123;
         l = _l;
         r = _r;
         s = d = <span class="number">0</span>;
@@ -23,15 +23,15 @@
 <span class="comment"> * @param r 右端点</span>
 <span class="comment"> */</span>
 <span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;
-    tr[u] = node(l, r);
+    tr[u] = <span class="built_in">node</span>(l, r);
     <span class="keyword">if</span> (l == r) &#123;
         tr[u].s = a[l];
         <span class="keyword">return</span>;
     &#125;
     <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;
-    build(u &lt;&lt; <span class="number">1</span>, l, mid);
-    build(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r);
-    pushup(u);
+    <span class="built_in">build</span>(u &lt;&lt; <span class="number">1</span>, l, mid);
+    <span class="built_in">build</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r);
+    <span class="built_in">pushup</span>(u);
 &#125;</code></pre><p>先初始化当前区间，接下来分两种情况：</p><ol><li>若当前区间长度等于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mtext>  </mtext><mo stretchy="false">(</mo><mi>l</mi><mo>=</mo><mi>r</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">1\ \ (l = r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">1</span><span class="mspace"> </span><span class="mspace"> </span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="mclose">)</span></span></span></span> ，则直接将当前区间的区间和赋值为 <code>a[l]</code> 即可。</li><li>若当前区间长度大于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mtext>  </mtext><mo stretchy="false">(</mo><mi>l</mi><mo>&lt;</mo><mi>r</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">1\ \ (l &lt; r)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">1</span><span class="mspace"> </span><span class="mspace"> </span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="mclose">)</span></span></span></span> ，则将区间平均分成两部分（即从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">⌊</mo><mo stretchy="false">(</mo><mi>l</mi><mo>+</mo><mi>r</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>2</mn><mo stretchy="false">⌋</mo></mrow><annotation encoding="application/x-tex">\lfloor(l+r)/2\rfloor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">⌊</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="mclose">)</span><span class="mord">/</span><span class="mord">2</span><span class="mclose">⌋</span></span></span></span> 处断开分为两个区间，可写作 <code>l + r &gt;&gt; 1</code>），继续向下递归建立左右子树即可。</li></ol><p>需要注意的是两个子区间没有交集，因此左子树的左端点是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.69444em;vertical-align:0"></span><span class="mord mathnormal" style="margin-right:.01968em">l</span></span></span></span> 、右端点是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">mid</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.69444em;vertical-align:0"></span><span class="mord mathnormal">m</span><span class="mord mathnormal">i</span><span class="mord mathnormal">d</span></span></span></span> ，右子树的左端点是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>i</mi><mi>d</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">mid+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.77777em;vertical-align:-.08333em"></span><span class="mord mathnormal">m</span><span class="mord mathnormal">i</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:.64444em;vertical-align:0"></span><span class="mord">1</span></span></span></span> 、右端点是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.43056em;vertical-align:0"></span><span class="mord mathnormal" style="margin-right:.02778em">r</span></span></span></span> 。</p><h3 id="区间查询（query）">区间查询（query）</h3><pre><code class="highlight cpp"><span class="comment">/**</span>
 <span class="comment"> * 区间查询</span>
 <span class="comment"> * @param u 父节点</span>
@@ -44,9 +44,9 @@
     &#125;
     <span class="keyword">int</span> mid = tr[u].l + tr[u].r &gt;&gt; <span class="number">1</span>;
     <span class="keyword">long</span> <span class="keyword">long</span> s = <span class="number">0</span>;
-    pushdown(u);                                <span class="comment">// 下放懒标记</span>
-    <span class="keyword">if</span> (l &lt;= mid) s += query(u &lt;&lt; <span class="number">1</span>, l, r);     <span class="comment">// 和左侧有交集</span>
-    <span class="keyword">if</span> (r &gt; mid) s += query(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r);  <span class="comment">// 和右侧有交集</span>
+    <span class="built_in">pushdown</span>(u);                                <span class="comment">// 下放懒标记</span>
+    <span class="keyword">if</span> (l &lt;= mid) s += <span class="built_in">query</span>(u &lt;&lt; <span class="number">1</span>, l, r);     <span class="comment">// 和左侧有交集</span>
+    <span class="keyword">if</span> (r &gt; mid) s += <span class="built_in">query</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r);  <span class="comment">// 和右侧有交集</span>
     <span class="keyword">return</span> s;
 &#125;</code></pre><ol><li>如果这个区间被包含，直接返回该区间的和。</li><li>如果和左儿子区间有交集，则继续向左儿子区间递归查询。</li><li>如果和右儿子区间有交集，则继续向右儿子区间递归查询。</li></ol><p>需要注意的是在递归查询左右儿子区间之前要先下放懒标记（pushdown），否则会出问题。</p><h2 id="区间加">区间加</h2><p>本部分以 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3372">洛谷 P3372 【模板】线段树 1</a> 为例子来简述一下线段树区间加的实现。</p><h3 id="下放懒标记（pushdown）">下放懒标记（pushdown）</h3><pre><code class="highlight cpp"><span class="comment">/**</span>
 <span class="comment"> * 下放懒标记</span>
@@ -76,19 +76,19 @@
         <span class="keyword">return</span>;
     &#125;
     <span class="keyword">int</span> mid = tr[u].l + tr[u].r &gt;&gt; <span class="number">1</span>;
-    pushdown(u);                               <span class="comment">// 下放懒标记</span>
-    <span class="keyword">if</span> (l &lt;= mid) modify(u &lt;&lt; <span class="number">1</span>, l, r, d);     <span class="comment">// 和左侧有交集</span>
-    <span class="keyword">if</span> (r &gt; mid) modify(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r, d);  <span class="comment">// 和右侧有交集</span>
-    pushup(u);                                 <span class="comment">// 上传新信息</span>
+    <span class="built_in">pushdown</span>(u);                               <span class="comment">// 下放懒标记</span>
+    <span class="keyword">if</span> (l &lt;= mid) <span class="built_in">modify</span>(u &lt;&lt; <span class="number">1</span>, l, r, d);     <span class="comment">// 和左侧有交集</span>
+    <span class="keyword">if</span> (r &gt; mid) <span class="built_in">modify</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r, d);  <span class="comment">// 和右侧有交集</span>
+    <span class="built_in">pushup</span>(u);                                 <span class="comment">// 上传新信息</span>
 &#125;</code></pre><p>区间修改和区间查询的实现相似。</p><ol><li>如果当前区间被包含，直接添加懒标记并修改区间和。</li><li>如果和左儿子区间有交集，则继续向左儿子区间递归修改。</li><li>如果和右儿子区间有交集，则继续向右儿子区间递归修改。</li></ol><p>需要注意的是在递归修改左右儿子区间之前要先下放懒标记（pushdown），修改完成以后要上传新信息（pushup），否则会出问题。</p><h2 id="区间加、乘">区间加、乘</h2><p>本部分以 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3373">洛谷 P3373 【模板】线段树 2</a> 为例子来简述一下线段树区间加、乘的实现。</p><p>在编写之前，结构体中需要先添加一个乘法的懒标记 <code>x</code> ，并将其赋初值为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.64444em;vertical-align:0"></span><span class="mord">1</span></span></span></span> ，修改之后的结构体如下所示。</p><pre><code class="highlight cpp"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span>
     <span class="keyword">int</span> l, r;
     <span class="keyword">long</span> <span class="keyword">long</span> s, d, x;
 
-    node() &#123;
+    <span class="built_in">node</span>() &#123;
         l = r = s = d = <span class="number">0</span>;
         x = <span class="number">1</span>;
     &#125;
-    node(<span class="keyword">int</span> _l, <span class="keyword">int</span> _r) &#123;
+    <span class="built_in">node</span>(<span class="keyword">int</span> _l, <span class="keyword">int</span> _r) &#123;
         l = _l, r = _r;
         s = d = <span class="number">0</span>;
         x = <span class="number">1</span>;
@@ -128,13 +128,13 @@
         <span class="keyword">return</span>;
     &#125;
     <span class="keyword">int</span> mid = tr[u].l + tr[u].r &gt;&gt; <span class="number">1</span>;
-    pushdown(u);                                  <span class="comment">// 下放懒标记</span>
-    <span class="keyword">if</span> (l &lt;= mid) modify(u &lt;&lt; <span class="number">1</span>, l, r, x, d);     <span class="comment">// 和左侧有交集</span>
-    <span class="keyword">if</span> (r &gt; mid) modify(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r, x, d);  <span class="comment">// 和右侧有交集</span>
-    pushup(u);                                    <span class="comment">// 上传新信息</span>
+    <span class="built_in">pushdown</span>(u);                                  <span class="comment">// 下放懒标记</span>
+    <span class="keyword">if</span> (l &lt;= mid) <span class="built_in">modify</span>(u &lt;&lt; <span class="number">1</span>, l, r, x, d);     <span class="comment">// 和左侧有交集</span>
+    <span class="keyword">if</span> (r &gt; mid) <span class="built_in">modify</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r, x, d);  <span class="comment">// 和右侧有交集</span>
+    <span class="built_in">pushup</span>(u);                                    <span class="comment">// 上传新信息</span>
 &#125;</code></pre><p>大体上和加法的修改函数一样，而在修改时与下放懒标记做法相同，遵循<strong>先乘后加</strong>的原则。</p><p>调用的时候若只需要使用乘法部分，加数设置为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.64444em;vertical-align:0"></span><span class="mord">0</span></span></span></span> 即可。若只需要使用加法部分，乘数设置为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.64444em;vertical-align:0"></span><span class="mord">1</span></span></span></span> 即可。</p><h2 id="全部代码">全部代码</h2><p>到这里基本操作就说完了，下面是全部的 AC 代码。</p><h3 id="区间加-2">区间加</h3><pre><code class="highlight cpp"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span>
 
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
 
 <span class="comment">/**</span>
 <span class="comment"> * 线段树节点</span>
@@ -143,10 +143,10 @@
     <span class="keyword">int</span> l, r;
     <span class="keyword">long</span> <span class="keyword">long</span> s, d;
 
-    node() &#123;
+    <span class="built_in">node</span>() &#123;
         l = r = s = d = <span class="number">0</span>;
     &#125;
-    node(<span class="keyword">int</span> _l, <span class="keyword">int</span> _r) &#123;
+    <span class="built_in">node</span>(<span class="keyword">int</span> _l, <span class="keyword">int</span> _r) &#123;
         l = _l;
         r = _r;
         s = d = <span class="number">0</span>;
@@ -185,15 +185,15 @@
 <span class="comment"> * @param r 右端点</span>
 <span class="comment"> */</span>
 <span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;
-    tr[u] = node(l, r);
+    tr[u] = <span class="built_in">node</span>(l, r);
     <span class="keyword">if</span> (l == r) &#123;
         tr[u].s = a[l];
         <span class="keyword">return</span>;
     &#125;
     <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;
-    build(u &lt;&lt; <span class="number">1</span>, l, mid);
-    build(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r);
-    pushup(u);
+    <span class="built_in">build</span>(u &lt;&lt; <span class="number">1</span>, l, mid);
+    <span class="built_in">build</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r);
+    <span class="built_in">pushup</span>(u);
 &#125;
 
 <span class="comment">/**</span>
@@ -210,10 +210,10 @@
         <span class="keyword">return</span>;
     &#125;
     <span class="keyword">int</span> mid = tr[u].l + tr[u].r &gt;&gt; <span class="number">1</span>;
-    pushdown(u);                               <span class="comment">// 下放懒标记</span>
-    <span class="keyword">if</span> (l &lt;= mid) modify(u &lt;&lt; <span class="number">1</span>, l, r, d);     <span class="comment">// 和左侧有交集</span>
-    <span class="keyword">if</span> (r &gt; mid) modify(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r, d);  <span class="comment">// 和右侧有交集</span>
-    pushup(u);                                 <span class="comment">// 上传新信息</span>
+    <span class="built_in">pushdown</span>(u);                               <span class="comment">// 下放懒标记</span>
+    <span class="keyword">if</span> (l &lt;= mid) <span class="built_in">modify</span>(u &lt;&lt; <span class="number">1</span>, l, r, d);     <span class="comment">// 和左侧有交集</span>
+    <span class="keyword">if</span> (r &gt; mid) <span class="built_in">modify</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r, d);  <span class="comment">// 和右侧有交集</span>
+    <span class="built_in">pushup</span>(u);                                 <span class="comment">// 上传新信息</span>
 &#125;
 
 <span class="comment">/**</span>
@@ -228,42 +228,42 @@
     &#125;
     <span class="keyword">int</span> mid = tr[u].l + tr[u].r &gt;&gt; <span class="number">1</span>;
     <span class="keyword">long</span> <span class="keyword">long</span> s = <span class="number">0</span>;
-    pushdown(u);                                <span class="comment">// 下放懒标记</span>
-    <span class="keyword">if</span> (l &lt;= mid) s += query(u &lt;&lt; <span class="number">1</span>, l, r);     <span class="comment">// 和左侧有交集</span>
-    <span class="keyword">if</span> (r &gt; mid) s += query(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r);  <span class="comment">// 和右侧有交集</span>
+    <span class="built_in">pushdown</span>(u);                                <span class="comment">// 下放懒标记</span>
+    <span class="keyword">if</span> (l &lt;= mid) s += <span class="built_in">query</span>(u &lt;&lt; <span class="number">1</span>, l, r);     <span class="comment">// 和左侧有交集</span>
+    <span class="keyword">if</span> (r &gt; mid) s += <span class="built_in">query</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r);  <span class="comment">// 和右侧有交集</span>
     <span class="keyword">return</span> s;
 &#125;
 
 <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;
-    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;
+    cin &gt;&gt; n &gt;&gt; m;
     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;
-        <span class="built_in">cin</span> &gt;&gt; a[i];
+        cin &gt;&gt; a[i];
     &#125;
-    build(<span class="number">1</span>, <span class="number">1</span>, n);
+    <span class="built_in">build</span>(<span class="number">1</span>, <span class="number">1</span>, n);
     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;
-        <span class="built_in">cin</span> &gt;&gt; op &gt;&gt; x &gt;&gt; y;
+        cin &gt;&gt; op &gt;&gt; x &gt;&gt; y;
         <span class="keyword">if</span> (op == <span class="number">1</span>) &#123;
-            <span class="built_in">cin</span> &gt;&gt; k;
-            modify(<span class="number">1</span>, x, y, k);
+            cin &gt;&gt; k;
+            <span class="built_in">modify</span>(<span class="number">1</span>, x, y, k);
         &#125;
         <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="number">2</span>) &#123;
-            <span class="built_in">cout</span> &lt;&lt; query(<span class="number">1</span>, x, y) &lt;&lt; <span class="built_in">endl</span>;
+            cout &lt;&lt; <span class="built_in">query</span>(<span class="number">1</span>, x, y) &lt;&lt; endl;
         &#125;
     &#125;
     <span class="keyword">return</span> <span class="number">0</span>;
 &#125;</code></pre><h3 id="区间加、乘-2">区间加、乘</h3><pre><code class="highlight cpp"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span>
 
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
 
 <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span>
     <span class="keyword">int</span> l, r;
     <span class="keyword">long</span> <span class="keyword">long</span> s, d, x;
 
-    node() &#123;
+    <span class="built_in">node</span>() &#123;
         l = r = s = d = <span class="number">0</span>;
         x = <span class="number">1</span>;
     &#125;
-    node(<span class="keyword">int</span> _l, <span class="keyword">int</span> _r) &#123;
+    <span class="built_in">node</span>(<span class="keyword">int</span> _l, <span class="keyword">int</span> _r) &#123;
         l = _l, r = _r;
         s = d = <span class="number">0</span>;
         x = <span class="number">1</span>;
@@ -306,15 +306,15 @@
 <span class="comment"> * @param r 右端点</span>
 <span class="comment"> */</span>
 <span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;
-    tr[u] = node(l, r);
+    tr[u] = <span class="built_in">node</span>(l, r);
     <span class="keyword">if</span> (l == r) &#123;
         tr[u].s = a[l] % p;
         <span class="keyword">return</span>;
     &#125;
     <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;
-    build(u &lt;&lt; <span class="number">1</span>, l, mid);
-    build(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r);
-    pushup(u);
+    <span class="built_in">build</span>(u &lt;&lt; <span class="number">1</span>, l, mid);
+    <span class="built_in">build</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r);
+    <span class="built_in">pushup</span>(u);
 &#125;
 
 <span class="comment">/**</span>
@@ -335,10 +335,10 @@
         <span class="keyword">return</span>;
     &#125;
     <span class="keyword">int</span> mid = tr[u].l + tr[u].r &gt;&gt; <span class="number">1</span>;
-    pushdown(u);                                  <span class="comment">// 下放懒标记</span>
-    <span class="keyword">if</span> (l &lt;= mid) modify(u &lt;&lt; <span class="number">1</span>, l, r, x, d);     <span class="comment">// 和左侧有交集</span>
-    <span class="keyword">if</span> (r &gt; mid) modify(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r, x, d);  <span class="comment">// 和右侧有交集</span>
-    pushup(u);                                    <span class="comment">// 上传新信息</span>
+    <span class="built_in">pushdown</span>(u);                                  <span class="comment">// 下放懒标记</span>
+    <span class="keyword">if</span> (l &lt;= mid) <span class="built_in">modify</span>(u &lt;&lt; <span class="number">1</span>, l, r, x, d);     <span class="comment">// 和左侧有交集</span>
+    <span class="keyword">if</span> (r &gt; mid) <span class="built_in">modify</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r, x, d);  <span class="comment">// 和右侧有交集</span>
+    <span class="built_in">pushup</span>(u);                                    <span class="comment">// 上传新信息</span>
 &#125;
 
 <span class="comment">/**</span>
@@ -354,30 +354,30 @@
     &#125;
     <span class="keyword">int</span> mid = tr[u].l + tr[u].r &gt;&gt; <span class="number">1</span>;
     <span class="keyword">long</span> <span class="keyword">long</span> s = <span class="number">0</span>;
-    pushdown(u);                                         <span class="comment">// 下放懒标记</span>
-    <span class="keyword">if</span> (l &lt;= mid) s = query(u &lt;&lt; <span class="number">1</span>, l, r);               <span class="comment">// 和左侧有交集</span>
-    <span class="keyword">if</span> (r &gt; mid) s = (s + query(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r)) % p;  <span class="comment">// 和右侧有交集</span>
+    <span class="built_in">pushdown</span>(u);                                         <span class="comment">// 下放懒标记</span>
+    <span class="keyword">if</span> (l &lt;= mid) s = <span class="built_in">query</span>(u &lt;&lt; <span class="number">1</span>, l, r);               <span class="comment">// 和左侧有交集</span>
+    <span class="keyword">if</span> (r &gt; mid) s = (s + <span class="built_in">query</span>(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r)) % p;  <span class="comment">// 和右侧有交集</span>
     <span class="keyword">return</span> s;
 &#125;
 
 <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;
-    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; p;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;
     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;
-        <span class="built_in">cin</span> &gt;&gt; a[i];
+        cin &gt;&gt; a[i];
     &#125;
-    build(<span class="number">1</span>, <span class="number">1</span>, n);
+    <span class="built_in">build</span>(<span class="number">1</span>, <span class="number">1</span>, n);
     <span class="keyword">while</span> (m--) &#123;
-        <span class="built_in">cin</span> &gt;&gt; op &gt;&gt; x &gt;&gt; y;
+        cin &gt;&gt; op &gt;&gt; x &gt;&gt; y;
         <span class="keyword">if</span> (op == <span class="number">1</span>) &#123;
-            <span class="built_in">cin</span> &gt;&gt; k;
-            modify(<span class="number">1</span>, x, y, k, <span class="number">0</span>);
+            cin &gt;&gt; k;
+            <span class="built_in">modify</span>(<span class="number">1</span>, x, y, k, <span class="number">0</span>);
         &#125;
         <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="number">2</span>) &#123;
-            <span class="built_in">cin</span> &gt;&gt; k;
-            modify(<span class="number">1</span>, x, y, <span class="number">1</span>, k);
+            cin &gt;&gt; k;
+            <span class="built_in">modify</span>(<span class="number">1</span>, x, y, <span class="number">1</span>, k);
         &#125;
         <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="number">3</span>) &#123;
-            <span class="built_in">cout</span> &lt;&lt; query(<span class="number">1</span>, x, y) % p &lt;&lt; <span class="built_in">endl</span>;
+            cout &lt;&lt; <span class="built_in">query</span>(<span class="number">1</span>, x, y) % p &lt;&lt; endl;
         &#125;
     &#125;
     <span class="keyword">return</span> <span class="number">0</span>;

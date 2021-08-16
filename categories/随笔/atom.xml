@@ -6,23 +6,23 @@
     <updated>2020-11-28T13:39:32.000Z</updated>
     <category term="BIRD" />
     <category term="BGP" />
-    <category term="Web" />
     <category term="算法" />
     <category term="图论" />
     <category term="笔记" />
+    <category term="Web" />
     <category term="CTF" />
     <category term="DN42" />
     <category term="Git" />
     <category term="折腾" />
-    <category term="网络" />
     <category term="Linux" />
+    <category term="网络" />
     <category term="题解" />
     <category term="洛谷" />
     <category term="游记" />
     <category term="牛客网" />
     <category term="S2OJ" />
-    <category term="Cloudflare" />
     <category term="macOS" />
+    <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
     <entry>
@@ -38,7 +38,7 @@
 &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; pathlib
 &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; sys
 
-&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;getUploadedImages&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;token&lt;/span&gt;) -&amp;gt; str:&lt;/span&gt;
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;getUploadedImages&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;token&lt;/span&gt;) -&amp;gt; &lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt;:&lt;/span&gt;
     url = &lt;span class=&#34;string&#34;&gt;&amp;quot;https://sm.ms/api/v2/upload_history&amp;quot;&lt;/span&gt;
     headers = &amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;Authorization&amp;quot;&lt;/span&gt;: token&amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; requests.get(url, headers=headers).text
@@ -53,9 +53,9 @@ data = json.loads(getUploadedImages(sys.argv[&lt;span class=&#34;number&#34;&gt;
         f.write(pic)
         f.close()
         &lt;span class=&#34;keyword&#34;&gt;del&lt;/span&gt; pic
-        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;Successfully get &amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; .&amp;quot;&lt;/span&gt;)
+        &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Successfully get &amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; .&amp;quot;&lt;/span&gt;)
     &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
-        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+        &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用方法：&lt;code&gt;python3 smms-image.py &amp;quot;[your token here]&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;下载下来的图片会存到 &lt;code&gt;./data/&lt;/code&gt; 目录下（请提前新建）。&lt;/p&gt;
 </content>
@@ -169,8 +169,8 @@ ip route add default dev eth1 via 172.21.0.1 table 20&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;配置策略路由&#34;&gt;配置策略路由&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;ip rule add from 172.21.0.10 table 10
 ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt;</content>
-        <category term="网络" />
         <category term="Linux" />
+        <category term="网络" />
         <updated>2020-08-20T05:22:47.000Z</updated>
     </entry>
     <entry>

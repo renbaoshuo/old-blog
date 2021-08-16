@@ -6,23 +6,23 @@
     <updated>2021-08-12T02:50:06.000Z</updated>
     <category term="BIRD" />
     <category term="BGP" />
-    <category term="Web" />
     <category term="算法" />
     <category term="图论" />
     <category term="笔记" />
+    <category term="Web" />
     <category term="CTF" />
     <category term="DN42" />
     <category term="Git" />
     <category term="折腾" />
-    <category term="网络" />
     <category term="Linux" />
+    <category term="网络" />
     <category term="题解" />
     <category term="洛谷" />
     <category term="游记" />
     <category term="牛客网" />
     <category term="S2OJ" />
-    <category term="Cloudflare" />
     <category term="macOS" />
+    <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
     <entry>
@@ -54,13 +54,13 @@
 &lt;p&gt;题目链接：&lt;a href=&#34;https://www.acwing.com/problem/content/description/851/&#34;&gt;849. Dijkstra 求最短路 I - AcWing&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, x, y, z, g[&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;], dist[&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;];
 &lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; st[&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;diskstra&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
     dist[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt; n; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;;
@@ -70,7 +70,7 @@
             &amp;#125;
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
-            dist[j] = min(dist[j], dist[t] + g[t][j]);
+            dist[j] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(dist[j], dist[t] + g[t][j]);
         &amp;#125;
         st[t] = &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;
     &amp;#125;
@@ -78,17 +78,17 @@
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
             g[i][j] = i == j ? &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; : &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt;;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
-        g[x][y] = min(g[x][y], z);
+        cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
+        g[x][y] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(g[x][y], z);
     &amp;#125;
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; diskstra() &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    cout &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;diskstra&lt;/span&gt;() &amp;lt;&amp;lt; endl;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;堆优化的-Dijkstra-算法&#34;&gt;堆优化的 Dijkstra 算法&lt;/h3&gt;
@@ -100,25 +100,25 @@
 &lt;p&gt;题目链接：&lt;a href=&#34;https://www.acwing.com/problem/content/description/852/&#34;&gt;850. Dijkstra 求最短路 II&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, u, v, w, dist[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
-&lt;span class=&#34;built_in&#34;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
+vector&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
 &lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; st[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;dijkstra&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
     dist[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-    &lt;span class=&#34;built_in&#34;&gt;priority_queue&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;, &lt;span class=&#34;built_in&#34;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt;, greater&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; q;
-    q.push(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;));
-    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.empty()) &amp;#123;
-        &lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; t = q.top();
-        q.pop();
+    priority_queue&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;, vector&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt;, greater&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; q;
+    q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;));
+    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.&lt;span class=&#34;built_in&#34;&gt;empty&lt;/span&gt;()) &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; t = q.&lt;span class=&#34;built_in&#34;&gt;top&lt;/span&gt;();
+        q.&lt;span class=&#34;built_in&#34;&gt;pop&lt;/span&gt;();
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (st[t.second]) &lt;span class=&#34;keyword&#34;&gt;continue&lt;/span&gt;;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; i : g[t.second]) &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[i.first] &amp;gt; t.first + i.second) &amp;#123;
                 dist[i.first] = t.first + i.second;
-                q.push(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(dist[i.first], i.first));
+                q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(dist[i.first], i.first));
             &amp;#125;
         &amp;#125;
         st[tw] = &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;
@@ -126,13 +126,13 @@
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
-        g[u].push_back(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
+        cin &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
+        g[u].&lt;span class=&#34;built_in&#34;&gt;push_back&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
     &amp;#125;
-    dijkstra();
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; (dist[n] == &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt; ? &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt; : dist[n]) &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    &lt;span class=&#34;built_in&#34;&gt;dijkstra&lt;/span&gt;();
+    cout &amp;lt;&amp;lt; (dist[n] == &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt; ? &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt; : dist[n]) &amp;lt;&amp;lt; endl;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;Bellman-Ford-算法&#34;&gt;Bellman-Ford 算法&lt;/h3&gt;
@@ -152,7 +152,7 @@
 &lt;h4 id=&#34;代码-3&#34;&gt;代码&lt;/h4&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;node&lt;/span&gt; &amp;#123;&lt;/span&gt;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; u, v, w;
@@ -161,25 +161,25 @@
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, k, dist[&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;bellman_ford&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
     dist[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= k; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= m; j++) &amp;#123;
-            dist[g[j].v] = min(dist[g[j].v], dist[g[j].u] + g[j].w);
+            dist[g[j].v] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(dist[g[j].v], dist[g[j].u] + g[j].w);
         &amp;#125;
     &amp;#125;
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; k;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; k;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; g[i].u &amp;gt;&amp;gt; g[i].v &amp;gt;&amp;gt; g[i].w;
+        cin &amp;gt;&amp;gt; g[i].u &amp;gt;&amp;gt; g[i].v &amp;gt;&amp;gt; g[i].w;
     &amp;#125;
-    bellman_ford();
+    &lt;span class=&#34;built_in&#34;&gt;bellman_ford&lt;/span&gt;();
     &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[n] &amp;gt; &lt;span class=&#34;number&#34;&gt;0x1f1f1f1f&lt;/span&gt;) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+        cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
     &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; dist[n] &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+        cout &amp;lt;&amp;lt; dist[n] &amp;lt;&amp;lt; endl;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
@@ -215,39 +215,39 @@
 &lt;p&gt;题目：&lt;a href=&#34;https://www.acwing.com/problem/content/853/&#34;&gt;851. spfa求最短路 - AcWing&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, u, v, w, dist[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
-&lt;span class=&#34;built_in&#34;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
+vector&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;spfa&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
     dist[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-    &lt;span class=&#34;built_in&#34;&gt;queue&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt; q;
-    q.push(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);
-    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.empty()) &amp;#123;
-        &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = q.front();
-        q.pop();
+    queue&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt; q;
+    q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);
+    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.&lt;span class=&#34;built_in&#34;&gt;empty&lt;/span&gt;()) &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = q.&lt;span class=&#34;built_in&#34;&gt;front&lt;/span&gt;();
+        q.&lt;span class=&#34;built_in&#34;&gt;pop&lt;/span&gt;();
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; i : g[t]) &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[i.first] &amp;gt; dist[t] + i.second) &amp;#123;
                 dist[i.first] = dist[t] + i.second;
-                q.push(i.first);
+                q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(i.first);
             &amp;#125;
         &amp;#125;
     &amp;#125;
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
-        g[u].push_back(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
+        cin &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
+        g[u].&lt;span class=&#34;built_in&#34;&gt;push_back&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
     &amp;#125;
-    spfa();
+    &lt;span class=&#34;built_in&#34;&gt;spfa&lt;/span&gt;();
     &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[n] == &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt;) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+        cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
     &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; dist[n] &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+        cout &amp;lt;&amp;lt; dist[n] &amp;lt;&amp;lt; endl;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
@@ -255,26 +255,26 @@
 &lt;p&gt;题目：&lt;a href=&#34;https://www.acwing.com/problem/content/854/&#34;&gt;852. spfa判断负环 - AcWing&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, u, v, w, dist[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;], cnt[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
-&lt;span class=&#34;built_in&#34;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
+vector&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;spfa&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
-    &lt;span class=&#34;built_in&#34;&gt;queue&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt; q;
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
+    queue&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt; q;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
-        q.push(i);
+        q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(i);
     &amp;#125;
-    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.empty()) &amp;#123;
-        &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = q.front();
-        q.pop();
+    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.&lt;span class=&#34;built_in&#34;&gt;empty&lt;/span&gt;()) &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = q.&lt;span class=&#34;built_in&#34;&gt;front&lt;/span&gt;();
+        q.&lt;span class=&#34;built_in&#34;&gt;pop&lt;/span&gt;();
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; i : g[t]) &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[i.first] &amp;gt; dist[t] + i.second) &amp;#123;
                 dist[i.first] = dist[t] + i.second;
                 cnt[i.first] = cnt[t] + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
                 &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (cnt[i.first] &amp;gt;= n) &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;
-                q.push(i.first);
+                q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(i.first);
             &amp;#125;
         &amp;#125;
     &amp;#125;
@@ -282,12 +282,12 @@
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
-        g[u].push_back(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
+        cin &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
+        g[u].&lt;span class=&#34;built_in&#34;&gt;push_back&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
     &amp;#125;
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; (spfa() ? &lt;span class=&#34;string&#34;&gt;&amp;quot;Yes&amp;quot;&lt;/span&gt; : &lt;span class=&#34;string&#34;&gt;&amp;quot;No&amp;quot;&lt;/span&gt;) &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    cout &amp;lt;&amp;lt; (&lt;span class=&#34;built_in&#34;&gt;spfa&lt;/span&gt;() ? &lt;span class=&#34;string&#34;&gt;&amp;quot;Yes&amp;quot;&lt;/span&gt; : &lt;span class=&#34;string&#34;&gt;&amp;quot;No&amp;quot;&lt;/span&gt;) &amp;lt;&amp;lt; endl;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;确定终点的最短路径问题&#34;&gt;确定终点的最短路径问题&lt;/h2&gt;
@@ -304,34 +304,34 @@
 &lt;h3 id=&#34;代码-5&#34;&gt;代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, k, x, y, z, f[&lt;span class=&#34;number&#34;&gt;205&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;205&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; k;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; k;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
             f[i][j] = i == j ? &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; : &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f3f&lt;/span&gt;;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
-        f[x][y] = min(f[x][y], z);
+        cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
+        f[x][y] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(f[x][y], z);
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; k = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; k &amp;lt;= n; k++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
-                f[i][j] = min(f[i][j], f[i][k] + f[k][j]);
+                f[i][j] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(f[i][j], f[i][k] + f[k][j]);
             &amp;#125;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= k; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+        cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (f[x][y] &amp;gt; &lt;span class=&#34;number&#34;&gt;0x1fffffff&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
         &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; f[x][y] &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; f[x][y] &amp;lt;&amp;lt; endl;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;

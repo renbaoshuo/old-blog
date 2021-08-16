@@ -6,23 +6,23 @@
     <updated>2021-07-15T09:57:25.000Z</updated>
     <category term="BIRD" />
     <category term="BGP" />
-    <category term="Web" />
     <category term="算法" />
     <category term="图论" />
     <category term="笔记" />
+    <category term="Web" />
     <category term="CTF" />
     <category term="DN42" />
     <category term="Git" />
     <category term="折腾" />
-    <category term="网络" />
     <category term="Linux" />
+    <category term="网络" />
     <category term="题解" />
     <category term="洛谷" />
     <category term="游记" />
     <category term="牛客网" />
     <category term="S2OJ" />
-    <category term="Cloudflare" />
     <category term="macOS" />
+    <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
     <entry>
@@ -443,19 +443,19 @@ workbox.routing.registerRoute(
     &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
 
-&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme:&lt;/span&gt; dark) &amp;#123;
+&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme&lt;/span&gt;: dark) &amp;#123;
     &lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
         &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
     &amp;#125;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;更进一步地，还可以使用 CSS Variable 来简化代码：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
 
-&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme:&lt;/span&gt; dark) &amp;#123;
+&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme&lt;/span&gt;: dark) &amp;#123;
     &lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-        &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+        --text: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
     &amp;#125;
 &amp;#125;
 
@@ -477,11 +477,11 @@ workbox.routing.registerRoute(
 &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;dark.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;media&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;(prefers-color-scheme: dark)&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;使用-Media-Query-JavaScript-实现跟随系统-定时切换深色模式&#34;&gt;使用 Media Query + JavaScript 实现跟随系统/定时切换深色模式&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
 
 &lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
 &amp;#125;
 
 &lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
@@ -502,11 +502,11 @@ workbox.routing.registerRoute(
 &lt;p&gt;只要满足上述任意一个条件，深色模式就会被开启。&lt;/p&gt;
 &lt;h3 id=&#34;使用-Media-Query-Toggle-Button-实现跟随系统-手动切换深色模式&#34;&gt;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
 
 &lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
 &amp;#125;
 
 &lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
@@ -661,15 +661,15 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;span class=&#34;comment&#34;&gt;  and the page author prefers light.&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt;*/&lt;/span&gt;
 &lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;color-scheme&lt;/span&gt;: light;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: light;
 &amp;#125;
 &lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;color-scheme&lt;/span&gt;: dark;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: dark;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;Disqus-相关&#34;&gt;Disqus 相关&lt;/h2&gt;
 &lt;p&gt;如果网页上有 Disqus 评论系统，请添加下方的 CSS 以避免 Disqus 的自动深色模式失效。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-tag&#34;&gt;iframe&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;color-scheme&lt;/span&gt;: light;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: light;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;来源：&lt;a href=&#34;https://stackoverflow.com/a/65313819/14109955&#34;&gt;Disqus iframe transparency won’t work on Chrome 87 - StackOverflow&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
@@ -1130,9 +1130,9 @@ acme.sh --issue --keylength ec-256 \
         <content type="html">&lt;p&gt;截至目前，洛谷已经有了近两万道题目和四十余万名用户。本代码爬取了一些样本，以供后续（可能）的数据分析。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
 &lt;p&gt;本次爬取遵守洛谷的 &lt;code&gt;robots.txt&lt;/code&gt; 中的要求，不爬取提交记录页面。为了避免影响洛谷的正常运行，脚本只采用单线程进行爬取。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight groovy&#34;&gt;User-&lt;span class=&#34;attr&#34;&gt;Agent:&lt;/span&gt; *
-&lt;span class=&#34;attr&#34;&gt;Disallow:&lt;/span&gt; /record
-&lt;span class=&#34;attr&#34;&gt;Disallow:&lt;/span&gt; /recordnew&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight http&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;User-Agent&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;*
+&lt;span class=&#34;attribute&#34;&gt;Disallow&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;/record
+&lt;span class=&#34;attribute&#34;&gt;Disallow&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;/recordnew&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;爬取题目信息&#34;&gt;爬取题目信息&lt;/h2&gt;
 &lt;h3 id=&#34;题目数据获取&#34;&gt;题目数据获取&lt;/h3&gt;
 &lt;p&gt;先使用 &lt;code&gt;curl&lt;/code&gt; 获取洛谷的题目页面：&lt;/p&gt;
@@ -1156,7 +1156,7 @@ headers = &amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; json.loads(unquote(&lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt;(re.findall(&lt;span class=&#34;string&#34;&gt;r&amp;#x27;decodeURIComponent\(&amp;quot;(.*)&amp;quot;\)&amp;#x27;&lt;/span&gt;, requests.get(url=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://www.luogu.com.cn/problem/P1000&amp;quot;&lt;/span&gt;, headers=headers).text)[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;])))
 
 data = getProblemJSON(&lt;span class=&#34;string&#34;&gt;&amp;quot;P1000&amp;quot;&lt;/span&gt;)
-print(json.dumps(data[&lt;span class=&#34;string&#34;&gt;&amp;#x27;currentData&amp;#x27;&lt;/span&gt;], sort_keys=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;, indent=&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(json.dumps(data[&lt;span class=&#34;string&#34;&gt;&amp;#x27;currentData&amp;#x27;&lt;/span&gt;], sort_keys=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;, indent=&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Update at 2021/02/05:&lt;/p&gt;
 &lt;p&gt;添加参数 &lt;code&gt;_contentOnly=1&lt;/code&gt; 可以直接获取JSON格式的信息，无需再正则匹配。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight diff&#34;&gt;&lt;span class=&#34;comment&#34;&gt;--- a/tools/spider.py&lt;/span&gt;
@@ -1235,12 +1235,12 @@ headers = &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;string&#34;&gt;&amp;quot;code&amp;quot;&lt;/span&gt;] == &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;:
             tmpdict[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = getProblem(pid)[&lt;span class=&#34;string&#34;&gt;&amp;quot;currentData&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]
             dbcol.insert_one(tmpdict)
-            print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Successfully get problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
+            &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Successfully get problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
             time.sleep(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;)
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
-            print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Fail to get problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
+            &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Fail to get problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
     &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
-        print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+        &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;有关于数据库读写的部分请参考下文的 &lt;a href=&#34;#%E6%95%B0%E6%8D%AE%E5%BA%93&#34;&gt;数据库&lt;/a&gt; 部分。&lt;/p&gt;
 &lt;h2 id=&#34;爬取用户信息&#34;&gt;爬取用户信息&lt;/h2&gt;
 &lt;p&gt;结构与题目爬虫类似，故不再作代码说明。&lt;/p&gt;
@@ -1269,13 +1269,13 @@ headers = &amp;#123; &lt;span class=&#34;string&#34;&gt;&amp;quot;User-Agent&amp
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; tmpdata[&lt;span class=&#34;string&#34;&gt;&amp;quot;code&amp;quot;&lt;/span&gt;] == &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;:
             tmpdict[&lt;span class=&#34;string&#34;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;] = tmpdata[&lt;span class=&#34;string&#34;&gt;&amp;quot;currentData&amp;quot;&lt;/span&gt;][&lt;span class=&#34;string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;]
             dbcol.insert_one(tmpdict)
-            print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Successfully get user &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
+            &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Successfully get user &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
             time.sleep(&lt;span class=&#34;number&#34;&gt;0.5&lt;/span&gt;)
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
-            print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Fail to get user &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
+            &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Fail to get user &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt;.&amp;quot;&lt;/span&gt;)
             time.sleep(&lt;span class=&#34;number&#34;&gt;0.5&lt;/span&gt;)
     &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
-        print(&lt;span class=&#34;string&#34;&gt;f&amp;quot;User &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+        &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;f&amp;quot;User &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;数据库&#34;&gt;数据库&lt;/h2&gt;
 &lt;h3 id=&#34;搭建数据库&#34;&gt;搭建数据库&lt;/h3&gt;
 &lt;p&gt;搭建 MongoDB 数据库只需要在 docker 里面跑一个容器，非常简便。&lt;/p&gt;
@@ -1287,11 +1287,11 @@ col = luogudb[&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;
 &lt;h3 id=&#34;存储数据&#34;&gt;存储数据&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;(col.find(&amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;#x27;pid&amp;#x27;&lt;/span&gt; : pid&amp;#125;)) == []:
     col.insert_one(data)
-    print(&lt;span class=&#34;string&#34;&gt;&amp;quot;Success.&amp;quot;&lt;/span&gt;)
+    &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Success.&amp;quot;&lt;/span&gt;)
 &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
-    print(&lt;span class=&#34;string&#34;&gt;&amp;quot;Already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+    &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;读取数据&#34;&gt;读取数据&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;print(&lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;(col.find()))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;(col.find()))&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;web-管理数据库&#34;&gt;web 管理数据库&lt;/h2&gt;
 &lt;p&gt;再跑一个 &lt;code&gt;mongo-express&lt;/code&gt; 就行了。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;docker run -d --name mongo-express -e ME_CONFIG_MONGODB_SERVER=host.docker.internal -p 8081:8081 mongo-express&lt;/code&gt;&lt;/pre&gt;

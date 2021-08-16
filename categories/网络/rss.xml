@@ -10,23 +10,23 @@
         <lastBuildDate>Mon, 03 May 2021 12:23:00 +0800</lastBuildDate>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>Web</category>
         <category>算法</category>
         <category>图论</category>
         <category>笔记</category>
+        <category>Web</category>
         <category>CTF</category>
         <category>DN42</category>
         <category>Git</category>
         <category>折腾</category>
-        <category>网络</category>
         <category>Linux</category>
+        <category>网络</category>
         <category>题解</category>
         <category>洛谷</category>
         <category>游记</category>
         <category>牛客网</category>
         <category>S2OJ</category>
-        <category>Cloudflare</category>
         <category>macOS</category>
+        <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
         <item>
@@ -122,8 +122,8 @@ pip install docker-compose&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;建议解析到节点的公网 IP 上，以免 DN42 炸掉时 Looking Glass 也一并炸掉。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;配置示例：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-tag&#34;&gt;eu1&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.as141776&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.net&lt;/span&gt;.  3600    &lt;span class=&#34;selector-tag&#34;&gt;IN&lt;/span&gt;      &lt;span class=&#34;selector-tag&#34;&gt;A&lt;/span&gt;       136.243.221.96
-&lt;span class=&#34;selector-tag&#34;&gt;cn1&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.as141776&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.net&lt;/span&gt;.  3600    &lt;span class=&#34;selector-tag&#34;&gt;IN&lt;/span&gt;      &lt;span class=&#34;selector-tag&#34;&gt;CNAME&lt;/span&gt;   &lt;span class=&#34;selector-tag&#34;&gt;home&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.baoshuo&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.ren&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight stylus&#34;&gt;eu1&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.as141776&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.net&lt;/span&gt;.  &lt;span class=&#34;number&#34;&gt;3600&lt;/span&gt;    IN      A       &lt;span class=&#34;number&#34;&gt;136.243&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;221.96&lt;/span&gt;
+cn1&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.as141776&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.net&lt;/span&gt;.  &lt;span class=&#34;number&#34;&gt;3600&lt;/span&gt;    IN      CNAME   home&lt;span class=&#34;selector-class&#34;&gt;.baoshuo&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.ren&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;成果&#34;&gt;成果&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/05/03/iaFfTWAhpdZGJ9t.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
  ]]></description>
@@ -139,199 +139,431 @@ pip install docker-compose&lt;/code&gt;&lt;/pre&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
 &lt;p&gt;DN42 适合以下类别的用户：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;想要研究网络技术，练习服务器、路由器等网络设备配置，甚至后续在真实互联网建立 AS 的用户&lt;/li&gt;
-&lt;li&gt;拥有真实 AS，但担心自己&lt;a href=&#34;https://blog.cloudflare.com/how-verizon-and-a-bgp-optimizer-knocked-large-parts-of-the-internet-offline-today/&#34;&gt;配置错误广播出错误路由、干掉半个互联网&lt;/a&gt;，希望有个地方测试的用户（比如我）&lt;/li&gt;
+&lt;li&gt;想要研究网络技术，练习服务器、路由器等网络设备配置，甚至后续在真实互联网建立 AS 的用户。&lt;/li&gt;
+&lt;li&gt;已经拥有真实 AS ，但担心自己&lt;a href=&#34;https://blog.cloudflare.com/how-verizon-and-a-bgp-optimizer-knocked-large-parts-of-the-internet-offline-today/&#34;&gt;配置错误广播出错误路由、干掉半个互联网&lt;/a&gt;，希望有个地方测试的用户。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;DN42 不适合以下类别的用户：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;单纯想要保护隐私、规避网络审查的用户&lt;/li&gt;
 &lt;li&gt;在网内消耗大量流量，例如用于解锁流媒体服务的用户&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;所以，DN42 的使用门槛还是比较高的。这与在真实互联网中一样，你要扮演一个 ISP（互联网服务提供商），注册自己的个人信息，ASN 号码，IPv4 和 IPv6 的地址池，并且使用 BGP 在自己的服务器上广播它们。你还要和其它的用户联系，和他们做 Peering（对等互联），一步步进入完整的 DN42 网络。&lt;/p&gt;
+&lt;p&gt;所以，DN42 的使用门槛还是比较高的。这与在真实互联网中一样，你要扮演一个 ISP （互联网服务提供商），注册自己的个人信息， ASN 号码，IPv4 和 IPv6 的地址池，并且使用 BGP 在自己的服务器上广播它们。你还要和其它的用户联系，和他们进行 Peering（对等互联），一步步进入完整的 DN42 网络。&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;DN42 在 &lt;code&gt;172.20.0.0/14&lt;/code&gt; 和 &lt;code&gt;fd00::/8&lt;/code&gt; 上运行，而这两个 IP 段都是分配给内网使用的。换句话说，你在 DN42 上怎么折腾，都不会影响到服务器其它的互联网连接。&lt;/p&gt;
-&lt;p&gt;你可以通过加入这个 &lt;a href=&#34;https://t.me/Dn42Chat&#34;&gt;非官方 Telegram 群组&lt;/a&gt; 或者 &lt;a href=&#34;irc://irc.hackint.org/#dn42&#34;&gt;IRC 频道&lt;/a&gt; 来寻求帮助。&lt;/p&gt;
-&lt;p&gt;注意：DN42 是一个&lt;strong&gt;测试网络&lt;/strong&gt;，所有人都在帮助所有人。即使你不小心搞砸了，也没有人会指责你。&lt;/p&gt;
+&lt;p&gt;你可以通过加入 &lt;a href=&#34;https://t.me/Dn42Chat&#34;&gt;Telegram 群组&lt;/a&gt; 或者 &lt;a href=&#34;irc://irc.hackint.org/#dn42&#34;&gt;IRC 频道&lt;/a&gt; 来寻求帮助。&lt;/p&gt;
+&lt;p&gt;请注意，DN42 是一个测试网络，所有人都在帮助所有人。即使你不小心搞砸了，也没有人会指责你。&lt;/p&gt;
+&lt;p&gt;欢迎在搭建完成自己的内网以后与我进行对等互联，可以访问 &lt;a href=&#34;https://dn42.baoshuo.ren&#34;&gt;dn42.baoshuo.ren&lt;/a&gt; 获取更多信息。&lt;/p&gt;
+&lt;p&gt;若无特别说明，本文中所使用的系统环境均为 &lt;code&gt;Ubuntu 20.04.2 LTS&lt;/code&gt; ，本文中所有使用 &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; 包裹的内容均需要自行替换。&lt;/p&gt;
 &lt;h2 id=&#34;注册-DN42&#34;&gt;注册 DN42&lt;/h2&gt;
-&lt;p&gt;在注册过程中会大量使用到一些 UNIX 工具（如 Git、GnuPG 等），所以最好使用 Linux 或者 macOS 系统完成整个流程，如果你正在使用 Windows 系统，那么可以使用 &lt;a href=&#34;http://aka.ms/wsl&#34;&gt;WSL&lt;/a&gt; 。&lt;/p&gt;
-&lt;p&gt;首先在 &lt;a href=&#34;https://git.dn42.dev/&#34;&gt;DN42 Git&lt;/a&gt; 中注册一个账户，并将 &lt;a href=&#34;https://git.dn42.dev/dn42/registry&#34;&gt;dn42/registry&lt;/a&gt; 这个仓库 clone 到本地。&lt;/p&gt;
-&lt;p&gt;新建一个名为 &lt;code&gt;[用户名]-[日期, YYYYMMDD]/[自定义名称]&lt;/code&gt; 的分支。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;git checkout -b renbaoshuo-20210403/register
-git push --set-upstream origin renbaoshuo-20210403/register&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在仓库内新建以下文件：&lt;/p&gt;
+&lt;p&gt;在注册过程中会大量使用到一些 UNIX 工具（如 Git 、 GPG 等），所以最好使用 Linux 或者 macOS 系统完成整个流程，如果你正在使用 Windows 系统，那么可以使用 &lt;a href=&#34;http://aka.ms/wsl&#34;&gt;WSL&lt;/a&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;注册前的准备&#34;&gt;注册前的准备&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;data/mntner/[昵称]-MNT&lt;/code&gt;
+&lt;li&gt;了解如何编写 RPSL （&lt;a href=&#34;https://tools.ietf.org/html/rfc2622/&#34;&gt;RFC2622&lt;/a&gt;） 格式的配置文件。&lt;/li&gt;
+&lt;li&gt;了解如何使用 &lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1&#34;&gt;CIDR&lt;/a&gt; （&lt;a href=&#34;https://tools.ietf.org/html/rfc1518&#34;&gt;RFC1518&lt;/a&gt;，&lt;a href=&#34;https://tools.ietf.org/html/rfc1519&#34;&gt;RFC1519&lt;/a&gt;） 格式表示 IP 地址块。&lt;/li&gt;
+&lt;li&gt;熟悉 &lt;a href=&#34;https://dn42.dev&#34;&gt;DN42 Wiki&lt;/a&gt; 中的 &lt;a href=&#34;https://dn42.dev/howto/Getting-Started&#34;&gt;Getting-Started&lt;/a&gt; 、 &lt;a href=&#34;https://dn42.dev/howto/Address-Space&#34;&gt;Address Space&lt;/a&gt; 页面中的内容。&lt;/li&gt;
+&lt;li&gt;在 &lt;a href=&#34;https://git.dn42.dev&#34;&gt;DN42 Git&lt;/a&gt; 中有一个注册好的账户。&lt;/li&gt;
+&lt;li&gt;会使用英文与他人交流。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;克隆-DN42-注册表-Git-仓库&#34;&gt;克隆 DN42 注册表 Git 仓库&lt;/h3&gt;
+&lt;p&gt;将 &lt;a href=&#34;https://git.dn42.dev/dn42/registry&#34;&gt;dn42/registry&lt;/a&gt; 这个仓库 clone 到本地。&lt;/p&gt;
+&lt;p&gt;新建一个名为 &lt;code&gt;&amp;lt;用户名&amp;gt;-&amp;lt;日期, YYYYMMDD&amp;gt;/&amp;lt;自定义名称&amp;gt;&lt;/code&gt; 的分支。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;git checkout -b &amp;lt;用户名&amp;gt;-&amp;lt;日期, YYYYMMDD&amp;gt;/register&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;注册维护者&#34;&gt;注册维护者&lt;/h3&gt;
+&lt;p&gt;在仓库的 &lt;code&gt;data/mntner&lt;/code&gt; 目录下新建一个文件，命名为 &lt;code&gt;&amp;lt;昵称&amp;gt;-MNT&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;文件内填入以下内容：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight rpsl&#34;&gt;mntner:             &amp;lt;昵称&amp;gt;-MNT
+admin-c:            &amp;lt;昵称&amp;gt;-DN42
+tech-c:             &amp;lt;昵称&amp;gt;-DN42
+auth:               &amp;lt;身份验证信息&amp;gt;
+mnt-by:             &amp;lt;维护者&amp;gt;
+source:             DN42&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;示例：&lt;a href=&#34;https://git.dn42.dev/dn42/registry/src/branch/master/data/mntner/BAOSHUO-MNT&#34;&gt;&lt;code&gt;data/mntner/BAOSHUO-MNT&lt;/code&gt; at dn42/registry@master&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;mntner&lt;/code&gt; ：Maintainer（维护者），这个账户的名称，与文件名相同。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：Admin Contact（管理员联系信息），需要指向后续创建的 person 文件，一般为 &lt;code&gt;[昵称]-DN42&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：Tech Contact（技术员联系信息），需要指向后续创建的 person 文件，一般为 &lt;code&gt;[昵称]-DN42&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），指向这个账户本身。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mntner&lt;/code&gt; ：维护者（全称为 Maintainer），这个维护者的名称，与文件名相同。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：管理员联系信息（Admin Contact），需要指向 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E8%81%94%E7%B3%BB%E4%BA%BA&#34;&gt;注册联系人&lt;/a&gt; 一节中的 &lt;code&gt;person&lt;/code&gt; 文件，一般为 &lt;code&gt;&amp;lt;昵称&amp;gt;-DN42&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：技术人员联系信息（Tech Contact），需要指向 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E8%81%94%E7%B3%BB%E4%BA%BA&#34;&gt;注册联系人&lt;/a&gt; 一节中的 &lt;code&gt;person&lt;/code&gt; 文件，一般为 &lt;code&gt;&amp;lt;昵称&amp;gt;-DN42&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;auth&lt;/code&gt; ：身份验证信息，接受 &lt;strong&gt;GPG 公钥&lt;/strong&gt; 和 &lt;strong&gt;SSH 公钥&lt;/strong&gt; ，可以查看 &lt;a href=&#34;https://dn42.dev/howto/Registry-Authentication&#34;&gt;Registry Authentication&lt;/a&gt; 页面获取详细信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：由谁维护（全称为 Maintain by），此处需要指向这个维护者本身，即 &lt;code&gt;&amp;lt;昵称&amp;gt;-MNT&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：信息来源，默认为 &lt;code&gt;DN42&lt;/code&gt; 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;注册联系人&#34;&gt;注册联系人&lt;/h3&gt;
+&lt;p&gt;在仓库的 &lt;code&gt;data/person&lt;/code&gt; 目录下新建一个文件，命名为 &lt;code&gt;&amp;lt;昵称&amp;gt;-DN42&lt;/code&gt; 。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight rpsl&#34;&gt;person:             &amp;lt;姓名&amp;gt;
+contact:            &amp;lt;邮箱&amp;gt;
+nic-hdl:            &amp;lt;NIC 句柄&amp;gt;
+mnt-by:             &amp;lt;维护者&amp;gt;
+source:             DN42&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;示例：&lt;a href=&#34;https://git.dn42.dev/dn42/registry/src/branch/master/data/person/BAOSHUO-DN42&#34;&gt;&lt;code&gt;data/person/BAOSHUO-DN42&lt;/code&gt; at dn42/registry@master&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;person&lt;/code&gt; ：姓名。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;contact&lt;/code&gt; ：联系方式，一般为邮箱。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nic-hdl&lt;/code&gt; ：NIC 句柄（即 &lt;a href=&#34;https://en.wikipedia.org/wiki/NIC_handle&#34;&gt;NIC handle&lt;/a&gt;），指向文件本身，与文件名相同。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：由谁维护（全称为 Maintain by），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E7%BB%B4%E6%8A%A4%E8%80%85&#34;&gt;注册维护者&lt;/a&gt; 一节中注册的的维护者信息。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;auth&lt;/code&gt; ：身份验证信息，接受 &lt;strong&gt;SSH 公钥&lt;/strong&gt; 和 &lt;strong&gt;GPG 公钥&lt;/strong&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;注册-ASN&#34;&gt;注册 ASN&lt;/h3&gt;
+&lt;p&gt;在国际互联网上，ASN 范围 &lt;code&gt;4200000000 - 4294967294&lt;/code&gt; 是被保留以供私人使用的，而 DN42 占用的就是其中的一块： &lt;code&gt;4242420000 - 4242429999&lt;/code&gt; 。目前 DN42 开放注册的 ASN 范围是 &lt;code&gt;4242420000 - 4242423999&lt;/code&gt; ，只需要在这个区间里面挑一个没有被他人占用的号码即可。&lt;/p&gt;
+&lt;p&gt;DN42 Registry 的管理员 burble 提供了一个在线查看可用 ASN 的工具: &lt;a href=&#34;https://explorer.burble.com/free#/asn&#34;&gt;DN42 Free ASN Explorer&lt;/a&gt; 。访问该页面就会随机生成 10 个当前还未注册的 ASN 以便使用。&lt;/p&gt;
+&lt;p&gt;在仓库的 &lt;code&gt;data/aut-num&lt;/code&gt; 目录下新建一个文件，命名为刚才选中的 AS 号码。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight rpsl&#34;&gt;aut-num:            &amp;lt;AS 号码, 带 AS 前缀&amp;gt;
+as-name:            &amp;lt;AS 名称&amp;gt;
+descr:              &amp;lt;AS 简介&amp;gt;
+admin-c:            &amp;lt;NIC 句柄&amp;gt;
+tech-c:             &amp;lt;NIC 句柄&amp;gt;
+mnt-by:             &amp;lt;维护者&amp;gt;
+source:             DN42&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;示例：&lt;a href=&#34;https://git.dn42.dev/dn42/registry/src/branch/master/data/aut-num/AS4242420247&#34;&gt;&lt;code&gt;data/aut-num/AS4242420247&lt;/code&gt; at dn42/registry@master&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;你&lt;strong&gt;必须&lt;/strong&gt;选择这两种验证方式中的至少一种，可以前往 &lt;a href=&#34;https://dn42.dev/howto/Registry-Authentication&#34;&gt;官方 Wiki 中的身份认证页面&lt;/a&gt; 了解更多信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;aut-num&lt;/code&gt; ：AS 号，此处可以使用私有 AS 号码，也可以使用公网 AS 号码（不推荐）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;as-name&lt;/code&gt; ：AS 的名称，可以设置为 &lt;code&gt;&amp;lt;昵称&amp;gt;-AS&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：（选填）AS 简介，随意填写。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：管理员联系信息（Admin Contact），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E8%81%94%E7%B3%BB%E4%BA%BA&#34;&gt;注册联系人&lt;/a&gt; 一节中注册的 NIC 句柄。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：技术员联系信息（Tech Contact），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E8%81%94%E7%B3%BB%E4%BA%BA&#34;&gt;注册联系人&lt;/a&gt; 一节中注册的 NIC 句柄。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：由谁维护（Maintain by），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E7%BB%B4%E6%8A%A4%E8%80%85&#34;&gt;注册维护者&lt;/a&gt; 一节中注册的的维护者信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：如果使用私有 AS 号码则此处填写 &lt;code&gt;DN42&lt;/code&gt; ，否则填写 ASN 所对应的 RIR 名称。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;remarks&lt;/code&gt; ：备注信息，可以不填。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;data/person/[昵称]-DN42&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;person&lt;/code&gt; ：昵称。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;contact&lt;/code&gt; ：你的联系方式，一般是你的邮箱。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;nic-hdl&lt;/code&gt; ：NIC handle，指向文件本身，与文件名相同。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），由谁维护，指向你的 mntner 文件，&lt;code&gt;[昵称]-MNT&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;data/aut-num/[ASN]&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;aut-num&lt;/code&gt; ：AS 号。
-&lt;ul&gt;
-&lt;li&gt;在国际互联网上，ASN 范围 4200000000 - 4294967294 是被保留作私下使用（private use）的，DN42 占用的就是其中的一块：4242420000 - 4242423999。只需要在这个区间内挑选一个你喜欢的、没有被他人占用的号码即可。&lt;/li&gt;
-&lt;li&gt;如果你有自己的公网 ASN 的话，也可以直接在 DN42 中使用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;as-name&lt;/code&gt; ：AS 的名称，一般只在 DN42 的一些网络结构示意图中看到。可以设置为 &lt;code&gt;[昵称]-AS&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：AS 简介，一般只在结构图中看到，随意填写。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：Admin Contact（管理员联系信息），指向你的 person 文件，&lt;code&gt;[昵称]-DN42&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：Tech Contact（技术员联系信息），指向你的 person 文件，&lt;code&gt;[昵称]-DN42&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），由谁维护，指向你的 mntner 文件，&lt;code&gt;[昵称]-MNT&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt; 。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;data/inetnum/[IPv4 Block]&lt;/code&gt;
+&lt;h3 id=&#34;注册-IPv4-地址块&#34;&gt;注册 IPv4 地址块&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;如果您想在 DN42 上创建一个 IPv6 Only 网络，请不要注册 IPv4 地址块，并忽略 &lt;a href=&#34;#%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E8%AE%B0%E5%BD%95&#34;&gt;添加路由记录&lt;/a&gt; 一节中的 IPv4 部分。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在国际互联网上， &lt;code&gt;172.16.0.0/12&lt;/code&gt; 是由 &lt;a href=&#34;https://tools.ietf.org/html/rfc1918&#34;&gt;RFC1918&lt;/a&gt; 规定的由专用网络使用的 IP 地址块，而 DN42 占用的就是其中的一块： &lt;code&gt;172.20.0.0/14&lt;/code&gt; 。目前 DN42 开放注册的地址块范围可以在 &lt;a href=&#34;https://dn42.dev/howto/Address-Space#ipv4-address-space&#34;&gt;Address Space&lt;/a&gt; 页面上查看。&lt;/p&gt;
+&lt;p&gt;DN42 Registry 的管理员 burble 提供了一个在线查看可用 IPv4 地址块的网站，点击 &lt;a href=&#34;https://explorer.burble.com/free#/4&#34;&gt;DN42 Free IPv4 Explorer&lt;/a&gt; 即可随机生成 10 个当前还未注册的 IPv4 地址块。&lt;/p&gt;
+&lt;p&gt;和在真实互联网上一样，DN42 的 IPv4 地址资源也是十分紧缺的，因此 IPv4 的申请原则是「够用就好」。如果节点数量足够少，只申请 &lt;code&gt;/28&lt;/code&gt; 或 &lt;code&gt;/29&lt;/code&gt; 大小的地址块就够用了。&lt;/p&gt;
+&lt;p&gt;在仓库的 &lt;code&gt;data/inetnum&lt;/code&gt; 目录下新建一个文件，命名为 IP 地址块的 CIDR 格式，并使用 &lt;code&gt;_&lt;/code&gt; 代替 &lt;code&gt;/&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight rpsl&#34;&gt;inetnum:            &amp;lt;起始 IP 地址&amp;gt; - &amp;lt;结束 IP 地址&amp;gt;
+cidr:               &amp;lt;IP 地址块的 CIDR 格式&amp;gt;
+netname:            &amp;lt;IP 地址块名称&amp;gt;
+descr:              &amp;lt;IP 地址块简介&amp;gt;
+country:            &amp;lt;IP 地址块所属国家&amp;gt;
+admin-c:            &amp;lt;NIC 句柄&amp;gt;
+tech-c:             &amp;lt;NIC 句柄&amp;gt;
+mnt-by:             &amp;lt;维护者&amp;gt;
+status:             ASSIGNED
+source:             DN42&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;示例：&lt;a href=&#34;https://git.dn42.dev/dn42/registry/src/branch/master/data/inetnum/172.23.250.64_26&#34;&gt;&lt;code&gt;data/inetnum/172.23.250.64_26&lt;/code&gt; at dn42/registry@master&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;inetnum&lt;/code&gt; ：这个地址块的范围。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cidr&lt;/code&gt; ：这个地址块的范围，与 &lt;code&gt;inetnum&lt;/code&gt; 相同，只是以 CIDR 方式表示。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;netname&lt;/code&gt; ：这个地址块的名称。可以设置为 &lt;code&gt;[昵称]-IPV4&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：简介，随意填写。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;country&lt;/code&gt; ：你的国家代号，填 CN 代表中国大陆。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：Admin Contact（管理员联系信息），指向你的 person 文件，&lt;code&gt;[昵称]-DN42&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：Tech Contact（技术员联系信息），指向你的 person 文件，&lt;code&gt;[昵称]-DN42&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），由谁维护，指向你的 mntner 文件，&lt;code&gt;[昵称]-MNT&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;nserver&lt;/code&gt; ：IP 地址反向解析的 DNS 服务器。如果你不知道/不需要反向DNS，可以去掉。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cidr&lt;/code&gt; ：以 CIDR 格式表示的这个地址块的范围，含义与 &lt;code&gt;inetnum&lt;/code&gt; 相同。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;netname&lt;/code&gt; ：这个地址块的名称。可以设置为 &lt;code&gt;&amp;lt;昵称&amp;gt;-IPV4&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：（选填）这个地址块的简介。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nserver&lt;/code&gt; ：（选填）IP 地址反向解析的 DNS 服务器。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;country&lt;/code&gt; ：你的 &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166&#34;&gt;ISO 3166&lt;/a&gt; 国家代码，填 &lt;code&gt;CN&lt;/code&gt; 代表中国大陆地区。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：管理员联系信息（Admin Contact），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E8%81%94%E7%B3%BB%E4%BA%BA&#34;&gt;注册联系人&lt;/a&gt; 一节中注册的 NIC 句柄。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：技术员联系信息（Tech Contact），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E8%81%94%E7%B3%BB%E4%BA%BA&#34;&gt;注册联系人&lt;/a&gt; 一节中注册的 NIC 句柄。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：由谁维护（Maintain by），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E7%BB%B4%E6%8A%A4%E8%80%85&#34;&gt;注册维护者&lt;/a&gt; 一节中注册的的维护者信息。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;status&lt;/code&gt; ：固定为 &lt;code&gt;ASSIGNED&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;remarks&lt;/code&gt; ：备注信息，可以不填。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;data/route/[IPv4 Block]&lt;/code&gt;
+&lt;h3 id=&#34;注册-IPv6-地址块&#34;&gt;注册 IPv6 地址块&lt;/h3&gt;
+&lt;p&gt;在国际互联网上， &lt;code&gt;fc00::/7&lt;/code&gt; 是由 &lt;a href=&#34;https://tools.ietf.org/html/rfc4193&#34;&gt;RFC4193&lt;/a&gt; 定义的 &lt;a href=&#34;https://en.wikipedia.org/wiki/Unique_local_address&#34;&gt;唯一本地地址&lt;/a&gt;，而 DN42 占用的就是其中的一块： &lt;code&gt;fd00::/8&lt;/code&gt; 。目前 DN42 开放注册的地址块范围可以在 &lt;a href=&#34;https://dn42.dev/howto/Address-Space#ipv6-address-space&#34;&gt;Address Space&lt;/a&gt; 页面上查看。&lt;/p&gt;
+&lt;p&gt;DN42 Registry 的管理员 burble 提供了一个在线查看可用 IPv6 地址块的网站，点击 &lt;a href=&#34;https://explorer.burble.com/free#/6&#34;&gt;DN42 Free IPv6 Explorer&lt;/a&gt; 即可随机生成 10 个当前还未注册的 IPv6 地址块。&lt;/p&gt;
+&lt;p&gt;在仓库的 &lt;code&gt;data/inet6num&lt;/code&gt; 目录下新建一个文件，命名为 IPv6 地址块的 CIDR 格式，并使用 &lt;code&gt;_&lt;/code&gt; 代替 &lt;code&gt;/&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight rpsl&#34;&gt;inet6num:           &amp;lt;起始 IPv6 地址&amp;gt; - &amp;lt;结束 IPv6 地址&amp;gt;
+cidr:               &amp;lt;IPv6 地址块的 CIDR 格式&amp;gt;
+netname:            &amp;lt;IPv6 地址块名称&amp;gt;
+descr:              &amp;lt;IPv6 地址块简介&amp;gt;
+country:            &amp;lt;IPv6 地址块所属国家&amp;gt;
+admin-c:            &amp;lt;NIC 句柄&amp;gt;
+tech-c:             &amp;lt;NIC 句柄&amp;gt;
+mnt-by:             &amp;lt;维护者&amp;gt;
+status:             ASSIGNED
+source:             DN42&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;示例：&lt;a href=&#34;https://git.dn42.dev/dn42/registry/src/branch/master/data/inet6num/fd42:4242:247::_48&#34;&gt;&lt;code&gt;data/inet6num/fd42:4242:247::_48&lt;/code&gt; at dn42/registry@master&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;route&lt;/code&gt; ：这个地址块的范围。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：简介，随意填写。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;origin&lt;/code&gt; ：填写你的 AS 号。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：Maintain by（由谁维护），由谁维护，指向你的 mntner 文件，&lt;code&gt;[昵称]-MNT&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;inet6num&lt;/code&gt; ：这个地址块的范围。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cidr&lt;/code&gt; ：使用 CIDR 格式表示的这个地址块的范围，含义与 &lt;code&gt;inet6num&lt;/code&gt; 相同。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;netname&lt;/code&gt; ：这个地址块的名称。可以设置为 &lt;code&gt;&amp;lt;昵称&amp;gt;-IPV6&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：（选填）这个地址块的简介。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nserver&lt;/code&gt; ：（选填）IP 地址反向解析的 DNS 服务器。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;country&lt;/code&gt; ：你的 &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166&#34;&gt;ISO 3166&lt;/a&gt; 国家代码，填 &lt;code&gt;CN&lt;/code&gt; 代表中国大陆地区。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;admin-c&lt;/code&gt; ：管理员联系信息（Admin Contact），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E8%81%94%E7%B3%BB%E4%BA%BA&#34;&gt;注册联系人&lt;/a&gt; 一节中注册的 NIC 句柄。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tech-c&lt;/code&gt; ：技术员联系信息（Tech Contact），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E8%81%94%E7%B3%BB%E4%BA%BA&#34;&gt;注册联系人&lt;/a&gt; 一节中注册的 NIC 句柄。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：由谁维护（Maintain by），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E7%BB%B4%E6%8A%A4%E8%80%85&#34;&gt;注册维护者&lt;/a&gt; 一节中注册的的维护者信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;status&lt;/code&gt; ：固定为 &lt;code&gt;ASSIGNED&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;data/inet6num/[IPv6 Block]&lt;/code&gt;
+&lt;h3 id=&#34;添加路由记录&#34;&gt;添加路由记录&lt;/h3&gt;
+&lt;p&gt;在仓库的 &lt;code&gt;data/route&lt;/code&gt; 目录下新建一个文件，命名为 IP 地址块的 CIDR 格式，并使用 &lt;code&gt;_&lt;/code&gt; 代替 &lt;code&gt;/&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight rpsl&#34;&gt;route:              &amp;lt;IP 地址块的 CIDR 格式&amp;gt;
+descr:              &amp;lt;简介&amp;gt;
+origin:             &amp;lt;AS 号码, 带 AS 前缀&amp;gt;
+mnt-by:             &amp;lt;维护者&amp;gt;
+source:             DN42&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;与 IPv4 并无太大区别，只需将 &lt;code&gt;inetnum&lt;/code&gt; 字段改为 &lt;code&gt;inet6num&lt;/code&gt; 即可。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;route&lt;/code&gt; ：这个 IPv4 地址块的范围，CIDR 格式。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;descr&lt;/code&gt; ：（选填）路由简介。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;origin&lt;/code&gt; ：填写你的 AS 号码。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：由谁维护（Maintain by），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E7%BB%B4%E6%8A%A4%E8%80%85&#34;&gt;注册维护者&lt;/a&gt; 一节中注册的的维护者信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;data/route6/[IPv6 Block]&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;与 IPv4 并无太大区别，只需将 &lt;code&gt;route&lt;/code&gt; 字段改为 &lt;code&gt;route6&lt;/code&gt; 即可。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;你可以查看我提交的注册信息：&lt;a href=&#34;https://git.dn42.dev/dn42/registry/pulls/673/files&#34;&gt;Add AS141776 &lt;small&gt;(#673)&lt;/small&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;注意：各个项目的名称和值之间有一长串空格。这段空格的长度是不能随意修改的，当然也不能替换成 Tab。名称 + 冒号 + 空格的总长度 &lt;strong&gt;必须是 20 个字符&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;创建完成之后，切换到仓库的根目录，执行 &lt;code&gt;git add .&lt;/code&gt; 暂存更改。&lt;/p&gt;
-&lt;p&gt;你可以使用 &lt;code&gt;git commit -S&lt;/code&gt; 使用 GPG 对提交进行签名，或者暂时不对提交进行签名，使用 SSH 公钥进行验证：在 commit 之后执行 &lt;code&gt;git rev-parse HEAD | ssh-keygen -Y sign -f ~/.ssh/id_rsa -n dn42&lt;/code&gt; 命令，将输出的信息贴到 Pull Request 里面。&lt;/p&gt;
-&lt;p&gt;执行 &lt;code&gt;git push -f&lt;/code&gt; 命令，将修改上传到服务器上。&lt;/p&gt;
+&lt;p&gt;如需添加 IPv6 路由，将本节所述的 &lt;code&gt;route&lt;/code&gt; 改为 &lt;code&gt;route6&lt;/code&gt; 即可，此处不再赘述。&lt;/p&gt;
+&lt;h3 id=&#34;上传更改到-DN42-注册表&#34;&gt;上传更改到 DN42 注册表&lt;/h3&gt;
+&lt;p&gt;完成以上步骤之后，使用 &lt;code&gt;git diff&lt;/code&gt; 查看文件变动，检查无误后，使用 &lt;code&gt;git add .&lt;/code&gt; 暂存。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/08/14/RhjwYHFGcaKUSye.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
+&lt;p&gt;运行仓库根目录下的 &lt;code&gt;./check-my-stuff &amp;lt;维护者&amp;gt;&lt;/code&gt; 检查文件内容是否有误，确定无误后，提交。&lt;/p&gt;
+&lt;p&gt;在提交时，如果需要使用 GPG 签名，需要在添加 &lt;code&gt;-S&lt;/code&gt; 参数，如 &lt;code&gt;git commit -S&lt;/code&gt; ；如果使用 SSH 签名，请直接使用 &lt;code&gt;git commit&lt;/code&gt; 进行提交，待提交后再进行签名工作。&lt;/p&gt;
+&lt;p&gt;使用下面的命令进行签名：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;./sign-my-commit --ssh --key &amp;lt;SSH 私钥文件&amp;gt; &amp;lt;维护者&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;之后使用下面的命令上传即可：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;git push --set-upstream origin &amp;lt;用户名&amp;gt;-&amp;lt;日期, YYYYMMDD&amp;gt;/register&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/04/04/1YwNjs8uvOJMFoq.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;p&gt;使用黄色高亮标记出的菜单切换到你的分支，然后点击 &lt;strong&gt;New Pull Request&lt;/strong&gt; 新建一个 Pull Request 即可。&lt;/p&gt;
-&lt;p&gt;注意：&lt;strong&gt;请使用英文发 Pull Request ，否则审核人员会看不懂。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;上传后在 DN42 Git 中切换到自己的分支，并创建一个合并请求，等待管理员审核。&lt;/p&gt;
+&lt;h3 id=&#34;注意事项&#34;&gt;注意事项&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;各个项目的键和值之间有一长串空格，键、冒号与空格的总长度必须是 20 个字符，且不能随意修改。为了编辑时的方便，注册表中提供了一个脚本 &lt;code&gt;fmt-my-stuff&lt;/code&gt; ，只需要使用 &lt;code&gt;./fmt-my-stuff &amp;lt;维护者&amp;gt;&lt;/code&gt; 即可自动完成此步骤。&lt;/li&gt;
+&lt;li&gt;DN42 Registry 的工作语言是英语。请使用英语完成全部流程，以免出现不必要的麻烦。&lt;/li&gt;
+&lt;li&gt;请认真对待管理员提出的更改请求，按照要求完成全部修改后直接上传到原分支下即可，无需再新开合并请求。&lt;/li&gt;
+&lt;li&gt;推荐使用随机的 IPv4 与 IPv6 地址块，避免与其他网络重复。请明白，DN42 并不是这些网络资源的权威注册机构。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;DN42-BIRD2-使用入门&#34;&gt;DN42 BIRD2 使用入门&lt;/h2&gt;
+&lt;p&gt;如无特别说明，本部分中所使用的 BIRD 版本为 &lt;code&gt;2.0.7&lt;/code&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;安装-BIRD2&#34;&gt;安装 BIRD2&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt update
+apt install bird2 -y&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一般情况下，执行此命令即可自动安装 BIRD2 并启动系统服务。&lt;/p&gt;
+&lt;h3 id=&#34;编写-BIRD-配置文件&#34;&gt;编写 BIRD 配置文件&lt;/h3&gt;
+&lt;p&gt;对于刚刚加入 DN42 网络的新人来说，推荐使用 &lt;a href=&#34;https://dn42.dev/howto/Bird2#example-configuration&#34;&gt;howto/Bird2 - DN42 Wiki&lt;/a&gt; 中的示例配置以节省配置时间。&lt;/p&gt;
+&lt;p&gt;这套配置默认使用了 Multi Protocol BGP ，如果不想使用此功能请自行编写配置文件，如果没有 DN42 IPv4 地址需要去掉文件中的 IPv4 部分。&lt;/p&gt;
+&lt;p&gt;将以下配置写入到 &lt;code&gt;/etc/bird/bird.conf&lt;/code&gt; 中：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight pgsql&#34;&gt;define OWNAS       = &amp;lt;&lt;span class=&#34;keyword&#34;&gt;AS&lt;/span&gt; 号&amp;gt;;
+define OWNIP       = &amp;lt;DN42 IPv4 地址&amp;gt;;
+define OWNIPv6     = &amp;lt;DN42 IPv6 地址&amp;gt;;
+define OWNNET      = &amp;lt;DN42 IPv4 地址块, &lt;span class=&#34;type&#34;&gt;CIDR&lt;/span&gt; 格式&amp;gt;;
+define OWNNETv6    = &amp;lt;DN42 IPv6 地址块, &lt;span class=&#34;type&#34;&gt;CIDR&lt;/span&gt; 格式&amp;gt;;
+define OWNNETSET   = [ &amp;lt;DN42 IPv4 地址块, &lt;span class=&#34;type&#34;&gt;CIDR&lt;/span&gt; 格式&amp;gt;+ ];
+define OWNNETSETv6 = [ &amp;lt;DN42 IPv4 地址块, &lt;span class=&#34;type&#34;&gt;CIDR&lt;/span&gt; 格式&amp;gt;+ ];
+
+router id OWNIP;
+
+protocol device &amp;#123;
+    scan &lt;span class=&#34;type&#34;&gt;time&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt;;
+&amp;#125;
+
+&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; is_self_net() &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; net ~ OWNNETSET;
+&amp;#125;
+
+&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; is_self_net_v6() &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; net ~ OWNNETSETv6;
+&amp;#125;
+
+&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; is_valid_network() &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; net ~ [
+        &lt;span class=&#34;number&#34;&gt;172.20&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;14&lt;/span&gt;&amp;#123;&lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;29&lt;/span&gt;&amp;#125;, # dn42
+        &lt;span class=&#34;number&#34;&gt;172.20&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt;&amp;#123;&lt;span class=&#34;number&#34;&gt;28&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;&amp;#125;, # dn42 Anycast
+        &lt;span class=&#34;number&#34;&gt;172.21&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt;&amp;#123;&lt;span class=&#34;number&#34;&gt;28&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;&amp;#125;, # dn42 Anycast
+        &lt;span class=&#34;number&#34;&gt;172.22&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt;&amp;#123;&lt;span class=&#34;number&#34;&gt;28&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;&amp;#125;, # dn42 Anycast
+        &lt;span class=&#34;number&#34;&gt;172.23&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt;&amp;#123;&lt;span class=&#34;number&#34;&gt;28&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;&amp;#125;, # dn42 Anycast
+        &lt;span class=&#34;number&#34;&gt;172.31&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;16&lt;/span&gt;+,       # ChaosVPN
+        &lt;span class=&#34;number&#34;&gt;10.100&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;14&lt;/span&gt;+,       # ChaosVPN
+        &lt;span class=&#34;number&#34;&gt;10.127&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;16&lt;/span&gt;&amp;#123;&lt;span class=&#34;number&#34;&gt;16&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;&amp;#125;, # neonetwork
+        &lt;span class=&#34;number&#34;&gt;10.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;8&lt;/span&gt;&amp;#123;&lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt;&amp;#125;     # Freifunk.net
+    ];
+&amp;#125;
+
+roa4 &lt;span class=&#34;keyword&#34;&gt;table&lt;/span&gt; dn42_roa;
+roa6 &lt;span class=&#34;keyword&#34;&gt;table&lt;/span&gt; dn42_roa_v6;
+
+protocol static &amp;#123;
+    roa4 &amp;#123; &lt;span class=&#34;keyword&#34;&gt;table&lt;/span&gt; dn42_roa; &amp;#125;;
+    &lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &amp;quot;/etc/bird/roa_dn42.conf&amp;quot;;
+&amp;#125;;
+
+protocol static &amp;#123;
+    roa6 &amp;#123; &lt;span class=&#34;keyword&#34;&gt;table&lt;/span&gt; dn42_roa_v6; &amp;#125;;
+    &lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &amp;quot;/etc/bird/roa_dn42_v6.conf&amp;quot;;
+&amp;#125;;
+
+&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; is_valid_network_v6() &amp;#123;
+  &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; net ~ [
+    fd00::/&lt;span class=&#34;number&#34;&gt;8&lt;/span&gt;&amp;#123;&lt;span class=&#34;number&#34;&gt;44&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;64&lt;/span&gt;&amp;#125; # ULA address space &lt;span class=&#34;keyword&#34;&gt;as&lt;/span&gt; per RFC &lt;span class=&#34;number&#34;&gt;4193&lt;/span&gt;
+  ];
+&amp;#125;
+
+protocol kernel &amp;#123;
+    scan &lt;span class=&#34;type&#34;&gt;time&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;;
+
+    ipv6 &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;none&lt;/span&gt;;
+        export &lt;span class=&#34;keyword&#34;&gt;filter&lt;/span&gt; &amp;#123;
+            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; source = RTS_STATIC &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt; reject;
+            krt_prefsrc = OWNIPv6;
+            accept;
+        &amp;#125;;
+    &amp;#125;;
+&amp;#125;;
+
+protocol kernel &amp;#123;
+    scan &lt;span class=&#34;type&#34;&gt;time&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;;
+
+    ipv4 &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;none&lt;/span&gt;;
+        export &lt;span class=&#34;keyword&#34;&gt;filter&lt;/span&gt; &amp;#123;
+            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; source = RTS_STATIC &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt; reject;
+            krt_prefsrc = OWNIP;
+            accept;
+        &amp;#125;;
+    &amp;#125;;
+&amp;#125;
+
+protocol static &amp;#123;
+    route OWNNET reject;
+
+    ipv4 &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;all&lt;/span&gt;;
+        export &lt;span class=&#34;keyword&#34;&gt;none&lt;/span&gt;;
+    &amp;#125;;
+&amp;#125;
+
+protocol static &amp;#123;
+    route OWNNETv6 reject;
+
+    ipv6 &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;all&lt;/span&gt;;
+        export &lt;span class=&#34;keyword&#34;&gt;none&lt;/span&gt;;
+    &amp;#125;;
+&amp;#125;
+
+&lt;span class=&#34;keyword&#34;&gt;template&lt;/span&gt; bgp dnpeers &amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;local&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;as&lt;/span&gt; OWNAS;
+    &lt;span class=&#34;type&#34;&gt;path&lt;/span&gt; metric &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
+
+    ipv4 &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;filter&lt;/span&gt; &amp;#123;
+            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; is_valid_network() &amp;amp;&amp;amp; !is_self_net() &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt; &amp;#123;
+                &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (roa_check(dn42_roa, net, bgp_path.last) != ROA_VALID) &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt; &amp;#123;
+                    print &amp;quot;[dn42] ROA check failed for &amp;quot;, net, &amp;quot; ASN &amp;quot;, bgp_path.last;
+                    reject;
+                &amp;#125;
+                accept;
+            &amp;#125;
+            reject;
+        &amp;#125;;
+
+        export &lt;span class=&#34;keyword&#34;&gt;filter&lt;/span&gt; &amp;#123;
+            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; is_valid_network() &amp;amp;&amp;amp; source ~ [RTS_STATIC, RTS_BGP] &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt; accept;
+            reject;
+        &amp;#125;;
+        &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;limit&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1000&lt;/span&gt; action block;
+    &amp;#125;;
+
+    ipv6 &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;filter&lt;/span&gt; &amp;#123;
+            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; is_valid_network_v6() &amp;amp;&amp;amp; !is_self_net_v6() &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt; &amp;#123;
+                &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (roa_check(dn42_roa_v6, net, bgp_path.last) != ROA_VALID) &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt; &amp;#123;
+                    print &amp;quot;[dn42] ROA check failed for &amp;quot;, net, &amp;quot; ASN &amp;quot;, bgp_path.last;
+                    reject;
+                &amp;#125;
+                accept;
+            &amp;#125;
+            reject;
+        &amp;#125;;
+        export &lt;span class=&#34;keyword&#34;&gt;filter&lt;/span&gt; &amp;#123;
+            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; is_valid_network_v6() &amp;amp;&amp;amp; source ~ [RTS_STATIC, RTS_BGP] &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt; accept;
+            reject;
+        &amp;#125;;
+        &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;limit&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1000&lt;/span&gt; action block; 
+    &amp;#125;;
+&amp;#125;
+
+
+&lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &amp;quot;/etc/bird/peers/*&amp;quot;;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后在 &lt;code&gt;/etc/bird&lt;/code&gt; 目录下创建一个文件夹，命名为 &lt;code&gt;peers&lt;/code&gt; ，以便后续存储配置文件使用。&lt;/p&gt;
+&lt;p&gt;如果想更深入的学习如何编写 BIRD 配置文件，推荐查看 &lt;a href=&#34;https://github.com/moesoha/bird-bgp-kickstart&#34;&gt;BIRD 与 BGP 的新手开场&lt;/a&gt; 和 &lt;a href=&#34;https://bird.network.cz/?get_doc&amp;amp;f=bird.html&amp;amp;v=20&#34;&gt;BIRD 官方文档&lt;/a&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;重新加载-BIRD-配置&#34;&gt;重新加载 BIRD 配置&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;birdc configure&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用该命令重新加载 BIRD 配置，并使用 &lt;code&gt;birdc show protocol&lt;/code&gt; 查看状态。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/08/16/ZSPe6a3fpuDATG2.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;DN42-WireGuard-使用入门&#34;&gt;DN42 WireGuard 使用入门&lt;/h2&gt;
+&lt;p&gt;WireGuard 是一种简单易用、速度快、现代化的 VPN ，它利用了最先进的加密技术，并使用 UDP 协议传输数据。WireGuard 设计为通用 VPN ，可在嵌入式设备和超级计算机上运行，​​适用于许多不同的环境。WireGuard 起初是专为 Linux 编写并发布的，后来被移植到各个平台上。在 &lt;a href=&#34;http://WireGuard.com&#34;&gt;WireGuard.com&lt;/a&gt; 上可以找到它的 &lt;a href=&#34;https://www.wireguard.com/papers/wireguard.pdf&#34;&gt;技术白皮书&lt;/a&gt; 。&lt;/p&gt;
 &lt;h3 id=&#34;安装-WireGuard&#34;&gt;安装 WireGuard&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt install wireguard wireguard-tools -y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt update
+apt install wireguard -y&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一般情况下，执行此命令即可直接安装 WireGuard 和 WireGuard Tools ，无需额外操作。&lt;/p&gt;
+&lt;h3 id=&#34;生成公钥与私钥&#34;&gt;生成公钥与私钥&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;wg genkey | tee privatekey | wg pubkey &amp;gt; publickey&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用此命令即可在当前目录下生成两个名叫 &lt;code&gt;privatekey&lt;/code&gt; 和 &lt;code&gt;publickey&lt;/code&gt; 的文件，分别代表私钥和公钥。&lt;/p&gt;
+&lt;h3 id=&#34;搭建-WireGuard-隧道&#34;&gt;搭建 WireGuard 隧道&lt;/h3&gt;
+&lt;p&gt;搭建 WireGuard 隧道非常简便，只需要生成一对公钥与私钥并与对等端交换公钥即可。&lt;/p&gt;
+&lt;p&gt;如果需要通过 WireGuard 隧道建立 BGP 会话，不能使用 WireGuard 内建的多 Peer 功能，必须为每个对等端创建一条隧道。&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;/etc/wireguard&lt;/code&gt; 目录下新建一个名为 &lt;code&gt;&amp;lt;隧道名&amp;gt;.conf&lt;/code&gt; 的文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;section&#34;&gt;[Interface]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;PrivateKey&lt;/span&gt; = &amp;lt;私钥&amp;gt;
+&lt;span class=&#34;attr&#34;&gt;ListenPort&lt;/span&gt; = &amp;lt;监听端口&amp;gt;
+&lt;span class=&#34;attr&#34;&gt;PostUp&lt;/span&gt;     = ip address add &amp;lt;链路本地地址&amp;gt;/&lt;span class=&#34;number&#34;&gt;64&lt;/span&gt; dev %i
+&lt;span class=&#34;attr&#34;&gt;PostUp&lt;/span&gt;     = ip addr add &amp;lt;本地 IPv6 地址&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt; peer &amp;lt;对端 IPv6 地址&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt; dev %i
+&lt;span class=&#34;attr&#34;&gt;PostUp&lt;/span&gt;     = ip addr add &amp;lt;本地 IPv4 地址&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt; peer &amp;lt;对端 IPv4 地址&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt; dev %i
+&lt;span class=&#34;attr&#34;&gt;Table&lt;/span&gt;      = &lt;span class=&#34;literal&#34;&gt;off&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PrivateKey&lt;/code&gt; ：私钥。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ListenPort&lt;/code&gt; ：监听端口。&lt;/li&gt;
+&lt;li&gt;第一个 &lt;code&gt;PostUp&lt;/code&gt; ：（可选，推荐）添加链路本地地址。&lt;/li&gt;
+&lt;li&gt;第二个 &lt;code&gt;PostUp&lt;/code&gt; ：（可选）添加本地和对等端的 DN42 IPv6 地址。&lt;/li&gt;
+&lt;li&gt;第三个 &lt;code&gt;PostUp&lt;/code&gt; ：（可选）添加本地和对等端的 DN42 IPv4 地址。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Table&lt;/code&gt; ：必须设定为 &lt;code&gt;off&lt;/code&gt; （不导入系统路由表），否则会导致系统断网。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当使用链路本地地址建立 BGP 会话时，可以不设置 DN42 IPv4 和 DN42 IPv6 地址，但是机器上必须有一张网卡上绑定了本机的 DN42 IPv4 和 DN42 IPv6 地址。同理，如果不使用链路本地地址建立 BGP 会话则无需添加链路本地地址。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;section&#34;&gt;[Peer]&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;PublicKey&lt;/span&gt;           = &amp;lt;对端公钥&amp;gt;
+&lt;span class=&#34;attr&#34;&gt;PresharedKey&lt;/span&gt;        = &amp;lt;对端预共享密钥&amp;gt;
+&lt;span class=&#34;attr&#34;&gt;Endpoint&lt;/span&gt;            = &amp;lt;对端 IP/域名 和 端口号&amp;gt;
+&lt;span class=&#34;attr&#34;&gt;PersistentKeepalive&lt;/span&gt; = &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;
+&lt;span class=&#34;attr&#34;&gt;AllowedIPs&lt;/span&gt;          = &lt;span class=&#34;number&#34;&gt;10.0&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;0.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;8&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;172.20&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;0.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;14&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;172.31&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;0.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;16&lt;/span&gt;, fd00::/&lt;span class=&#34;number&#34;&gt;8&lt;/span&gt;, fe80::/&lt;span class=&#34;number&#34;&gt;64&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PublicKey&lt;/code&gt; ：对端公钥。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PresharedKey&lt;/code&gt; ：（可选）对端预共享密钥。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Endpoint&lt;/code&gt; ：（可选）对端的连接域名/IP及端口号。&lt;br&gt;
+如果对端没有公网 IP 地址，需要本地设置为被动模式则无需填写此项。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PersistentKeepalive&lt;/code&gt; ：（可选）每隔多少秒发送一次握手信息防止连接被中断并更新对端 IP 。&lt;br&gt;
+如果本地没有公网 IP 地址，必须配置此项。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AllowedIPs&lt;/code&gt; ：允许使用 WireGuard 转发流量的 IP 地址段。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;之后使用 &lt;code&gt;wg-quick up &amp;lt;隧道名&amp;gt;&lt;/code&gt; 来启动隧道即可。&lt;/p&gt;
+&lt;p&gt;如需开机自启，可以在测试无误后执行 &lt;code&gt;systemctl enable wg-quick@&amp;lt;隧道名&amp;gt;&lt;/code&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;检测隧道状态&#34;&gt;检测隧道状态&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;wg show &amp;lt;隧道名&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用该命令即可查看隧道状态。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/08/16/wxgUJNHnQAXFMdS.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如上图所示，当 &lt;code&gt;latest handshake&lt;/code&gt; 时间较近且 &lt;code&gt;transfer&lt;/code&gt; 有收有发时可以认为隧道正常。&lt;/p&gt;
+&lt;p&gt;如需查看所有隧道的状态，直接使用 &lt;code&gt;wg&lt;/code&gt; 命令即可。&lt;/p&gt;
+&lt;h2 id=&#34;与其他网络进行对等互联&#34;&gt;与其他网络进行对等互联&lt;/h2&gt;
 &lt;h3 id=&#34;系统配置&#34;&gt;系统配置&lt;/h3&gt;
-&lt;p&gt;打开 Linux 内核的数据包转发功能：&lt;/p&gt;
+&lt;p&gt;在 DN42 网络中，没有绝对意义上的客户端，每个人都可能是他人的路由器，经常会出现数据包的来源网卡与回复使用的网卡不一致的情况，因此需要打开 Linux 内核的数据包转发功能，具体操作如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv4.ip_forward=1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
 &lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv6.conf.default.forwarding=1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
 &lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv6.conf.all.forwarding=1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
 sysctl -p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;关闭 Linux 内核 &lt;code&gt;rp_filter&lt;/code&gt; 的严格模式：&lt;/p&gt;
+&lt;p&gt;同时，也需要关闭 Linux 内核的 &lt;code&gt;rp_filter&lt;/code&gt; 的严格模式，具体操作如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv4.conf.default.rp_filter=0&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
-&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv4.conf.all.rp_filter=0&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;关闭 UFW 等帮你配置 iptables 的工具。&lt;/p&gt;
-&lt;h3 id=&#34;生成公钥和私钥&#34;&gt;生成公钥和私钥&lt;/h3&gt;
-&lt;p&gt;先使用 &lt;code&gt;wg genkey&lt;/code&gt; 命令生成一个私钥，然后使用 &lt;code&gt;echo &amp;quot;&amp;lt;PUBLIC_KEY&amp;gt;&amp;quot; | wg pubkey&lt;/code&gt; 算出所对应的公钥。&lt;/p&gt;
-&lt;p&gt;这是 WireGuard 隧道中双方的唯一认证方式，务必将其保管好，不要泄漏。&lt;/p&gt;
-&lt;h3 id=&#34;添加配置&#34;&gt;添加配置&lt;/h3&gt;
-&lt;p&gt;新建一个文件：&lt;code&gt;/etc/wireguard/dn42-&amp;lt;PEER_NAME&amp;gt;.conf&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;将下方示例中用 &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; 括住的内容替换为实际信息，然后写入文件。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;section&#34;&gt;[Interface]&lt;/span&gt;
-&lt;span class=&#34;attr&#34;&gt;PrivateKey&lt;/span&gt; = &amp;lt;PRIVATE_KEY&amp;gt;
-&lt;span class=&#34;attr&#34;&gt;ListenPort&lt;/span&gt; = &amp;lt;PORT&amp;gt;
-&lt;span class=&#34;attr&#34;&gt;Address&lt;/span&gt; = &amp;lt;YOUR_IPv4&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;, &amp;lt;YOUR_IPv6&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;
-&lt;span class=&#34;attr&#34;&gt;PostUp&lt;/span&gt; = /usr/sbin/ip addr del dev dn42-&amp;lt;PEER_NAME&amp;gt; &amp;lt;YOUR_IPv4&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt; &amp;amp;&amp;amp; /usr/sbin/ip addr add dev dn42-&amp;lt;PEER_NAME&amp;gt; &amp;lt;YOUR_IPv4&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt; peer &amp;lt;PEER_IPv4&amp;gt;/&lt;span class=&#34;number&#34;&gt;32&lt;/span&gt;
-&lt;span class=&#34;attr&#34;&gt;PostUp&lt;/span&gt; = /usr/sbin/ip addr del dev dn42-&amp;lt;PEER_NAME&amp;gt; &amp;lt;YOUR_IPv6&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt; &amp;amp;&amp;amp; /usr/sbin/ip addr add dev dn42-&amp;lt;PEER_NAME&amp;gt; &amp;lt;YOUR_IPv6&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt; peer &amp;lt;PEER_IPv6&amp;gt;/&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;
-&lt;span class=&#34;attr&#34;&gt;Table&lt;/span&gt; = &lt;span class=&#34;literal&#34;&gt;off&lt;/span&gt;
-
-&lt;span class=&#34;section&#34;&gt;[Peer]&lt;/span&gt;
-&lt;span class=&#34;attr&#34;&gt;PublicKey&lt;/span&gt; = &amp;lt;PEER_PUBLIC_KEY&amp;gt;
-&lt;span class=&#34;attr&#34;&gt;Endpoint&lt;/span&gt; = &amp;lt;IP/DOMAIN&amp;gt;:&amp;lt;PORT&amp;gt; &lt;span class=&#34;comment&#34;&gt;# 仅当你向对方发起连接时才需要填写此项配置&lt;/span&gt;
-&lt;span class=&#34;attr&#34;&gt;AllowedIPs&lt;/span&gt; = &lt;span class=&#34;number&#34;&gt;0.0&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;0.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;,::/&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然后启动对应的 WireGuard 隧道：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;systemctl start wg-quick@dn42-&amp;lt;PEER_NAME&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;使用 &lt;code&gt;systemctl status wg-quick@dn42-&amp;lt;PEER_NAME&amp;gt;&lt;/code&gt; 查看启动状态。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/04/04/2wuXdEisnxvPCZJ.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;p&gt;之后就可以使用 &lt;code&gt;wg&lt;/code&gt; 命令查看隧道状态了。&lt;/p&gt;
-&lt;h2 id=&#34;与他人进行对等互联（Peer）&#34;&gt;与他人进行对等互联（Peer）&lt;/h2&gt;
-&lt;h3 id=&#34;安装-BIRD2&#34;&gt;安装 BIRD2&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt install bird2 -y&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;安装完成后先停止 bird2 的服务：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;systemctl stop bird&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;编写配置文件&#34;&gt;编写配置文件&lt;/h3&gt;
-&lt;p&gt;可以在 &lt;a href=&#34;https://dn42.dev/howto/Bird2&#34;&gt;howto/Bird2 - DN42 Wiki&lt;/a&gt; 页面上找到一份示例配置文件。&lt;/p&gt;
-&lt;p&gt;apt 安装的 bird2 的配置文件一般是 &lt;code&gt;/etc/bird/bird.conf&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;然后下载 ROA 配置文件：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;curl -sfSLR &amp;#123;-o,-z&amp;#125;/etc/bird/roa_dn42.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf
-curl -sfSLR &amp;#123;-o,-z&amp;#125;/etc/bird/roa_dn42_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf
-birdc configure&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;ROA-配置文件的自动下载与更新&#34;&gt;ROA 配置文件的自动下载与更新&lt;/h3&gt;
-&lt;p&gt;添加下面两个 crontab 定时任务：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight cron&#34;&gt;*&amp;#x2F;15 * * * * curl -sfSLR &amp;#123;-o,-z&amp;#125;&amp;#x2F;etc&amp;#x2F;bird&amp;#x2F;roa_dn42.conf https:&amp;#x2F;&amp;#x2F;dn42.burble.com&amp;#x2F;roa&amp;#x2F;dn42_roa_bird2_4.conf &amp;amp;&amp;amp; chronic birdc configure
-*&amp;#x2F;15 * * * * curl -sfSLR &amp;#123;-o,-z&amp;#125;&amp;#x2F;etc&amp;#x2F;bird&amp;#x2F;roa_dn42_v6.conf https:&amp;#x2F;&amp;#x2F;dn42.burble.com&amp;#x2F;roa&amp;#x2F;dn42_roa_bird2_6.conf &amp;amp;&amp;amp; chronic birdc configure&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;建立对等互联&#34;&gt;建立对等互联&lt;/h3&gt;
-&lt;p&gt;在 &lt;code&gt;/etc/bird/peers&lt;/code&gt; 目录下新建名为 &lt;code&gt;&amp;lt;PEER_NAME&amp;gt;.conf&lt;/code&gt; 的文件，填入以下内容：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bird&#34;&gt;protocol bgp &amp;lt;NEIGHBOR_NAME&amp;gt; from dnpeers &amp;#123;
-    neighbor &amp;lt;NEIGHBOR_IP&amp;gt; as &amp;lt;NEIGHBOR_ASN&amp;gt;;
-    direct;
-    # 在 IPv4 BGP 中禁用 IPv6 路由传递
-    ipv6 &amp;#123;
-        import none;
-        export none;
-    &amp;#125;;
-&amp;#125;
-
-protocol bgp &amp;lt;NEIGHBOR_NAME&amp;gt;_v6 from dnpeers &amp;#123;
-    neighbor &amp;lt;NEIGHBOR_IPv6&amp;gt; as &amp;lt;NEIGHBOR_ASN&amp;gt;; # 或 neighbor &amp;lt;NEIGHBOR_LINK_LOCAL_IP&amp;gt; % &amp;#39;dn42-&amp;lt;PEER_NAME&amp;gt;&amp;#39; as &amp;lt;NEIGHBOR_ASN&amp;gt;;
-    direct;
-    # 在 IPv6 BGP 中禁用 IPv4 路由传递
-    ipv4 &amp;#123;
-        import none;
-        export none;
-    &amp;#125;;
+&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv4.conf.all.rp_filter=0&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
+sysctl -p&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;除此之外，还需要关闭一些自动化的配置 iptables 防火墙的工具，如 UFW 。&lt;/p&gt;
+&lt;h3 id=&#34;搭建-WireGuard-隧道-2&#34;&gt;搭建 WireGuard 隧道&lt;/h3&gt;
+&lt;p&gt;请参考 &lt;a href=&#34;#DN42-WireGuard-%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8&#34;&gt;DN42 WireGuard 使用入门&lt;/a&gt; 一节。&lt;/p&gt;
+&lt;h3 id=&#34;配置-BGP-会话&#34;&gt;配置 BGP 会话&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;/etc/bird/peers&lt;/code&gt; 目录下新建一个文件，命名为 &lt;code&gt;&amp;lt;名字&amp;gt;.conf&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;如果使用链路本地地址进行 Peer 的话，需要按照下面的配置示例进行配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bird&#34;&gt;protocol bgp &amp;lt;名字&amp;gt; from dnpeers &amp;#123;
+    neighbor &amp;lt;对端链路本地地址&amp;gt; % &amp;lt;对端 WireGuard 隧道名&amp;gt; as &amp;lt;对端 ASN&amp;gt;;
+    source address &amp;lt;本地的链路本地地址&amp;gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;当然，BIRD2 也是支持多协议会话的，只需要像下面这样写就可以同时建立 IPv4 和 IPv6 会话了：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bird&#34;&gt;protocol bgp &amp;lt;NEIGHBOR_NAME&amp;gt; from dnpeers &amp;#123;
-    neighbor &amp;lt;NEIGHBOR_IPv6&amp;gt; as &amp;lt;NEIGHBOR_ASN&amp;gt;; # 或 neighbor &amp;lt;NEIGHBOR_LINK_LOCAL_IP&amp;gt; % &amp;#39;dn42-&amp;lt;PEER_NAME&amp;gt;&amp;#39; as &amp;lt;NEIGHBOR_ASN&amp;gt;;
+&lt;p&gt;否则按照下面的配置示例进行配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bird&#34;&gt;protocol bgp &amp;lt;名字&amp;gt; from dnpeers &amp;#123;
+    neighbor &amp;lt;对端 IPv6 地址&amp;gt; as &amp;lt;对端 ASN&amp;gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;配置完成后就可以开启 bird2 服务了：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;systemctl start bird&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Enjoy it!&lt;/p&gt;
-&lt;h2 id=&#34;我的-DN42-网络信息&#34;&gt;我的 DN42 网络信息&lt;/h2&gt;
-&lt;iframe src=&#34;https://as141776.net/dn42.html&#34; width=&#34;100%&#34; height=&#34;500px&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;small&gt;如果看不到上方的嵌入式页面，请访问 &lt;a href=&#34;https://as141776.net/dn42.html&#34;&gt;https://as141776.net/dn42.html&lt;/a&gt; 。&lt;/small&gt;&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;p&gt;然后使用 &lt;code&gt;birdc configure&lt;/code&gt; 重载配置即可。&lt;/p&gt;
+&lt;h2 id=&#34;更新日志&#34;&gt;更新日志&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;2021-04-04 第一版 &lt;sup&gt;（2021 年 8 月 10 日存档于 &lt;a href=&#34;https://web.archive.org/web/20210810062825/https://blog.baoshuo.ren/post/dn42-network/&#34;&gt;互联网档案馆&lt;/a&gt;）&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;2021-08-14 第二版&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://dn42.dev/howto/Getting-Started&#34;&gt;Getting Started - DN42 Wiki&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.dn42.dev/dn42/registry/src/branch/master/README.md&#34;&gt;Guide for creating a Pull Request - dn42/registry - DN42 Git&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://lantian.pub/article/modify-website/dn42-experimental-network-2020.lantian/&#34;&gt;DN42 实验网络介绍及注册教程（2020-10-01 更新） - Lan Tian @ Blog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://datatracker.ietf.org/&#34;&gt;IETF Datatracker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Unique_local_address&#34;&gt;Unique local address - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/moesoha/bird-bgp-kickstart&#34;&gt;BIRD 与 BGP 的新手开场 - Soha Jin - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
  ]]></description>
         </item>
         <item>

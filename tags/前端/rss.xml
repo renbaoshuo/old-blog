@@ -10,23 +10,23 @@
         <lastBuildDate>Wed, 17 Feb 2021 23:25:30 +0800</lastBuildDate>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>Web</category>
         <category>算法</category>
         <category>图论</category>
         <category>笔记</category>
+        <category>Web</category>
         <category>CTF</category>
         <category>DN42</category>
         <category>Git</category>
         <category>折腾</category>
-        <category>网络</category>
         <category>Linux</category>
+        <category>网络</category>
         <category>题解</category>
         <category>洛谷</category>
         <category>游记</category>
         <category>牛客网</category>
         <category>S2OJ</category>
-        <category>Cloudflare</category>
         <category>macOS</category>
+        <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
         <item>
@@ -92,19 +92,19 @@
     &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
 
-&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme:&lt;/span&gt; dark) &amp;#123;
+&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme&lt;/span&gt;: dark) &amp;#123;
     &lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
         &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
     &amp;#125;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;更进一步地，还可以使用 CSS Variable 来简化代码：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
 
-&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme:&lt;/span&gt; dark) &amp;#123;
+&lt;span class=&#34;keyword&#34;&gt;@media&lt;/span&gt; (&lt;span class=&#34;attribute&#34;&gt;prefers-color-scheme&lt;/span&gt;: dark) &amp;#123;
     &lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-        &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+        --text: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
     &amp;#125;
 &amp;#125;
 
@@ -126,11 +126,11 @@
 &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;dark.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;media&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;(prefers-color-scheme: dark)&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;使用-Media-Query-JavaScript-实现跟随系统-定时切换深色模式&#34;&gt;使用 Media Query + JavaScript 实现跟随系统/定时切换深色模式&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
 
 &lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
 &amp;#125;
 
 &lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
@@ -151,11 +151,11 @@
 &lt;p&gt;只要满足上述任意一个条件，深色模式就会被开启。&lt;/p&gt;
 &lt;h3 id=&#34;使用-Media-Query-Toggle-Button-实现跟随系统-手动切换深色模式&#34;&gt;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
 
 &lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;--text&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
+    --text: &lt;span class=&#34;number&#34;&gt;#eee&lt;/span&gt;;
 &amp;#125;
 
 &lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
@@ -310,15 +310,15 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;span class=&#34;comment&#34;&gt;  and the page author prefers light.&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt;*/&lt;/span&gt;
 &lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;color-scheme&lt;/span&gt;: light;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: light;
 &amp;#125;
 &lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;color-scheme&lt;/span&gt;: dark;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: dark;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;Disqus-相关&#34;&gt;Disqus 相关&lt;/h2&gt;
 &lt;p&gt;如果网页上有 Disqus 评论系统，请添加下方的 CSS 以避免 Disqus 的自动深色模式失效。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-tag&#34;&gt;iframe&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;attribute&#34;&gt;color-scheme&lt;/span&gt;: light;
+    &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: light;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;来源：&lt;a href=&#34;https://stackoverflow.com/a/65313819/14109955&#34;&gt;Disqus iframe transparency won’t work on Chrome 87 - StackOverflow&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;

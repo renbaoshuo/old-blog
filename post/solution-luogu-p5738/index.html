@@ -5,36 +5,36 @@
 6 3 6 7 5 8
 5 9 3 3 8 1
 5 9 9 3 2 0
-5 8 0 4 1 10</code></pre><p><strong>输出#1</strong></p><pre><code class="highlight text">6.00</code></pre><h2 id="思路">思路</h2><p>首先定义一个结构体，里面存放各个评委给出的分数、总分数和平均分。</p><p>然后写一个初始化函数：</p><pre><code class="highlight cpp">node() &#123;
-    <span class="built_in">memset</span>(<span class="keyword">this</span>-&gt;score, <span class="number">0x00</span>, <span class="keyword">sizeof</span>(<span class="keyword">this</span>-&gt;score));
+5 8 0 4 1 10</code></pre><p><strong>输出#1</strong></p><pre><code class="highlight text">6.00</code></pre><h2 id="思路">思路</h2><p>首先定义一个结构体，里面存放各个评委给出的分数、总分数和平均分。</p><p>然后写一个初始化函数：</p><pre><code class="highlight cpp"><span class="built_in">node</span>() &#123;
+    <span class="built_in">memset</span>(<span class="keyword">this</span>-&gt;score, <span class="number">0x00</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">this</span>-&gt;score));
     all = sum = <span class="number">0.00</span>;
 &#125;</code></pre><p>再写一个处理函数：</p><pre><code class="highlight cpp"><span class="function"><span class="keyword">void</span> <span class="title">t</span><span class="params">(<span class="keyword">int</span> m)</span> </span>&#123;
     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;
-        <span class="built_in">cin</span> &gt;&gt; score[i];
+        cin &gt;&gt; score[i];
     &#125;
-    <span class="built_in">std</span>::sort(score, score + m);
+    std::<span class="built_in">sort</span>(score, score + m);
     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i + <span class="number">1</span> &lt; m; i++) &#123;
         sum += score[i];
     &#125;
     all = sum / (m - <span class="number">2.00</span>);
 &#125;</code></pre><p>这个处理函数分为了三部分：<strong>读入</strong>、<strong>排序</strong>和<strong>按题目要求计算平均分</strong>。</p><h2 id="代码">代码</h2><pre><code class="highlight cpp"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span>
 
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
 
 <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span>
     <span class="keyword">int</span>    score[<span class="number">22</span>];
     <span class="keyword">double</span> sum, all;
 
-    node() &#123;
-        <span class="built_in">memset</span>(<span class="keyword">this</span>-&gt;score, <span class="number">0x00</span>, <span class="keyword">sizeof</span>(<span class="keyword">this</span>-&gt;score));
+    <span class="built_in">node</span>() &#123;
+        <span class="built_in">memset</span>(<span class="keyword">this</span>-&gt;score, <span class="number">0x00</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">this</span>-&gt;score));
         all = sum = <span class="number">0.00</span>;
     &#125;
 
     <span class="function"><span class="keyword">void</span> <span class="title">t</span><span class="params">(<span class="keyword">int</span> m)</span> </span>&#123;
         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;
-            <span class="built_in">cin</span> &gt;&gt; score[i];
+            cin &gt;&gt; score[i];
         &#125;
-        <span class="built_in">std</span>::sort(score, score + m);
+        std::<span class="built_in">sort</span>(score, score + m);
         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i + <span class="number">1</span> &lt; m; i++) &#123;
             sum += score[i];
         &#125;
@@ -49,11 +49,11 @@
 <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;
     <span class="keyword">int</span>  n, m;
     node student[<span class="number">105</span>];
-    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;
+    cin &gt;&gt; n &gt;&gt; m;
     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;
-        student[i].t(m);
+        student[i].<span class="built_in">t</span>(m);
     &#125;
-    sort(student, student + n, cmp);
+    <span class="built_in">sort</span>(student, student + n, cmp);
     <span class="built_in">printf</span>(<span class="string">&quot;%.2lf&quot;</span>, student[<span class="number">0</span>].all);
     <span class="keyword">return</span> <span class="number">0</span>;
 &#125;</code></pre></div></div><div class="license" id="post-license"><div class="license-title">洛谷 - P5738 歌唱比赛</div><div class="license-link"><a href="https://blog.baoshuo.ren/post/solution-luogu-p5738/">https://blog.baoshuo.ren/post/solution-luogu-p5738/</a></div><div class="license-meta"><div class="license-meta-item"><div class="license-meta-title">本文作者</div><div class="license-meta-text">宝硕</div></div><div class="license-meta-item"><div class="license-meta-title">发布于</div><div class="license-meta-text">2020-09-22</div></div><div class="license-meta-item"><div class="license-meta-title">更新于</div><div class="license-meta-text">2021-07-15</div></div><div class="license-meta-item"><div class="license-meta-title">许可协议</div><div class="license-meta-text"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noopenner noreferrer">CC BY-NC-SA 4.0</a></div></div></div></div><div class="afdian" id="afdian"><div class="donation-label">喜欢这篇文章？为什么不考虑打赏一下作者呢？</div><a class="afdian-button button" href="https://afdian.net/@baoshuo" rel="nofollow noopener" target="_blank">爱发电</a></div><div class="pagination-container" id="pagination"><div class="prev-page"><i class="i-prev"></i> <a href="/post/solution-luogu-p4994/">洛谷 - P4994 终于结束的起点</a></div><div class="next-page"><a href="/post/solution-luogu-p5660/">洛谷 - P5660 数字游戏</a> <i class="i-next"></i></div></div><div id="disqus_thread"></div><script>var disqus_options={shortname:"baoshuo",api:"https://api.baoshuo.ren/disqus/api/",apikey:"SysuSvnZJi7nYvWwH14fu42b1CowDBsAH3Ol3UIsqdRbEcQwGFpWuUPkcX93ffCJ",identifier:location.pathname,title:"洛谷 - P5738 歌唱比赛",siteName:"宝硕博客",admin:"renbaoshuo"}</script><script defer src="/scripts/disqus.lazyload.js"></script><div class="post-toc" id="post-toc"><div class="toc-label"><div>文章目录</div><a href="javascript:;" id="post-toc-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" height="16" width="16"><path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" fill="currentColor"/></svg></a></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E9%9D%A2"><span class="toc-text">题面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="toc-text">输入输出样例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li></ol></div><script src="https://cdn.jsdelivr.net/npm/@nishanths/zoom.js@3.1.0/dist/zoom.min.js"></script><script>document.addEventListener("DOMContentLoaded",function(){document.getElementById("toc-btn").onclick=function(){document.getElementById("post-toc").classList.add("active")},document.getElementById("post-toc-close").onclick=function(){document.getElementById("post-toc").classList.remove("active")},Array.from(document.getElementsByClassName("toc-link")).forEach(function(t){t.addEventListener("click",function(t){document.getElementById("post-toc").classList.remove("active")})})})</script><footer class="footer"><div>Copyright &copy; 2019-2021 Baoshuo's Blog · <a target="_blank" href="https://beian.miit.gov.cn" rel="nofollow noopener">冀ICP备15024669号</a> · <a target="_blank" rel="noopener" href="https://twitter.com/renbaoshuo">Twitter @renbaoshuo</a></div><div>Theme by <a rel="my noopener" href="https://baoshuo.ren" target="_blank">Baoshuo</a> · Powered by <a href="https://hexo.io" rel="nofollow noopener" target="_blank">Hexo</a></div></footer><script async src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js"></script><div class="fab"><a aria-label="文章目录" class="fab-btn" id="toc-btn" href="javascript:;" title="文章目录"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-icon="list-ul" class="svg-inline--fa fa-list-ul fa-w-16" role="img" viewBox="0 0 512 512" height="20" width="20"><path fill="currentColor" d="M48 48a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm448 16H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"/></svg> </a><a aria-label="回到顶部" class="fab-btn" href="#" title="回到顶部"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img" viewBox="0 0 320 512" height="20" width="20"><path fill="currentColor" d="M168.5 164.2l148 146.8c4.7 4.7 4.7 12.3 0 17l-19.8 19.8c-4.7 4.7-12.3 4.7-17 0L160 229.3 40.3 347.8c-4.7 4.7-12.3 4.7-17 0L3.5 328c-4.7-4.7-4.7-12.3 0-17l148-146.8c4.7-4.7 12.3-4.7 17 0z"/></svg></a></div></main></div></body></html>

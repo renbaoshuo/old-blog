@@ -10,23 +10,23 @@
         <lastBuildDate>Thu, 12 Aug 2021 10:50:06 +0800</lastBuildDate>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>Web</category>
         <category>算法</category>
         <category>图论</category>
         <category>笔记</category>
+        <category>Web</category>
         <category>CTF</category>
         <category>DN42</category>
         <category>Git</category>
         <category>折腾</category>
-        <category>网络</category>
         <category>Linux</category>
+        <category>网络</category>
         <category>题解</category>
         <category>洛谷</category>
         <category>游记</category>
         <category>牛客网</category>
         <category>S2OJ</category>
-        <category>Cloudflare</category>
         <category>macOS</category>
+        <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
         <item>
@@ -62,13 +62,13 @@
 &lt;p&gt;题目链接：&lt;a href=&#34;https://www.acwing.com/problem/content/description/851/&#34;&gt;849. Dijkstra 求最短路 I - AcWing&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, x, y, z, g[&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;], dist[&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;];
 &lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; st[&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;diskstra&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
     dist[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt; n; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;;
@@ -78,7 +78,7 @@
             &amp;#125;
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
-            dist[j] = min(dist[j], dist[t] + g[t][j]);
+            dist[j] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(dist[j], dist[t] + g[t][j]);
         &amp;#125;
         st[t] = &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;
     &amp;#125;
@@ -86,17 +86,17 @@
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
             g[i][j] = i == j ? &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; : &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt;;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
-        g[x][y] = min(g[x][y], z);
+        cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
+        g[x][y] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(g[x][y], z);
     &amp;#125;
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; diskstra() &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    cout &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;diskstra&lt;/span&gt;() &amp;lt;&amp;lt; endl;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;堆优化的-Dijkstra-算法&#34;&gt;堆优化的 Dijkstra 算法&lt;/h3&gt;
@@ -108,25 +108,25 @@
 &lt;p&gt;题目链接：&lt;a href=&#34;https://www.acwing.com/problem/content/description/852/&#34;&gt;850. Dijkstra 求最短路 II&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, u, v, w, dist[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
-&lt;span class=&#34;built_in&#34;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
+vector&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
 &lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; st[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;dijkstra&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
     dist[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-    &lt;span class=&#34;built_in&#34;&gt;priority_queue&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;, &lt;span class=&#34;built_in&#34;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt;, greater&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; q;
-    q.push(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;));
-    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.empty()) &amp;#123;
-        &lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; t = q.top();
-        q.pop();
+    priority_queue&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;, vector&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt;, greater&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; q;
+    q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;));
+    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.&lt;span class=&#34;built_in&#34;&gt;empty&lt;/span&gt;()) &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; t = q.&lt;span class=&#34;built_in&#34;&gt;top&lt;/span&gt;();
+        q.&lt;span class=&#34;built_in&#34;&gt;pop&lt;/span&gt;();
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (st[t.second]) &lt;span class=&#34;keyword&#34;&gt;continue&lt;/span&gt;;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; i : g[t.second]) &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[i.first] &amp;gt; t.first + i.second) &amp;#123;
                 dist[i.first] = t.first + i.second;
-                q.push(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(dist[i.first], i.first));
+                q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(dist[i.first], i.first));
             &amp;#125;
         &amp;#125;
         st[tw] = &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;
@@ -134,13 +134,13 @@
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
-        g[u].push_back(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
+        cin &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
+        g[u].&lt;span class=&#34;built_in&#34;&gt;push_back&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
     &amp;#125;
-    dijkstra();
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; (dist[n] == &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt; ? &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt; : dist[n]) &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    &lt;span class=&#34;built_in&#34;&gt;dijkstra&lt;/span&gt;();
+    cout &amp;lt;&amp;lt; (dist[n] == &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt; ? &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt; : dist[n]) &amp;lt;&amp;lt; endl;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;Bellman-Ford-算法&#34;&gt;Bellman-Ford 算法&lt;/h3&gt;
@@ -160,7 +160,7 @@
 &lt;h4 id=&#34;代码-3&#34;&gt;代码&lt;/h4&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;node&lt;/span&gt; &amp;#123;&lt;/span&gt;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; u, v, w;
@@ -169,25 +169,25 @@
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, k, dist[&lt;span class=&#34;number&#34;&gt;505&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;bellman_ford&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
     dist[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= k; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= m; j++) &amp;#123;
-            dist[g[j].v] = min(dist[g[j].v], dist[g[j].u] + g[j].w);
+            dist[g[j].v] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(dist[g[j].v], dist[g[j].u] + g[j].w);
         &amp;#125;
     &amp;#125;
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; k;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; k;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; g[i].u &amp;gt;&amp;gt; g[i].v &amp;gt;&amp;gt; g[i].w;
+        cin &amp;gt;&amp;gt; g[i].u &amp;gt;&amp;gt; g[i].v &amp;gt;&amp;gt; g[i].w;
     &amp;#125;
-    bellman_ford();
+    &lt;span class=&#34;built_in&#34;&gt;bellman_ford&lt;/span&gt;();
     &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[n] &amp;gt; &lt;span class=&#34;number&#34;&gt;0x1f1f1f1f&lt;/span&gt;) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+        cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
     &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; dist[n] &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+        cout &amp;lt;&amp;lt; dist[n] &amp;lt;&amp;lt; endl;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
@@ -223,39 +223,39 @@
 &lt;p&gt;题目：&lt;a href=&#34;https://www.acwing.com/problem/content/853/&#34;&gt;851. spfa求最短路 - AcWing&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, u, v, w, dist[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
-&lt;span class=&#34;built_in&#34;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
+vector&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;spfa&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
     dist[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-    &lt;span class=&#34;built_in&#34;&gt;queue&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt; q;
-    q.push(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);
-    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.empty()) &amp;#123;
-        &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = q.front();
-        q.pop();
+    queue&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt; q;
+    q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);
+    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.&lt;span class=&#34;built_in&#34;&gt;empty&lt;/span&gt;()) &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = q.&lt;span class=&#34;built_in&#34;&gt;front&lt;/span&gt;();
+        q.&lt;span class=&#34;built_in&#34;&gt;pop&lt;/span&gt;();
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; i : g[t]) &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[i.first] &amp;gt; dist[t] + i.second) &amp;#123;
                 dist[i.first] = dist[t] + i.second;
-                q.push(i.first);
+                q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(i.first);
             &amp;#125;
         &amp;#125;
     &amp;#125;
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
-        g[u].push_back(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
+        cin &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
+        g[u].&lt;span class=&#34;built_in&#34;&gt;push_back&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
     &amp;#125;
-    spfa();
+    &lt;span class=&#34;built_in&#34;&gt;spfa&lt;/span&gt;();
     &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[n] == &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt;) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+        cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
     &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; dist[n] &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+        cout &amp;lt;&amp;lt; dist[n] &amp;lt;&amp;lt; endl;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
@@ -263,26 +263,26 @@
 &lt;p&gt;题目：&lt;a href=&#34;https://www.acwing.com/problem/content/854/&#34;&gt;852. spfa判断负环 - AcWing&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, u, v, w, dist[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;], cnt[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
-&lt;span class=&#34;built_in&#34;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&#34;built_in&#34;&gt;pair&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
+vector&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt;&amp;gt; g[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;spfa&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(dist));
-    &lt;span class=&#34;built_in&#34;&gt;queue&lt;/span&gt;&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt; q;
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
+    queue&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;&amp;gt; q;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
-        q.push(i);
+        q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(i);
     &amp;#125;
-    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.empty()) &amp;#123;
-        &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = q.front();
-        q.pop();
+    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (!q.&lt;span class=&#34;built_in&#34;&gt;empty&lt;/span&gt;()) &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = q.&lt;span class=&#34;built_in&#34;&gt;front&lt;/span&gt;();
+        q.&lt;span class=&#34;built_in&#34;&gt;pop&lt;/span&gt;();
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; i : g[t]) &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dist[i.first] &amp;gt; dist[t] + i.second) &amp;#123;
                 dist[i.first] = dist[t] + i.second;
                 cnt[i.first] = cnt[t] + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
                 &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (cnt[i.first] &amp;gt;= n) &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;
-                q.push(i.first);
+                q.&lt;span class=&#34;built_in&#34;&gt;push&lt;/span&gt;(i.first);
             &amp;#125;
         &amp;#125;
     &amp;#125;
@@ -290,12 +290,12 @@
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
-        g[u].push_back(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
+        cin &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
+        g[u].&lt;span class=&#34;built_in&#34;&gt;push_back&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;make_pair&lt;/span&gt;(v, w));
     &amp;#125;
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; (spfa() ? &lt;span class=&#34;string&#34;&gt;&amp;quot;Yes&amp;quot;&lt;/span&gt; : &lt;span class=&#34;string&#34;&gt;&amp;quot;No&amp;quot;&lt;/span&gt;) &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    cout &amp;lt;&amp;lt; (&lt;span class=&#34;built_in&#34;&gt;spfa&lt;/span&gt;() ? &lt;span class=&#34;string&#34;&gt;&amp;quot;Yes&amp;quot;&lt;/span&gt; : &lt;span class=&#34;string&#34;&gt;&amp;quot;No&amp;quot;&lt;/span&gt;) &amp;lt;&amp;lt; endl;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;确定终点的最短路径问题&#34;&gt;确定终点的最短路径问题&lt;/h2&gt;
@@ -312,34 +312,34 @@
 &lt;h3 id=&#34;代码-5&#34;&gt;代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, k, x, y, z, f[&lt;span class=&#34;number&#34;&gt;205&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;205&lt;/span&gt;];
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; k;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; k;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
             f[i][j] = i == j ? &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; : &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f3f&lt;/span&gt;;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
-        f[x][y] = min(f[x][y], z);
+        cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z;
+        f[x][y] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(f[x][y], z);
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; k = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; k &amp;lt;= n; k++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
-                f[i][j] = min(f[i][j], f[i][k] + f[k][j]);
+                f[i][j] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(f[i][j], f[i][k] + f[k][j]);
             &amp;#125;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= k; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+        cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (f[x][y] &amp;gt; &lt;span class=&#34;number&#34;&gt;0x1fffffff&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;impossible&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
         &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; f[x][y] &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; f[x][y] &amp;lt;&amp;lt; endl;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
@@ -381,10 +381,10 @@
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; l, r;
     &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; s, d;
 
-    node() &amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;() &amp;#123;
         l = r = s = d = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
     &amp;#125;
-    node(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _r) &amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _r) &amp;#123;
         l = _l;
         r = _r;
         s = d = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
@@ -434,15 +434,15 @@
 &lt;span class=&#34;comment&#34;&gt; * @param r 右端点&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt; */&lt;/span&gt;
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; u, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; r)&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    tr[u] = node(l, r);
+    tr[u] = &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;(l, r);
     &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l == r) &amp;#123;
         tr[u].s = a[l];
         &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = l + r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
-    build(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, mid);
-    build(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, mid + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, r);
-    pushup(u);
+    &lt;span class=&#34;built_in&#34;&gt;build&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, mid);
+    &lt;span class=&#34;built_in&#34;&gt;build&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, mid + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, r);
+    &lt;span class=&#34;built_in&#34;&gt;pushup&lt;/span&gt;(u);
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;先初始化当前区间，接下来分两种情况：&lt;/p&gt;
 &lt;ol&gt;
@@ -463,9 +463,9 @@
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = tr[u].l + tr[u].r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
     &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; s = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-    pushdown(u);                                &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) s += query(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) s += query(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushdown&lt;/span&gt;(u);                                &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) s += &lt;span class=&#34;built_in&#34;&gt;query&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) s += &lt;span class=&#34;built_in&#34;&gt;query&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; s;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;ol&gt;
@@ -509,10 +509,10 @@
         &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = tr[u].l + tr[u].r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
-    pushdown(u);                               &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) modify(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, d);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) modify(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, d);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
-    pushup(u);                                 &lt;span class=&#34;comment&#34;&gt;// 上传新信息&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushdown&lt;/span&gt;(u);                               &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, d);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, d);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushup&lt;/span&gt;(u);                                 &lt;span class=&#34;comment&#34;&gt;// 上传新信息&lt;/span&gt;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;区间修改和区间查询的实现相似。&lt;/p&gt;
 &lt;ol&gt;
@@ -528,11 +528,11 @@
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; l, r;
     &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; s, d, x;
 
-    node() &amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;() &amp;#123;
         l = r = s = d = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
         x = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
     &amp;#125;
-    node(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _r) &amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _r) &amp;#123;
         l = _l, r = _r;
         s = d = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
         x = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
@@ -578,10 +578,10 @@
         &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = tr[u].l + tr[u].r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
-    pushdown(u);                                  &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) modify(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, x, d);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) modify(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, x, d);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
-    pushup(u);                                    &lt;span class=&#34;comment&#34;&gt;// 上传新信息&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushdown&lt;/span&gt;(u);                                  &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, x, d);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, x, d);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushup&lt;/span&gt;(u);                                    &lt;span class=&#34;comment&#34;&gt;// 上传新信息&lt;/span&gt;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;大体上和加法的修改函数一样，而在修改时与下放懒标记做法相同，遵循&lt;strong&gt;先乘后加&lt;/strong&gt;的原则。&lt;/p&gt;
 &lt;p&gt;调用的时候若只需要使用乘法部分，加数设置为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;0&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 即可。若只需要使用加法部分，乘数设置为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;1&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 即可。&lt;/p&gt;
@@ -590,7 +590,7 @@
 &lt;h3 id=&#34;区间加-2&#34;&gt;区间加&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt; * 线段树节点&lt;/span&gt;
@@ -599,10 +599,10 @@
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; l, r;
     &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; s, d;
 
-    node() &amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;() &amp;#123;
         l = r = s = d = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
     &amp;#125;
-    node(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _r) &amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _r) &amp;#123;
         l = _l;
         r = _r;
         s = d = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
@@ -641,15 +641,15 @@
 &lt;span class=&#34;comment&#34;&gt; * @param r 右端点&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt; */&lt;/span&gt;
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; u, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; r)&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    tr[u] = node(l, r);
+    tr[u] = &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;(l, r);
     &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l == r) &amp;#123;
         tr[u].s = a[l];
         &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = l + r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
-    build(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, mid);
-    build(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, mid + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, r);
-    pushup(u);
+    &lt;span class=&#34;built_in&#34;&gt;build&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, mid);
+    &lt;span class=&#34;built_in&#34;&gt;build&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, mid + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, r);
+    &lt;span class=&#34;built_in&#34;&gt;pushup&lt;/span&gt;(u);
 &amp;#125;
 
 &lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;
@@ -666,10 +666,10 @@
         &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = tr[u].l + tr[u].r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
-    pushdown(u);                               &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) modify(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, d);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) modify(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, d);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
-    pushup(u);                                 &lt;span class=&#34;comment&#34;&gt;// 上传新信息&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushdown&lt;/span&gt;(u);                               &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, d);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, d);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushup&lt;/span&gt;(u);                                 &lt;span class=&#34;comment&#34;&gt;// 上传新信息&lt;/span&gt;
 &amp;#125;
 
 &lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;
@@ -684,26 +684,26 @@
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = tr[u].l + tr[u].r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
     &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; s = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-    pushdown(u);                                &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) s += query(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) s += query(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushdown&lt;/span&gt;(u);                                &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) s += &lt;span class=&#34;built_in&#34;&gt;query&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) s += &lt;span class=&#34;built_in&#34;&gt;query&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; s;
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; a[i];
+        cin &amp;gt;&amp;gt; a[i];
     &amp;#125;
-    build(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, n);
+    &lt;span class=&#34;built_in&#34;&gt;build&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, n);
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; op &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+        cin &amp;gt;&amp;gt; op &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (op == &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; k;
-            modify(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y, k);
+            cin &amp;gt;&amp;gt; k;
+            &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y, k);
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (op == &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; query(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y) &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;query&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y) &amp;lt;&amp;lt; endl;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
@@ -711,17 +711,17 @@
 &lt;h3 id=&#34;区间加、乘-2&#34;&gt;区间加、乘&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;node&lt;/span&gt; &amp;#123;&lt;/span&gt;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; l, r;
     &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; s, d, x;
 
-    node() &amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;() &amp;#123;
         l = r = s = d = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
         x = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
     &amp;#125;
-    node(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _r) &amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; _r) &amp;#123;
         l = _l, r = _r;
         s = d = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
         x = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
@@ -764,15 +764,15 @@
 &lt;span class=&#34;comment&#34;&gt; * @param r 右端点&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt; */&lt;/span&gt;
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; u, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; l, &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; r)&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    tr[u] = node(l, r);
+    tr[u] = &lt;span class=&#34;built_in&#34;&gt;node&lt;/span&gt;(l, r);
     &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l == r) &amp;#123;
         tr[u].s = a[l] % p;
         &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = l + r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
-    build(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, mid);
-    build(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, mid + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, r);
-    pushup(u);
+    &lt;span class=&#34;built_in&#34;&gt;build&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, mid);
+    &lt;span class=&#34;built_in&#34;&gt;build&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, mid + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, r);
+    &lt;span class=&#34;built_in&#34;&gt;pushup&lt;/span&gt;(u);
 &amp;#125;
 
 &lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;
@@ -793,10 +793,10 @@
         &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = tr[u].l + tr[u].r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
-    pushdown(u);                                  &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) modify(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, x, d);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) modify(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, x, d);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
-    pushup(u);                                    &lt;span class=&#34;comment&#34;&gt;// 上传新信息&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushdown&lt;/span&gt;(u);                                  &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, x, d);     &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r, x, d);  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushup&lt;/span&gt;(u);                                    &lt;span class=&#34;comment&#34;&gt;// 上传新信息&lt;/span&gt;
 &amp;#125;
 
 &lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;
@@ -812,30 +812,30 @@
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mid = tr[u].l + tr[u].r &amp;gt;&amp;gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
     &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; s = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-    pushdown(u);                                         &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) s = query(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);               &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
-    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) s = (s + query(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r)) % p;  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
+    &lt;span class=&#34;built_in&#34;&gt;pushdown&lt;/span&gt;(u);                                         &lt;span class=&#34;comment&#34;&gt;// 下放懒标记&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (l &amp;lt;= mid) s = &lt;span class=&#34;built_in&#34;&gt;query&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r);               &lt;span class=&#34;comment&#34;&gt;// 和左侧有交集&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (r &amp;gt; mid) s = (s + &lt;span class=&#34;built_in&#34;&gt;query&lt;/span&gt;(u &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; | &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, l, r)) % p;  &lt;span class=&#34;comment&#34;&gt;// 和右侧有交集&lt;/span&gt;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; s;
 &amp;#125;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; p;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; p;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; a[i];
+        cin &amp;gt;&amp;gt; a[i];
     &amp;#125;
-    build(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, n);
+    &lt;span class=&#34;built_in&#34;&gt;build&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, n);
     &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (m--) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; op &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+        cin &amp;gt;&amp;gt; op &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (op == &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; k;
-            modify(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y, k, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;);
+            cin &amp;gt;&amp;gt; k;
+            &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y, k, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;);
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (op == &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; k;
-            modify(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, k);
+            cin &amp;gt;&amp;gt; k;
+            &lt;span class=&#34;built_in&#34;&gt;modify&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, k);
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (op == &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; query(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y) % p &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;query&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, x, y) % p &amp;lt;&amp;lt; endl;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;

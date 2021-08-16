@@ -6,23 +6,23 @@
     <updated>2020-10-29T11:52:19.000Z</updated>
     <category term="BIRD" />
     <category term="BGP" />
-    <category term="Web" />
     <category term="算法" />
     <category term="图论" />
     <category term="笔记" />
+    <category term="Web" />
     <category term="CTF" />
     <category term="DN42" />
     <category term="Git" />
     <category term="折腾" />
-    <category term="网络" />
     <category term="Linux" />
+    <category term="网络" />
     <category term="题解" />
     <category term="洛谷" />
     <category term="游记" />
     <category term="牛客网" />
     <category term="S2OJ" />
-    <category term="Cloudflare" />
     <category term="macOS" />
+    <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
     <entry>
@@ -58,14 +58,14 @@
 &lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; t;
+    cin &amp;gt;&amp;gt; t;
     &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt;(t--) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, k, x, ans = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; k &amp;gt;&amp;gt; x;
+        cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; k &amp;gt;&amp;gt; x;
         &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, j = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
         &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt;(i &amp;lt; n) &amp;#123;
             i++;
@@ -76,7 +76,7 @@
                 i++;
             &amp;#125;
         &amp;#125;
-        &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+        cout &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; endl;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
@@ -119,25 +119,25 @@
 &lt;h3 id=&#34;代码-2&#34;&gt;代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; ans = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, cnt = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-    &lt;span class=&#34;built_in&#34;&gt;string&lt;/span&gt; s;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; s;
-    &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n = s.size()&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;;
+    string s;
+    cin &amp;gt;&amp;gt; s;
+    &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n = s.&lt;span class=&#34;built_in&#34;&gt;size&lt;/span&gt;()&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;;
     s += s;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, f[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
-    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(f, &lt;span class=&#34;number&#34;&gt;0x00&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(f));
-    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; ; i &amp;lt; s.size() ; i++) &amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(f, &lt;span class=&#34;number&#34;&gt;0x00&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(f));
+    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; ; i &amp;lt; s.&lt;span class=&#34;built_in&#34;&gt;size&lt;/span&gt;() ; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(s[i] == &lt;span class=&#34;string&#34;&gt;&amp;#x27;1&amp;#x27;&lt;/span&gt;) &amp;#123;
-            f[i] = min(f[i&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;]+&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, n);
+            f[i] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(f[i&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;]+&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, n);
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; ; i &amp;lt;= &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;*n ; i++) &amp;#123;
-        ans = max(f[i], ans);
+        ans = &lt;span class=&#34;built_in&#34;&gt;max&lt;/span&gt;(f[i], ans);
     &amp;#125;
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    cout &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; endl;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;C-最少移动&#34;&gt;C-最少移动&lt;/h2&gt;
@@ -184,28 +184,28 @@ sum = \{2,4,6,8,10\}
 &lt;h3 id=&#34;代码-3&#34;&gt;代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; t;
+    cin &amp;gt;&amp;gt; t;
     &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt;(t--) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; n, a[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;], f[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;], ans = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
         f[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n;
+        cin &amp;gt;&amp;gt; n;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; ; i &amp;lt;= n ; i++) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; a[i];
+            cin &amp;gt;&amp;gt; a[i];
             f[i] = f[i&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;] + a[i];
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(f[n]%n != &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt; &amp;lt;&amp;lt; endl;
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; g = f[n]/n;
             &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; i = n; i &amp;gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i--) &amp;#123;
                 ans += &lt;span class=&#34;built_in&#34;&gt;abs&lt;/span&gt;(i * g - f[i]);
             &amp;#125;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; endl;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
@@ -253,24 +253,24 @@ sum = \{2,4,6,8,10\}
 &lt;h3 id=&#34;代码-4&#34;&gt;代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; t;
+    cin &amp;gt;&amp;gt; t;
     &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt;(t--) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, d;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; d;
+        cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; d;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(d == &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;1.00&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;1.00&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(n &amp;lt; d) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; fixed &amp;lt;&amp;lt; setprecision(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &amp;lt;&amp;lt; d&lt;span class=&#34;number&#34;&gt;-1.00&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; fixed &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;setprecision&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &amp;lt;&amp;lt; d&lt;span class=&#34;number&#34;&gt;-1.00&lt;/span&gt; &amp;lt;&amp;lt; endl;
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;double&lt;/span&gt; f[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;], sum[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;];
-            &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(f, &lt;span class=&#34;number&#34;&gt;0x00&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(f));
-            &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(sum, &lt;span class=&#34;number&#34;&gt;0x00&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;(sum));
+            &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(f, &lt;span class=&#34;number&#34;&gt;0x00&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(f));
+            &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(sum, &lt;span class=&#34;number&#34;&gt;0x00&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(sum));
             f[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;] = sum[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;
             &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; ; i &amp;lt; d, i &amp;lt;= n ; i++) &amp;#123;
                 f[i] = d - &lt;span class=&#34;number&#34;&gt;1.00&lt;/span&gt;;
@@ -280,7 +280,7 @@ sum = \{2,4,6,8,10\}
                     f[i]   = (sum[i&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;] + f[i] - f[i-d&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;])/d;
                     sum[i] = sum[i&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;] + f[i] - f[i-d&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;];
             &amp;#125;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; fixed &amp;lt;&amp;lt; setprecision(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &amp;lt;&amp;lt; f[n] &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; fixed &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;setprecision&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &amp;lt;&amp;lt; f[n] &amp;lt;&amp;lt; endl;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
@@ -310,26 +310,26 @@ sum = \{2,4,6,8,10\}
 &lt;/blockquote&gt;
 &lt;p&gt;可以写出如下代码&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(cntd || cntc &amp;gt;= &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;failed&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;failed&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
 &amp;#125;
 &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(!cntd &amp;amp;&amp;amp; cnta &amp;gt;= &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;) &amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;sp offer&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;sp offer&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
 &amp;#125;
 &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;offer&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;offer&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;代码&#34;&gt;代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t, cnta, cntb, cntc, cntd;
-    &lt;span class=&#34;built_in&#34;&gt;string&lt;/span&gt; s;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; t;
+    string s;
+    cin &amp;gt;&amp;gt; t;
     &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt;(t--) &amp;#123;
         cnta = cntb  = cntc = cntd = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; s;
+        cin &amp;gt;&amp;gt; s;
         &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; ; i &amp;lt; &lt;span class=&#34;number&#34;&gt;4&lt;/span&gt; ; i++) &amp;#123;
             &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(s[i] == &lt;span class=&#34;string&#34;&gt;&amp;#x27;A&amp;#x27;&lt;/span&gt;) cnta++;
             &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(s[i] == &lt;span class=&#34;string&#34;&gt;&amp;#x27;B&amp;#x27;&lt;/span&gt;) cntb++;
@@ -337,13 +337,13 @@ sum = \{2,4,6,8,10\}
             &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(s[i] == &lt;span class=&#34;string&#34;&gt;&amp;#x27;D&amp;#x27;&lt;/span&gt;) cntd++;
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(cntd || cntc &amp;gt;= &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;failed&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;failed&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(!cntd &amp;amp;&amp;amp; cnta &amp;gt;= &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;sp offer&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;sp offer&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;offer&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;offer&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
         &amp;#125;
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
@@ -353,18 +353,18 @@ sum = \{2,4,6,8,10\}
 &lt;h3 id=&#34;代码-2&#34;&gt;代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, a[&lt;span class=&#34;number&#34;&gt;100010&lt;/span&gt;];
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n;
+    cin &amp;gt;&amp;gt; n;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; ; i &amp;lt; n ; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; a[i];
+        cin &amp;gt;&amp;gt; a[i];
     &amp;#125;
-    sort(a, a+n);
+    &lt;span class=&#34;built_in&#34;&gt;sort&lt;/span&gt;(a, a+n);
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; ; i &amp;lt; n ; i++) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(a[i] &amp;gt;= n-i&lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; n-i &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+            cout &amp;lt;&amp;lt; n-i &amp;lt;&amp;lt; endl;
             &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
         &amp;#125;
     &amp;#125;
@@ -410,7 +410,7 @@ a_i&amp;amp;(x+y \leq i &amp;lt; n)
 &lt;h3 id=&#34;代码-3&#34;&gt;代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;std&lt;/span&gt;;
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
 
 &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; mod = &lt;span class=&#34;number&#34;&gt;1e9&lt;/span&gt; + &lt;span class=&#34;number&#34;&gt;7&lt;/span&gt;;
 
@@ -432,16 +432,16 @@ a_i&amp;amp;(x+y \leq i &amp;lt; n)
 
 &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; n, m, x, y, a[&lt;span class=&#34;number&#34;&gt;100005&lt;/span&gt;], ans = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
-    &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; n; i++) &amp;#123;
-        &lt;span class=&#34;built_in&#34;&gt;cin&lt;/span&gt; &amp;gt;&amp;gt; a[i];
+        cin &amp;gt;&amp;gt; a[i];
     &amp;#125;
-    sort(a, a + n, cmp);
+    &lt;span class=&#34;built_in&#34;&gt;sort&lt;/span&gt;(a, a + n, cmp);
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; j &amp;lt; x; j++) &amp;#123;
-        a[j] *= binpow(&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;, m);
+        a[j] *= &lt;span class=&#34;built_in&#34;&gt;binpow&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;, m);
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = x; j &amp;lt; x + y; j++) &amp;#123;
-        a[j] *= binpow(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;, m);
+        a[j] *= &lt;span class=&#34;built_in&#34;&gt;binpow&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;, m);
     &amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; x + y; i++) &amp;#123;
         ans += a[i];
@@ -453,7 +453,7 @@ a_i&amp;amp;(x+y \leq i &amp;lt; n)
             ans %= mod;
         &amp;#125;
     &amp;#125;
-    &lt;span class=&#34;built_in&#34;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; &lt;span class=&#34;built_in&#34;&gt;endl&lt;/span&gt;;
+    cout &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; endl;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;参考资料-2&#34;&gt;参考资料&lt;/h3&gt;

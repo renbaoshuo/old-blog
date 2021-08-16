@@ -10,23 +10,23 @@
         <lastBuildDate>Sat, 28 Nov 2020 21:39:32 +0800</lastBuildDate>
         <category>BIRD</category>
         <category>BGP</category>
-        <category>Web</category>
         <category>算法</category>
         <category>图论</category>
         <category>笔记</category>
+        <category>Web</category>
         <category>CTF</category>
         <category>DN42</category>
         <category>Git</category>
         <category>折腾</category>
-        <category>网络</category>
         <category>Linux</category>
+        <category>网络</category>
         <category>题解</category>
         <category>洛谷</category>
         <category>游记</category>
         <category>牛客网</category>
         <category>S2OJ</category>
-        <category>Cloudflare</category>
         <category>macOS</category>
+        <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
         <item>
@@ -43,7 +43,7 @@
 &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; pathlib
 &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; sys
 
-&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;getUploadedImages&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;token&lt;/span&gt;) -&amp;gt; str:&lt;/span&gt;
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;getUploadedImages&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;token&lt;/span&gt;) -&amp;gt; &lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt;:&lt;/span&gt;
     url = &lt;span class=&#34;string&#34;&gt;&amp;quot;https://sm.ms/api/v2/upload_history&amp;quot;&lt;/span&gt;
     headers = &amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;Authorization&amp;quot;&lt;/span&gt;: token&amp;#125;
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; requests.get(url, headers=headers).text
@@ -58,9 +58,9 @@ data = json.loads(getUploadedImages(sys.argv[&lt;span class=&#34;number&#34;&gt;
         f.write(pic)
         f.close()
         &lt;span class=&#34;keyword&#34;&gt;del&lt;/span&gt; pic
-        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;Successfully get &amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; .&amp;quot;&lt;/span&gt;)
+        &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Successfully get &amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; .&amp;quot;&lt;/span&gt;)
     &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
-        print(&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+        &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;+img[&lt;span class=&#34;string&#34;&gt;&amp;quot;storename&amp;quot;&lt;/span&gt;]+&lt;span class=&#34;string&#34;&gt;&amp;quot; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用方法：&lt;code&gt;python3 smms-image.py &amp;quot;[your token here]&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;下载下来的图片会存到 &lt;code&gt;./data/&lt;/code&gt; 目录下（请提前新建）。&lt;/p&gt;
  ]]></description>
@@ -105,8 +105,8 @@ git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;
             <guid isPermalink="true">https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</guid>
             <title>给腾讯云服务器免费增加第二个 IP</title>
             <link>https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</link>
-            <category>网络</category>
             <category>Linux</category>
+            <category>网络</category>
             <pubDate>Thu, 20 Aug 2020 13:22:47 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;良心云果然是良心云，增加了一个IP四舍五入居然不要钱，不过还是要登进系统配置一下双IP的。&lt;/p&gt;
