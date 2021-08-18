@@ -29,11 +29,16 @@
         <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
+        <category>VMware</category>
+        <category>OI</category>
+        <category>ServiceWorker</category>
+        <category>JavaScript</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vmware-macos-bigsur/</guid>
-            <title>【多图】在 VMware 上安装 macOS 11 Big Sur Beta</title>
+            <title>在 VMware 上安装 macOS 11 Big Sur Beta</title>
             <link>https://blog.baoshuo.ren/post/vmware-macos-bigsur/</link>
             <category>macOS</category>
+            <category>VMware</category>
             <pubDate>Mon, 03 Aug 2020 12:52:59 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;工具准备&#34;&gt;工具准备&lt;/h2&gt;
 &lt;ul&gt;

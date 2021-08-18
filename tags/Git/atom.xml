@@ -25,9 +25,13 @@
     <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
+    <category term="VMware" />
+    <category term="OI" />
+    <category term="ServiceWorker" />
+    <category term="JavaScript" />
     <entry>
         <id>https://blog.baoshuo.ren/post/change-git-submission-email/</id>
-        <title>【随笔】批量修改 Git 仓库的提交邮箱</title>
+        <title>批量修改 Git 仓库的提交邮箱</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/change-git-submission-email/"/>
         <content type="html">&lt;p&gt;这几天重装了系统，一个不小心提交了好多 author 为 &lt;code&gt;&amp;quot;root&amp;quot;&amp;lt;root@localhost&amp;gt;&lt;/code&gt; 的 commit ，于是寻找到了一个修改的方法。&lt;/p&gt;
 &lt;p&gt;在仓库根目录下新建一个名为 &lt;code&gt;fix.sh&lt;/code&gt; 的 shell 脚本，输入以下内容：&lt;/p&gt;
@@ -63,7 +67,7 @@ git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/clone-github-repo-faster/</id>
-        <title>【随笔】修改 Git 配置加速 clone GitHub 源码</title>
+        <title>修改 Git 配置加速 clone GitHub 源码</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/clone-github-repo-faster/"/>
         <content type="html">&lt;p&gt;设置代理：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# socks5协议，1080端口修改成自己的本地代理端口&lt;/span&gt;

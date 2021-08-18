@@ -25,9 +25,13 @@
     <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
+    <category term="VMware" />
+    <category term="OI" />
+    <category term="ServiceWorker" />
+    <category term="JavaScript" />
     <entry>
         <id>https://blog.baoshuo.ren/post/vmware-macos-bigsur/</id>
-        <title>【多图】在 VMware 上安装 macOS 11 Big Sur Beta</title>
+        <title>在 VMware 上安装 macOS 11 Big Sur Beta</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/vmware-macos-bigsur/"/>
         <content type="html">&lt;h2 id=&#34;工具准备&#34;&gt;工具准备&lt;/h2&gt;
 &lt;ul&gt;
@@ -145,6 +149,7 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 </content>
         <category term="macOS" />
+        <category term="VMware" />
         <updated>2020-08-03T04:52:59.000Z</updated>
     </entry>
 </feed>

@@ -29,6 +29,10 @@
         <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
+        <category>VMware</category>
+        <category>OI</category>
+        <category>ServiceWorker</category>
+        <category>JavaScript</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</guid>
             <title>给腾讯云服务器免费增加第二个 IP</title>

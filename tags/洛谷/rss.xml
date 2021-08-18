@@ -29,6 +29,10 @@
         <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
+        <category>VMware</category>
+        <category>OI</category>
+        <category>ServiceWorker</category>
+        <category>JavaScript</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/solution-luogu-p2412/</guid>
             <title>洛谷 - P2412 查单词</title>

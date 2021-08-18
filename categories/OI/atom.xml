@@ -25,6 +25,10 @@
     <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
+    <category term="VMware" />
+    <category term="OI" />
+    <category term="ServiceWorker" />
+    <category term="JavaScript" />
     <entry>
         <id>https://blog.baoshuo.ren/post/graph-shortest-path/</id>
         <title>最短路学习笔记</title>
@@ -904,6 +908,8 @@ pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class
 &lt;/ol&gt;
 </content>
         <category term="Linux" />
+        <category term="VMware" />
+        <category term="OI" />
         <updated>2021-08-08T13:44:33.000Z</updated>
     </entry>
     <entry>

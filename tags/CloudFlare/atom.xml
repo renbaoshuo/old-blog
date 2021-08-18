@@ -25,6 +25,10 @@
     <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
+    <category term="VMware" />
+    <category term="OI" />
+    <category term="ServiceWorker" />
+    <category term="JavaScript" />
     <entry>
         <id>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</id>
         <title>使用 Cloudflare Warp 为单栈 VPS 添加双栈网络访问</title>
@@ -95,7 +99,6 @@
 &lt;li&gt;&lt;a href=&#34;https://p3terx.com/archives/use-cloudflare-warp-to-add-extra-ipv4-or-ipv6-network-support-to-vps-servers-for-free.html&#34;&gt;Cloudflare WARP 给 VPS 服务器额外添加 IPv4 或 IPv6 网络获得“原生”IP - P3TERX&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <category term="折腾" />
         <category term="Linux" />
         <category term="Cloudflare" />
         <updated>2021-07-15T09:57:25.000Z</updated>

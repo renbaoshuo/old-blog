@@ -25,6 +25,10 @@
     <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
+    <category term="VMware" />
+    <category term="OI" />
+    <category term="ServiceWorker" />
+    <category term="JavaScript" />
     <entry>
         <id>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</id>
         <title>使用 Cloudflare Warp 为单栈 VPS 添加双栈网络访问</title>
@@ -95,7 +99,6 @@
 &lt;li&gt;&lt;a href=&#34;https://p3terx.com/archives/use-cloudflare-warp-to-add-extra-ipv4-or-ipv6-network-support-to-vps-servers-for-free.html&#34;&gt;Cloudflare WARP 给 VPS 服务器额外添加 IPv4 或 IPv6 网络获得“原生”IP - P3TERX&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <category term="折腾" />
         <category term="Linux" />
         <category term="Cloudflare" />
         <updated>2021-07-15T09:57:25.000Z</updated>
@@ -381,6 +384,8 @@ workbox.routing.registerRoute(
 &lt;/ul&gt;
 </content>
         <category term="Web" />
+        <category term="ServiceWorker" />
+        <category term="JavaScript" />
         <updated>2021-02-27T16:02:04.000Z</updated>
     </entry>
     <entry>
@@ -1728,7 +1733,7 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
     </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/vmware-macos-bigsur/</id>
-        <title>【多图】在 VMware 上安装 macOS 11 Big Sur Beta</title>
+        <title>在 VMware 上安装 macOS 11 Big Sur Beta</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/vmware-macos-bigsur/"/>
         <content type="html">&lt;h2 id=&#34;工具准备&#34;&gt;工具准备&lt;/h2&gt;
 &lt;ul&gt;
@@ -1846,6 +1851,7 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 </content>
         <category term="macOS" />
+        <category term="VMware" />
         <updated>2020-08-03T04:52:59.000Z</updated>
     </entry>
     <entry>

@@ -29,11 +29,17 @@
         <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
+        <category>VMware</category>
+        <category>OI</category>
+        <category>ServiceWorker</category>
+        <category>JavaScript</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/workbox-service-worker/</guid>
             <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>
             <link>https://blog.baoshuo.ren/post/workbox-service-worker/</link>
             <category>Web</category>
+            <category>ServiceWorker</category>
+            <category>JavaScript</category>
             <pubDate>Sun, 28 Feb 2021 00:02:04 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。&lt;br&gt;
 其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。&lt;/p&gt;

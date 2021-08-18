@@ -25,6 +25,10 @@
     <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
+    <category term="VMware" />
+    <category term="OI" />
+    <category term="ServiceWorker" />
+    <category term="JavaScript" />
     <entry>
         <id>https://blog.baoshuo.ren/post/bird-looking-glass/</id>
         <title>搭建 BIRD Looking Glass 速成指北</title>
@@ -461,6 +465,11 @@ protocol static &amp;#123;
 &lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &amp;quot;/etc/bird/peers/*&amp;quot;;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后在 &lt;code&gt;/etc/bird&lt;/code&gt; 目录下创建一个文件夹，命名为 &lt;code&gt;peers&lt;/code&gt; ，以便后续存储配置文件使用。&lt;/p&gt;
 &lt;p&gt;如果想更深入的学习如何编写 BIRD 配置文件，推荐查看 &lt;a href=&#34;https://github.com/moesoha/bird-bgp-kickstart&#34;&gt;BIRD 与 BGP 的新手开场&lt;/a&gt; 和 &lt;a href=&#34;https://bird.network.cz/?get_doc&amp;amp;f=bird.html&amp;amp;v=20&#34;&gt;BIRD 官方文档&lt;/a&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;下载-ROA-配置文件&#34;&gt;下载 ROA 配置文件&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;wget -4 -O /tmp/dn42_roa.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf &amp;amp;&amp;amp; mv -f /tmp/dn42_roa.conf /etc/bird/dn42_roa.conf
+wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf &amp;amp;&amp;amp; mv -f /tmp/dn42_roa_v6.conf /etc/bird/dn42_roa_v6.conf&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用此命令即可将 ROA 文件下载到本机以供使用。&lt;/p&gt;
+&lt;p&gt;还需要将此命令添加为定时任务，推荐设置为每小时运行一次，否则不会更新到最新的 ROA ，每次更新后都需要使用 &lt;code&gt;birdc configure&lt;/code&gt; 命令重载 BIRD 配置。&lt;/p&gt;
 &lt;h3 id=&#34;重新加载-BIRD-配置&#34;&gt;重新加载 BIRD 配置&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;birdc configure&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用该命令重新加载 BIRD 配置，并使用 &lt;code&gt;birdc show protocol&lt;/code&gt; 查看状态。&lt;/p&gt;
@@ -535,7 +544,7 @@ sysctl -p&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在 &lt;code&gt;/etc/bird/peers&lt;/code&gt; 目录下新建一个文件，命名为 &lt;code&gt;&amp;lt;名字&amp;gt;.conf&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;如果使用链路本地地址进行 Peer 的话，需要按照下面的配置示例进行配置：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bird&#34;&gt;protocol bgp &amp;lt;名字&amp;gt; from dnpeers &amp;#123;
-    neighbor &amp;lt;对端链路本地地址&amp;gt; % &amp;lt;对端 WireGuard 隧道名&amp;gt; as &amp;lt;对端 ASN&amp;gt;;
+    neighbor &amp;lt;对端链路本地地址&amp;gt; % &amp;#39;&amp;lt;对端 WireGuard 隧道名&amp;gt;&amp;#39; as &amp;lt;对端 ASN&amp;gt;;
     source address &amp;lt;本地的链路本地地址&amp;gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;否则按照下面的配置示例进行配置：&lt;/p&gt;

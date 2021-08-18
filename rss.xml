@@ -29,6 +29,10 @@
         <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
+        <category>VMware</category>
+        <category>OI</category>
+        <category>ServiceWorker</category>
+        <category>JavaScript</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/graph-shortest-path/</guid>
             <title>最短路学习笔记</title>
@@ -851,6 +855,8 @@ pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class
             <title>NOI Linux 2.0 上手体验</title>
             <link>https://blog.baoshuo.ren/post/noi-linux-2/</link>
             <category>Linux</category>
+            <category>VMware</category>
+            <category>OI</category>
             <pubDate>Sun, 08 Aug 2021 21:44:33 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;时隔多年，CCF 终于发布了新版的 NOI Linux ，替换了以前基于 Ubuntu 14.04 的 NOI Linux 1.4.1。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
@@ -914,7 +920,6 @@ pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vps-cloudflare-warp/</guid>
             <title>使用 Cloudflare Warp 为单栈 VPS 添加双栈网络访问</title>
             <link>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</link>
-            <category>折腾</category>
             <category>Linux</category>
             <category>Cloudflare</category>
             <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
@@ -1849,6 +1854,11 @@ protocol static &amp;#123;
 &lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &amp;quot;/etc/bird/peers/*&amp;quot;;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后在 &lt;code&gt;/etc/bird&lt;/code&gt; 目录下创建一个文件夹，命名为 &lt;code&gt;peers&lt;/code&gt; ，以便后续存储配置文件使用。&lt;/p&gt;
 &lt;p&gt;如果想更深入的学习如何编写 BIRD 配置文件，推荐查看 &lt;a href=&#34;https://github.com/moesoha/bird-bgp-kickstart&#34;&gt;BIRD 与 BGP 的新手开场&lt;/a&gt; 和 &lt;a href=&#34;https://bird.network.cz/?get_doc&amp;amp;f=bird.html&amp;amp;v=20&#34;&gt;BIRD 官方文档&lt;/a&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;下载-ROA-配置文件&#34;&gt;下载 ROA 配置文件&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;wget -4 -O /tmp/dn42_roa.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf &amp;amp;&amp;amp; mv -f /tmp/dn42_roa.conf /etc/bird/dn42_roa.conf
+wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf &amp;amp;&amp;amp; mv -f /tmp/dn42_roa_v6.conf /etc/bird/dn42_roa_v6.conf&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用此命令即可将 ROA 文件下载到本机以供使用。&lt;/p&gt;
+&lt;p&gt;还需要将此命令添加为定时任务，推荐设置为每小时运行一次，否则不会更新到最新的 ROA ，每次更新后都需要使用 &lt;code&gt;birdc configure&lt;/code&gt; 命令重载 BIRD 配置。&lt;/p&gt;
 &lt;h3 id=&#34;重新加载-BIRD-配置&#34;&gt;重新加载 BIRD 配置&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;birdc configure&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用该命令重新加载 BIRD 配置，并使用 &lt;code&gt;birdc show protocol&lt;/code&gt; 查看状态。&lt;/p&gt;
@@ -1923,7 +1933,7 @@ sysctl -p&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在 &lt;code&gt;/etc/bird/peers&lt;/code&gt; 目录下新建一个文件，命名为 &lt;code&gt;&amp;lt;名字&amp;gt;.conf&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;如果使用链路本地地址进行 Peer 的话，需要按照下面的配置示例进行配置：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bird&#34;&gt;protocol bgp &amp;lt;名字&amp;gt; from dnpeers &amp;#123;
-    neighbor &amp;lt;对端链路本地地址&amp;gt; % &amp;lt;对端 WireGuard 隧道名&amp;gt; as &amp;lt;对端 ASN&amp;gt;;
+    neighbor &amp;lt;对端链路本地地址&amp;gt; % &amp;#39;&amp;lt;对端 WireGuard 隧道名&amp;gt;&amp;#39; as &amp;lt;对端 ASN&amp;gt;;
     source address &amp;lt;本地的链路本地地址&amp;gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;否则按照下面的配置示例进行配置：&lt;/p&gt;
@@ -2184,6 +2194,8 @@ protocol&lt;span class=&#34;built_in&#34;&gt; bgp &lt;/span&gt;&amp;lt;PEER_NAME
             <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>
             <link>https://blog.baoshuo.ren/post/workbox-service-worker/</link>
             <category>Web</category>
+            <category>ServiceWorker</category>
+            <category>JavaScript</category>
             <pubDate>Sun, 28 Feb 2021 00:02:04 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。&lt;br&gt;
 其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。&lt;/p&gt;

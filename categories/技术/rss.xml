@@ -29,11 +29,14 @@
         <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
+        <category>VMware</category>
+        <category>OI</category>
+        <category>ServiceWorker</category>
+        <category>JavaScript</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vps-cloudflare-warp/</guid>
             <title>使用 Cloudflare Warp 为单栈 VPS 添加双栈网络访问</title>
             <link>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</link>
-            <category>折腾</category>
             <category>Linux</category>
             <category>Cloudflare</category>
             <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
@@ -109,6 +112,8 @@
             <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>
             <link>https://blog.baoshuo.ren/post/workbox-service-worker/</link>
             <category>Web</category>
+            <category>ServiceWorker</category>
+            <category>JavaScript</category>
             <pubDate>Sun, 28 Feb 2021 00:02:04 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。&lt;br&gt;
 其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。&lt;/p&gt;
@@ -1732,9 +1737,10 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vmware-macos-bigsur/</guid>
-            <title>【多图】在 VMware 上安装 macOS 11 Big Sur Beta</title>
+            <title>在 VMware 上安装 macOS 11 Big Sur Beta</title>
             <link>https://blog.baoshuo.ren/post/vmware-macos-bigsur/</link>
             <category>macOS</category>
+            <category>VMware</category>
             <pubDate>Mon, 03 Aug 2020 12:52:59 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;工具准备&#34;&gt;工具准备&lt;/h2&gt;
 &lt;ul&gt;

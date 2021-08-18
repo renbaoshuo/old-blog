@@ -29,6 +29,10 @@
         <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
+        <category>VMware</category>
+        <category>OI</category>
+        <category>ServiceWorker</category>
+        <category>JavaScript</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/graph-shortest-path/</guid>
             <title>最短路学习笔记</title>
@@ -851,6 +855,8 @@ pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;long&lt;/span&gt; &lt;span class
             <title>NOI Linux 2.0 上手体验</title>
             <link>https://blog.baoshuo.ren/post/noi-linux-2/</link>
             <category>Linux</category>
+            <category>VMware</category>
+            <category>OI</category>
             <pubDate>Sun, 08 Aug 2021 21:44:33 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;时隔多年，CCF 终于发布了新版的 NOI Linux ，替换了以前基于 Ubuntu 14.04 的 NOI Linux 1.4.1。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;

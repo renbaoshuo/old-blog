@@ -25,6 +25,10 @@
     <category term="Cloudflare" />
     <category term="前端" />
     <category term="比赛" />
+    <category term="VMware" />
+    <category term="OI" />
+    <category term="ServiceWorker" />
+    <category term="JavaScript" />
     <entry>
         <id>https://blog.baoshuo.ren/post/workbox-service-worker/</id>
         <title>初识 Service Worker —— 使用 Workbox 快速开发 Service Worker</title>
@@ -306,6 +310,8 @@ workbox.routing.registerRoute(
 &lt;/ul&gt;
 </content>
         <category term="Web" />
+        <category term="ServiceWorker" />
+        <category term="JavaScript" />
         <updated>2021-02-27T16:02:04.000Z</updated>
     </entry>
     <entry>

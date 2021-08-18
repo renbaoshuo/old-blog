@@ -29,6 +29,10 @@
         <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
+        <category>VMware</category>
+        <category>OI</category>
+        <category>ServiceWorker</category>
+        <category>JavaScript</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/download-smms-image/</guid>
             <title>【随笔】下载自己在 SM.MS 图床上的所有图片</title>
@@ -67,7 +71,7 @@ data = json.loads(getUploadedImages(sys.argv[&lt;span class=&#34;number&#34;&gt;
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/change-git-submission-email/</guid>
-            <title>【随笔】批量修改 Git 仓库的提交邮箱</title>
+            <title>批量修改 Git 仓库的提交邮箱</title>
             <link>https://blog.baoshuo.ren/post/change-git-submission-email/</link>
             <category>Git</category>
             <pubDate>Wed, 25 Nov 2020 20:03:03 +0800</pubDate>
@@ -179,7 +183,7 @@ ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/clone-github-repo-faster/</guid>
-            <title>【随笔】修改 Git 配置加速 clone GitHub 源码</title>
+            <title>修改 Git 配置加速 clone GitHub 源码</title>
             <link>https://blog.baoshuo.ren/post/clone-github-repo-faster/</link>
             <category>Git</category>
             <pubDate>Tue, 21 Jul 2020 18:38:23 +0800</pubDate>

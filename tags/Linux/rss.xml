@@ -29,11 +29,17 @@
         <category>Cloudflare</category>
         <category>前端</category>
         <category>比赛</category>
+        <category>VMware</category>
+        <category>OI</category>
+        <category>ServiceWorker</category>
+        <category>JavaScript</category>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/noi-linux-2/</guid>
             <title>NOI Linux 2.0 上手体验</title>
             <link>https://blog.baoshuo.ren/post/noi-linux-2/</link>
             <category>Linux</category>
+            <category>VMware</category>
+            <category>OI</category>
             <pubDate>Sun, 08 Aug 2021 21:44:33 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;时隔多年，CCF 终于发布了新版的 NOI Linux ，替换了以前基于 Ubuntu 14.04 的 NOI Linux 1.4.1。&lt;/p&gt;
 &lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
@@ -97,7 +103,6 @@
             <guid isPermalink="true">https://blog.baoshuo.ren/post/vps-cloudflare-warp/</guid>
             <title>使用 Cloudflare Warp 为单栈 VPS 添加双栈网络访问</title>
             <link>https://blog.baoshuo.ren/post/vps-cloudflare-warp/</link>
-            <category>折腾</category>
             <category>Linux</category>
             <category>Cloudflare</category>
             <pubDate>Thu, 15 Jul 2021 17:57:25 +0800</pubDate>
