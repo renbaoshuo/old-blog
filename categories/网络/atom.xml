@@ -4,31 +4,31 @@
     <title>宝硕博客 • Posts by &#34;网络&#34; category</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-05-03T04:23:00.000Z</updated>
-    <category term="BIRD" />
-    <category term="BGP" />
     <category term="算法" />
     <category term="图论" />
     <category term="笔记" />
-    <category term="Web" />
+    <category term="BIRD" />
+    <category term="BGP" />
     <category term="CTF" />
-    <category term="DN42" />
     <category term="Git" />
+    <category term="DN42" />
+    <category term="Web" />
     <category term="折腾" />
     <category term="Linux" />
     <category term="网络" />
+    <category term="VMware" />
+    <category term="OI" />
     <category term="题解" />
     <category term="洛谷" />
     <category term="游记" />
     <category term="牛客网" />
     <category term="S2OJ" />
-    <category term="macOS" />
     <category term="Cloudflare" />
-    <category term="前端" />
-    <category term="比赛" />
-    <category term="VMware" />
-    <category term="OI" />
+    <category term="macOS" />
     <category term="ServiceWorker" />
     <category term="JavaScript" />
+    <category term="前端" />
+    <category term="比赛" />
     <entry>
         <id>https://blog.baoshuo.ren/post/bird-looking-glass/</id>
         <title>搭建 BIRD Looking Glass 速成指北</title>
