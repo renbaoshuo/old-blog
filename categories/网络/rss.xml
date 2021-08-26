@@ -14,21 +14,21 @@
         <category>BIRD</category>
         <category>BGP</category>
         <category>CTF</category>
-        <category>Git</category>
         <category>DN42</category>
-        <category>Web</category>
+        <category>Git</category>
         <category>折腾</category>
-        <category>Linux</category>
+        <category>Web</category>
         <category>网络</category>
+        <category>Linux</category>
         <category>VMware</category>
         <category>OI</category>
         <category>题解</category>
         <category>洛谷</category>
-        <category>游记</category>
         <category>牛客网</category>
+        <category>游记</category>
         <category>S2OJ</category>
-        <category>Cloudflare</category>
         <category>macOS</category>
+        <category>Cloudflare</category>
         <category>ServiceWorker</category>
         <category>JavaScript</category>
         <category>前端</category>
@@ -42,16 +42,16 @@
             <category>DN42</category>
             <pubDate>Mon, 03 May 2021 12:23:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;BIRD 是 Linux 上常用的一款 BGP 路由软件。bird-lg-go 是 &lt;a href=&#34;https://lantian.pub&#34;&gt;蓝天&lt;/a&gt; 使用 Go 语言编写的 Looking Glass 程序，内存占用比原版 bird-lg 更低。它提供了一个网页面板，可以显示各个服务器上的 BIRD 路由软件的状态，以及查询到指定 IP 的路由。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;ul&gt;
 &lt;li&gt;项目地址：&lt;a href=&#34;https://github.com/xddxdd/bird-lg-go&#34;&gt;https://github.com/xddxdd/bird-lg-go&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;成品： &lt;a href=&#34;https://lg.dn42.as141776.net&#34;&gt;https://lg.dn42.as141776.net&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;安装-Docker-和-Docker-Compose&#34;&gt;安装 Docker 和 Docker Compose&lt;/h2&gt;
+&lt;h2 id=&#34;安装-docker-和-docker-compose&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-docker-和-docker-compose&#34;&gt;&lt;/a&gt;安装 Docker 和 Docker Compose&lt;/h2&gt;
 &lt;p&gt;虽然这个程序可以直接运行，但我还是比较喜欢套个 Docker 防止污染环境。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;curl -sSL https://get.docker.com | sh
 pip install docker-compose&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;编排-Docker-Compose-服务&#34;&gt;编排 Docker Compose 服务&lt;/h2&gt;
+&lt;h2 id=&#34;编排-docker-compose-服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编排-docker-compose-服务&#34;&gt;&lt;/a&gt;编排 Docker Compose 服务&lt;/h2&gt;
 &lt;p&gt;在运行 web 的服务器上找个地方（如 &lt;code&gt;/var/bird-lg/&lt;/code&gt;），将下面的内容修改后写入 &lt;code&gt;docker-compose.yml&lt;/code&gt; 中：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight yml&#34;&gt;&lt;span class=&#34;attr&#34;&gt;version:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;3&amp;#x27;&lt;/span&gt;
 
@@ -91,7 +91,7 @@ pip install docker-compose&lt;/code&gt;&lt;/pre&gt;
       &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;8000:8000&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;之后启动 Docker 容器：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;docker-compose up -d&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;使用-nginx-反代页面&#34;&gt;使用 nginx 反代页面&lt;/h2&gt;
+&lt;h2 id=&#34;使用-nginx-反代页面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-nginx-反代页面&#34;&gt;&lt;/a&gt;使用 nginx 反代页面&lt;/h2&gt;
 &lt;p&gt;使用下方的配置启动反向代理即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;section&#34;&gt;server&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;attribute&#34;&gt;listen&lt;/span&gt;      *:&lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;;
@@ -119,7 +119,7 @@ pip install docker-compose&lt;/code&gt;&lt;/pre&gt;
         &lt;span class=&#34;attribute&#34;&gt;proxy_read_timeout&lt;/span&gt;                 &lt;span class=&#34;number&#34;&gt;60s&lt;/span&gt;;
     &amp;#125;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;配置-DNS-解析&#34;&gt;配置 DNS 解析&lt;/h2&gt;
+&lt;h2 id=&#34;配置-dns-解析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-dns-解析&#34;&gt;&lt;/a&gt;配置 DNS 解析&lt;/h2&gt;
 &lt;p&gt;bird-lg-go 的节点 endpiont 生成逻辑是 &lt;code&gt;http://[节点].[endpoint后缀]:8000&lt;/code&gt; ，如 &lt;code&gt;http://eu1.dn42.as141776.net:8000&lt;/code&gt; ，所以只需要去配置对应的解析。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;警告&lt;/strong&gt;&lt;/p&gt;
@@ -128,7 +128,7 @@ pip install docker-compose&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;配置示例：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight stylus&#34;&gt;eu1&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.as141776&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.net&lt;/span&gt;.  &lt;span class=&#34;number&#34;&gt;3600&lt;/span&gt;    IN      A       &lt;span class=&#34;number&#34;&gt;136.243&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;221.96&lt;/span&gt;
 cn1&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.as141776&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.net&lt;/span&gt;.  &lt;span class=&#34;number&#34;&gt;3600&lt;/span&gt;    IN      CNAME   home&lt;span class=&#34;selector-class&#34;&gt;.baoshuo&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.ren&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;成果&#34;&gt;成果&lt;/h2&gt;
+&lt;h2 id=&#34;成果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#成果&#34;&gt;&lt;/a&gt;成果&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/05/03/iaFfTWAhpdZGJ9t.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
  ]]></description>
         </item>
@@ -140,7 +140,7 @@ cn1&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&
             <category>DN42</category>
             <pubDate>Sun, 04 Apr 2021 11:29:32 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 BGP 网络。DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;DN42 适合以下类别的用户：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;想要研究网络技术，练习服务器、路由器等网络设备配置，甚至后续在真实互联网建立 AS 的用户。&lt;/li&gt;
@@ -158,9 +158,9 @@ cn1&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&
 &lt;p&gt;请注意，DN42 是一个测试网络，所有人都在帮助所有人。即使你不小心搞砸了，也没有人会指责你。&lt;/p&gt;
 &lt;p&gt;欢迎在搭建完成自己的内网以后与我进行对等互联，可以访问 &lt;a href=&#34;https://dn42.baoshuo.ren&#34;&gt;dn42.baoshuo.ren&lt;/a&gt; 获取更多信息。&lt;/p&gt;
 &lt;p&gt;若无特别说明，本文中所使用的系统环境均为 &lt;code&gt;Ubuntu 20.04.2 LTS&lt;/code&gt; ，本文中所有使用 &lt;code&gt;&amp;lt;&amp;gt;&lt;/code&gt; 包裹的内容均需要自行替换。&lt;/p&gt;
-&lt;h2 id=&#34;注册-DN42&#34;&gt;注册 DN42&lt;/h2&gt;
+&lt;h2 id=&#34;注册-dn42&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册-dn42&#34;&gt;&lt;/a&gt;注册 DN42&lt;/h2&gt;
 &lt;p&gt;在注册过程中会大量使用到一些 UNIX 工具（如 Git 、 GPG 等），所以最好使用 Linux 或者 macOS 系统完成整个流程，如果你正在使用 Windows 系统，那么可以使用 &lt;a href=&#34;http://aka.ms/wsl&#34;&gt;WSL&lt;/a&gt; 。&lt;/p&gt;
-&lt;h3 id=&#34;注册前的准备&#34;&gt;注册前的准备&lt;/h3&gt;
+&lt;h3 id=&#34;注册前的准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册前的准备&#34;&gt;&lt;/a&gt;注册前的准备&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;了解如何编写 RPSL （&lt;a href=&#34;https://tools.ietf.org/html/rfc2622/&#34;&gt;RFC2622&lt;/a&gt;） 格式的配置文件。&lt;/li&gt;
 &lt;li&gt;了解如何使用 &lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1&#34;&gt;CIDR&lt;/a&gt; （&lt;a href=&#34;https://tools.ietf.org/html/rfc1518&#34;&gt;RFC1518&lt;/a&gt;，&lt;a href=&#34;https://tools.ietf.org/html/rfc1519&#34;&gt;RFC1519&lt;/a&gt;） 格式表示 IP 地址块。&lt;/li&gt;
@@ -168,11 +168,11 @@ cn1&lt;span class=&#34;selector-class&#34;&gt;.dn42&lt;/span&gt;&lt;span class=&
 &lt;li&gt;在 &lt;a href=&#34;https://git.dn42.dev&#34;&gt;DN42 Git&lt;/a&gt; 中有一个注册好的账户。&lt;/li&gt;
 &lt;li&gt;会使用英文与他人交流。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;克隆-DN42-注册表-Git-仓库&#34;&gt;克隆 DN42 注册表 Git 仓库&lt;/h3&gt;
+&lt;h3 id=&#34;克隆-dn42-注册表-git-仓库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#克隆-dn42-注册表-git-仓库&#34;&gt;&lt;/a&gt;克隆 DN42 注册表 Git 仓库&lt;/h3&gt;
 &lt;p&gt;将 &lt;a href=&#34;https://git.dn42.dev/dn42/registry&#34;&gt;dn42/registry&lt;/a&gt; 这个仓库 clone 到本地。&lt;/p&gt;
 &lt;p&gt;新建一个名为 &lt;code&gt;&amp;lt;用户名&amp;gt;-&amp;lt;日期, YYYYMMDD&amp;gt;/&amp;lt;自定义名称&amp;gt;&lt;/code&gt; 的分支。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;git checkout -b &amp;lt;用户名&amp;gt;-&amp;lt;日期, YYYYMMDD&amp;gt;/register&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;注册维护者&#34;&gt;注册维护者&lt;/h3&gt;
+&lt;h3 id=&#34;注册维护者&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册维护者&#34;&gt;&lt;/a&gt;注册维护者&lt;/h3&gt;
 &lt;p&gt;在仓库的 &lt;code&gt;data/mntner&lt;/code&gt; 目录下新建一个文件，命名为 &lt;code&gt;&amp;lt;昵称&amp;gt;-MNT&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;文件内填入以下内容：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight rpsl&#34;&gt;mntner:             &amp;lt;昵称&amp;gt;-MNT
@@ -190,7 +190,7 @@ source:             DN42&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：由谁维护（全称为 Maintain by），此处需要指向这个维护者本身，即 &lt;code&gt;&amp;lt;昵称&amp;gt;-MNT&lt;/code&gt; 。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：信息来源，默认为 &lt;code&gt;DN42&lt;/code&gt; 。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;注册联系人&#34;&gt;注册联系人&lt;/h3&gt;
+&lt;h3 id=&#34;注册联系人&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册联系人&#34;&gt;&lt;/a&gt;注册联系人&lt;/h3&gt;
 &lt;p&gt;在仓库的 &lt;code&gt;data/person&lt;/code&gt; 目录下新建一个文件，命名为 &lt;code&gt;&amp;lt;昵称&amp;gt;-DN42&lt;/code&gt; 。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight rpsl&#34;&gt;person:             &amp;lt;姓名&amp;gt;
 contact:            &amp;lt;邮箱&amp;gt;
@@ -205,7 +205,7 @@ source:             DN42&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：由谁维护（全称为 Maintain by），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E7%BB%B4%E6%8A%A4%E8%80%85&#34;&gt;注册维护者&lt;/a&gt; 一节中注册的的维护者信息。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;注册-ASN&#34;&gt;注册 ASN&lt;/h3&gt;
+&lt;h3 id=&#34;注册-asn&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册-asn&#34;&gt;&lt;/a&gt;注册 ASN&lt;/h3&gt;
 &lt;p&gt;在国际互联网上，ASN 范围 &lt;code&gt;4200000000 - 4294967294&lt;/code&gt; 是被保留以供私人使用的，而 DN42 占用的就是其中的一块： &lt;code&gt;4242420000 - 4242429999&lt;/code&gt; 。目前 DN42 开放注册的 ASN 范围是 &lt;code&gt;4242420000 - 4242423999&lt;/code&gt; ，只需要在这个区间里面挑一个没有被他人占用的号码即可。&lt;/p&gt;
 &lt;p&gt;DN42 Registry 的管理员 burble 提供了一个在线查看可用 ASN 的工具: &lt;a href=&#34;https://explorer.burble.com/free#/asn&#34;&gt;DN42 Free ASN Explorer&lt;/a&gt; 。访问该页面就会随机生成 10 个当前还未注册的 ASN 以便使用。&lt;/p&gt;
 &lt;p&gt;在仓库的 &lt;code&gt;data/aut-num&lt;/code&gt; 目录下新建一个文件，命名为刚才选中的 AS 号码。&lt;/p&gt;
@@ -226,7 +226,7 @@ source:             DN42&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;mnt-by&lt;/code&gt; ：由谁维护（Maintain by），指向你在 &lt;a href=&#34;#%E6%B3%A8%E5%86%8C%E7%BB%B4%E6%8A%A4%E8%80%85&#34;&gt;注册维护者&lt;/a&gt; 一节中注册的的维护者信息。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：如果使用私有 AS 号码则此处填写 &lt;code&gt;DN42&lt;/code&gt; ，否则填写 ASN 所对应的 RIR 名称。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;注册-IPv4-地址块&#34;&gt;注册 IPv4 地址块&lt;/h3&gt;
+&lt;h3 id=&#34;注册-ipv4-地址块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册-ipv4-地址块&#34;&gt;&lt;/a&gt;注册 IPv4 地址块&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;如果您想在 DN42 上创建一个 IPv6 Only 网络，请不要注册 IPv4 地址块，并忽略 &lt;a href=&#34;#%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E8%AE%B0%E5%BD%95&#34;&gt;添加路由记录&lt;/a&gt; 一节中的 IPv4 部分。&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;在国际互联网上， &lt;code&gt;172.16.0.0/12&lt;/code&gt; 是由 &lt;a href=&#34;https://tools.ietf.org/html/rfc1918&#34;&gt;RFC1918&lt;/a&gt; 规定的由专用网络使用的 IP 地址块，而 DN42 占用的就是其中的一块： &lt;code&gt;172.20.0.0/14&lt;/code&gt; 。目前 DN42 开放注册的地址块范围可以在 &lt;a href=&#34;https://dn42.dev/howto/Address-Space#ipv4-address-space&#34;&gt;Address Space&lt;/a&gt; 页面上查看。&lt;/p&gt;
 &lt;p&gt;DN42 Registry 的管理员 burble 提供了一个在线查看可用 IPv4 地址块的网站，点击 &lt;a href=&#34;https://explorer.burble.com/free#/4&#34;&gt;DN42 Free IPv4 Explorer&lt;/a&gt; 即可随机生成 10 个当前还未注册的 IPv4 地址块。&lt;/p&gt;
@@ -256,7 +256,7 @@ source:             DN42&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;status&lt;/code&gt; ：固定为 &lt;code&gt;ASSIGNED&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;注册-IPv6-地址块&#34;&gt;注册 IPv6 地址块&lt;/h3&gt;
+&lt;h3 id=&#34;注册-ipv6-地址块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册-ipv6-地址块&#34;&gt;&lt;/a&gt;注册 IPv6 地址块&lt;/h3&gt;
 &lt;p&gt;在国际互联网上， &lt;code&gt;fc00::/7&lt;/code&gt; 是由 &lt;a href=&#34;https://tools.ietf.org/html/rfc4193&#34;&gt;RFC4193&lt;/a&gt; 定义的 &lt;a href=&#34;https://en.wikipedia.org/wiki/Unique_local_address&#34;&gt;唯一本地地址&lt;/a&gt;，而 DN42 占用的就是其中的一块： &lt;code&gt;fd00::/8&lt;/code&gt; 。目前 DN42 开放注册的地址块范围可以在 &lt;a href=&#34;https://dn42.dev/howto/Address-Space#ipv6-address-space&#34;&gt;Address Space&lt;/a&gt; 页面上查看。&lt;/p&gt;
 &lt;p&gt;DN42 Registry 的管理员 burble 提供了一个在线查看可用 IPv6 地址块的网站，点击 &lt;a href=&#34;https://explorer.burble.com/free#/6&#34;&gt;DN42 Free IPv6 Explorer&lt;/a&gt; 即可随机生成 10 个当前还未注册的 IPv6 地址块。&lt;/p&gt;
 &lt;p&gt;在仓库的 &lt;code&gt;data/inet6num&lt;/code&gt; 目录下新建一个文件，命名为 IPv6 地址块的 CIDR 格式，并使用 &lt;code&gt;_&lt;/code&gt; 代替 &lt;code&gt;/&lt;/code&gt;。&lt;/p&gt;
@@ -284,7 +284,7 @@ source:             DN42&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;status&lt;/code&gt; ：固定为 &lt;code&gt;ASSIGNED&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;添加路由记录&#34;&gt;添加路由记录&lt;/h3&gt;
+&lt;h3 id=&#34;添加路由记录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加路由记录&#34;&gt;&lt;/a&gt;添加路由记录&lt;/h3&gt;
 &lt;p&gt;在仓库的 &lt;code&gt;data/route&lt;/code&gt; 目录下新建一个文件，命名为 IP 地址块的 CIDR 格式，并使用 &lt;code&gt;_&lt;/code&gt; 代替 &lt;code&gt;/&lt;/code&gt;。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight rpsl&#34;&gt;route:              &amp;lt;IP 地址块的 CIDR 格式&amp;gt;
 descr:              &amp;lt;简介&amp;gt;
@@ -299,7 +299,7 @@ source:             DN42&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;source&lt;/code&gt; ：固定为 &lt;code&gt;DN42&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;如需添加 IPv6 路由，将本节所述的 &lt;code&gt;route&lt;/code&gt; 改为 &lt;code&gt;route6&lt;/code&gt; 即可，此处不再赘述。&lt;/p&gt;
-&lt;h3 id=&#34;上传更改到-DN42-注册表&#34;&gt;上传更改到 DN42 注册表&lt;/h3&gt;
+&lt;h3 id=&#34;上传更改到-dn42-注册表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#上传更改到-dn42-注册表&#34;&gt;&lt;/a&gt;上传更改到 DN42 注册表&lt;/h3&gt;
 &lt;p&gt;完成以上步骤之后，使用 &lt;code&gt;git diff&lt;/code&gt; 查看文件变动，检查无误后，使用 &lt;code&gt;git add .&lt;/code&gt; 暂存。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/08/14/RhjwYHFGcaKUSye.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;运行仓库根目录下的 &lt;code&gt;./check-my-stuff &amp;lt;维护者&amp;gt;&lt;/code&gt; 检查文件内容是否有误，确定无误后，提交。&lt;/p&gt;
@@ -310,20 +310,20 @@ source:             DN42&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;git push --set-upstream origin &amp;lt;用户名&amp;gt;-&amp;lt;日期, YYYYMMDD&amp;gt;/register&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/04/04/1YwNjs8uvOJMFoq.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;上传后在 DN42 Git 中切换到自己的分支，并创建一个合并请求，等待管理员审核。&lt;/p&gt;
-&lt;h3 id=&#34;注意事项&#34;&gt;注意事项&lt;/h3&gt;
+&lt;h3 id=&#34;注意事项&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注意事项&#34;&gt;&lt;/a&gt;注意事项&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;各个项目的键和值之间有一长串空格，键、冒号与空格的总长度必须是 20 个字符，且不能随意修改。为了编辑时的方便，注册表中提供了一个脚本 &lt;code&gt;fmt-my-stuff&lt;/code&gt; ，只需要使用 &lt;code&gt;./fmt-my-stuff &amp;lt;维护者&amp;gt;&lt;/code&gt; 即可自动完成此步骤。&lt;/li&gt;
 &lt;li&gt;DN42 Registry 的工作语言是英语。请使用英语完成全部流程，以免出现不必要的麻烦。&lt;/li&gt;
 &lt;li&gt;请认真对待管理员提出的更改请求，按照要求完成全部修改后直接上传到原分支下即可，无需再新开合并请求。&lt;/li&gt;
 &lt;li&gt;推荐使用随机的 IPv4 与 IPv6 地址块，避免与其他网络重复。请明白，DN42 并不是这些网络资源的权威注册机构。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;DN42-BIRD2-使用入门&#34;&gt;DN42 BIRD2 使用入门&lt;/h2&gt;
+&lt;h2 id=&#34;dn42-bird2-使用入门&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dn42-bird2-使用入门&#34;&gt;&lt;/a&gt;DN42 BIRD2 使用入门&lt;/h2&gt;
 &lt;p&gt;如无特别说明，本部分中所使用的 BIRD 版本为 &lt;code&gt;2.0.7&lt;/code&gt; 。&lt;/p&gt;
-&lt;h3 id=&#34;安装-BIRD2&#34;&gt;安装 BIRD2&lt;/h3&gt;
+&lt;h3 id=&#34;安装-bird2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-bird2&#34;&gt;&lt;/a&gt;安装 BIRD2&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt update
 apt install bird2 -y&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;一般情况下，执行此命令即可自动安装 BIRD2 并启动系统服务。&lt;/p&gt;
-&lt;h3 id=&#34;编写-BIRD-配置文件&#34;&gt;编写 BIRD 配置文件&lt;/h3&gt;
+&lt;h3 id=&#34;编写-bird-配置文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编写-bird-配置文件&#34;&gt;&lt;/a&gt;编写 BIRD 配置文件&lt;/h3&gt;
 &lt;p&gt;对于刚刚加入 DN42 网络的新人来说，推荐使用 &lt;a href=&#34;https://dn42.dev/howto/Bird2#example-configuration&#34;&gt;howto/Bird2 - DN42 Wiki&lt;/a&gt; 中的示例配置以节省配置时间。&lt;/p&gt;
 &lt;p&gt;这套配置默认使用了 Multi Protocol BGP ，如果不想使用此功能请自行编写配置文件，如果没有 DN42 IPv4 地址需要去掉文件中的 IPv4 部分。&lt;/p&gt;
 &lt;p&gt;将以下配置写入到 &lt;code&gt;/etc/bird/bird.conf&lt;/code&gt; 中：&lt;/p&gt;
@@ -472,25 +472,25 @@ protocol static &amp;#123;
 &lt;span class=&#34;keyword&#34;&gt;include&lt;/span&gt; &amp;quot;/etc/bird/peers/*&amp;quot;;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后在 &lt;code&gt;/etc/bird&lt;/code&gt; 目录下创建一个文件夹，命名为 &lt;code&gt;peers&lt;/code&gt; ，以便后续存储配置文件使用。&lt;/p&gt;
 &lt;p&gt;如果想更深入的学习如何编写 BIRD 配置文件，推荐查看 &lt;a href=&#34;https://github.com/moesoha/bird-bgp-kickstart&#34;&gt;BIRD 与 BGP 的新手开场&lt;/a&gt; 和 &lt;a href=&#34;https://bird.network.cz/?get_doc&amp;amp;f=bird.html&amp;amp;v=20&#34;&gt;BIRD 官方文档&lt;/a&gt; 。&lt;/p&gt;
-&lt;h3 id=&#34;下载-ROA-配置文件&#34;&gt;下载 ROA 配置文件&lt;/h3&gt;
+&lt;h3 id=&#34;下载-roa-配置文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#下载-roa-配置文件&#34;&gt;&lt;/a&gt;下载 ROA 配置文件&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;wget -4 -O /tmp/dn42_roa.conf https://dn42.burble.com/roa/dn42_roa_bird2_4.conf &amp;amp;&amp;amp; mv -f /tmp/dn42_roa.conf /etc/bird/dn42_roa.conf
 wget -4 -O /tmp/dn42_roa_v6.conf https://dn42.burble.com/roa/dn42_roa_bird2_6.conf &amp;amp;&amp;amp; mv -f /tmp/dn42_roa_v6.conf /etc/bird/dn42_roa_v6.conf&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用此命令即可将 ROA 文件下载到本机以供使用。&lt;/p&gt;
 &lt;p&gt;还需要将此命令添加为定时任务，推荐设置为每小时运行一次，否则不会更新到最新的 ROA ，每次更新后都需要使用 &lt;code&gt;birdc configure&lt;/code&gt; 命令重载 BIRD 配置。&lt;/p&gt;
-&lt;h3 id=&#34;重新加载-BIRD-配置&#34;&gt;重新加载 BIRD 配置&lt;/h3&gt;
+&lt;h3 id=&#34;重新加载-bird-配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#重新加载-bird-配置&#34;&gt;&lt;/a&gt;重新加载 BIRD 配置&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;birdc configure&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用该命令重新加载 BIRD 配置，并使用 &lt;code&gt;birdc show protocol&lt;/code&gt; 查看状态。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/08/16/ZSPe6a3fpuDATG2.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;DN42-WireGuard-使用入门&#34;&gt;DN42 WireGuard 使用入门&lt;/h2&gt;
+&lt;h2 id=&#34;dn42-wireguard-使用入门&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dn42-wireguard-使用入门&#34;&gt;&lt;/a&gt;DN42 WireGuard 使用入门&lt;/h2&gt;
 &lt;p&gt;WireGuard 是一种简单易用、速度快、现代化的 VPN ，它利用了最先进的加密技术，并使用 UDP 协议传输数据。WireGuard 设计为通用 VPN ，可在嵌入式设备和超级计算机上运行，​​适用于许多不同的环境。WireGuard 起初是专为 Linux 编写并发布的，后来被移植到各个平台上。在 &lt;a href=&#34;http://WireGuard.com&#34;&gt;WireGuard.com&lt;/a&gt; 上可以找到它的 &lt;a href=&#34;https://www.wireguard.com/papers/wireguard.pdf&#34;&gt;技术白皮书&lt;/a&gt; 。&lt;/p&gt;
-&lt;h3 id=&#34;安装-WireGuard&#34;&gt;安装 WireGuard&lt;/h3&gt;
+&lt;h3 id=&#34;安装-wireguard&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-wireguard&#34;&gt;&lt;/a&gt;安装 WireGuard&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt update
 apt install wireguard -y&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;一般情况下，执行此命令即可直接安装 WireGuard 和 WireGuard Tools ，无需额外操作。&lt;/p&gt;
-&lt;h3 id=&#34;生成公钥与私钥&#34;&gt;生成公钥与私钥&lt;/h3&gt;
+&lt;h3 id=&#34;生成公钥与私钥&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#生成公钥与私钥&#34;&gt;&lt;/a&gt;生成公钥与私钥&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;wg genkey | tee privatekey | wg pubkey &amp;gt; publickey&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用此命令即可在当前目录下生成两个名叫 &lt;code&gt;privatekey&lt;/code&gt; 和 &lt;code&gt;publickey&lt;/code&gt; 的文件，分别代表私钥和公钥。&lt;/p&gt;
-&lt;h3 id=&#34;搭建-WireGuard-隧道&#34;&gt;搭建 WireGuard 隧道&lt;/h3&gt;
+&lt;h3 id=&#34;搭建-wireguard-隧道&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#搭建-wireguard-隧道&#34;&gt;&lt;/a&gt;搭建 WireGuard 隧道&lt;/h3&gt;
 &lt;p&gt;搭建 WireGuard 隧道非常简便，只需要生成一对公钥与私钥并与对等端交换公钥即可。&lt;/p&gt;
 &lt;p&gt;如果需要通过 WireGuard 隧道建立 BGP 会话，不能使用 WireGuard 内建的多 Peer 功能，必须为每个对等端创建一条隧道。&lt;/p&gt;
 &lt;p&gt;在 &lt;code&gt;/etc/wireguard&lt;/code&gt; 目录下新建一个名为 &lt;code&gt;&amp;lt;隧道名&amp;gt;.conf&lt;/code&gt; 的文件：&lt;/p&gt;
@@ -527,14 +527,14 @@ apt install wireguard -y&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;p&gt;之后使用 &lt;code&gt;wg-quick up &amp;lt;隧道名&amp;gt;&lt;/code&gt; 来启动隧道即可。&lt;/p&gt;
 &lt;p&gt;如需开机自启，可以在测试无误后执行 &lt;code&gt;systemctl enable wg-quick@&amp;lt;隧道名&amp;gt;&lt;/code&gt; 。&lt;/p&gt;
-&lt;h3 id=&#34;检测隧道状态&#34;&gt;检测隧道状态&lt;/h3&gt;
+&lt;h3 id=&#34;检测隧道状态&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#检测隧道状态&#34;&gt;&lt;/a&gt;检测隧道状态&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;wg show &amp;lt;隧道名&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用该命令即可查看隧道状态。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/08/16/wxgUJNHnQAXFMdS.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如上图所示，当 &lt;code&gt;latest handshake&lt;/code&gt; 时间较近且 &lt;code&gt;transfer&lt;/code&gt; 有收有发时可以认为隧道正常。&lt;/p&gt;
 &lt;p&gt;如需查看所有隧道的状态，直接使用 &lt;code&gt;wg&lt;/code&gt; 命令即可。&lt;/p&gt;
-&lt;h2 id=&#34;与其他网络进行对等互联&#34;&gt;与其他网络进行对等互联&lt;/h2&gt;
-&lt;h3 id=&#34;系统配置&#34;&gt;系统配置&lt;/h3&gt;
+&lt;h2 id=&#34;与其他网络进行对等互联&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#与其他网络进行对等互联&#34;&gt;&lt;/a&gt;与其他网络进行对等互联&lt;/h2&gt;
+&lt;h3 id=&#34;系统配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#系统配置&#34;&gt;&lt;/a&gt;系统配置&lt;/h3&gt;
 &lt;p&gt;在 DN42 网络中，没有绝对意义上的客户端，每个人都可能是他人的路由器，经常会出现数据包的来源网卡与回复使用的网卡不一致的情况，因此需要打开 Linux 内核的数据包转发功能，具体操作如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv4.ip_forward=1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
 &lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv6.conf.default.forwarding=1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
@@ -545,13 +545,13 @@ sysctl -p&lt;/code&gt;&lt;/pre&gt;
 &lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;net.ipv4.conf.all.rp_filter=0&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/sysctl.conf
 sysctl -p&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;除此之外，还需要关闭一些自动化的配置 iptables 防火墙的工具，如 UFW 。&lt;/p&gt;
-&lt;h3 id=&#34;搭建-WireGuard-隧道-2&#34;&gt;搭建 WireGuard 隧道&lt;/h3&gt;
+&lt;h3 id=&#34;搭建-wireguard-隧道-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#搭建-wireguard-隧道-t2&#34;&gt;&lt;/a&gt;搭建 WireGuard 隧道&lt;/h3&gt;
 &lt;p&gt;请参考 &lt;a href=&#34;#DN42-WireGuard-%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8&#34;&gt;DN42 WireGuard 使用入门&lt;/a&gt; 一节。&lt;/p&gt;
-&lt;h3 id=&#34;配置-BGP-会话&#34;&gt;配置 BGP 会话&lt;/h3&gt;
+&lt;h3 id=&#34;配置-bgp-会话&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-bgp-会话&#34;&gt;&lt;/a&gt;配置 BGP 会话&lt;/h3&gt;
 &lt;p&gt;在 &lt;code&gt;/etc/bird/peers&lt;/code&gt; 目录下新建一个文件，命名为 &lt;code&gt;&amp;lt;名字&amp;gt;.conf&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;如果使用链路本地地址进行 Peer 的话，需要按照下面的配置示例进行配置：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bird&#34;&gt;protocol bgp &amp;lt;名字&amp;gt; from dnpeers &amp;#123;
-    neighbor &amp;lt;对端链路本地地址&amp;gt; % &amp;#39;&amp;lt;对端 WireGuard 隧道名&amp;gt;&amp;#39; as &amp;lt;对端 ASN&amp;gt;;
+    neighbor &amp;lt;对端链路本地地址&amp;gt; % &amp;#x27;&amp;lt;对端 WireGuard 隧道名&amp;gt;&amp;#x27; as &amp;lt;对端 ASN&amp;gt;;
     source address &amp;lt;本地的链路本地地址&amp;gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;否则按照下面的配置示例进行配置：&lt;/p&gt;
@@ -559,12 +559,12 @@ sysctl -p&lt;/code&gt;&lt;/pre&gt;
     neighbor &amp;lt;对端 IPv6 地址&amp;gt; as &amp;lt;对端 ASN&amp;gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后使用 &lt;code&gt;birdc configure&lt;/code&gt; 重载配置即可。&lt;/p&gt;
-&lt;h2 id=&#34;更新日志&#34;&gt;更新日志&lt;/h2&gt;
+&lt;h2 id=&#34;更新日志&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新日志&#34;&gt;&lt;/a&gt;更新日志&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;2021-04-04 第一版 &lt;sup&gt;（2021 年 8 月 10 日存档于 &lt;a href=&#34;https://web.archive.org/web/20210810062825/https://blog.baoshuo.ren/post/dn42-network/&#34;&gt;互联网档案馆&lt;/a&gt;）&lt;/sup&gt;&lt;/li&gt;
 &lt;li&gt;2021-08-14 第二版&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://dn42.dev/howto/Getting-Started&#34;&gt;Getting Started - DN42 Wiki&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.dn42.dev/dn42/registry/src/branch/master/README.md&#34;&gt;Guide for creating a Pull Request - dn42/registry - DN42 Git&lt;/a&gt;&lt;/li&gt;
@@ -583,8 +583,8 @@ sysctl -p&lt;/code&gt;&lt;/pre&gt;
             <pubDate>Sun, 21 Mar 2021 01:06:09 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;很久之前就有了这样的一个想法：拥有一个自己的 ASN 。2021 年的寒假末尾，我终于找到了一个肯给我这个未成年人申请 ASN 的 LIR 。&lt;br&gt;
 &lt;s&gt;于是这个世界上又多了一个祸害公网的人。&lt;/s&gt;&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-&lt;h2 id=&#34;注册-ASN&#34;&gt;注册 ASN&lt;/h2&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;h2 id=&#34;注册-asn&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册-asn&#34;&gt;&lt;/a&gt;注册 ASN&lt;/h2&gt;
 &lt;p&gt;我找了某个 LIR 注册的 APNIC 的 ASN ，下号用时 3 个工作日。&lt;/p&gt;
 &lt;p&gt;需要提供的信息有这些（带有 &lt;code&gt;[保密]&lt;/code&gt; 标签的是非公开信息）：&lt;/p&gt;
 &lt;ol&gt;
@@ -605,7 +605,7 @@ sysctl -p&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 &lt;p&gt;然后等了 3 个工作日，我的 ASN 申请终于通过审核了（其实在这之前我已经去上学了）。&lt;/p&gt;
 &lt;p&gt;需要注意的是 APNIC 每半年会向联系人邮箱发送一封验证邮件，所以邮箱需要保持畅通。&lt;/p&gt;
-&lt;h2 id=&#34;申请-Vultr-BGP-广播功能&#34;&gt;申请 Vultr BGP 广播功能&lt;/h2&gt;
+&lt;h2 id=&#34;申请-vultr-bgp-广播功能&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#申请-vultr-bgp-广播功能&#34;&gt;&lt;/a&gt;申请 Vultr BGP 广播功能&lt;/h2&gt;
 &lt;p&gt;我的 LIR 为我提供了一段 &lt;code&gt;/44&lt;/code&gt; 的 IP （而不是 &lt;code&gt;/48&lt;/code&gt;）：&lt;code&gt;2406:840:e080::/44&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;由于某些原因，我选择了使用 Vultr 来进行 IP 的广播，当然 HE 的 BGP 隧道也是可以的。&lt;/p&gt;
 &lt;p&gt;点击 &lt;a href=&#34;https://my.vultr.com/bgp/&#34;&gt;https://my.vultr.com/bgp/&lt;/a&gt; 进入 Vultr BGP 广播功能的开通页面。&lt;/p&gt;
@@ -661,17 +661,17 @@ From,
 由于我是在半夜申请的 Vultr BGP 服务，所以几分钟就开通好了。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/03/13/2aLwgPWHzlxF9DY.png&#34; alt=&#34;完成后的界面&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;完成后的界面&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;之后不要忘记去控制台重启实例哦~&lt;/p&gt;
-&lt;h2 id=&#34;使用-BIRD-1-6-广播-IP&#34;&gt;使用 BIRD 1.6 广播 IP&lt;/h2&gt;
+&lt;h2 id=&#34;使用-bird-1-6-广播-ip&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-bird-1-6-广播-ip&#34;&gt;&lt;/a&gt;使用 BIRD 1.6 广播 IP&lt;/h2&gt;
 &lt;p&gt;目前 BIRD 1.x 和 2.x 同时在维护，二者的区别是 1.x 中 IPv4 和 IPv6 协议是分开的（bird 和 bird6），而 2.x 将两部分代码合并在了一起还引入了更多新功能。&lt;br&gt;
 1.x 和 2.x 两个版本的语法并无差别，只是 2.x 在涉及与路由表相关的操作的时候，需要指定特别的协议（&lt;code&gt;ipv4&lt;/code&gt; 或 &lt;code&gt;ipv6&lt;/code&gt;）。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://bird.network.cz/?get_doc&amp;amp;f=bird.html&amp;amp;v=20&#34;&gt;BIRD 2.x 官方文档&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;我选用的是 CentOS 7 系统 + BIRD 1.6.8 的组合。&lt;/p&gt;
 &lt;p&gt;由于直接使用 yum 安装 bird6 会出现无法找到包的情况，我们需要先通过 yum 安装 epel。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;yum install epel-release -y&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;安装-bird&#34;&gt;安装 bird&lt;/h3&gt;
+&lt;h3 id=&#34;安装-bird&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-bird&#34;&gt;&lt;/a&gt;安装 bird&lt;/h3&gt;
 &lt;p&gt;安装 bird6 ：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;yum install bird6 -y&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;配置-bird&#34;&gt;配置 bird&lt;/h3&gt;
+&lt;h3 id=&#34;配置-bird&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-bird&#34;&gt;&lt;/a&gt;配置 bird&lt;/h3&gt;
 &lt;p&gt;安装完成后先停止 bird 服务：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;systemctl stop bird6&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;由于默认的配置文件注释的内容过多，推荐先删除原有配置文件里面的全部内容。&lt;/p&gt;
@@ -703,7 +703,7 @@ From,
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;systemctl start bird6&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/03/13/R3UZXdnOx7yTVhc.png&#34; alt=&#34;成果&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;成果&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;可以使用 &lt;code&gt;birdc6 show route&lt;/code&gt; 和 &lt;code&gt;birdc6 show proto all&lt;/code&gt; 命令查看状态。&lt;/p&gt;
-&lt;h3 id=&#34;添加虚拟网卡&#34;&gt;添加虚拟网卡&lt;/h3&gt;
+&lt;h3 id=&#34;添加虚拟网卡&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加虚拟网卡&#34;&gt;&lt;/a&gt;添加虚拟网卡&lt;/h3&gt;
 &lt;p&gt;接下来需要创建一个虚拟网卡并设置一个 IP &lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;ip link add dev baoshuo1 &lt;span class=&#34;built_in&#34;&gt;type&lt;/span&gt; dummy
 ip link &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; baoshuo1 up
@@ -714,13 +714,13 @@ ip addr add dev baoshuo1 2406:840:e080::1/128&lt;/code&gt;&lt;/pre&gt;
     &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;all&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;之后使用 &lt;code&gt;systemctl reload bird6&lt;/code&gt; 命令重载 bird 即可。&lt;/p&gt;
-&lt;h2 id=&#34;使用-BIRD2-广播-IP&#34;&gt;使用 BIRD2 广播 IP&lt;/h2&gt;
-&lt;h3 id=&#34;安装-BIRD2&#34;&gt;安装 BIRD2&lt;/h3&gt;
+&lt;h2 id=&#34;使用-bird2-广播-ip&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-bird2-广播-ip&#34;&gt;&lt;/a&gt;使用 BIRD2 广播 IP&lt;/h2&gt;
+&lt;h3 id=&#34;安装-bird2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-bird2&#34;&gt;&lt;/a&gt;安装 BIRD2&lt;/h3&gt;
 &lt;p&gt;由于直接使用 yum 安装 bird6 会出现无法找到包的情况，我们需要先通过 yum 安装 epel。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;yum install epel-release -y&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;安装 bird2 ：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;yum install bird2 -y&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;配置-BIRD2&#34;&gt;配置 BIRD2&lt;/h3&gt;
+&lt;h3 id=&#34;配置-bird2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-bird2&#34;&gt;&lt;/a&gt;配置 BIRD2&lt;/h3&gt;
 &lt;p&gt;BIRD2 的配置文件在 &lt;code&gt;/etc/bird.conf&lt;/code&gt; 目录下。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight puppet&#34;&gt;router id [实例的 IPv4 地址];
 
@@ -755,11 +755,11 @@ protocol &lt;span class=&#34;keyword&#34;&gt;device&lt;/span&gt; &amp;#123;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;由于我的需求比较简陋，所以配置文件并无较大改动。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/03/26/Sdw9oWyuKiZNUpL.png&#34; alt=&#34;成果&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;成果&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&#34;拆分-IP-段&#34;&gt;拆分 IP 段&lt;/h2&gt;
+&lt;h2 id=&#34;拆分-ip-段&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#拆分-ip-段&#34;&gt;&lt;/a&gt;拆分 IP 段&lt;/h2&gt;
 &lt;p&gt;由于我一下子用不了那么多 IP，所以我决定拆分一下。&lt;/p&gt;
 &lt;p&gt;如果不涉及 whois 信息的修改操作，那么只需要修改一下 bird 的配置分开广播即可。&lt;/p&gt;
 &lt;p&gt;APNIC 修改 whois 信息的流程可以参考 &lt;a href=&#34;https://www.apnic.net/manage-ip/using-whois/updating-whois/objects/email-updates/&#34;&gt;https://www.apnic.net/manage-ip/using-whois/updating-whois/objects/email-updates/&lt;/a&gt; 。&lt;/p&gt;
-&lt;h2 id=&#34;Peer&#34;&gt;Peer&lt;/h2&gt;
+&lt;h2 id=&#34;peer&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#peer&#34;&gt;&lt;/a&gt;Peer&lt;/h2&gt;
 &lt;p&gt;首先编写一个模板，像下面这样：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight pgsql&#34;&gt;# /etc/bird6.conf
 &lt;span class=&#34;keyword&#34;&gt;template&lt;/span&gt; bgp peers6 &amp;#123;
@@ -787,7 +787,7 @@ protocol&lt;span class=&#34;built_in&#34;&gt; bgp &lt;/span&gt;&amp;lt;PEER_NAME
     &lt;span class=&#34;builtin-name&#34;&gt;export&lt;/span&gt;&lt;span class=&#34;built_in&#34;&gt; filter &lt;/span&gt;myexport;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/03/27/IsGKxX9wRAUNBrH.png&#34; alt=&#34;和 LSC.MOE 的 Peer&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;和 LSC.MOE 的 Peer&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&#34;术语解释&#34;&gt;术语解释&lt;/h2&gt;
+&lt;h2 id=&#34;术语解释&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#术语解释&#34;&gt;&lt;/a&gt;术语解释&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;LIR: 本地互联网注册机构&lt;/li&gt;
 &lt;li&gt;RIR: 区域互联网注册机构 （&lt;a href=&#34;https://zh.wikipedia.org/zh-cn/%E5%8C%BA%E5%9F%9F%E4%BA%92%E8%81%94%E7%BD%91%E6%B3%A8%E5%86%8C%E7%AE%A1%E7%90%86%E6%9C%BA%E6%9E%84&#34;&gt;维基百科&lt;/a&gt;）&lt;/li&gt;
@@ -795,7 +795,7 @@ protocol&lt;span class=&#34;built_in&#34;&gt; bgp &lt;/span&gt;&amp;lt;PEER_NAME
 &lt;li&gt;BGP: 边界网关协议（&lt;a href=&#34;https://zh.wikipedia.org/zh-cn/%E8%BE%B9%E7%95%8C%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE&#34;&gt;维基百科&lt;/a&gt;）&lt;/li&gt;
 &lt;li&gt;BIRD: 一个功能齐全的动态 IP 路由守护程序（&lt;a href=&#34;https://bird.network.cz&#34;&gt;官方网站&lt;/a&gt;）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;

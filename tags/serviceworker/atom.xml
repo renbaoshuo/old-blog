@@ -10,21 +10,21 @@
     <category term="BIRD" />
     <category term="BGP" />
     <category term="CTF" />
-    <category term="Git" />
     <category term="DN42" />
-    <category term="Web" />
+    <category term="Git" />
     <category term="折腾" />
-    <category term="Linux" />
+    <category term="Web" />
     <category term="网络" />
+    <category term="Linux" />
     <category term="VMware" />
     <category term="OI" />
     <category term="题解" />
     <category term="洛谷" />
-    <category term="游记" />
     <category term="牛客网" />
+    <category term="游记" />
     <category term="S2OJ" />
-    <category term="Cloudflare" />
     <category term="macOS" />
+    <category term="Cloudflare" />
     <category term="ServiceWorker" />
     <category term="JavaScript" />
     <category term="前端" />
@@ -35,11 +35,11 @@
         <link rel="alternate" href="https://blog.baoshuo.ren/post/workbox-service-worker/"/>
         <content type="html">&lt;p&gt;对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。&lt;br&gt;
 其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;我们可以使用 Google Chrome 团队的 &lt;a href=&#34;https://github.com/GoogleChrome/workbox&#34;&gt;Workbox&lt;/a&gt; 来实现 Service Worker 的快速开发。&lt;/p&gt;
-&lt;h2 id=&#34;注册-Service-Worker&#34;&gt;注册 Service Worker&lt;/h2&gt;
+&lt;h2 id=&#34;注册-service-worker&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册-service-worker&#34;&gt;&lt;/a&gt;注册 Service Worker&lt;/h2&gt;
 &lt;p&gt;在页面中添加以下内容以注册一个 Service Worker 。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;javascript&#34;&gt;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 检测是否支持 Service Worker&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 也可使用 navigator.serviceWorker 判断&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (&lt;span class=&#34;string&#34;&gt;&amp;#x27;serviceWorker&amp;#x27;&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; navigator) &amp;#123; &lt;/span&gt;
@@ -47,15 +47,15 @@
 &lt;span class=&#34;javascript&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;// 不使用 window.onload 以免冲突   &lt;/span&gt;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;        &lt;span class=&#34;built_in&#34;&gt;window&lt;/span&gt;.addEventListener(&lt;span class=&#34;string&#34;&gt;&amp;#x27;load&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;            navigator.serviceWorker.register(&lt;span class=&#34;string&#34;&gt;&amp;#x27;/sw.js&amp;#x27;&lt;/span&gt;);&lt;/span&gt;
-        &amp;#125;);
-    &amp;#125;
-&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;javascript&#34;&gt;        &amp;#125;);&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;    &amp;#125;&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;当然，在这之前你需要先有一个 Service Worker 的代码 &lt;code&gt;/sw.js&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;你可以在这个文件中写入以下代码来检测是否成功地注册了 Service Worker 。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.clear();
 &lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Successful registered service worker.&amp;#x27;&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/28/Eu4mVIC2kNrUgiL.png&#34; alt=&#34;控制台输出&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;控制台输出&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&#34;引入-Workbox&#34;&gt;引入 Workbox&lt;/h2&gt;
+&lt;h2 id=&#34;引入-workbox&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引入-workbox&#34;&gt;&lt;/a&gt;引入 Workbox&lt;/h2&gt;
 &lt;p&gt;你可以使用 Google 提供的 CDN 来引入 Workbox 。&lt;br&gt;
 只需在 &lt;code&gt;sw.js&lt;/code&gt; 的开头写入以下内容即可：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;importScripts(&lt;span class=&#34;string&#34;&gt;&amp;#x27;https://storage.googleapis.com/workbox-cdn/releases/6.1.1/workbox-sw.js&amp;#x27;&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
@@ -65,10 +65,10 @@ workbox copyLibraries &amp;#123;path/to/workbox/&amp;#125;&lt;/code&gt;&lt;/pre&
 &lt;p&gt;这时需要在 &lt;code&gt;sw.js&lt;/code&gt; 的开头将上方写入的内容替换为以下内容即可：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;importScripts(&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;path/to&amp;#125;/workbox/workbox-sw.js&amp;#x27;&lt;/span&gt;);
 workbox.setConfig(&amp;#123;
-    modulePathPrefix: &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;path/to&amp;#125;/workbox/&amp;#x27;&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;modulePathPrefix&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;path/to&amp;#125;/workbox/&amp;#x27;&lt;/span&gt;
 &amp;#125;);&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;Workbox-策略&#34;&gt;Workbox 策略&lt;/h2&gt;
-&lt;h3 id=&#34;Stale-While-Revalidate（重新验证时过期）&#34;&gt;Stale While Revalidate（重新验证时过期）&lt;/h3&gt;
+&lt;h2 id=&#34;workbox-策略&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#workbox-策略&#34;&gt;&lt;/a&gt;Workbox 策略&lt;/h2&gt;
+&lt;h3 id=&#34;stale-while-revalidate（重新验证时过期）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#stale-while-revalidate（重新验证时过期）&#34;&gt;&lt;/a&gt;Stale While Revalidate（重新验证时过期）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/28/rx8zafbqPe1JnkX.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;此策略将对网络请求使用缓存来响应（如果有），并在后台更新缓存。如果未缓存，它将等待网络响应并使用它。&lt;br&gt;
 这是一个相当安全的策略，因为这意味着用户会定期更新其缓存。这种策略的缺点是：它总是从网络上请求资源，较为浪费用户的带宽。&lt;/p&gt;
@@ -76,46 +76,46 @@ workbox.setConfig(&amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Network-First（网络优先）&#34;&gt;Network First（网络优先）&lt;/h3&gt;
+&lt;h3 id=&#34;network-first（网络优先）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#network-first（网络优先）&#34;&gt;&lt;/a&gt;Network First（网络优先）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/28/9ViWk1ZyU4CuDxE.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;此策略将尝试首先从网络获得响应。如果收到响应，它将把它传递给浏览器，并将其保存到缓存中。如果网络请求失败，将使用最后一个缓存的响应。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkFirst()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Cache-First（缓存优先）&#34;&gt;Cache First（缓存优先）&lt;/h3&gt;
+&lt;h3 id=&#34;cache-first（缓存优先）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cache-first（缓存优先）&#34;&gt;&lt;/a&gt;Cache First（缓存优先）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/28/jkn4Y3mNCRZrSdX.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;此策略将首先检查缓存中是否有响应，如果有响应，则使用该策略。如果请求不在缓存中，则将使用网络，并将任何有效响应添加到缓存中，然后再传递给浏览器。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheFirst()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Network-Only（仅网络）&#34;&gt;Network Only（仅网络）&lt;/h3&gt;
+&lt;h3 id=&#34;network-only（仅网络）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#network-only（仅网络）&#34;&gt;&lt;/a&gt;Network Only（仅网络）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/28/cQYTlvie1dX8hOF.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;强制响应来自网络。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkOnly()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Cache-Only（仅缓存）&#34;&gt;Cache Only（仅缓存）&lt;/h3&gt;
+&lt;h3 id=&#34;cache-only（仅缓存）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cache-only（仅缓存）&#34;&gt;&lt;/a&gt;Cache Only（仅缓存）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/28/71Sw5tTaBQKl8ri.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;强制响应来自缓存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheOnly()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;策略配置&#34;&gt;策略配置&lt;/h3&gt;
+&lt;h3 id=&#34;策略配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#策略配置&#34;&gt;&lt;/a&gt;策略配置&lt;/h3&gt;
 &lt;p&gt;可以通过定义要使用的插件来自定义路由的行为。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate(&amp;#123;
     &lt;span class=&#34;comment&#34;&gt;// Use a custom cache for this route.&lt;/span&gt;
-    cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;my-cache-name&amp;#x27;&lt;/span&gt;,
+    &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;my-cache-name&amp;#x27;&lt;/span&gt;,
 
     &lt;span class=&#34;comment&#34;&gt;// Add an array of custom plugins (e.g. `ExpirationPlugin`).&lt;/span&gt;
-    plugins: [
+    &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
         ...
     ]
 &amp;#125;);&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;Workbox-中的自定义策略&#34;&gt;Workbox 中的自定义策略&lt;/h2&gt;
+&lt;h2 id=&#34;workbox-中的自定义策略&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#workbox-中的自定义策略&#34;&gt;&lt;/a&gt;Workbox 中的自定义策略&lt;/h2&gt;
 &lt;p&gt;在某些情况下，您可能希望使用自己的其他策略来响应请求，或者只是通过模板在 Service Worker 中生成请求。&lt;br&gt;
 为此可以提供一个异步返回 &lt;code&gt;Response&lt;/code&gt; 对象的函数 &lt;code&gt;handler&lt;/code&gt; 。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; handler = &lt;span class=&#34;keyword&#34;&gt;async&lt;/span&gt; (&amp;#123; url, event &amp;#125;) =&amp;gt; &amp;#123;
@@ -130,8 +130,8 @@ workbox.routing.registerRoute(
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; match = &lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;&amp;#123; url, event &amp;#125;&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (url.pathname === &lt;span class=&#34;string&#34;&gt;&amp;#x27;/example&amp;#x27;&lt;/span&gt;) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &amp;#123;
-            name: &lt;span class=&#34;string&#34;&gt;&amp;#x27;Workbox&amp;#x27;&lt;/span&gt;,
-            type: &lt;span class=&#34;string&#34;&gt;&amp;#x27;guide&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;name&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;Workbox&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;type&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;guide&amp;#x27;&lt;/span&gt;,
         &amp;#125;;
     &amp;#125;
 &amp;#125;;
@@ -145,7 +145,7 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(match, handler);&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;如果 URL 中的某些信息可以在 match 回调中解析一次并在中使用，则这可能会对 &lt;code&gt;handler&lt;/code&gt; 有所帮助。&lt;/p&gt;
-&lt;h2 id=&#34;Workbox-实践&#34;&gt;Workbox 实践&lt;/h2&gt;
+&lt;h2 id=&#34;workbox-实践&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#workbox-实践&#34;&gt;&lt;/a&gt;Workbox 实践&lt;/h2&gt;
 &lt;p&gt;通常对于大部分项目使用 Workbox 时一般会引入相应的 gulp 或者 webpack 插件，在构建流程中完成对 Service Worker 的注册、将指定 URL 进行 Precache、完成 sw.js 的生成，等等。&lt;br&gt;
 但是对于 Hexo、Jekyll 这些静态站点生成器或者 WordPress、Typecho 这些 CMS，如果不安装相应的插件，就需要自己从头编写一个 &lt;code&gt;sw.js&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;先写一下总的配置：&lt;/p&gt;
@@ -153,92 +153,92 @@ workbox.routing.registerRoute(match, handler);&lt;/code&gt;&lt;/pre&gt;
 &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; maxEntries = &lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;// 最大条目数&lt;/span&gt;
 
 core.setCacheNameDetails(&amp;#123;
-    prefix: &lt;span class=&#34;string&#34;&gt;&amp;#x27;baoshuo-blog&amp;#x27;&lt;/span&gt;,          &lt;span class=&#34;comment&#34;&gt;// 前缀&lt;/span&gt;
-    suffix: cacheSuffixVersion       &lt;span class=&#34;comment&#34;&gt;// 后缀&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;prefix&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;baoshuo-blog&amp;#x27;&lt;/span&gt;,          &lt;span class=&#34;comment&#34;&gt;// 前缀&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;suffix&lt;/span&gt;: cacheSuffixVersion       &lt;span class=&#34;comment&#34;&gt;// 后缀&lt;/span&gt;
 &amp;#125;);&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Google-Fonts&#34;&gt;Google Fonts&lt;/h3&gt;
+&lt;h3 id=&#34;google-fonts&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#google-fonts&#34;&gt;&lt;/a&gt;Google Fonts&lt;/h3&gt;
 &lt;p&gt;Google Fonts 主要使用两个域名：&lt;code&gt;fonts.googleapis.com&lt;/code&gt; 和 &lt;code&gt;fonts.gstatic.com&lt;/code&gt; ，因此只需在匹配到这两个域名时进行缓存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;comment&#34;&gt;// 匹配 fonts.googleapis.com 和 fonts.gstatic.com 两个域名&lt;/span&gt;
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://(?:fonts\\.googleapis\\.com|fonts\\.gstatic\\.com)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate(&amp;#123;
         &lt;span class=&#34;comment&#34;&gt;// cache storage 名称和版本号&lt;/span&gt;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;font-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;font-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;comment&#34;&gt;// 使用 expiration 插件实现缓存条目数目和时间控制&lt;/span&gt;
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.expiration.ExpirationPlugin(&amp;#123;
                 &lt;span class=&#34;comment&#34;&gt;// 最大保存项目&lt;/span&gt;
                 maxEntries,
                 &lt;span class=&#34;comment&#34;&gt;// 缓存 30 天&lt;/span&gt;
-                maxAgeSeconds: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
+                &lt;span class=&#34;attr&#34;&gt;maxAgeSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
             &amp;#125;),
             &lt;span class=&#34;comment&#34;&gt;// 使用 cacheableResponse 插件缓存状态码为 0 的请求&lt;/span&gt;
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.cacheableResponse.CacheableResponsePlugin(&amp;#123;
-                statuses: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
+                &lt;span class=&#34;attr&#34;&gt;statuses&lt;/span&gt;: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
             &amp;#125;),
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;jsDelivr-CDN&#34;&gt;jsDelivr CDN&lt;/h3&gt;
+&lt;h3 id=&#34;jsdelivr-cdn&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jsdelivr-cdn&#34;&gt;&lt;/a&gt;jsDelivr CDN&lt;/h3&gt;
 &lt;p&gt;使用 jsDelivr CDN 时如果指定了库的版本，对应的文件可以称得上是永久不会改变的，所以使用 &lt;code&gt;CacheFirst&lt;/code&gt; 来进行缓存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://cdn\\.jsdelivr\\.net&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheFirst(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;static-immutable&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        fetchOptions: &amp;#123;
-            mode: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
-            credentials: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;static-immutable&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;fetchOptions&lt;/span&gt;: &amp;#123;
+            &lt;span class=&#34;attr&#34;&gt;mode&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;credentials&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
         &amp;#125;,
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.expiration.ExpirationPlugin(&amp;#123;
-                maxAgeSeconds: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
-                purgeOnQuotaError: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;
+                &lt;span class=&#34;attr&#34;&gt;maxAgeSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
+                &lt;span class=&#34;attr&#34;&gt;purgeOnQuotaError&lt;/span&gt;: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;
             &amp;#125;)
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Google-Analytics&#34;&gt;Google Analytics&lt;/h3&gt;
+&lt;h3 id=&#34;google-analytics&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#google-analytics&#34;&gt;&lt;/a&gt;Google Analytics&lt;/h3&gt;
 &lt;p&gt;Workbox 有一个 &lt;a href=&#34;https://developers.google.com/web/tools/workbox/guides/enable-offline-analytics&#34;&gt;Google Analytics 离线统计插件&lt;/a&gt;，可惜我用的是 Sukka 大佬编写的&lt;a href=&#34;https://github.com/SukkaW/cloudflare-workers-async-google-analytics&#34;&gt;非官方 Google Analytics 实现&lt;/a&gt;，所以只能添加一个 &lt;code&gt;NetworkOnly&lt;/code&gt; 来放弃离线统计。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://api\\.baoshuo\\.ren/cfga/(.*)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkOnly(&amp;#123;
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.backgroundSync.BackgroundSyncPlugin(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Optical_Collect&amp;#x27;&lt;/span&gt;, &amp;#123;
-                maxRetentionTime: &lt;span class=&#34;number&#34;&gt;12&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// Retry for max of 12 Hours (specified in minutes)&lt;/span&gt;
+                &lt;span class=&#34;attr&#34;&gt;maxRetentionTime&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;12&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// Retry for max of 12 Hours (specified in minutes)&lt;/span&gt;
             &amp;#125;),
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;图片&#34;&gt;图片&lt;/h3&gt;
+&lt;h3 id=&#34;图片&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图片&#34;&gt;&lt;/a&gt;图片&lt;/h3&gt;
 &lt;p&gt;由于我开通了 &lt;a href=&#34;http://SM.MS&#34;&gt;SM.MS&lt;/a&gt; 的 LifeTime Premium VIP ，所以图片当然是要存到这里啦~&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://SM.MS&#34;&gt;SM.MS&lt;/a&gt; 的图片域名有这几个：&lt;code&gt;i.loli.net&lt;/code&gt;、&lt;code&gt;vip1.loli.net&lt;/code&gt;、&lt;code&gt;vip2.loli.net&lt;/code&gt;、&lt;code&gt;vip1.loli.io&lt;/code&gt;、&lt;code&gt;vip2.loli.io&lt;/code&gt;，只需要写一个正则匹配下就好了。&lt;/p&gt;
 &lt;p&gt;由于图片链接对应的文件像 jsDelivr 一样也是几乎永久都不会改变的，所以使用 &lt;code&gt;CacheFirst&lt;/code&gt; 来进行缓存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://(?:i|vip[0-9])\\.loli\\.(?:io|net)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheFirst(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;img-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;img-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;comment&#34;&gt;// 使用 expiration 插件实现缓存条目数目和时间控制&lt;/span&gt;
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.expiration.ExpirationPlugin(&amp;#123;
                 maxEntries,                          &lt;span class=&#34;comment&#34;&gt;// 最大保存项目&lt;/span&gt;
-                maxAgeSeconds: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,    &lt;span class=&#34;comment&#34;&gt;// 缓存 30 天&lt;/span&gt;
+                &lt;span class=&#34;attr&#34;&gt;maxAgeSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,    &lt;span class=&#34;comment&#34;&gt;// 缓存 30 天&lt;/span&gt;
             &amp;#125;),
             &lt;span class=&#34;comment&#34;&gt;// 使用 cacheableResponse 插件缓存状态码为 0 的请求&lt;/span&gt;
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.cacheableResponse.CacheableResponsePlugin(&amp;#123;
-                statuses: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
+                &lt;span class=&#34;attr&#34;&gt;statuses&lt;/span&gt;: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
             &amp;#125;),
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;友情链接&#34;&gt;友情链接&lt;/h3&gt;
+&lt;h3 id=&#34;友情链接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#友情链接&#34;&gt;&lt;/a&gt;友情链接&lt;/h3&gt;
 &lt;p&gt;这些文件只是偶尔更新，使用 &lt;code&gt;StaleWhileRevalidate&lt;/code&gt; ，可以兼顾速度与版本更新。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://friends\\.baoshuo\\.ren(.*)(png|jpg|jpeg|svg|gif)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;img-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        fetchOptions: &amp;#123;
-            mode: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
-            credentials: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;img-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;fetchOptions&lt;/span&gt;: &amp;#123;
+            &lt;span class=&#34;attr&#34;&gt;mode&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;credentials&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
         &amp;#125;
     &amp;#125;)
 );
@@ -246,7 +246,7 @@ workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;https://friends\\.baoshuo\\.ren/links.json&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Disqus-评论&#34;&gt;Disqus 评论&lt;/h3&gt;
+&lt;h3 id=&#34;disqus-评论&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#disqus-评论&#34;&gt;&lt;/a&gt;Disqus 评论&lt;/h3&gt;
 &lt;p&gt;DisqusJS 判断访客的 Disqus 可用性是通过检查 &lt;code&gt;shortname.disqus.com/favicon.ico&lt;/code&gt; 和 &lt;code&gt;disqus.com/favicon.ico&lt;/code&gt; ，显然是不能被缓存的。&lt;br&gt;
 API 可以在无网络时使用 &lt;code&gt;NetworkFirst&lt;/code&gt; 来达到无网络时也能查看评论的效果。&lt;br&gt;
 另外 Disqus 本身也没有缓存的必要，所以对 &lt;code&gt;*.disqus.com&lt;/code&gt; 使用 &lt;code&gt;NetworkOnly&lt;/code&gt; 即可。&lt;br&gt;
@@ -255,12 +255,12 @@ API 可以在无网络时使用 &lt;code&gt;NetworkFirst&lt;/code&gt; 来达到�
 workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://api\\.baoshuo\\.ren/disqus/(.*)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkFirst(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;dsqjs-api&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        fetchOptions: &amp;#123;
-            mode: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
-            credentials: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;dsqjs-api&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;fetchOptions&lt;/span&gt;: &amp;#123;
+            &lt;span class=&#34;attr&#34;&gt;mode&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;credentials&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
         &amp;#125;,
-        networkTimeoutSeconds: &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;networkTimeoutSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;
     &amp;#125;)
 );
 &lt;span class=&#34;comment&#34;&gt;// Disqus&lt;/span&gt;
@@ -271,18 +271,18 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://(.*)disquscdn\\.com(.*)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheFirst(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;disqus-cdn-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;disqus-cdn-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.expiration.ExpirationPlugin(&amp;#123;
-                maxAgeSeconds: &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
+                &lt;span class=&#34;attr&#34;&gt;maxAgeSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
             &amp;#125;),
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.cacheableResponse.CacheableResponsePlugin(&amp;#123;
-                statuses: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
+                &lt;span class=&#34;attr&#34;&gt;statuses&lt;/span&gt;: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
             &amp;#125;),
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;后缀匹配&#34;&gt;后缀匹配&lt;/h3&gt;
+&lt;h3 id=&#34;后缀匹配&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后缀匹配&#34;&gt;&lt;/a&gt;后缀匹配&lt;/h3&gt;
 &lt;p&gt;针对其余没有被域名匹配到的静态文件，通过文件后缀进行匹配并使用 &lt;code&gt;StaleWhileRevalidate&lt;/code&gt; ，可以兼顾速度与版本更新。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;.*\.(?:png|jpg|jpeg|svg|gif|webp)&amp;#x27;&lt;/span&gt;),
@@ -292,14 +292,14 @@ workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;.*\.(css|js)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;默认行为&#34;&gt;默认行为&lt;/h3&gt;
+&lt;h3 id=&#34;默认行为&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#默认行为&#34;&gt;&lt;/a&gt;默认行为&lt;/h3&gt;
 &lt;p&gt;使用 Workbox 的 defaultHandler 匹配剩下的请求（包括页面自身），一律使用 &lt;code&gt;NetworkFirst&lt;/code&gt; ，借助 Workbox 的 &lt;code&gt;runtimeCache&lt;/code&gt; 起到加速和离线效果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.setDefaultHandler(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkFirst(&amp;#123;
-        networkTimeoutSeconds: &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;networkTimeoutSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://developers.google.com/web/tools/workbox&#34;&gt;https://developers.google.com/web/tools/workbox&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;a href=&#34;#Workbox-%E7%AD%96%E7%95%A5&#34;&gt;Workbox 策略&lt;/a&gt; 一节中的配图来自：&lt;a href=&#34;https://web.dev/offline-cookbook/&#34;&gt;https://web.dev/offline-cookbook/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;

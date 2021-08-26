@@ -10,21 +10,21 @@
     <category term="BIRD" />
     <category term="BGP" />
     <category term="CTF" />
-    <category term="Git" />
     <category term="DN42" />
-    <category term="Web" />
+    <category term="Git" />
     <category term="折腾" />
-    <category term="Linux" />
+    <category term="Web" />
     <category term="网络" />
+    <category term="Linux" />
     <category term="VMware" />
     <category term="OI" />
     <category term="题解" />
     <category term="洛谷" />
-    <category term="游记" />
     <category term="牛客网" />
+    <category term="游记" />
     <category term="S2OJ" />
-    <category term="Cloudflare" />
     <category term="macOS" />
+    <category term="Cloudflare" />
     <category term="ServiceWorker" />
     <category term="JavaScript" />
     <category term="前端" />
@@ -33,31 +33,31 @@
         <id>https://blog.baoshuo.ren/post/vmware-macos-bigsur/</id>
         <title>在 VMware 上安装 macOS 11 Big Sur Beta</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/vmware-macos-bigsur/"/>
-        <content type="html">&lt;h2 id=&#34;工具准备&#34;&gt;工具准备&lt;/h2&gt;
+        <content type="html">&lt;h2 id=&#34;工具准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工具准备&#34;&gt;&lt;/a&gt;工具准备&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;文件：&lt;code&gt;BigSur.cdr&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;文件：&lt;code&gt;unlocker.zip&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;软件：&lt;code&gt;VMware Workstation Pro 15&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;文末会给出上述工具的下载地址。&lt;/p&gt;
-&lt;h2 id=&#34;安装-VMware&#34;&gt;安装 VMware&lt;/h2&gt;
+&lt;h2 id=&#34;安装-vmware&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-vmware&#34;&gt;&lt;/a&gt;安装 VMware&lt;/h2&gt;
 &lt;p&gt;安装步骤这里不再细说。&lt;/p&gt;
 &lt;p&gt;不过这里来说下 &lt;code&gt;VMware 15.5.5&lt;/code&gt; 以后 VMware 和 微软的新动作：&lt;code&gt;VMware&lt;/code&gt; 和 &lt;code&gt;Hyper-V&lt;/code&gt; 可以共存了~&lt;small&gt;[1][2]&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;*&lt;em&gt;注：需 Windows 10 2004 以上版本的系统&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;只需要在安装时勾选下图所示的选项即可：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/5OcenBTq1jNzhpV.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;于是，我的 WSL2 和我的 Docker Desktop 可以和 VMware 一起愉快的玩耍辣😆~&lt;/p&gt;
-&lt;h2 id=&#34;解锁-VMware&#34;&gt;解锁 VMware&lt;/h2&gt;
+&lt;h2 id=&#34;解锁-vmware&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解锁-vmware&#34;&gt;&lt;/a&gt;解锁 VMware&lt;/h2&gt;
 &lt;p&gt;条件：先关闭 VMware 的所有进程。&lt;/p&gt;
-&lt;h3 id=&#34;Windows&#34;&gt;Windows&lt;/h3&gt;
+&lt;h3 id=&#34;windows&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#windows&#34;&gt;&lt;/a&gt;Windows&lt;/h3&gt;
 &lt;p&gt;解压 Unlocker.zip 内的所有文件到一个文件夹中，右键 &lt;code&gt;win-install.cmd&lt;/code&gt; ，选择&amp;quot;以管理员身份运行&amp;quot;，等待运行完毕即可。&lt;/p&gt;
-&lt;h3 id=&#34;Linux&#34;&gt;Linux&lt;/h3&gt;
+&lt;h3 id=&#34;linux&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux&#34;&gt;&lt;/a&gt;Linux&lt;/h3&gt;
 &lt;p&gt;使用以下命令解锁 VMware ：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;unzip unlocker.zip
 chmod +x lnx-install.sh
 sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;检验方法：创建虚拟机时是否可以选择 macOS 系统。&lt;/p&gt;
-&lt;h2 id=&#34;创建虚拟机&#34;&gt;创建虚拟机&lt;/h2&gt;
+&lt;h2 id=&#34;创建虚拟机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建虚拟机&#34;&gt;&lt;/a&gt;创建虚拟机&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/XsklfzviZH52W1b.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 打开 &lt;code&gt;VMware Workstation 15&lt;/code&gt; ，选择 「新建虚拟机」。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/LkQCmegM7rXo5fv.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
@@ -90,18 +90,18 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;▲ 磁盘配置&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/ncrqyEHemAD5kpu.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 完成！&lt;/p&gt;
-&lt;h2 id=&#34;配置虚拟机&#34;&gt;配置虚拟机&lt;/h2&gt;
+&lt;h2 id=&#34;配置虚拟机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置虚拟机&#34;&gt;&lt;/a&gt;配置虚拟机&lt;/h2&gt;
 &lt;p&gt;在 vmx 文件末尾添加以下内容并保存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;attr&#34;&gt;smc.version&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
 &lt;span class=&#34;attr&#34;&gt;hw.model&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;MacBookPro16,1&amp;quot;&lt;/span&gt;
 &lt;span class=&#34;attr&#34;&gt;board-id&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;Mac-E1008331FDC96864&amp;quot;&lt;/span&gt;
 &lt;span class=&#34;attr&#34;&gt;board-id.reflectHost&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;TRUE&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;挂载安装镜像&#34;&gt;挂载安装镜像&lt;/h2&gt;
+&lt;h2 id=&#34;挂载安装镜像&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#挂载安装镜像&#34;&gt;&lt;/a&gt;挂载安装镜像&lt;/h2&gt;
 &lt;p&gt;点击&amp;quot;编辑虚拟机设置&amp;quot;，选择&amp;quot;CD/DVD&amp;quot;选项。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/KVdIk9ZXcqH2aBG.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如图所示，先勾选&amp;quot;使用 ISO 映像文件&amp;quot;选项，再点击浏览，点击&amp;quot;所有文件&amp;quot;，选中 &lt;code&gt;bigsur.cdr&lt;/code&gt; 并确认。&lt;/p&gt;
 &lt;p&gt;保存以后点击&amp;quot;开启虚拟机&amp;quot;&lt;/p&gt;
-&lt;h2 id=&#34;安装-macOS&#34;&gt;安装 macOS&lt;/h2&gt;
+&lt;h2 id=&#34;安装-macos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-macos&#34;&gt;&lt;/a&gt;安装 macOS&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/zsFHvAyPN8RBTnc.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 耐心等待加载&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/cK7PEd2wJ4j3shO.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
@@ -124,7 +124,7 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;▲ 开始安装&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/Wh4qSs2oxYc13E6.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 上面显示的剩余时间通常都是忽悠人的，得等好久&lt;/p&gt;
-&lt;h2 id=&#34;配置-macOS&#34;&gt;配置 macOS&lt;/h2&gt;
+&lt;h2 id=&#34;配置-macos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-macos&#34;&gt;&lt;/a&gt;配置 macOS&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/14eXWOKTdbUg8kM.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 首先选择国家和地区&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;接下来按照自己需求配置即可，到&lt;strong&gt;配置迁移助理&lt;/strong&gt;时选择&lt;code&gt;以后&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
@@ -134,15 +134,15 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;▲ 选择 &lt;code&gt;稍后设置&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/8BxFmJTZ13WLYr2.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ All done!&lt;/p&gt;
-&lt;h2 id=&#34;安装-VMware-Tools&#34;&gt;安装 VMware Tools&lt;/h2&gt;
+&lt;h2 id=&#34;安装-vmware-tools&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-vmware-tools&#34;&gt;&lt;/a&gt;安装 VMware Tools&lt;/h2&gt;
 &lt;p&gt;在 VMware 的 &lt;code&gt;虚拟机(M)&lt;/code&gt; 菜单栏中选择 &lt;code&gt;安装 VMware Tools(T)...&lt;/code&gt; 选项。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/6tTqm4uYsl5byAr.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;之后按照步骤操作就行啦~&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html&#34;&gt;VMware Blogs: VMware Workstation 15.5 Now Supports Host Hyper-V Mode&lt;/a&gt;
 [2] &lt;a href=&#34;https://techcommunity.microsoft.com/t5/virtualization/vmware-workstation-and-hyper-v/ba-p/1419928&#34;&gt;Microsoft Tech Community: VMware Workstation and Hyper-V&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;文件下载&#34;&gt;文件下载&lt;/h2&gt;
-&lt;h3 id=&#34;百度网盘&#34;&gt;百度网盘&lt;/h3&gt;
+&lt;h2 id=&#34;文件下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文件下载&#34;&gt;&lt;/a&gt;文件下载&lt;/h2&gt;
+&lt;h3 id=&#34;百度网盘&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#百度网盘&#34;&gt;&lt;/a&gt;百度网盘&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;链接：&lt;a href=&#34;https://pan.baidu.com/s/1m_iwiZK1XVIhwrrpCenB3Q&#34;&gt;https://pan.baidu.com/s/1m_iwiZK1XVIhwrrpCenB3Q&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;提取码：&lt;code&gt;blog&lt;/code&gt;&lt;/li&gt;

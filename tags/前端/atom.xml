@@ -10,21 +10,21 @@
     <category term="BIRD" />
     <category term="BGP" />
     <category term="CTF" />
-    <category term="Git" />
     <category term="DN42" />
-    <category term="Web" />
+    <category term="Git" />
     <category term="折腾" />
-    <category term="Linux" />
+    <category term="Web" />
     <category term="网络" />
+    <category term="Linux" />
     <category term="VMware" />
     <category term="OI" />
     <category term="题解" />
     <category term="洛谷" />
-    <category term="游记" />
     <category term="牛客网" />
+    <category term="游记" />
     <category term="S2OJ" />
-    <category term="Cloudflare" />
     <category term="macOS" />
+    <category term="Cloudflare" />
     <category term="ServiceWorker" />
     <category term="JavaScript" />
     <category term="前端" />
@@ -35,17 +35,17 @@
         <link rel="alternate" href="https://blog.baoshuo.ren/post/about-darkmode/"/>
         <content type="html">&lt;p&gt;随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 &lt;a href=&#34;https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme&#34;&gt;Media Queries Level 5&lt;/a&gt;，越来越多的网站开始添加深色模式。&lt;/p&gt;
 &lt;p&gt;我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个深色模式插件&lt;sup&gt;（原文链接已丢失）&lt;/sup&gt;。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的深色模式是如何实现的。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/17/tYEURzvx7LQ4mej.png&#34; alt=&#34;现在的深色模式效果&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;现在的深色模式效果&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&#34;关于深色模式&#34;&gt;关于深色模式&lt;/h2&gt;
+&lt;h2 id=&#34;关于深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于深色模式&#34;&gt;&lt;/a&gt;关于深色模式&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/17/jXVHb1aAUf5pRhk.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Dark themes reduce the luminance emitted by device screens, while still meeting minimum color contrast ratios. They help improve visual ergonomics by reducing eye strain, adjusting brightness to current lighting conditions, and facilitating screen use in dark environments – all while conserving battery power.&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;翻译&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;深色主题能降低设备屏幕发出的亮度，同时仍然满足最小的颜色对比度。它们有助于改善视觉效果、减少眼睛疲劳，调整亮度以适应当前的照明条件，并有助于在黑暗环境中使用屏幕，同时节省电池电量。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;界面设计&#34;&gt;界面设计&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1:1&#34;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
-&lt;h3 id=&#34;颜色&#34;&gt;颜色&lt;/h3&gt;
+&lt;h2 id=&#34;界面设计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#界面设计&#34;&gt;&lt;/a&gt;界面设计&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1:1&#34;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;颜色&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#颜色&#34;&gt;&lt;/a&gt;颜色&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;不要使用 100% 的纯黑&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Google 在 Material Design 的设计指南中对于深色模式列出了一系列设计规范，其中第一条就是 「不要使用 100% 的纯黑」 。&lt;/p&gt;
 &lt;p&gt;Google 推荐将深色表面和 100% 白色文字的对比度至少设置为为 15.8:1 （Dark surfaces and 100% white body text have a contrast level of at least 15.8:1）&lt;/p&gt;
@@ -72,7 +72,7 @@
 &lt;p&gt;色彩饱和度过高还可能会导致文本在深色背景上产生光学振动，从而引起眼睛疲劳。&lt;/p&gt;
 &lt;p&gt;最佳做法是使用 「去饱和色」 ，这样可以提高清晰度，并减少视觉抖动。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/17/YxOwh46ZFNIC5Rg.png&#34; alt=&#34;这张图片中的文本较上方的图片来说文本辨识度提高了许多&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;这张图片中的文本较上方的图片来说文本辨识度提高了许多&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;层次&#34;&gt;层次&lt;/h3&gt;
+&lt;h3 id=&#34;层次&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#层次&#34;&gt;&lt;/a&gt;层次&lt;/h3&gt;
 &lt;p&gt;在浅色模式下，我们通常会使用投影来区分页面内元素的层次，但这种方法在深色模式中如果使用不当，不仅起不到区分页面内元素层次的作用，还会影响整体观感，起到反作用。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/17/O7qzgYK98DGLvCV.png&#34; alt=&#34;Google 给出的示例&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;Google 给出的示例&lt;/span&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -81,9 +81,9 @@
 &lt;hr&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/17/OHZqYmAaQDJ9RBe.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;在组件表面&lt;sup&gt;(1)&lt;/sup&gt;上放置一个白色半透明的遮罩层&lt;sup&gt;(2)&lt;/sup&gt;，就可以体现出深色模式中的层次。&lt;/p&gt;
-&lt;h2 id=&#34;代码实现&#34;&gt;代码实现&lt;/h2&gt;
+&lt;h2 id=&#34;代码实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码实现&#34;&gt;&lt;/a&gt;代码实现&lt;/h2&gt;
 &lt;p&gt;这个主题使用了向 &lt;code&gt;body&lt;/code&gt; 添加 &lt;code&gt;.dark&lt;/code&gt; 类来实现深色模式。&lt;/p&gt;
-&lt;h3 id=&#34;利用-Media-Query-简单实现深色模式&#34;&gt;利用 Media Query 简单实现深色模式&lt;/h3&gt;
+&lt;h3 id=&#34;利用-media-query-简单实现深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用-media-query-简单实现深色模式&#34;&gt;&lt;/a&gt;利用 Media Query 简单实现深色模式&lt;/h3&gt;
 &lt;p&gt;可以直接为深色模式编写独立的样式：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
@@ -121,7 +121,7 @@
 &lt;p&gt;需要注意 CSS 选择器的权重，因此作为可选的 &lt;code&gt;dark.css&lt;/code&gt; 一定要放在 &lt;code&gt;main.css&lt;/code&gt; 之后加载。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;main.css&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;dark.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;media&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;(prefers-color-scheme: dark)&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;使用-Media-Query-JavaScript-实现跟随系统-定时切换深色模式&#34;&gt;使用 Media Query + JavaScript 实现跟随系统/定时切换深色模式&lt;/h3&gt;
+&lt;h3 id=&#34;使用-media-query-javascript-实现跟随系统-定时切换深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-media-query-javascript-实现跟随系统-定时切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + JavaScript 实现跟随系统/定时切换深色模式&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
     --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
@@ -146,7 +146,7 @@
 &lt;li&gt;时间在晚7点~早7点之间&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;只要满足上述任意一个条件，深色模式就会被开启。&lt;/p&gt;
-&lt;h3 id=&#34;使用-Media-Query-Toggle-Button-实现跟随系统-手动切换深色模式&#34;&gt;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;使用-media-query-toggle-button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-media-query-toggle-button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
     --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
@@ -241,7 +241,7 @@ darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;
     applyCustomDarkModeSettings(toggleCustomDarkMode());
 &amp;#125;);&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&#34;https://codesandbox.io/embed/shiyong-media-query-toggle-button-shixiangensuixitongshoudongqiehuanshensemoshi-7d60d?autoresize=1&amp;fontsize=16&amp;theme=dark&amp;view=preview&#34; style=&#34;width:100%; height:500px; border:0; border-radius: 4px; overflow: hidden;&#34; title=&#34;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&#34; allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34; sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;&gt;&lt;/iframe&gt;
-&lt;h3 id=&#34;使用-Media-Query-Toggle-Button-JavaScript-实现跟随系统-定时-手动切换深色模式&#34;&gt;使用 Media Query + Toggle Button + JavaScript 实现跟随系统/定时/手动切换深色模式&lt;/h3&gt;
+&lt;h3 id=&#34;使用-media-query-toggle-button-javascript-实现跟随系统-定时-手动切换深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-media-query-toggle-button-javascript-实现跟随系统-定时-手动切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + Toggle Button + JavaScript 实现跟随系统/定时/手动切换深色模式&lt;/h3&gt;
 &lt;p&gt;CSS 和大部分 JavaScript 代码没有变化，此处仅说明有变化的代码。&lt;/p&gt;
 &lt;p&gt;在函数 &lt;code&gt;toggleCustomDarkMode()&lt;/code&gt; 中添加写入一个时间戳的操作：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight diff&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@@ -85,19 +114,20 @@&lt;/span&gt;
@@ -294,7 +294,7 @@ darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;
 
 initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;());&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&#34;https://codesandbox.io/embed/shiyong-media-query-toggle-button-javascript-shixiangensuixitongdingshishoudongqiehuanshensemoshi-dyei7?autoresize=1&amp;fontsize=14&amp;theme=dark&amp;view=preview&#34; style=&#34;width: 100%; height: 500px; border: 0; border-radius: 4px; overflow: hidden;&#34; title=&#34;使用 Media Query + Toggle Button + JavaScript 实现跟随系统/定时/手动切换深色模式&#34; allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34; sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;&gt;&lt;/iframe&gt;
-&lt;h3 id=&#34;深色模式下的页面滚动条&#34;&gt;深色模式下的页面滚动条&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn4&#34; id=&#34;fnref4&#34;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;深色模式下的页面滚动条&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#深色模式下的页面滚动条&#34;&gt;&lt;/a&gt;深色模式下的页面滚动条&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn4&#34; id=&#34;fnref4&#34;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
 &lt;p&gt;只需在页面的 &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 中添加一个 &lt;a href=&#34;https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme&#34;&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;color-scheme&amp;quot;&amp;gt;&lt;/code&gt;&lt;/a&gt; 的标签即可让页面滚动条的样式跟随深色模式变化。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;comment&#34;&gt;&amp;lt;!--&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt;  The page supports both light and dark color schemes,&lt;/span&gt;
@@ -312,13 +312,13 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: dark;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;Disqus-相关&#34;&gt;Disqus 相关&lt;/h2&gt;
+&lt;h2 id=&#34;disqus-相关&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#disqus-相关&#34;&gt;&lt;/a&gt;Disqus 相关&lt;/h2&gt;
 &lt;p&gt;如果网页上有 Disqus 评论系统，请添加下方的 CSS 以避免 Disqus 的自动深色模式失效。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-tag&#34;&gt;iframe&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: light;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;来源：&lt;a href=&#34;https://stackoverflow.com/a/65313819/14109955&#34;&gt;Disqus iframe transparency won’t work on Chrome 87 - StackOverflow&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://material.io/design/color/dark-theme.html&#34;&gt;https://material.io/design/color/dark-theme.html&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;

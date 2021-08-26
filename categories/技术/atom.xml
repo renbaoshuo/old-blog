@@ -10,21 +10,21 @@
     <category term="BIRD" />
     <category term="BGP" />
     <category term="CTF" />
-    <category term="Git" />
     <category term="DN42" />
-    <category term="Web" />
+    <category term="Git" />
     <category term="折腾" />
-    <category term="Linux" />
+    <category term="Web" />
     <category term="网络" />
+    <category term="Linux" />
     <category term="VMware" />
     <category term="OI" />
     <category term="题解" />
     <category term="洛谷" />
-    <category term="游记" />
     <category term="牛客网" />
+    <category term="游记" />
     <category term="S2OJ" />
-    <category term="Cloudflare" />
     <category term="macOS" />
+    <category term="Cloudflare" />
     <category term="ServiceWorker" />
     <category term="JavaScript" />
     <category term="前端" />
@@ -34,10 +34,10 @@
         <title>使用 Cloudflare Warp 为单栈 VPS 添加双栈网络访问</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/vps-cloudflare-warp/"/>
         <content type="html">&lt;p&gt;&lt;a href=&#34;https://blog.cloudflare.com/1111-warp-better-vpn/&#34;&gt;Warp&lt;/a&gt; 是 Cloudflare 提供的一项基于 WireGuard 的网络流量安全及加速服务，能够让你通过连接到 Cloudflare 的边缘节点实现隐私保护及链路优化。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;由于 Cloudflare 官方的 &lt;a href=&#34;https://developers.cloudflare.com/warp-client/setting-up/linux&#34;&gt;Warp Client&lt;/a&gt; 过于臃肿，导致我看到安装包大小后就决定直接放弃安装，于是我选择了 &lt;a href=&#34;https://github.com/ViRb3/wgcf&#34;&gt;ViRb3/wgcf&lt;/a&gt; 替代。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/07/15/dHClLqSsvDKbrBc.png&#34; alt=&#34;使用 apt 安装 cloudflare-warp 时的提示&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;使用 apt 安装 cloudflare-warp 时的提示&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&#34;安装依赖&#34;&gt;安装依赖&lt;/h2&gt;
+&lt;h2 id=&#34;安装依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装依赖&#34;&gt;&lt;/a&gt;安装依赖&lt;/h2&gt;
 &lt;p&gt;可以前往 &lt;a href=&#34;https://github.com/ViRb3/wgcf/releases/latest&#34;&gt;Releases 页面&lt;/a&gt; 下载编译好的二进制文件以供使用。&lt;/p&gt;
 &lt;p&gt;也可使用如下命令安装：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;curl -Ls https://git.io/wgcf-installer.sh | bash&lt;/code&gt;&lt;/pre&gt;
@@ -45,14 +45,14 @@
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/07/15/lDaywAzQGd8HI9S.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;另外还需按照 &lt;a href=&#34;https://www.wireguard.com/install/&#34;&gt;WireGuard 官网&lt;/a&gt; 上的说明安装 WireGuard 。&lt;/p&gt;
 &lt;p&gt;根据需求可能还需要安装 &lt;code&gt;resolvconf&lt;/code&gt; 。&lt;/p&gt;
-&lt;h2 id=&#34;生成-WireGuard-配置文件&#34;&gt;生成 WireGuard 配置文件&lt;/h2&gt;
+&lt;h2 id=&#34;生成-wireguard-配置文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#生成-wireguard-配置文件&#34;&gt;&lt;/a&gt;生成 WireGuard 配置文件&lt;/h2&gt;
 &lt;p&gt;先使用 &lt;code&gt;wgcf register&lt;/code&gt; 命令注册 Warp 。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/07/15/MYT5bkX4r2pGHUv.png&#34; alt=&#34;使用键盘上的方向键选择 &amp;quot;Yes&amp;quot; 并回车确认&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;使用键盘上的方向键选择 &amp;quot;Yes&amp;quot; 并回车确认&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;注册成功后的提示：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/07/15/y4homkVbqsr9PYj.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;之后使用 &lt;code&gt;wgcf generate&lt;/code&gt; 命令生成配置文件。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/07/15/3zWUZYTdGhn9qkP.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;修改-WireGuard-配置文件&#34;&gt;修改 WireGuard 配置文件&lt;/h2&gt;
+&lt;h2 id=&#34;修改-wireguard-配置文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改-wireguard-配置文件&#34;&gt;&lt;/a&gt;修改 WireGuard 配置文件&lt;/h2&gt;
 &lt;p&gt;这是一份生成出来的配置文件：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;section&#34;&gt;[Interface]&lt;/span&gt;
 &lt;span class=&#34;attr&#34;&gt;PrivateKey&lt;/span&gt; = ******
@@ -83,17 +83,17 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;如果不需要使用 Cloudflare 的 DNS 服务可以删去 &lt;code&gt;DNS = 1.1.1.1&lt;/code&gt; 这一行，使用的话需要安装 &lt;code&gt;resolvconf&lt;/code&gt; 。&lt;/p&gt;
-&lt;h2 id=&#34;启动-WireGuard-隧道&#34;&gt;启动 WireGuard 隧道&lt;/h2&gt;
+&lt;h2 id=&#34;启动-wireguard-隧道&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动-wireguard-隧道&#34;&gt;&lt;/a&gt;启动 WireGuard 隧道&lt;/h2&gt;
 &lt;p&gt;将刚才修改好的配置文件移动到 &lt;code&gt;/etc/wireguard/&lt;/code&gt; 目录下，推荐命名为 &lt;code&gt;wgcf.conf&lt;/code&gt; ，下面的操作以这个文件名为准。&lt;/p&gt;
 &lt;p&gt;使用 &lt;code&gt;systemd enable --now wg-quick@wgcf&lt;/code&gt; 命令启动隧道，然后使用 &lt;code&gt;wg show wgcf&lt;/code&gt; 命令查看隧道状态。&lt;/p&gt;
 &lt;p&gt;如果在启动时出现了错误，可以使用 &lt;code&gt;systemd status wg-quick@wgcf&lt;/code&gt; 命令查看错误信息，修复后使用 &lt;code&gt;systemd start wg-quick@wgcf&lt;/code&gt; 启动隧道。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/07/15/M9D1L2rFfHCPtcU.png&#34; alt=&#34;一切正常&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;一切正常&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;之后就可以享受双栈网络带来的便利了~&lt;/p&gt;
 &lt;p&gt;注：日常如果需要重启隧道可以使用 &lt;code&gt;systemctl restart wg-quick@wgcf&lt;/code&gt; 命令。&lt;/p&gt;
-&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;h2 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;&lt;/a&gt;后记&lt;/h2&gt;
 &lt;p&gt;折腾这些的原因是我从某个 Player IX 那里嫖的 VM 没有提供 IPv4 网络访问权限，这让我日常的维护工作麻烦了很多，于是我想到了 Cloudflare Warp 这个东西。CloudFlare Warp 提供的网络访问相较于 &lt;a href=&#34;http://TunnelBroker.net&#34;&gt;TunnelBroker.net&lt;/a&gt; 、 &lt;a href=&#34;http://TunnelBroker.ch&#34;&gt;TunnelBroker.ch&lt;/a&gt; 等一众隧道要好很多，延迟并不像其他隧道那样高。&lt;/p&gt;
 &lt;p&gt;在查找资料的过程中我也发现了很多博客里面所描述的内容有误或已经过时，所以综合其他文章的内容加上自己的实践，写下了这篇文章。&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://luotianyi.vc/5252.html&#34;&gt;【WGCF】连接CF WARP为服务器添加IPv4/IPv6网络 - Luminous’ Home&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://p3terx.com/archives/use-cloudflare-warp-to-add-extra-ipv4-or-ipv6-network-support-to-vps-servers-for-free.html&#34;&gt;Cloudflare WARP 给 VPS 服务器额外添加 IPv4 或 IPv6 网络获得“原生”IP - P3TERX&lt;/a&gt;&lt;/li&gt;
@@ -109,11 +109,11 @@
         <link rel="alternate" href="https://blog.baoshuo.ren/post/workbox-service-worker/"/>
         <content type="html">&lt;p&gt;对于优化前端加载性能这个问题，许多人以 http-cache、异步加载、304 状态码、文件压缩、CDN 等方法来解决。&lt;br&gt;
 其实除了这些方法，还有一个比它们都强大的，那就是 Service Worker 。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;我们可以使用 Google Chrome 团队的 &lt;a href=&#34;https://github.com/GoogleChrome/workbox&#34;&gt;Workbox&lt;/a&gt; 来实现 Service Worker 的快速开发。&lt;/p&gt;
-&lt;h2 id=&#34;注册-Service-Worker&#34;&gt;注册 Service Worker&lt;/h2&gt;
+&lt;h2 id=&#34;注册-service-worker&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册-service-worker&#34;&gt;&lt;/a&gt;注册 Service Worker&lt;/h2&gt;
 &lt;p&gt;在页面中添加以下内容以注册一个 Service Worker 。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;javascript&#34;&gt;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 检测是否支持 Service Worker&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 也可使用 navigator.serviceWorker 判断&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (&lt;span class=&#34;string&#34;&gt;&amp;#x27;serviceWorker&amp;#x27;&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; navigator) &amp;#123; &lt;/span&gt;
@@ -121,15 +121,15 @@
 &lt;span class=&#34;javascript&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;// 不使用 window.onload 以免冲突   &lt;/span&gt;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;        &lt;span class=&#34;built_in&#34;&gt;window&lt;/span&gt;.addEventListener(&lt;span class=&#34;string&#34;&gt;&amp;#x27;load&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;            navigator.serviceWorker.register(&lt;span class=&#34;string&#34;&gt;&amp;#x27;/sw.js&amp;#x27;&lt;/span&gt;);&lt;/span&gt;
-        &amp;#125;);
-    &amp;#125;
-&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&#34;javascript&#34;&gt;        &amp;#125;);&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;    &amp;#125;&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;当然，在这之前你需要先有一个 Service Worker 的代码 &lt;code&gt;/sw.js&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;你可以在这个文件中写入以下代码来检测是否成功地注册了 Service Worker 。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.clear();
 &lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Successful registered service worker.&amp;#x27;&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/28/Eu4mVIC2kNrUgiL.png&#34; alt=&#34;控制台输出&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;控制台输出&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&#34;引入-Workbox&#34;&gt;引入 Workbox&lt;/h2&gt;
+&lt;h2 id=&#34;引入-workbox&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引入-workbox&#34;&gt;&lt;/a&gt;引入 Workbox&lt;/h2&gt;
 &lt;p&gt;你可以使用 Google 提供的 CDN 来引入 Workbox 。&lt;br&gt;
 只需在 &lt;code&gt;sw.js&lt;/code&gt; 的开头写入以下内容即可：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;importScripts(&lt;span class=&#34;string&#34;&gt;&amp;#x27;https://storage.googleapis.com/workbox-cdn/releases/6.1.1/workbox-sw.js&amp;#x27;&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
@@ -139,10 +139,10 @@ workbox copyLibraries &amp;#123;path/to/workbox/&amp;#125;&lt;/code&gt;&lt;/pre&
 &lt;p&gt;这时需要在 &lt;code&gt;sw.js&lt;/code&gt; 的开头将上方写入的内容替换为以下内容即可：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;importScripts(&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;path/to&amp;#125;/workbox/workbox-sw.js&amp;#x27;&lt;/span&gt;);
 workbox.setConfig(&amp;#123;
-    modulePathPrefix: &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;path/to&amp;#125;/workbox/&amp;#x27;&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;modulePathPrefix&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;path/to&amp;#125;/workbox/&amp;#x27;&lt;/span&gt;
 &amp;#125;);&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;Workbox-策略&#34;&gt;Workbox 策略&lt;/h2&gt;
-&lt;h3 id=&#34;Stale-While-Revalidate（重新验证时过期）&#34;&gt;Stale While Revalidate（重新验证时过期）&lt;/h3&gt;
+&lt;h2 id=&#34;workbox-策略&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#workbox-策略&#34;&gt;&lt;/a&gt;Workbox 策略&lt;/h2&gt;
+&lt;h3 id=&#34;stale-while-revalidate（重新验证时过期）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#stale-while-revalidate（重新验证时过期）&#34;&gt;&lt;/a&gt;Stale While Revalidate（重新验证时过期）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/28/rx8zafbqPe1JnkX.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;此策略将对网络请求使用缓存来响应（如果有），并在后台更新缓存。如果未缓存，它将等待网络响应并使用它。&lt;br&gt;
 这是一个相当安全的策略，因为这意味着用户会定期更新其缓存。这种策略的缺点是：它总是从网络上请求资源，较为浪费用户的带宽。&lt;/p&gt;
@@ -150,46 +150,46 @@ workbox.setConfig(&amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Network-First（网络优先）&#34;&gt;Network First（网络优先）&lt;/h3&gt;
+&lt;h3 id=&#34;network-first（网络优先）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#network-first（网络优先）&#34;&gt;&lt;/a&gt;Network First（网络优先）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/28/9ViWk1ZyU4CuDxE.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;此策略将尝试首先从网络获得响应。如果收到响应，它将把它传递给浏览器，并将其保存到缓存中。如果网络请求失败，将使用最后一个缓存的响应。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkFirst()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Cache-First（缓存优先）&#34;&gt;Cache First（缓存优先）&lt;/h3&gt;
+&lt;h3 id=&#34;cache-first（缓存优先）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cache-first（缓存优先）&#34;&gt;&lt;/a&gt;Cache First（缓存优先）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/28/jkn4Y3mNCRZrSdX.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;此策略将首先检查缓存中是否有响应，如果有响应，则使用该策略。如果请求不在缓存中，则将使用网络，并将任何有效响应添加到缓存中，然后再传递给浏览器。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheFirst()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Network-Only（仅网络）&#34;&gt;Network Only（仅网络）&lt;/h3&gt;
+&lt;h3 id=&#34;network-only（仅网络）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#network-only（仅网络）&#34;&gt;&lt;/a&gt;Network Only（仅网络）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/28/cQYTlvie1dX8hOF.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;强制响应来自网络。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkOnly()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Cache-Only（仅缓存）&#34;&gt;Cache Only（仅缓存）&lt;/h3&gt;
+&lt;h3 id=&#34;cache-only（仅缓存）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cache-only（仅缓存）&#34;&gt;&lt;/a&gt;Cache Only（仅缓存）&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/28/71Sw5tTaBQKl8ri.png&#34; alt=&#34;工作流程示意图&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;工作流程示意图&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;强制响应来自缓存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(matchString),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheOnly()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;策略配置&#34;&gt;策略配置&lt;/h3&gt;
+&lt;h3 id=&#34;策略配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#策略配置&#34;&gt;&lt;/a&gt;策略配置&lt;/h3&gt;
 &lt;p&gt;可以通过定义要使用的插件来自定义路由的行为。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate(&amp;#123;
     &lt;span class=&#34;comment&#34;&gt;// Use a custom cache for this route.&lt;/span&gt;
-    cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;my-cache-name&amp;#x27;&lt;/span&gt;,
+    &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;my-cache-name&amp;#x27;&lt;/span&gt;,
 
     &lt;span class=&#34;comment&#34;&gt;// Add an array of custom plugins (e.g. `ExpirationPlugin`).&lt;/span&gt;
-    plugins: [
+    &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
         ...
     ]
 &amp;#125;);&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;Workbox-中的自定义策略&#34;&gt;Workbox 中的自定义策略&lt;/h2&gt;
+&lt;h2 id=&#34;workbox-中的自定义策略&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#workbox-中的自定义策略&#34;&gt;&lt;/a&gt;Workbox 中的自定义策略&lt;/h2&gt;
 &lt;p&gt;在某些情况下，您可能希望使用自己的其他策略来响应请求，或者只是通过模板在 Service Worker 中生成请求。&lt;br&gt;
 为此可以提供一个异步返回 &lt;code&gt;Response&lt;/code&gt; 对象的函数 &lt;code&gt;handler&lt;/code&gt; 。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; handler = &lt;span class=&#34;keyword&#34;&gt;async&lt;/span&gt; (&amp;#123; url, event &amp;#125;) =&amp;gt; &amp;#123;
@@ -204,8 +204,8 @@ workbox.routing.registerRoute(
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; match = &lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;&amp;#123; url, event &amp;#125;&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (url.pathname === &lt;span class=&#34;string&#34;&gt;&amp;#x27;/example&amp;#x27;&lt;/span&gt;) &amp;#123;
         &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &amp;#123;
-            name: &lt;span class=&#34;string&#34;&gt;&amp;#x27;Workbox&amp;#x27;&lt;/span&gt;,
-            type: &lt;span class=&#34;string&#34;&gt;&amp;#x27;guide&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;name&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;Workbox&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;type&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;guide&amp;#x27;&lt;/span&gt;,
         &amp;#125;;
     &amp;#125;
 &amp;#125;;
@@ -219,7 +219,7 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(match, handler);&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;如果 URL 中的某些信息可以在 match 回调中解析一次并在中使用，则这可能会对 &lt;code&gt;handler&lt;/code&gt; 有所帮助。&lt;/p&gt;
-&lt;h2 id=&#34;Workbox-实践&#34;&gt;Workbox 实践&lt;/h2&gt;
+&lt;h2 id=&#34;workbox-实践&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#workbox-实践&#34;&gt;&lt;/a&gt;Workbox 实践&lt;/h2&gt;
 &lt;p&gt;通常对于大部分项目使用 Workbox 时一般会引入相应的 gulp 或者 webpack 插件，在构建流程中完成对 Service Worker 的注册、将指定 URL 进行 Precache、完成 sw.js 的生成，等等。&lt;br&gt;
 但是对于 Hexo、Jekyll 这些静态站点生成器或者 WordPress、Typecho 这些 CMS，如果不安装相应的插件，就需要自己从头编写一个 &lt;code&gt;sw.js&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;先写一下总的配置：&lt;/p&gt;
@@ -227,92 +227,92 @@ workbox.routing.registerRoute(match, handler);&lt;/code&gt;&lt;/pre&gt;
 &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; maxEntries = &lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;;              &lt;span class=&#34;comment&#34;&gt;// 最大条目数&lt;/span&gt;
 
 core.setCacheNameDetails(&amp;#123;
-    prefix: &lt;span class=&#34;string&#34;&gt;&amp;#x27;baoshuo-blog&amp;#x27;&lt;/span&gt;,          &lt;span class=&#34;comment&#34;&gt;// 前缀&lt;/span&gt;
-    suffix: cacheSuffixVersion       &lt;span class=&#34;comment&#34;&gt;// 后缀&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;prefix&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;baoshuo-blog&amp;#x27;&lt;/span&gt;,          &lt;span class=&#34;comment&#34;&gt;// 前缀&lt;/span&gt;
+    &lt;span class=&#34;attr&#34;&gt;suffix&lt;/span&gt;: cacheSuffixVersion       &lt;span class=&#34;comment&#34;&gt;// 后缀&lt;/span&gt;
 &amp;#125;);&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Google-Fonts&#34;&gt;Google Fonts&lt;/h3&gt;
+&lt;h3 id=&#34;google-fonts&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#google-fonts&#34;&gt;&lt;/a&gt;Google Fonts&lt;/h3&gt;
 &lt;p&gt;Google Fonts 主要使用两个域名：&lt;code&gt;fonts.googleapis.com&lt;/code&gt; 和 &lt;code&gt;fonts.gstatic.com&lt;/code&gt; ，因此只需在匹配到这两个域名时进行缓存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;comment&#34;&gt;// 匹配 fonts.googleapis.com 和 fonts.gstatic.com 两个域名&lt;/span&gt;
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://(?:fonts\\.googleapis\\.com|fonts\\.gstatic\\.com)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate(&amp;#123;
         &lt;span class=&#34;comment&#34;&gt;// cache storage 名称和版本号&lt;/span&gt;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;font-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;font-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;comment&#34;&gt;// 使用 expiration 插件实现缓存条目数目和时间控制&lt;/span&gt;
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.expiration.ExpirationPlugin(&amp;#123;
                 &lt;span class=&#34;comment&#34;&gt;// 最大保存项目&lt;/span&gt;
                 maxEntries,
                 &lt;span class=&#34;comment&#34;&gt;// 缓存 30 天&lt;/span&gt;
-                maxAgeSeconds: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
+                &lt;span class=&#34;attr&#34;&gt;maxAgeSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
             &amp;#125;),
             &lt;span class=&#34;comment&#34;&gt;// 使用 cacheableResponse 插件缓存状态码为 0 的请求&lt;/span&gt;
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.cacheableResponse.CacheableResponsePlugin(&amp;#123;
-                statuses: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
+                &lt;span class=&#34;attr&#34;&gt;statuses&lt;/span&gt;: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
             &amp;#125;),
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;jsDelivr-CDN&#34;&gt;jsDelivr CDN&lt;/h3&gt;
+&lt;h3 id=&#34;jsdelivr-cdn&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jsdelivr-cdn&#34;&gt;&lt;/a&gt;jsDelivr CDN&lt;/h3&gt;
 &lt;p&gt;使用 jsDelivr CDN 时如果指定了库的版本，对应的文件可以称得上是永久不会改变的，所以使用 &lt;code&gt;CacheFirst&lt;/code&gt; 来进行缓存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://cdn\\.jsdelivr\\.net&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheFirst(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;static-immutable&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        fetchOptions: &amp;#123;
-            mode: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
-            credentials: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;static-immutable&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;fetchOptions&lt;/span&gt;: &amp;#123;
+            &lt;span class=&#34;attr&#34;&gt;mode&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;credentials&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
         &amp;#125;,
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.expiration.ExpirationPlugin(&amp;#123;
-                maxAgeSeconds: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
-                purgeOnQuotaError: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;
+                &lt;span class=&#34;attr&#34;&gt;maxAgeSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
+                &lt;span class=&#34;attr&#34;&gt;purgeOnQuotaError&lt;/span&gt;: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;
             &amp;#125;)
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Google-Analytics&#34;&gt;Google Analytics&lt;/h3&gt;
+&lt;h3 id=&#34;google-analytics&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#google-analytics&#34;&gt;&lt;/a&gt;Google Analytics&lt;/h3&gt;
 &lt;p&gt;Workbox 有一个 &lt;a href=&#34;https://developers.google.com/web/tools/workbox/guides/enable-offline-analytics&#34;&gt;Google Analytics 离线统计插件&lt;/a&gt;，可惜我用的是 Sukka 大佬编写的&lt;a href=&#34;https://github.com/SukkaW/cloudflare-workers-async-google-analytics&#34;&gt;非官方 Google Analytics 实现&lt;/a&gt;，所以只能添加一个 &lt;code&gt;NetworkOnly&lt;/code&gt; 来放弃离线统计。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://api\\.baoshuo\\.ren/cfga/(.*)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkOnly(&amp;#123;
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.backgroundSync.BackgroundSyncPlugin(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Optical_Collect&amp;#x27;&lt;/span&gt;, &amp;#123;
-                maxRetentionTime: &lt;span class=&#34;number&#34;&gt;12&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// Retry for max of 12 Hours (specified in minutes)&lt;/span&gt;
+                &lt;span class=&#34;attr&#34;&gt;maxRetentionTime&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;12&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// Retry for max of 12 Hours (specified in minutes)&lt;/span&gt;
             &amp;#125;),
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;图片&#34;&gt;图片&lt;/h3&gt;
+&lt;h3 id=&#34;图片&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图片&#34;&gt;&lt;/a&gt;图片&lt;/h3&gt;
 &lt;p&gt;由于我开通了 &lt;a href=&#34;http://SM.MS&#34;&gt;SM.MS&lt;/a&gt; 的 LifeTime Premium VIP ，所以图片当然是要存到这里啦~&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://SM.MS&#34;&gt;SM.MS&lt;/a&gt; 的图片域名有这几个：&lt;code&gt;i.loli.net&lt;/code&gt;、&lt;code&gt;vip1.loli.net&lt;/code&gt;、&lt;code&gt;vip2.loli.net&lt;/code&gt;、&lt;code&gt;vip1.loli.io&lt;/code&gt;、&lt;code&gt;vip2.loli.io&lt;/code&gt;，只需要写一个正则匹配下就好了。&lt;/p&gt;
 &lt;p&gt;由于图片链接对应的文件像 jsDelivr 一样也是几乎永久都不会改变的，所以使用 &lt;code&gt;CacheFirst&lt;/code&gt; 来进行缓存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://(?:i|vip[0-9])\\.loli\\.(?:io|net)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheFirst(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;img-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;img-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;comment&#34;&gt;// 使用 expiration 插件实现缓存条目数目和时间控制&lt;/span&gt;
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.expiration.ExpirationPlugin(&amp;#123;
                 maxEntries,                          &lt;span class=&#34;comment&#34;&gt;// 最大保存项目&lt;/span&gt;
-                maxAgeSeconds: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,    &lt;span class=&#34;comment&#34;&gt;// 缓存 30 天&lt;/span&gt;
+                &lt;span class=&#34;attr&#34;&gt;maxAgeSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,    &lt;span class=&#34;comment&#34;&gt;// 缓存 30 天&lt;/span&gt;
             &amp;#125;),
             &lt;span class=&#34;comment&#34;&gt;// 使用 cacheableResponse 插件缓存状态码为 0 的请求&lt;/span&gt;
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.cacheableResponse.CacheableResponsePlugin(&amp;#123;
-                statuses: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
+                &lt;span class=&#34;attr&#34;&gt;statuses&lt;/span&gt;: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
             &amp;#125;),
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;友情链接&#34;&gt;友情链接&lt;/h3&gt;
+&lt;h3 id=&#34;友情链接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#友情链接&#34;&gt;&lt;/a&gt;友情链接&lt;/h3&gt;
 &lt;p&gt;这些文件只是偶尔更新，使用 &lt;code&gt;StaleWhileRevalidate&lt;/code&gt; ，可以兼顾速度与版本更新。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://friends\\.baoshuo\\.ren(.*)(png|jpg|jpeg|svg|gif)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;img-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        fetchOptions: &amp;#123;
-            mode: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
-            credentials: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;img-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;fetchOptions&lt;/span&gt;: &amp;#123;
+            &lt;span class=&#34;attr&#34;&gt;mode&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;credentials&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
         &amp;#125;
     &amp;#125;)
 );
@@ -320,7 +320,7 @@ workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;https://friends\\.baoshuo\\.ren/links.json&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Disqus-评论&#34;&gt;Disqus 评论&lt;/h3&gt;
+&lt;h3 id=&#34;disqus-评论&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#disqus-评论&#34;&gt;&lt;/a&gt;Disqus 评论&lt;/h3&gt;
 &lt;p&gt;DisqusJS 判断访客的 Disqus 可用性是通过检查 &lt;code&gt;shortname.disqus.com/favicon.ico&lt;/code&gt; 和 &lt;code&gt;disqus.com/favicon.ico&lt;/code&gt; ，显然是不能被缓存的。&lt;br&gt;
 API 可以在无网络时使用 &lt;code&gt;NetworkFirst&lt;/code&gt; 来达到无网络时也能查看评论的效果。&lt;br&gt;
 另外 Disqus 本身也没有缓存的必要，所以对 &lt;code&gt;*.disqus.com&lt;/code&gt; 使用 &lt;code&gt;NetworkOnly&lt;/code&gt; 即可。&lt;br&gt;
@@ -329,12 +329,12 @@ API 可以在无网络时使用 &lt;code&gt;NetworkFirst&lt;/code&gt; 来达到�
 workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://api\\.baoshuo\\.ren/disqus/(.*)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkFirst(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;dsqjs-api&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        fetchOptions: &amp;#123;
-            mode: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
-            credentials: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;dsqjs-api&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;fetchOptions&lt;/span&gt;: &amp;#123;
+            &lt;span class=&#34;attr&#34;&gt;mode&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
+            &lt;span class=&#34;attr&#34;&gt;credentials&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;omit&amp;#x27;&lt;/span&gt;
         &amp;#125;,
-        networkTimeoutSeconds: &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;networkTimeoutSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;
     &amp;#125;)
 );
 &lt;span class=&#34;comment&#34;&gt;// Disqus&lt;/span&gt;
@@ -345,18 +345,18 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;^https://(.*)disquscdn\\.com(.*)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.CacheFirst(&amp;#123;
-        cacheName: &lt;span class=&#34;string&#34;&gt;&amp;#x27;disqus-cdn-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
-        plugins: [
+        &lt;span class=&#34;attr&#34;&gt;cacheName&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;disqus-cdn-cache&amp;#x27;&lt;/span&gt; + cacheSuffixVersion,
+        &lt;span class=&#34;attr&#34;&gt;plugins&lt;/span&gt;: [
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.expiration.ExpirationPlugin(&amp;#123;
-                maxAgeSeconds: &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
+                &lt;span class=&#34;attr&#34;&gt;maxAgeSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt;,
             &amp;#125;),
             &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.cacheableResponse.CacheableResponsePlugin(&amp;#123;
-                statuses: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
+                &lt;span class=&#34;attr&#34;&gt;statuses&lt;/span&gt;: [&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;],
             &amp;#125;),
         ]
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;后缀匹配&#34;&gt;后缀匹配&lt;/h3&gt;
+&lt;h3 id=&#34;后缀匹配&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后缀匹配&#34;&gt;&lt;/a&gt;后缀匹配&lt;/h3&gt;
 &lt;p&gt;针对其余没有被域名匹配到的静态文件，通过文件后缀进行匹配并使用 &lt;code&gt;StaleWhileRevalidate&lt;/code&gt; ，可以兼顾速度与版本更新。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;.*\.(?:png|jpg|jpeg|svg|gif|webp)&amp;#x27;&lt;/span&gt;),
@@ -366,14 +366,14 @@ workbox.routing.registerRoute(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;RegExp&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;.*\.(css|js)&amp;#x27;&lt;/span&gt;),
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.StaleWhileRevalidate()
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;默认行为&#34;&gt;默认行为&lt;/h3&gt;
+&lt;h3 id=&#34;默认行为&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#默认行为&#34;&gt;&lt;/a&gt;默认行为&lt;/h3&gt;
 &lt;p&gt;使用 Workbox 的 defaultHandler 匹配剩下的请求（包括页面自身），一律使用 &lt;code&gt;NetworkFirst&lt;/code&gt; ，借助 Workbox 的 &lt;code&gt;runtimeCache&lt;/code&gt; 起到加速和离线效果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;workbox.routing.setDefaultHandler(
     &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; workbox.strategies.NetworkFirst(&amp;#123;
-        networkTimeoutSeconds: &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;
+        &lt;span class=&#34;attr&#34;&gt;networkTimeoutSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;
     &amp;#125;)
 );&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://developers.google.com/web/tools/workbox&#34;&gt;https://developers.google.com/web/tools/workbox&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;a href=&#34;#Workbox-%E7%AD%96%E7%95%A5&#34;&gt;Workbox 策略&lt;/a&gt; 一节中的配图来自：&lt;a href=&#34;https://web.dev/offline-cookbook/&#34;&gt;https://web.dev/offline-cookbook/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -394,17 +394,17 @@ workbox.routing.registerRoute(
         <link rel="alternate" href="https://blog.baoshuo.ren/post/about-darkmode/"/>
         <content type="html">&lt;p&gt;随着越来越多的操作系统、浏览器开始支持 Dark Mode 和相应的 &lt;a href=&#34;https://drafts.csswg.org/mediaqueries-5/#prefers-color-scheme&#34;&gt;Media Queries Level 5&lt;/a&gt;，越来越多的网站开始添加深色模式。&lt;/p&gt;
 &lt;p&gt;我的博客其实早在 2019 年末就支持了深色模式，但一直没有很好地实现这个功能。于是在 2020 年的那个超长寒假，我把博客系统更换到了 Typecho，并与某位大佬一起实现了一个深色模式插件&lt;sup&gt;（原文链接已丢失）&lt;/sup&gt;。正好今年寒假把博客换到了 Hexo 上，趁着主题代码还热乎、能看懂，赶紧来写写我的深色模式是如何实现的。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/17/tYEURzvx7LQ4mej.png&#34; alt=&#34;现在的深色模式效果&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;现在的深色模式效果&lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&#34;关于深色模式&#34;&gt;关于深色模式&lt;/h2&gt;
+&lt;h2 id=&#34;关于深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于深色模式&#34;&gt;&lt;/a&gt;关于深色模式&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/17/jXVHb1aAUf5pRhk.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Dark themes reduce the luminance emitted by device screens, while still meeting minimum color contrast ratios. They help improve visual ergonomics by reducing eye strain, adjusting brightness to current lighting conditions, and facilitating screen use in dark environments – all while conserving battery power.&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;翻译&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;深色主题能降低设备屏幕发出的亮度，同时仍然满足最小的颜色对比度。它们有助于改善视觉效果、减少眼睛疲劳，调整亮度以适应当前的照明条件，并有助于在黑暗环境中使用屏幕，同时节省电池电量。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;界面设计&#34;&gt;界面设计&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1:1&#34;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
-&lt;h3 id=&#34;颜色&#34;&gt;颜色&lt;/h3&gt;
+&lt;h2 id=&#34;界面设计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#界面设计&#34;&gt;&lt;/a&gt;界面设计&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1:1&#34;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;颜色&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#颜色&#34;&gt;&lt;/a&gt;颜色&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;不要使用 100% 的纯黑&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Google 在 Material Design 的设计指南中对于深色模式列出了一系列设计规范，其中第一条就是 「不要使用 100% 的纯黑」 。&lt;/p&gt;
 &lt;p&gt;Google 推荐将深色表面和 100% 白色文字的对比度至少设置为为 15.8:1 （Dark surfaces and 100% white body text have a contrast level of at least 15.8:1）&lt;/p&gt;
@@ -431,7 +431,7 @@ workbox.routing.registerRoute(
 &lt;p&gt;色彩饱和度过高还可能会导致文本在深色背景上产生光学振动，从而引起眼睛疲劳。&lt;/p&gt;
 &lt;p&gt;最佳做法是使用 「去饱和色」 ，这样可以提高清晰度，并减少视觉抖动。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/17/YxOwh46ZFNIC5Rg.png&#34; alt=&#34;这张图片中的文本较上方的图片来说文本辨识度提高了许多&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;这张图片中的文本较上方的图片来说文本辨识度提高了许多&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;层次&#34;&gt;层次&lt;/h3&gt;
+&lt;h3 id=&#34;层次&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#层次&#34;&gt;&lt;/a&gt;层次&lt;/h3&gt;
 &lt;p&gt;在浅色模式下，我们通常会使用投影来区分页面内元素的层次，但这种方法在深色模式中如果使用不当，不仅起不到区分页面内元素层次的作用，还会影响整体观感，起到反作用。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/17/O7qzgYK98DGLvCV.png&#34; alt=&#34;Google 给出的示例&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;Google 给出的示例&lt;/span&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -440,9 +440,9 @@ workbox.routing.registerRoute(
 &lt;hr&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/17/OHZqYmAaQDJ9RBe.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;在组件表面&lt;sup&gt;(1)&lt;/sup&gt;上放置一个白色半透明的遮罩层&lt;sup&gt;(2)&lt;/sup&gt;，就可以体现出深色模式中的层次。&lt;/p&gt;
-&lt;h2 id=&#34;代码实现&#34;&gt;代码实现&lt;/h2&gt;
+&lt;h2 id=&#34;代码实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码实现&#34;&gt;&lt;/a&gt;代码实现&lt;/h2&gt;
 &lt;p&gt;这个主题使用了向 &lt;code&gt;body&lt;/code&gt; 添加 &lt;code&gt;.dark&lt;/code&gt; 类来实现深色模式。&lt;/p&gt;
-&lt;h3 id=&#34;利用-Media-Query-简单实现深色模式&#34;&gt;利用 Media Query 简单实现深色模式&lt;/h3&gt;
+&lt;h3 id=&#34;利用-media-query-简单实现深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用-media-query-简单实现深色模式&#34;&gt;&lt;/a&gt;利用 Media Query 简单实现深色模式&lt;/h3&gt;
 &lt;p&gt;可以直接为深色模式编写独立的样式：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-tag&#34;&gt;body&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
@@ -480,7 +480,7 @@ workbox.routing.registerRoute(
 &lt;p&gt;需要注意 CSS 选择器的权重，因此作为可选的 &lt;code&gt;dark.css&lt;/code&gt; 一定要放在 &lt;code&gt;main.css&lt;/code&gt; 之后加载。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;main.css&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;dark.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;media&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;(prefers-color-scheme: dark)&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;使用-Media-Query-JavaScript-实现跟随系统-定时切换深色模式&#34;&gt;使用 Media Query + JavaScript 实现跟随系统/定时切换深色模式&lt;/h3&gt;
+&lt;h3 id=&#34;使用-media-query-javascript-实现跟随系统-定时切换深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-media-query-javascript-实现跟随系统-定时切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + JavaScript 实现跟随系统/定时切换深色模式&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
     --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
@@ -505,7 +505,7 @@ workbox.routing.registerRoute(
 &lt;li&gt;时间在晚7点~早7点之间&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;只要满足上述任意一个条件，深色模式就会被开启。&lt;/p&gt;
-&lt;h3 id=&#34;使用-Media-Query-Toggle-Button-实现跟随系统-手动切换深色模式&#34;&gt;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;使用-media-query-toggle-button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-media-query-toggle-button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
     --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
@@ -600,7 +600,7 @@ darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;
     applyCustomDarkModeSettings(toggleCustomDarkMode());
 &amp;#125;);&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&#34;https://codesandbox.io/embed/shiyong-media-query-toggle-button-shixiangensuixitongshoudongqiehuanshensemoshi-7d60d?autoresize=1&amp;fontsize=16&amp;theme=dark&amp;view=preview&#34; style=&#34;width:100%; height:500px; border:0; border-radius: 4px; overflow: hidden;&#34; title=&#34;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&#34; allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34; sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;&gt;&lt;/iframe&gt;
-&lt;h3 id=&#34;使用-Media-Query-Toggle-Button-JavaScript-实现跟随系统-定时-手动切换深色模式&#34;&gt;使用 Media Query + Toggle Button + JavaScript 实现跟随系统/定时/手动切换深色模式&lt;/h3&gt;
+&lt;h3 id=&#34;使用-media-query-toggle-button-javascript-实现跟随系统-定时-手动切换深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-media-query-toggle-button-javascript-实现跟随系统-定时-手动切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + Toggle Button + JavaScript 实现跟随系统/定时/手动切换深色模式&lt;/h3&gt;
 &lt;p&gt;CSS 和大部分 JavaScript 代码没有变化，此处仅说明有变化的代码。&lt;/p&gt;
 &lt;p&gt;在函数 &lt;code&gt;toggleCustomDarkMode()&lt;/code&gt; 中添加写入一个时间戳的操作：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight diff&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@@ -85,19 +114,20 @@&lt;/span&gt;
@@ -653,7 +653,7 @@ darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;
 
 initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;());&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&#34;https://codesandbox.io/embed/shiyong-media-query-toggle-button-javascript-shixiangensuixitongdingshishoudongqiehuanshensemoshi-dyei7?autoresize=1&amp;fontsize=14&amp;theme=dark&amp;view=preview&#34; style=&#34;width: 100%; height: 500px; border: 0; border-radius: 4px; overflow: hidden;&#34; title=&#34;使用 Media Query + Toggle Button + JavaScript 实现跟随系统/定时/手动切换深色模式&#34; allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34; sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;&gt;&lt;/iframe&gt;
-&lt;h3 id=&#34;深色模式下的页面滚动条&#34;&gt;深色模式下的页面滚动条&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn4&#34; id=&#34;fnref4&#34;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;深色模式下的页面滚动条&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#深色模式下的页面滚动条&#34;&gt;&lt;/a&gt;深色模式下的页面滚动条&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn4&#34; id=&#34;fnref4&#34;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
 &lt;p&gt;只需在页面的 &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 中添加一个 &lt;a href=&#34;https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme&#34;&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;color-scheme&amp;quot;&amp;gt;&lt;/code&gt;&lt;/a&gt; 的标签即可让页面滚动条的样式跟随深色模式变化。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;comment&#34;&gt;&amp;lt;!--&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt;  The page supports both light and dark color schemes,&lt;/span&gt;
@@ -671,13 +671,13 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;span class=&#34;selector-class&#34;&gt;.dark&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: dark;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;Disqus-相关&#34;&gt;Disqus 相关&lt;/h2&gt;
+&lt;h2 id=&#34;disqus-相关&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#disqus-相关&#34;&gt;&lt;/a&gt;Disqus 相关&lt;/h2&gt;
 &lt;p&gt;如果网页上有 Disqus 评论系统，请添加下方的 CSS 以避免 Disqus 的自动深色模式失效。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-tag&#34;&gt;iframe&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;attribute&#34;&gt;color&lt;/span&gt;-scheme: light;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;来源：&lt;a href=&#34;https://stackoverflow.com/a/65313819/14109955&#34;&gt;Disqus iframe transparency won’t work on Chrome 87 - StackOverflow&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://material.io/design/color/dark-theme.html&#34;&gt;https://material.io/design/color/dark-theme.html&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
@@ -701,11 +701,11 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
         <id>https://blog.baoshuo.ren/post/linux-systemd/</id>
         <title>Linux Systemd 入门</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/linux-systemd/"/>
-        <content type="html">&lt;h2 id=&#34;Systemd-简介&#34;&gt;Systemd 简介&lt;/h2&gt;
+        <content type="html">&lt;h2 id=&#34;systemd-简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#systemd-简介&#34;&gt;&lt;/a&gt;Systemd 简介&lt;/h2&gt;
 &lt;p&gt;Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管理程序，包括有守护进程、程序库以及应用软件，由 Lennart Poettering 带头开发。其开发目标是提供更优秀的框架以表示系统服务间的依赖关系，并依此实现系统初始化时服务的并行启动，同时达到降低 Shell 的系统开销的效果，最终代替现在常用的 System V 与 BSD 风格 init 程序。&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;目前绝大多数的 Linux 发行版都已采用 systemd 代替原来的 System V。&lt;/p&gt;
-&lt;h2 id=&#34;常用命令列表&#34;&gt;常用命令列表&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;常用命令列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令列表&#34;&gt;&lt;/a&gt;常用命令列表&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;列出所有已加载的单元：&lt;code&gt;systemctl list-units&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;查看指定的单元的配置：&lt;code&gt;systemctl cat [serviceName]&lt;/code&gt; &lt;em&gt;(e.g. &lt;code&gt;systemctl cat sshd.service&lt;/code&gt;)&lt;/em&gt;&lt;/li&gt;
@@ -733,14 +733,14 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;li&gt;重新加载指定的单元的配置：&lt;code&gt;systemctl reload [serviceName]&lt;/code&gt; &lt;em&gt;(e.g. &lt;code&gt;systemctl reload sshd.service&lt;/code&gt;)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;重新加载所有已修改过的配置文件：&lt;code&gt;systemctl daemon-reload&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;开机启动&#34;&gt;开机启动&lt;/h2&gt;
+&lt;h2 id=&#34;开机启动&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#开机启动&#34;&gt;&lt;/a&gt;开机启动&lt;/h2&gt;
 &lt;p&gt;对于那些支持 Systemd 的软件，安装的时候，会自动在 &lt;code&gt;/usr/lib/systemd/system&lt;/code&gt; 目录添加一个配置文件。&lt;/p&gt;
 &lt;p&gt;如果你想让该软件开机启动，就执行下面的命令（以 &lt;code&gt;sshd.service&lt;/code&gt; 为例）。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;sudo systemctl &lt;span class=&#34;built_in&#34;&gt;enable&lt;/span&gt; sshd.service&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;上面的命令相当于在 &lt;code&gt;/etc/systemd/system&lt;/code&gt; 目录添加一个符号链接，指向 &lt;code&gt;/usr/lib/systemd/system&lt;/code&gt; 里面的 &lt;code&gt;sshd.service&lt;/code&gt; 文件。&lt;/p&gt;
 &lt;p&gt;这是因为开机时，Systemd 只执行 &lt;code&gt;/etc/systemd/system&lt;/code&gt; 目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。&lt;/p&gt;
-&lt;h2 id=&#34;Unit&#34;&gt;Unit&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
-&lt;h3 id=&#34;配置文件&#34;&gt;配置文件&lt;/h3&gt;
+&lt;h2 id=&#34;unit&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unit&#34;&gt;&lt;/a&gt;Unit&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;配置文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置文件&#34;&gt;&lt;/a&gt;配置文件&lt;/h3&gt;
 &lt;p&gt;对于那些没有原生支持 Systemd 的软件，可以自行编写配置文件来达到开机自启的目的。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我曾经为 Sakura Frp 编写过一个脚本：&lt;a href=&#34;https://getfrp.sh&#34;&gt;getfrp.sh&lt;/a&gt; &lt;sup&gt;（&lt;a href=&#34;https://gist.github.com/renbaoshuo/9c351b3e5750a2f6d453d035e0fd071a#file-getfrp-sh-L200-L213&#34;&gt;存档&lt;/a&gt; 于 GitHub Gist）&lt;/sup&gt; ，里面便是使用了自行编写配置文件的方法。&lt;/p&gt;
@@ -773,7 +773,7 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;p&gt;可以看出这个文件一共有三个部分：&lt;code&gt;[Unit]&lt;/code&gt;, &lt;code&gt;[Service]&lt;/code&gt; 和 &lt;code&gt;[Install]&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;配置项通常是可以重复的，但靠后的配置项会取代前面同名的配置项。&lt;br&gt;
 因此，如果你想要将某项的设定值归零，可以在该配置所在部分的结尾添加一个空值项（如 &lt;code&gt;After=&lt;/code&gt;），就将该设定归零了。&lt;/p&gt;
-&lt;h4 id=&#34;Unit-启动顺序与依赖关系&#34;&gt;[Unit]: 启动顺序与依赖关系&lt;/h4&gt;
+&lt;h4 id=&#34;unit-启动顺序与依赖关系&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unit-启动顺序与依赖关系&#34;&gt;&lt;/a&gt;[Unit]: 启动顺序与依赖关系&lt;/h4&gt;
 &lt;p&gt;这个部分主要有以下几个配置项：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Description&lt;/code&gt;: 当前服务的简易说明&lt;/li&gt;
@@ -810,7 +810,7 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;Service-启动行为&#34;&gt;[Service]: 启动行为&lt;/h4&gt;
+&lt;h4 id=&#34;service-启动行为&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#service-启动行为&#34;&gt;&lt;/a&gt;[Service]: 启动行为&lt;/h4&gt;
 &lt;p&gt;这个部分主要有以下几个配置项：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Type&lt;/code&gt;: 启动类型。默认值为 &lt;code&gt;simple&lt;/code&gt; ，可选值如下：
@@ -865,7 +865,7 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;li&gt;&lt;code&gt;RestartSec&lt;/code&gt;: 表示 Systemd 重启服务之前，需要等待的秒数（默认是 100ms）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;所有的启动设置之前，都可以加上一个连词号 (&lt;code&gt;-&lt;/code&gt;) ，表示 「抑制错误」 ，即发生错误的时候，不影响其他命令的执行。以 &lt;code&gt;sshd.service&lt;/code&gt; 为例，文件中的 &lt;code&gt;EnvironmentFile=-/etc/sysconfig/sshd&lt;/code&gt;（注意等号后面的那个连词号），表示 &lt;code&gt;/etc/sysconfig/sshd&lt;/code&gt; 文件不存在，也不会抛出错误。&lt;/p&gt;
-&lt;h4 id=&#34;Install-安装行为&#34;&gt;[Install]: 安装行为&lt;/h4&gt;
+&lt;h4 id=&#34;install-安装行为&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#install-安装行为&#34;&gt;&lt;/a&gt;[Install]: 安装行为&lt;/h4&gt;
 &lt;p&gt;这个部分主要有以下几个配置项：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;WantedBy&lt;/code&gt;: 表示该服务所在的 Target
@@ -876,7 +876,7 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;li&gt;&lt;code&gt;Also&lt;/code&gt;: 当该服务被启用时需要同时启用的单元&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Alias&lt;/code&gt;: 指定创建软链接时链接至本单元配置文件的别名文件&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;模板实例&#34;&gt;模板实例&lt;/h3&gt;
+&lt;h3 id=&#34;模板实例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#模板实例&#34;&gt;&lt;/a&gt;模板实例&lt;/h3&gt;
 &lt;p&gt;此处以 &lt;code&gt;getty@.service&lt;/code&gt; 文件为例，来分析一下它是如何做到使用一个配置文件启动多个服务的：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# /lib/systemd/system/getty@.service&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;
@@ -942,12 +942,12 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/11/lhw1BzOUb7TRDrq.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;不难发现图中标橙色的字符与上方配置文件中的 &lt;code&gt;%I&lt;/code&gt; 相对应，并且配置文件的名称也不是 &lt;code&gt;getty@tty1.service&lt;/code&gt; ，而是 &lt;code&gt;getty@.service&lt;/code&gt; ，这种配置文件叫做 「模板实例」 。&lt;/p&gt;
 &lt;p&gt;启动时只需要在 &lt;code&gt;@&lt;/code&gt; 后面添加需要填入 &lt;code&gt;%I&lt;/code&gt; 位置的参数即可，如 &lt;code&gt;getty@tty9.service&lt;/code&gt; 。&lt;/p&gt;
-&lt;h2 id=&#34;Target&#34;&gt;Target&lt;/h2&gt;
+&lt;h2 id=&#34;target&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#target&#34;&gt;&lt;/a&gt;Target&lt;/h2&gt;
 &lt;p&gt;一般来说，常用的 Target 有两个：一个是 &lt;code&gt;multi-user.target&lt;/code&gt; ，表示多用户命令行状态；另一个是 &lt;code&gt;graphical.target&lt;/code&gt; ，表示图形用户状态（它依赖于 &lt;code&gt;multi-user.target&lt;/code&gt;），这一点和 SysVinit 的运行级别很是相似。&lt;/p&gt;
 &lt;p&gt;官方提供了一张非常清晰的 Target 依赖关系图：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/11/ubmqlLdiGeCtUg7.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;图源：&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/bootup.html#System%20Manager%20Bootup&#34;&gt;https://www.freedesktop.org/software/systemd/man/bootup.html#System Manager Bootup&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;配置文件-2&#34;&gt;配置文件&lt;/h3&gt;
+&lt;h3 id=&#34;配置文件-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置文件-t2&#34;&gt;&lt;/a&gt;配置文件&lt;/h3&gt;
 &lt;p&gt;以 &lt;code&gt;multi-user.target&lt;/code&gt; 这个文件为例子，来简要说明一下 Target 的配置文件中的主要项目：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# /lib/systemd/system/multi-user.target&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt;#&lt;/span&gt;
@@ -973,7 +973,7 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;li&gt;&lt;code&gt;After&lt;/code&gt;: 在哪些 Target 之后启动&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;AllowIsolate&lt;/code&gt;: 是否允许使用 &lt;code&gt;systemctl isolate&lt;/code&gt; 命令切换到这个 Target&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;
@@ -994,13 +994,13 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
         <title>你好，2021 | 博客迁移记录</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/hello-2021/"/>
         <content type="html">&lt;p&gt;再见，2020。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;最近总是觉得博客太慢了，于是乎，我把博客迁移到自己的服务器上面了。&lt;/p&gt;
-&lt;h2 id=&#34;服务器端操作&#34;&gt;服务器端操作&lt;/h2&gt;
-&lt;h3 id=&#34;安装-nginx&#34;&gt;安装 nginx&lt;/h3&gt;
+&lt;h2 id=&#34;服务器端操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#服务器端操作&#34;&gt;&lt;/a&gt;服务器端操作&lt;/h2&gt;
+&lt;h3 id=&#34;安装-nginx&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-nginx&#34;&gt;&lt;/a&gt;安装 nginx&lt;/h3&gt;
 &lt;p&gt;apt 一把梭，省时又省力。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight shell&#34;&gt;apt install nginx -y&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;配置-nginx&#34;&gt;配置 nginx&lt;/h3&gt;
+&lt;h3 id=&#34;配置-nginx&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-nginx&#34;&gt;&lt;/a&gt;配置 nginx&lt;/h3&gt;
 &lt;p&gt;简简单单配置了一下，没有什么过于复杂的东西。&lt;/p&gt;
 &lt;p&gt;在申请 SSL 证书之前，不要写 HTTPS 的配置。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;section&#34;&gt;server&lt;/span&gt; &amp;#123;
@@ -1018,7 +1018,7 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
         &lt;span class=&#34;attribute&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;301&lt;/span&gt; https://blog.baoshuo.ren$request_uri;
     &amp;#125;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;申请-SSL-证书&#34;&gt;申请 SSL 证书&lt;/h3&gt;
+&lt;h3 id=&#34;申请-ssl-证书&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#申请-ssl-证书&#34;&gt;&lt;/a&gt;申请 SSL 证书&lt;/h3&gt;
 &lt;p&gt;由于笔者懒得每年换证书，所以就用了 &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let’s Encrypt&lt;/a&gt; + &lt;a href=&#34;https://acme.sh&#34;&gt;acme.sh&lt;/a&gt; 的组合套装来配置 SSL 。
 当然，ECC 证书也是少不了的。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;acme.sh --issue -d baoshuo.ren -d www.baoshuo.ren -d blog.baoshuo.ren \
@@ -1063,7 +1063,7 @@ acme.sh --issue --keylength ec-256 \
 &lt;pre&gt;&lt;code class=&#34;highlight apache&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;ssl_protocols&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;ssl_ciphers&lt;/span&gt; ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-CHACHA&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;number&#34;&gt;1305&lt;/span&gt;:ECDHE-RSA-CHACHA&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;number&#34;&gt;1305&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:DHE-RSA-CHACHA&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;number&#34;&gt;1305&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA:AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA:DES-CBC&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;-SHA;
 &lt;span class=&#34;attribute&#34;&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;将博客文件同步到服务器上&#34;&gt;将博客文件同步到服务器上&lt;/h2&gt;
+&lt;h2 id=&#34;将博客文件同步到服务器上&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#将博客文件同步到服务器上&#34;&gt;&lt;/a&gt;将博客文件同步到服务器上&lt;/h2&gt;
 &lt;p&gt;在 &lt;code&gt;.github/workflows&lt;/code&gt; 目录下创建一个 &lt;code&gt;server.yml&lt;/code&gt; 文件，写入以下内容：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight yaml&#34;&gt;&lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Deploy&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;blog&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Server&lt;/span&gt;
 
@@ -1114,7 +1114,7 @@ acme.sh --issue --keylength ec-256 \
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;将博客文件 push 到仓库中，就能在服务器上查看到文件了。&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;
@@ -1133,13 +1133,13 @@ acme.sh --issue --keylength ec-256 \
         <title>洛谷爬虫</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/luogu-spider/"/>
         <content type="html">&lt;p&gt;截至目前，洛谷已经有了近两万道题目和四十余万名用户。本代码爬取了一些样本，以供后续（可能）的数据分析。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;本次爬取遵守洛谷的 &lt;code&gt;robots.txt&lt;/code&gt; 中的要求，不爬取提交记录页面。为了避免影响洛谷的正常运行，脚本只采用单线程进行爬取。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight http&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;User-Agent&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;*
 &lt;span class=&#34;attribute&#34;&gt;Disallow&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;/record
 &lt;span class=&#34;attribute&#34;&gt;Disallow&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;/recordnew&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;爬取题目信息&#34;&gt;爬取题目信息&lt;/h2&gt;
-&lt;h3 id=&#34;题目数据获取&#34;&gt;题目数据获取&lt;/h3&gt;
+&lt;h2 id=&#34;爬取题目信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#爬取题目信息&#34;&gt;&lt;/a&gt;爬取题目信息&lt;/h2&gt;
+&lt;h3 id=&#34;题目数据获取&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#题目数据获取&#34;&gt;&lt;/a&gt;题目数据获取&lt;/h3&gt;
 &lt;p&gt;先使用 &lt;code&gt;curl&lt;/code&gt; 获取洛谷的题目页面：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/JageUdcpXTthIjM.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看出我们需要的数据都在传入给 &lt;code&gt;decodeURIComponent()&lt;/code&gt; 函数的字符串中，正则匹配取出即可。&lt;/p&gt;
@@ -1178,7 +1178,7 @@ data = getProblemJSON(&lt;span class=&#34;string&#34;&gt;&amp;quot;P1000&amp;quo
      else:
 &lt;span class=&#34;deletion&#34;&gt;-        return json.loads(unquote(redata[0]))&lt;/span&gt;
 &lt;span class=&#34;addition&#34;&gt;+        return json.loads(redata)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;处理题目数据&#34;&gt;处理题目数据&lt;/h3&gt;
+&lt;h3 id=&#34;处理题目数据&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#处理题目数据&#34;&gt;&lt;/a&gt;处理题目数据&lt;/h3&gt;
 &lt;p&gt;这里只留下 &lt;code&gt;currentData.problem&lt;/code&gt; 字段里面的内容即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt;# coding: utf-8&lt;/span&gt;
@@ -1208,7 +1208,7 @@ headers = &amp;#123;
 
 &lt;span class=&#34;comment&#34;&gt;# print(res)&lt;/span&gt;
 f.write(json.dumps(res, indent=&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;).replace(&lt;span class=&#34;string&#34;&gt;&amp;quot;\\t&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;    &amp;quot;&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;最终代码&#34;&gt;最终代码&lt;/h3&gt;
+&lt;h3 id=&#34;最终代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最终代码&#34;&gt;&lt;/a&gt;最终代码&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt;# coding: utf-8&lt;/span&gt;
 
@@ -1247,7 +1247,7 @@ headers = &amp;#123;
     &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
         &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;f&amp;quot;Problem &lt;span class=&#34;subst&#34;&gt;&amp;#123;pid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;有关于数据库读写的部分请参考下文的 &lt;a href=&#34;#%E6%95%B0%E6%8D%AE%E5%BA%93&#34;&gt;数据库&lt;/a&gt; 部分。&lt;/p&gt;
-&lt;h2 id=&#34;爬取用户信息&#34;&gt;爬取用户信息&lt;/h2&gt;
+&lt;h2 id=&#34;爬取用户信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#爬取用户信息&#34;&gt;&lt;/a&gt;爬取用户信息&lt;/h2&gt;
 &lt;p&gt;结构与题目爬虫类似，故不再作代码说明。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; json
 &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; time
@@ -1281,32 +1281,32 @@ headers = &amp;#123; &lt;span class=&#34;string&#34;&gt;&amp;quot;User-Agent&amp
             time.sleep(&lt;span class=&#34;number&#34;&gt;0.5&lt;/span&gt;)
     &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
         &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;f&amp;quot;User &lt;span class=&#34;subst&#34;&gt;&amp;#123;uid&amp;#125;&lt;/span&gt; is already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;数据库&#34;&gt;数据库&lt;/h2&gt;
-&lt;h3 id=&#34;搭建数据库&#34;&gt;搭建数据库&lt;/h3&gt;
+&lt;h2 id=&#34;数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数据库&#34;&gt;&lt;/a&gt;数据库&lt;/h2&gt;
+&lt;h3 id=&#34;搭建数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#搭建数据库&#34;&gt;&lt;/a&gt;搭建数据库&lt;/h3&gt;
 &lt;p&gt;搭建 MongoDB 数据库只需要在 docker 里面跑一个容器，非常简便。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;docker run -v /root/data/mongo:/data/db -itd --name mongo -p 27017:27017 mongo&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;连接数据库&#34;&gt;连接数据库&lt;/h3&gt;
+&lt;h3 id=&#34;连接数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#连接数据库&#34;&gt;&lt;/a&gt;连接数据库&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;client = pymongo.MongoClient(&lt;span class=&#34;string&#34;&gt;&amp;quot;mongodb://127.0.0.1:27017/&amp;quot;&lt;/span&gt;)
 luogudb = dbclient[&lt;span class=&#34;string&#34;&gt;&amp;quot;luogu&amp;quot;&lt;/span&gt;]
 col = luogudb[&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;/span&gt;]&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;存储数据&#34;&gt;存储数据&lt;/h3&gt;
+&lt;h3 id=&#34;存储数据&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#存储数据&#34;&gt;&lt;/a&gt;存储数据&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;(col.find(&amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;#x27;pid&amp;#x27;&lt;/span&gt; : pid&amp;#125;)) == []:
     col.insert_one(data)
     &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Success.&amp;quot;&lt;/span&gt;)
 &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:
     &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Already exists.&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;读取数据&#34;&gt;读取数据&lt;/h3&gt;
+&lt;h3 id=&#34;读取数据&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#读取数据&#34;&gt;&lt;/a&gt;读取数据&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight python&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;(col.find()))&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;web-管理数据库&#34;&gt;web 管理数据库&lt;/h2&gt;
+&lt;h2 id=&#34;web-管理数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#web-管理数据库&#34;&gt;&lt;/a&gt;web 管理数据库&lt;/h2&gt;
 &lt;p&gt;再跑一个 &lt;code&gt;mongo-express&lt;/code&gt; 就行了。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;docker run -d --name mongo-express -e ME_CONFIG_MONGODB_SERVER=host.docker.internal -p 8081:8081 mongo-express&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;访问 &lt;code&gt;ip:8081&lt;/code&gt; 就能看到管理界面了。&lt;/p&gt;
-&lt;h2 id=&#34;导出数据库&#34;&gt;导出数据库&lt;/h2&gt;
+&lt;h2 id=&#34;导出数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导出数据库&#34;&gt;&lt;/a&gt;导出数据库&lt;/h2&gt;
 &lt;p&gt;直接运行下方命令导出为 JSON 格式即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;mongoexport -d luogu -c problem -o /data/db/problem.json&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;或者点击对应数据库管理界面中的 &lt;code&gt;[JSON]&lt;/code&gt; 按钮导出。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/hXtVAynYGcb8B71.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;成果&#34;&gt;成果&lt;/h2&gt;
+&lt;h2 id=&#34;成果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#成果&#34;&gt;&lt;/a&gt;成果&lt;/h2&gt;
 &lt;p&gt;断断续续爬了一个多星期，终于爬完了。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/7muojQZM125gWXL.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 </content>
@@ -1316,11 +1316,11 @@ col = luogudb[&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;
         <id>https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/</id>
         <title>USTC Hackergame 2020 Write Up</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/ustc-hackergame-2020-write-up/"/>
-        <content type="html">&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+        <content type="html">&lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;对于我这种啥也不会的蒟蒻，拿到第676名已经是很不错的了（逃&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-&lt;h2 id=&#34;web&#34;&gt;web&lt;/h2&gt;
-&lt;h3 id=&#34;签到题&#34;&gt;签到题&lt;/h3&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;h2 id=&#34;web&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#web&#34;&gt;&lt;/a&gt;web&lt;/h2&gt;
+&lt;h3 id=&#34;签到题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#签到题&#34;&gt;&lt;/a&gt;签到题&lt;/h3&gt;
 &lt;p&gt;web题当然要先看源码了（出题人好恶毒啊）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/25/FqvWiXe4DIzLnr3.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;再就是改值、提交&lt;/p&gt;
@@ -1328,7 +1328,7 @@ col = luogudb[&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;
 &lt;p&gt;so easy~&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/25/8kSKomN217XJUEY.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;flag 获取成功：&lt;code&gt;flag&amp;#123;hR6Ku81-HappyHacking2020-35a790fff0&amp;#125;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;2048&#34;&gt;2048&lt;/h3&gt;
+&lt;h3 id=&#34;2048&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2048&#34;&gt;&lt;/a&gt;2048&lt;/h3&gt;
 &lt;p&gt;首先F12看下源码，看到了一个有趣的东西&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/25/dJXolhVqNvwSPjs.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;s&gt;这么好的东西当然要拖到console里面去啊&lt;/s&gt;&lt;/p&gt;
@@ -1339,12 +1339,12 @@ col = luogudb[&lt;span class=&#34;string&#34;&gt;&amp;quot;problem&amp;quot;&lt;
 &lt;p&gt;然后就出来了此题的 「flxg」&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/25/Nf5gw3cM8opAQ9U.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;flxg获取成功：&lt;code&gt;flxg&amp;#123;8G6so5g-FLXG-7b77994fc5&amp;#125;&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;general&#34;&gt;general&lt;/h2&gt;
-&lt;h3 id=&#34;一闪而过的-Flag&#34;&gt;一闪而过的 Flag&lt;/h3&gt;
+&lt;h2 id=&#34;general&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#general&#34;&gt;&lt;/a&gt;general&lt;/h2&gt;
+&lt;h3 id=&#34;一闪而过的-flag&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一闪而过的-flag&#34;&gt;&lt;/a&gt;一闪而过的 Flag&lt;/h3&gt;
 &lt;p&gt;直接打开是会闪，但是，你闪归你闪，我直接用cmd打开，你总不能 &lt;s&gt;把我cmd窗口关掉吧&lt;/s&gt; 还继续闪吧&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/25/KavlGwSQoVqi4PZ.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;flag获取成功：&lt;code&gt;flag&amp;#123;Are_you_eyes1ght_g00D?_can_you_dIst1nguish_1iI?&amp;#125;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;猫咪问答&#34;&gt;猫咪问答++&lt;/h3&gt;
+&lt;h3 id=&#34;猫咪问答&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#猫咪问答&#34;&gt;&lt;/a&gt;猫咪问答++&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;第一个以信鸽为载体的 IP 网络标准的 RFC 文档中推荐使用的 MTU (Maximum Transmission Unit) 是多少毫克？&lt;/li&gt;
@@ -1379,7 +1379,7 @@ Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，T
 &lt;p&gt;附上代码：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;((i=1;i&amp;lt;=23;i=(&lt;span class=&#34;variable&#34;&gt;$i&lt;/span&gt;+1))); &lt;span class=&#34;keyword&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt;((j=1;j&amp;lt;=30;j=(&lt;span class=&#34;variable&#34;&gt;$j&lt;/span&gt;+1))); &lt;span class=&#34;keyword&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;[&lt;span class=&#34;variable&#34;&gt;$i&lt;/span&gt;, &lt;span class=&#34;variable&#34;&gt;$j&lt;/span&gt;] &lt;span class=&#34;subst&#34;&gt;$(curl -s &amp;#x27;http://202.38.93.111:10001/&amp;#x27; --data &lt;span class=&#34;string&#34;&gt;&amp;quot;q1=&lt;span class=&#34;variable&#34;&gt;$i&lt;/span&gt;&amp;amp;q2=256&amp;amp;q3=9&amp;amp;q4=&lt;span class=&#34;variable&#34;&gt;$j&lt;/span&gt;&amp;amp;q5=17098&amp;quot;&lt;/span&gt; -H &lt;span class=&#34;string&#34;&gt;&amp;quot;Cookie: PHPSESSID=******; session=******&amp;quot;&lt;/span&gt; | grep &amp;#x27;flag.*&amp;#x27;)&lt;/span&gt;&amp;quot;&lt;/span&gt; ; &lt;span class=&#34;keyword&#34;&gt;done&lt;/span&gt; ; &lt;span class=&#34;keyword&#34;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;flag获取成功：&lt;code&gt;flag&amp;#123;b4a31f2a_G00G1e_1s_y0ur_fr13nd_228b608a32&amp;#125;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;233-同学的-Docker&#34;&gt;233 同学的 Docker&lt;/h3&gt;
+&lt;h3 id=&#34;233-同学的-docker&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#233-同学的-docker&#34;&gt;&lt;/a&gt;233 同学的 Docker&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/25/pP5dvYI8Tz49QLB.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;众所周知，Docker 镜像是分层存储的，所以这道题可以很轻松地解出来。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/25/im2bTZqAMNJPf5d.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
@@ -1424,14 +1424,14 @@ Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，T
         <title>Bilibili 1024 节 CTF Write Up</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/bilibili-1024-ctf-write-up/"/>
         <content type="html">&lt;p&gt;比赛地址： &lt;a href=&#34;https://security.bilibili.com/sec1024/&#34;&gt;https://security.bilibili.com/sec1024/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T1：页面的背后是什么？&#34;&gt;T1：页面的背后是什么？&lt;/h2&gt;
+&lt;h2 id=&#34;t1：页面的背后是什么？&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#t1：页面的背后是什么？&#34;&gt;&lt;/a&gt;T1：页面的背后是什么？&lt;/h2&gt;
 &lt;p&gt;&lt;s&gt;F12解决一切问题&lt;/s&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/28/XrLpIf2OHs4YAxJ.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T2：真正的秘密只有特殊的设备才能看到&#34;&gt;T2：真正的秘密只有特殊的设备才能看到&lt;/h2&gt;
+&lt;h2 id=&#34;t2：真正的秘密只有特殊的设备才能看到&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#t2：真正的秘密只有特殊的设备才能看到&#34;&gt;&lt;/a&gt;T2：真正的秘密只有特殊的设备才能看到&lt;/h2&gt;
 &lt;p&gt;改下UA就行了，轻松到手&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/28/WPLCUHNYiE2nFwJ.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/28/83GrjFbTwJf1BHn.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T3：密码是啥？&#34;&gt;T3：密码是啥？&lt;/h2&gt;
+&lt;h2 id=&#34;t3：密码是啥？&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#t3：密码是啥？&#34;&gt;&lt;/a&gt;T3：密码是啥？&lt;/h2&gt;
 &lt;p&gt;看了看源码，没啥思路，最后随便试了试 &lt;code&gt;admin&lt;/code&gt; &lt;code&gt;root&lt;/code&gt; &lt;code&gt;bilibili&lt;/code&gt; 什么的，竟然是对的。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;用户名 &lt;code&gt;admin&lt;/code&gt;&lt;/li&gt;
@@ -1439,7 +1439,7 @@ Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，T
 &lt;/ul&gt;
 &lt;p&gt;另外，你告诉我什么是 &lt;strong&gt;falg&lt;/strong&gt; ？&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/28/eg9kBtR1aQizGYE.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T4：对不起，权限不足～&#34;&gt;T4：对不起，权限不足～&lt;/h2&gt;
+&lt;h2 id=&#34;t4：对不起，权限不足～&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#t4：对不起，权限不足～&#34;&gt;&lt;/a&gt;T4：对不起，权限不足～&lt;/h2&gt;
 &lt;p&gt;第一次访问：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/28/roVjXTfs4v8ibP5.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;第二次访问：&lt;/p&gt;
@@ -1451,13 +1451,13 @@ Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，T
 &lt;p&gt;挨个试，最后发现 &lt;code&gt;Administrator&lt;/code&gt; 是正确的。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight shell&#34;&gt;curl &amp;quot;http://45.113.201.36/api/ctf/4&amp;quot; --cookie &amp;quot;role=7b7bc2512ee1fedcd76bdc68926d4f7b; session=***;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/28/gEhkmTJrnaoMwPv.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T5：别人的秘密&#34;&gt;T5：别人的秘密&lt;/h2&gt;
+&lt;h2 id=&#34;t5：别人的秘密&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#t5：别人的秘密&#34;&gt;&lt;/a&gt;T5：别人的秘密&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/28/c4BjYs3nVuCpxmH.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;发现有个API，还有个 UID。&lt;/p&gt;
 &lt;p&gt;最开始没想到需要从代码里面的&amp;quot;初始UID&amp;quot;开始扫，浪费了我好多时间。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight shell&#34;&gt;for ((i=100336889;$i&amp;lt;9999999999;i=($i+1))); do echo -e &amp;quot;[$i] \c&amp;quot; &amp;amp;&amp;amp; curl &amp;quot;http://45.113.201.36/api/ctf/5?uid=$&amp;#123;i&amp;#125;&amp;quot; -H &amp;#x27;User-Agent: bilibili Security Browser&amp;#x27; -H &amp;#x27;Cookie: session=*****; role=ee11cbb19052e40b07aac0ca060c23ee&amp;#x27; ; done&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/28/m1Hr4u8FOJe7ycI.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;T6-T10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&#34;&gt;T6~T10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&lt;/h2&gt;
+&lt;h2 id=&#34;t6-t10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#t6-t10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&#34;&gt;&lt;/a&gt;T6~T10：结束亦是开始，接下来的旅程，需要少年自己去探索啦～&lt;/h2&gt;
 &lt;p&gt;先扫了扫端口，发现有个 redis&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/28/E29tLxSiC6Qzn5O.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight shell&#34;&gt;redis-cli -h 120.92.151.189 -p 6379&lt;/code&gt;&lt;/pre&gt;
@@ -1506,16 +1506,16 @@ Docker，Golang，Python，Plan 9，PHP，GNU，LLVM，Swift，Perl，GitHub，T
         <title>使用树莓派+nginx搭建 rtmp 直播服务</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/raspberry-pi-rtmp-live/"/>
         <content type="html">&lt;p&gt;国庆在家闲着没啥事，把一直在角落里吃灰的树莓派 4B 拿出来捣鼓了几下。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;使用 nginx 模块：&lt;a href=&#34;https://github.com/arut/nginx-rtmp-module&#34;&gt;&lt;code&gt;nginx-rtmp-module&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;安装-nginx-nginx-rtmp-module&#34;&gt;安装 nginx &amp;amp; nginx-rtmp-module&lt;/h2&gt;
+&lt;h2 id=&#34;安装-nginx-nginx-rtmp-module&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-nginx-nginx-rtmp-module&#34;&gt;&lt;/a&gt;安装 nginx &amp;amp; nginx-rtmp-module&lt;/h2&gt;
 &lt;p&gt;apt, yes!&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;apt update
 apt upgrade -y
 apt install nginx libnginx-mod-rtmp -y&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;访问服务器 IP ，出现如下图所示网页即代表安装成功。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/BdKOhDuxIaYks6q.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;修改-nginx-配置&#34;&gt;修改 nginx 配置&lt;/h2&gt;
+&lt;h2 id=&#34;修改-nginx-配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改-nginx-配置&#34;&gt;&lt;/a&gt;修改 nginx 配置&lt;/h2&gt;
 &lt;p&gt;打开 &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; ，在末尾处插入下面的配置&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;section&#34;&gt;rtmp&lt;/span&gt; &amp;#123;
     &lt;span class=&#34;section&#34;&gt;server&lt;/span&gt; &amp;#123;
@@ -1548,8 +1548,8 @@ apt install nginx libnginx-mod-rtmp -y&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;打开默认站点配置文件 &lt;code&gt;/etc/nginx/sites-available/default&lt;/code&gt; ，在 &lt;code&gt;server&lt;/code&gt; 部分的末尾添加以下内容&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;location&lt;/span&gt; /live &amp;#123;
     &lt;span class=&#34;section&#34;&gt;types&lt;/span&gt; &amp;#123;
-        application/vnd.apple.mpegurl m3u8;
-        video/mp2t                    ts;
+        application/vnd.apple.&lt;span class=&#34;attribute&#34;&gt;mpegurl&lt;/span&gt; m3u8;
+        video/&lt;span class=&#34;attribute&#34;&gt;mp2t&lt;/span&gt;                    ts;
     &amp;#125;
 
     &lt;span class=&#34;attribute&#34;&gt;autoindex&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;
@@ -1613,7 +1613,7 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
 &lt;p&gt;当出现成功提示时，使用 &lt;code&gt;nginx -s reload&lt;/code&gt; 平滑重启 nginx。&lt;/p&gt;
 &lt;p&gt;重启成功后使用 &lt;code&gt;netstat -lnp&lt;/code&gt; 查看 &lt;code&gt;tcp/1935&lt;/code&gt; 端口是否开启。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/Xy3Nq5WZaogLIvR.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;使用-OBS-连接直播服务器&#34;&gt;使用 OBS 连接直播服务器&lt;/h2&gt;
+&lt;h2 id=&#34;使用-obs-连接直播服务器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-obs-连接直播服务器&#34;&gt;&lt;/a&gt;使用 OBS 连接直播服务器&lt;/h2&gt;
 &lt;p&gt;打开 OBS ，在 设置 -&amp;gt; 推流 中配置以下内容&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1639,14 +1639,14 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
 &lt;/table&gt;
 &lt;p&gt;其中，&lt;code&gt;$&amp;#123;ip&amp;#125;&lt;/code&gt; 和 &lt;code&gt;$&amp;#123;key&amp;#125;&lt;/code&gt; 设置为你需要的值即可。&lt;/p&gt;
 &lt;p&gt;回到主界面，点击 &lt;strong&gt;开始推流&lt;/strong&gt; 进行推流。&lt;/p&gt;
-&lt;h2 id=&#34;使用客户端拉取直播流&#34;&gt;使用客户端拉取直播流&lt;/h2&gt;
+&lt;h2 id=&#34;使用客户端拉取直播流&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用客户端拉取直播流&#34;&gt;&lt;/a&gt;使用客户端拉取直播流&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/jpqVTAgXSW6oyEP.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;在 &lt;code&gt;PotPlayer&lt;/code&gt; &lt;code&gt;QQ影音&lt;/code&gt; 等播放器中选择 &lt;code&gt;打开-&amp;gt;打开URL&lt;/code&gt; 。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/rzBNukVTntf5xUR.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;输入 &lt;code&gt;http://$&amp;#123;ip&amp;#125;/live/$&amp;#123;key&amp;#125;/index.m3u8&lt;/code&gt; ，点击确定。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/crbEBQNC3qH8uOl.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;此时可以就看到直播画面了。&lt;/p&gt;
-&lt;h2 id=&#34;网页端播放&#34;&gt;网页端播放&lt;/h2&gt;
+&lt;h2 id=&#34;网页端播放&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网页端播放&#34;&gt;&lt;/a&gt;网页端播放&lt;/h2&gt;
 &lt;p&gt;页面中只有一个播放器，其他功能请自行实现。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight xml&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
@@ -1659,23 +1659,23 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
     &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;dplayer&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://cdn.jsdelivr.net/npm/hls.js@0.14.13/dist/hls.min.js&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;javascript&#34;&gt;&lt;/span&gt;
 &lt;span class=&#34;javascript&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; dp = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; DPlayer(&amp;#123;&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;            container: &lt;span class=&#34;built_in&#34;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&#34;string&#34;&gt;&amp;#x27;dplayer&amp;#x27;&lt;/span&gt;),&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;            live: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;,&lt;/span&gt;
-            video: &amp;#123;
-&lt;span class=&#34;javascript&#34;&gt;                url: &lt;span class=&#34;string&#34;&gt;&amp;#x27;http://$&amp;#123;ip&amp;#125;/live/$&amp;#123;key&amp;#125;/index.m3u8&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
-&lt;span class=&#34;javascript&#34;&gt;                type: &lt;span class=&#34;string&#34;&gt;&amp;#x27;hls&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
-            &amp;#125;,
-        &amp;#125;);
-    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;container&lt;/span&gt;: &lt;span class=&#34;built_in&#34;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&#34;string&#34;&gt;&amp;#x27;dplayer&amp;#x27;&lt;/span&gt;),&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;live&lt;/span&gt;: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;,&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;video&lt;/span&gt;: &amp;#123;&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;                &lt;span class=&#34;attr&#34;&gt;url&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;http://$&amp;#123;ip&amp;#125;/live/$&amp;#123;key&amp;#125;/index.m3u8&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;                &lt;span class=&#34;attr&#34;&gt;type&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;hls&amp;#x27;&lt;/span&gt;,&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;            &amp;#125;,&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;        &amp;#125;);&lt;/span&gt;
+&lt;span class=&#34;javascript&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/9X6mUtF4fLzdaYn.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;h2 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;&lt;/a&gt;后记&lt;/h2&gt;
 &lt;p&gt;如果没有在外直播的需求，不要将 rtmp 端口映射至公网，这可能会带来一些不必要的麻烦。&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 </content>
         <category term="折腾" />
         <updated>2020-10-05T13:35:32.000Z</updated>
@@ -1685,8 +1685,8 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
         <title>配置 nginx 只允许 Cloudflare 的 IP 回源</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/nginx-cloudflare-ip-only/"/>
         <content type="html">&lt;p&gt;配置好 Cloudflare 后，建议禁止非 Cloudflare IP 访问源站来防止一些不好的事情发生。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;h2 id=&#34;配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置&#34;&gt;&lt;/a&gt;配置&lt;/h2&gt;
 &lt;p&gt;在站点配置文件中增加以下内容&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt; :&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight nginx&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Cloudflare (IPv4 - https://www.cloudflare.com/ips-v4)&lt;/span&gt;
 &lt;span class=&#34;attribute&#34;&gt;allow&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;173.245.48.0&lt;/span&gt;/&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;;
@@ -1717,9 +1717,9 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
 
 &lt;span class=&#34;comment&#34;&gt;# Others&lt;/span&gt;
 &lt;span class=&#34;attribute&#34;&gt;deny&lt;/span&gt; all;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;h2 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;&lt;/a&gt;后记&lt;/h2&gt;
 &lt;p&gt;这个配置文件可以自己生成。&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;
@@ -1735,31 +1735,31 @@ nginx: configuration &lt;span class=&#34;keyword&#34;&gt;file&lt;/span&gt; /etc/
         <id>https://blog.baoshuo.ren/post/vmware-macos-bigsur/</id>
         <title>在 VMware 上安装 macOS 11 Big Sur Beta</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/vmware-macos-bigsur/"/>
-        <content type="html">&lt;h2 id=&#34;工具准备&#34;&gt;工具准备&lt;/h2&gt;
+        <content type="html">&lt;h2 id=&#34;工具准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工具准备&#34;&gt;&lt;/a&gt;工具准备&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;文件：&lt;code&gt;BigSur.cdr&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;文件：&lt;code&gt;unlocker.zip&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;软件：&lt;code&gt;VMware Workstation Pro 15&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;文末会给出上述工具的下载地址。&lt;/p&gt;
-&lt;h2 id=&#34;安装-VMware&#34;&gt;安装 VMware&lt;/h2&gt;
+&lt;h2 id=&#34;安装-vmware&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-vmware&#34;&gt;&lt;/a&gt;安装 VMware&lt;/h2&gt;
 &lt;p&gt;安装步骤这里不再细说。&lt;/p&gt;
 &lt;p&gt;不过这里来说下 &lt;code&gt;VMware 15.5.5&lt;/code&gt; 以后 VMware 和 微软的新动作：&lt;code&gt;VMware&lt;/code&gt; 和 &lt;code&gt;Hyper-V&lt;/code&gt; 可以共存了~&lt;small&gt;[1][2]&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;*&lt;em&gt;注：需 Windows 10 2004 以上版本的系统&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;只需要在安装时勾选下图所示的选项即可：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/5OcenBTq1jNzhpV.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;于是，我的 WSL2 和我的 Docker Desktop 可以和 VMware 一起愉快的玩耍辣😆~&lt;/p&gt;
-&lt;h2 id=&#34;解锁-VMware&#34;&gt;解锁 VMware&lt;/h2&gt;
+&lt;h2 id=&#34;解锁-vmware&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解锁-vmware&#34;&gt;&lt;/a&gt;解锁 VMware&lt;/h2&gt;
 &lt;p&gt;条件：先关闭 VMware 的所有进程。&lt;/p&gt;
-&lt;h3 id=&#34;Windows&#34;&gt;Windows&lt;/h3&gt;
+&lt;h3 id=&#34;windows&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#windows&#34;&gt;&lt;/a&gt;Windows&lt;/h3&gt;
 &lt;p&gt;解压 Unlocker.zip 内的所有文件到一个文件夹中，右键 &lt;code&gt;win-install.cmd&lt;/code&gt; ，选择&amp;quot;以管理员身份运行&amp;quot;，等待运行完毕即可。&lt;/p&gt;
-&lt;h3 id=&#34;Linux&#34;&gt;Linux&lt;/h3&gt;
+&lt;h3 id=&#34;linux&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux&#34;&gt;&lt;/a&gt;Linux&lt;/h3&gt;
 &lt;p&gt;使用以下命令解锁 VMware ：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;unzip unlocker.zip
 chmod +x lnx-install.sh
 sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;检验方法：创建虚拟机时是否可以选择 macOS 系统。&lt;/p&gt;
-&lt;h2 id=&#34;创建虚拟机&#34;&gt;创建虚拟机&lt;/h2&gt;
+&lt;h2 id=&#34;创建虚拟机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建虚拟机&#34;&gt;&lt;/a&gt;创建虚拟机&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/XsklfzviZH52W1b.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 打开 &lt;code&gt;VMware Workstation 15&lt;/code&gt; ，选择 「新建虚拟机」。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/LkQCmegM7rXo5fv.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
@@ -1792,18 +1792,18 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;▲ 磁盘配置&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/ncrqyEHemAD5kpu.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 完成！&lt;/p&gt;
-&lt;h2 id=&#34;配置虚拟机&#34;&gt;配置虚拟机&lt;/h2&gt;
+&lt;h2 id=&#34;配置虚拟机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置虚拟机&#34;&gt;&lt;/a&gt;配置虚拟机&lt;/h2&gt;
 &lt;p&gt;在 vmx 文件末尾添加以下内容并保存。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight ini&#34;&gt;&lt;span class=&#34;attr&#34;&gt;smc.version&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;
 &lt;span class=&#34;attr&#34;&gt;hw.model&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;MacBookPro16,1&amp;quot;&lt;/span&gt;
 &lt;span class=&#34;attr&#34;&gt;board-id&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;Mac-E1008331FDC96864&amp;quot;&lt;/span&gt;
 &lt;span class=&#34;attr&#34;&gt;board-id.reflectHost&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;TRUE&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;挂载安装镜像&#34;&gt;挂载安装镜像&lt;/h2&gt;
+&lt;h2 id=&#34;挂载安装镜像&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#挂载安装镜像&#34;&gt;&lt;/a&gt;挂载安装镜像&lt;/h2&gt;
 &lt;p&gt;点击&amp;quot;编辑虚拟机设置&amp;quot;，选择&amp;quot;CD/DVD&amp;quot;选项。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/KVdIk9ZXcqH2aBG.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如图所示，先勾选&amp;quot;使用 ISO 映像文件&amp;quot;选项，再点击浏览，点击&amp;quot;所有文件&amp;quot;，选中 &lt;code&gt;bigsur.cdr&lt;/code&gt; 并确认。&lt;/p&gt;
 &lt;p&gt;保存以后点击&amp;quot;开启虚拟机&amp;quot;&lt;/p&gt;
-&lt;h2 id=&#34;安装-macOS&#34;&gt;安装 macOS&lt;/h2&gt;
+&lt;h2 id=&#34;安装-macos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-macos&#34;&gt;&lt;/a&gt;安装 macOS&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/zsFHvAyPN8RBTnc.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 耐心等待加载&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/cK7PEd2wJ4j3shO.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
@@ -1826,7 +1826,7 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;▲ 开始安装&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/Wh4qSs2oxYc13E6.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 上面显示的剩余时间通常都是忽悠人的，得等好久&lt;/p&gt;
-&lt;h2 id=&#34;配置-macOS&#34;&gt;配置 macOS&lt;/h2&gt;
+&lt;h2 id=&#34;配置-macos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-macos&#34;&gt;&lt;/a&gt;配置 macOS&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/14eXWOKTdbUg8kM.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ 首先选择国家和地区&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;接下来按照自己需求配置即可，到&lt;strong&gt;配置迁移助理&lt;/strong&gt;时选择&lt;code&gt;以后&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
@@ -1836,15 +1836,15 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;▲ 选择 &lt;code&gt;稍后设置&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/13/8BxFmJTZ13WLYr2.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;▲ All done!&lt;/p&gt;
-&lt;h2 id=&#34;安装-VMware-Tools&#34;&gt;安装 VMware Tools&lt;/h2&gt;
+&lt;h2 id=&#34;安装-vmware-tools&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-vmware-tools&#34;&gt;&lt;/a&gt;安装 VMware Tools&lt;/h2&gt;
 &lt;p&gt;在 VMware 的 &lt;code&gt;虚拟机(M)&lt;/code&gt; 菜单栏中选择 &lt;code&gt;安装 VMware Tools(T)...&lt;/code&gt; 选项。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/12/13/6tTqm4uYsl5byAr.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;之后按照步骤操作就行啦~&lt;/p&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://blogs.vmware.com/workstation/2020/05/vmware-workstation-now-supports-hyper-v-mode.html&#34;&gt;VMware Blogs: VMware Workstation 15.5 Now Supports Host Hyper-V Mode&lt;/a&gt;
 [2] &lt;a href=&#34;https://techcommunity.microsoft.com/t5/virtualization/vmware-workstation-and-hyper-v/ba-p/1419928&#34;&gt;Microsoft Tech Community: VMware Workstation and Hyper-V&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;文件下载&#34;&gt;文件下载&lt;/h2&gt;
-&lt;h3 id=&#34;百度网盘&#34;&gt;百度网盘&lt;/h3&gt;
+&lt;h2 id=&#34;文件下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文件下载&#34;&gt;&lt;/a&gt;文件下载&lt;/h2&gt;
+&lt;h3 id=&#34;百度网盘&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#百度网盘&#34;&gt;&lt;/a&gt;百度网盘&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;链接：&lt;a href=&#34;https://pan.baidu.com/s/1m_iwiZK1XVIhwrrpCenB3Q&#34;&gt;https://pan.baidu.com/s/1m_iwiZK1XVIhwrrpCenB3Q&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;提取码：&lt;code&gt;blog&lt;/code&gt;&lt;/li&gt;
@@ -1859,13 +1859,13 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
         <title>【补档】handsome 魔改教程：左侧边栏输出优化</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/handsome-leftbar-layout/"/>
         <content type="html">&lt;p&gt;感觉 handsome 自带的左侧边栏显示方法不太合适，于是自己参照了UCW大佬的教程 &lt;a href=&#34;https://ucw.moe/archives/handsome-aside-category.html&#34;&gt;优化侧栏显示：实现更加美观的分类展示&lt;/a&gt; 改了一下。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
-&lt;h2 id=&#34;修改方法&#34;&gt;修改方法&lt;/h2&gt;
-&lt;h3 id=&#34;前置操作&#34;&gt;前置操作&lt;/h3&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;h2 id=&#34;修改方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改方法&#34;&gt;&lt;/a&gt;修改方法&lt;/h2&gt;
+&lt;h3 id=&#34;前置操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前置操作&#34;&gt;&lt;/a&gt;前置操作&lt;/h3&gt;
 &lt;p&gt;建议引入 &lt;a href=&#34;https://fontawesome.dashgame.com/&#34;&gt;Font Awesome&lt;/a&gt; 图标库，在 &lt;code&gt;主题后台设置 -&amp;gt; 开发者设置 -&amp;gt; 自定义输出 head 头部的 HTML 代码&lt;/code&gt; 里面添加下面的代码即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;上面的 &lt;code&gt;Font Awesome&lt;/code&gt; 的 css 文件来自 BootCDN 提供，你也可以替换成自己的文件。&lt;/p&gt;
-&lt;h3 id=&#34;改代码&#34;&gt;改代码&lt;/h3&gt;
+&lt;h3 id=&#34;改代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#改代码&#34;&gt;&lt;/a&gt;改代码&lt;/h3&gt;
 &lt;p&gt;首先，打开 &lt;code&gt;libs/Content.php&lt;/code&gt; ，在蓝线所示的位置：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/3J7jpP5W6uqkAwO.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;插入下面的代码：&lt;/p&gt;
@@ -1913,81 +1913,81 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
                     &amp;#125;
                     &lt;span class=&#34;meta&#34;&gt;?&amp;gt;&lt;/span&gt;
               &amp;lt;li &lt;span class=&#34;meta&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;$class&lt;/span&gt;; &lt;span class=&#34;meta&#34;&gt;?&amp;gt;&lt;/span&gt;&amp;gt;
-                &amp;lt;a class=&amp;quot;auto&amp;quot;&amp;gt;
-                  &amp;lt;span class=&amp;quot;pull-right text-muted&amp;quot;&amp;gt;
-                    &amp;lt;i class=&amp;quot;fontello icon-fw fontello-angle-right text&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
-                    &amp;lt;i class=&amp;quot;fontello icon-fw fontello-angle-down text-active&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
-                  &amp;lt;/span&amp;gt;
-&amp;lt;!--                  &amp;lt;i class=&amp;quot;glyphicon glyphicon-th&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;--&amp;gt;
-                    &amp;lt;span class=&amp;quot;nav-icon&amp;quot;&amp;gt;&amp;lt;i data-feather=&amp;quot;grid&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;
-
-                    &amp;lt;span&amp;gt;&lt;span class=&#34;meta&#34;&gt;&amp;lt;?php&lt;/span&gt; _me(&lt;span class=&#34;string&#34;&gt;&amp;quot;分类&amp;quot;&lt;/span&gt;) &lt;span class=&#34;meta&#34;&gt;?&amp;gt;&lt;/span&gt;&amp;lt;/span&amp;gt;
-                &amp;lt;/a&amp;gt;
-                &amp;lt;ul class=&amp;quot;nav nav-sub dk&amp;quot;&amp;gt;
-                  &amp;lt;li class=&amp;quot;nav-sub-header&amp;quot;&amp;gt;
-                    &amp;lt;a&amp;gt;
-                      &amp;lt;span&amp;gt;&lt;span class=&#34;meta&#34;&gt;&amp;lt;?php&lt;/span&gt; _me(&lt;span class=&#34;string&#34;&gt;&amp;quot;分类&amp;quot;&lt;/span&gt;) &lt;span class=&#34;meta&#34;&gt;?&amp;gt;&lt;/span&gt;&amp;lt;/span&amp;gt;
-                    &amp;lt;/a&amp;gt;
-                  &amp;lt;/li&amp;gt;
-                  &amp;lt;!--循环输出分类--&amp;gt;
-                    &lt;span class=&#34;meta&#34;&gt;&amp;lt;?php&lt;/span&gt;
-                    &lt;span class=&#34;keyword&#34;&gt;$this&lt;/span&gt;-&amp;gt;widget(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Widget_Metas_Category_List&amp;#x27;&lt;/span&gt;)-&amp;gt;to(&lt;span class=&#34;variable&#34;&gt;$categorys&lt;/span&gt;);
-                    &lt;span class=&#34;keyword&#34;&gt;echo&lt;/span&gt; Content::returnCategories(&lt;span class=&#34;variable&#34;&gt;$categorys&lt;/span&gt;) &lt;span class=&#34;meta&#34;&gt;?&amp;gt;&lt;/span&gt;
-                &amp;lt;/ul&amp;gt;
-              &amp;lt;/li&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+                &amp;lt;a &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;auto&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                  &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;pull&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;muted&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;fontello&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;icon&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;fw&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;fontello&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;angle&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;fontello&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;icon&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;fw&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;fontello&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;angle&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;down&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;active&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                  &amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;&amp;lt;!--                  &amp;lt;&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;glyphicon&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;glyphicon&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;th&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt;&amp;gt;--&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;nav&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;icon&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;data&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;feather&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;grid&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;_me&lt;/span&gt;(&amp;quot;分类&amp;quot;) ?&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                &amp;lt;/&lt;span class=&#34;title&#34;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                &amp;lt;&lt;span class=&#34;title&#34;&gt;ul&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;nav&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;sub&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;dk&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                  &amp;lt;&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;nav&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;sub&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;header&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                      &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;_me&lt;/span&gt;(&amp;quot;分类&amp;quot;) ?&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                    &amp;lt;/&lt;span class=&#34;title&#34;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                  &amp;lt;/&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                  &amp;lt;!--循环输出分类--&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                    &amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                    $&lt;span class=&#34;title&#34;&gt;this&lt;/span&gt;-&amp;gt;&lt;span class=&#34;title&#34;&gt;widget&lt;/span&gt;(&amp;#x27;&lt;span class=&#34;title&#34;&gt;Widget_Metas_Category_List&lt;/span&gt;&amp;#x27;)-&amp;gt;&lt;span class=&#34;title&#34;&gt;to&lt;/span&gt;($&lt;span class=&#34;title&#34;&gt;categorys&lt;/span&gt;);&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                    &lt;span class=&#34;title&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Content&lt;/span&gt;::&lt;span class=&#34;title&#34;&gt;returnCategories&lt;/span&gt;($&lt;span class=&#34;title&#34;&gt;categorys&lt;/span&gt;) ?&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;                &amp;lt;/&lt;span class=&#34;title&#34;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;              &amp;lt;/&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后在下图蓝线所示的位置（ &lt;code&gt;127&lt;/code&gt; 行左右 ）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/H1s2CGy9NtWrgdh.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;插入以下代码：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;     &amp;lt;!--start--&amp;gt;
-  &amp;lt;li class=&amp;quot;line dk&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
- 
-&amp;lt;!--Components--&amp;gt;
-  &amp;lt;li class=&amp;quot;hidden-folded padder m-t m-b-sm text-muted text-xs&amp;quot;&amp;gt;
-    &amp;lt;span&amp;gt;&lt;span class=&#34;meta&#34;&gt;&amp;lt;?php&lt;/span&gt; _me(&lt;span class=&#34;string&#34;&gt;&amp;quot;分类&amp;quot;&lt;/span&gt;) &lt;span class=&#34;meta&#34;&gt;?&amp;gt;&lt;/span&gt;&amp;lt;/span&amp;gt;
-  &amp;lt;/li&amp;gt;
-  &amp;lt;!--分类category--&amp;gt;
-  &amp;lt;!--循环输出分类--&amp;gt;
-  &lt;span class=&#34;meta&#34;&gt;&amp;lt;?php&lt;/span&gt;
-  &lt;span class=&#34;keyword&#34;&gt;$this&lt;/span&gt;-&amp;gt;widget(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Widget_Metas_Category_List&amp;#x27;&lt;/span&gt;)-&amp;gt;to(&lt;span class=&#34;variable&#34;&gt;$categorys&lt;/span&gt;);
-  &lt;span class=&#34;keyword&#34;&gt;echo&lt;/span&gt; Content::returnAsideCategories(&lt;span class=&#34;variable&#34;&gt;$categorys&lt;/span&gt;) &lt;span class=&#34;meta&#34;&gt;?&amp;gt;&lt;/span&gt;
-  &amp;lt;!--end--&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &amp;lt;li &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;line&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;dk&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt; &lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;&amp;lt;!--&lt;span class=&#34;title&#34;&gt;Components&lt;/span&gt;--&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;  &amp;lt;&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;hidden&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;folded&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;padder&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;m&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;m&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;b&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;sm&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;muted&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;xs&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;    &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;_me&lt;/span&gt;(&amp;quot;分类&amp;quot;) ?&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;  &amp;lt;/&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;  &amp;lt;!--分类&lt;span class=&#34;title&#34;&gt;category&lt;/span&gt;--&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;  &amp;lt;!--循环输出分类--&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;  &amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;  $&lt;span class=&#34;title&#34;&gt;this&lt;/span&gt;-&amp;gt;&lt;span class=&#34;title&#34;&gt;widget&lt;/span&gt;(&amp;#x27;&lt;span class=&#34;title&#34;&gt;Widget_Metas_Category_List&lt;/span&gt;&amp;#x27;)-&amp;gt;&lt;span class=&#34;title&#34;&gt;to&lt;/span&gt;($&lt;span class=&#34;title&#34;&gt;categorys&lt;/span&gt;);&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;  &lt;span class=&#34;title&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Content&lt;/span&gt;::&lt;span class=&#34;title&#34;&gt;returnAsideCategories&lt;/span&gt;($&lt;span class=&#34;title&#34;&gt;categorys&lt;/span&gt;) ?&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;class&#34;&gt;  &amp;lt;!--&lt;span class=&#34;title&#34;&gt;end&lt;/span&gt;--&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后，刷新你的博客，是不是就有效果了呢？&lt;/p&gt;
-&lt;h2 id=&#34;图标设置&#34;&gt;图标设置&lt;/h2&gt;
+&lt;h2 id=&#34;图标设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图标设置&#34;&gt;&lt;/a&gt;图标设置&lt;/h2&gt;
 &lt;p&gt;设置方法：在 &lt;code&gt;$icons&lt;/code&gt; 的 array 数组中插入 &lt;code&gt;&#39;分类缩略名&#39; =&amp;gt; &#39;图标&#39;&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h3 id=&#34;Font-Awesome&#34;&gt;Font Awesome&lt;/h3&gt;
+&lt;h3 id=&#34;font-awesome&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#font-awesome&#34;&gt;&lt;/a&gt;Font Awesome&lt;/h3&gt;
 &lt;p&gt;如果你引入了 &lt;code&gt;Font Awesome&lt;/code&gt; 的图标的话，可以到 &lt;a href=&#34;https://fontawesome.dashgame.com/&#34;&gt;https://fontawesome.dashgame.com/&lt;/a&gt; 选择你喜欢的图标使用。&lt;/p&gt;
-&lt;h4 id=&#34;使用方法&#34;&gt;使用方法&lt;/h4&gt;
+&lt;h4 id=&#34;使用方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方法&#34;&gt;&lt;/a&gt;使用方法&lt;/h4&gt;
 &lt;p&gt;在 &lt;a href=&#34;https://fontawesome.dashgame.com/&#34;&gt;https://fontawesome.dashgame.com/&lt;/a&gt; 挑一个图标，在图标的名字前加入 &lt;code&gt;fa fa-&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h4 id=&#34;使用样例&#34;&gt;使用样例&lt;/h4&gt;
+&lt;h4 id=&#34;使用样例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用样例&#34;&gt;&lt;/a&gt;使用样例&lt;/h4&gt;
 &lt;p&gt;使用 &lt;code&gt;archive&lt;/code&gt; 图标时：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/POyaCjgLveKJMDE.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;对应在 &lt;code&gt;$icons&lt;/code&gt; 的 array 数组中插入的代码：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;#x27;archives&amp;#x27;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;fa fa-archive&amp;#x27;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;Fontello&#34;&gt;Fontello&lt;/h3&gt;
+&lt;h3 id=&#34;fontello&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#fontello&#34;&gt;&lt;/a&gt;Fontello&lt;/h3&gt;
 &lt;p&gt;handsome 主题自带部分 &lt;code&gt;fontello&lt;/code&gt; 图标，具体列表可在 &lt;a href=&#34;https://auth.ihewro.com/user/docs/#/icons&#34;&gt;handsome 主题文档&lt;/a&gt; 查看。&lt;/p&gt;
-&lt;h4 id=&#34;使用方法-2&#34;&gt;使用方法&lt;/h4&gt;
+&lt;h4 id=&#34;使用方法-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方法-t2&#34;&gt;&lt;/a&gt;使用方法&lt;/h4&gt;
 &lt;p&gt;在图标的名字前加入 &lt;code&gt;fontello fontello-&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h4 id=&#34;使用样例-2&#34;&gt;使用样例&lt;/h4&gt;
+&lt;h4 id=&#34;使用样例-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用样例-t2&#34;&gt;&lt;/a&gt;使用样例&lt;/h4&gt;
 &lt;p&gt;与 &lt;code&gt;Font Awesome&lt;/code&gt; 相似，在此不多赘述。&lt;/p&gt;
-&lt;h3 id=&#34;Feather&#34;&gt;Feather&lt;/h3&gt;
+&lt;h3 id=&#34;feather&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#feather&#34;&gt;&lt;/a&gt;Feather&lt;/h3&gt;
 &lt;p&gt;handsome 主题自带 &lt;code&gt;feather&lt;/code&gt; 的所有图标，在此处使用需要一些变通措施。&lt;/p&gt;
-&lt;h4 id=&#34;使用方法-3&#34;&gt;使用方法&lt;/h4&gt;
+&lt;h4 id=&#34;使用方法-t3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方法-t3&#34;&gt;&lt;/a&gt;使用方法&lt;/h4&gt;
 &lt;p&gt;在 &lt;a href=&#34;https://feathericons.com/&#34;&gt;https://feathericons.com/&lt;/a&gt; 选取好你需要的图标。&lt;/p&gt;
 &lt;p&gt;然后在名称前插入 &lt;code&gt;&amp;quot; data-feather=&amp;quot;&lt;/code&gt; ，再输入名称即可。&lt;/p&gt;
-&lt;h4 id=&#34;使用样例-3&#34;&gt;使用样例&lt;/h4&gt;
+&lt;h4 id=&#34;使用样例-t3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用样例-t3&#34;&gt;&lt;/a&gt;使用样例&lt;/h4&gt;
 &lt;p&gt;以 &lt;code&gt;airplay&lt;/code&gt; 为例：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/ObX7A1yuHoUj9fk.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;输入 &lt;code&gt;&#39;airplay&#39; =&amp;gt; &#39;&amp;quot; data-feather=&amp;quot;airplay&#39;&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h3 id=&#34;其他-SVG-格式的图标&#34;&gt;其他 SVG 格式的图标&lt;/h3&gt;
-&lt;h3 id=&#34;使用方法-4&#34;&gt;使用方法&lt;/h3&gt;
+&lt;h3 id=&#34;其他-svg-格式的图标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他-svg-格式的图标&#34;&gt;&lt;/a&gt;其他 SVG 格式的图标&lt;/h3&gt;
+&lt;h3 id=&#34;使用方法-t4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方法-t4&#34;&gt;&lt;/a&gt;使用方法&lt;/h3&gt;
 &lt;p&gt;在 svg 的开头加入 &lt;code&gt;&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&lt;/code&gt; ，在结尾加入 &lt;code&gt;&amp;lt;i&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h3 id=&#34;使用样例-4&#34;&gt;使用样例&lt;/h3&gt;
+&lt;h3 id=&#34;使用样例-t4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用样例-t4&#34;&gt;&lt;/a&gt;使用样例&lt;/h3&gt;
 &lt;p&gt;下载下来的 &lt;code&gt;svg&lt;/code&gt; 文件内容：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/ukVefHwLng2PWhb.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;将其复制，然后在 &lt;code&gt;$icons&lt;/code&gt; 的 array 数组中插入的代码：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;#x27;airplay&amp;#x27;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;16&amp;quot; height=&amp;quot;16&amp;quot; viewBox=&amp;quot;0 0 24 24&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; stroke-width=&amp;quot;2&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot; class=&amp;quot;feather feather-airplay&amp;quot;&amp;gt;&amp;lt;path d=&amp;quot;M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1&amp;quot;/&amp;gt;&amp;lt;polygon points=&amp;quot;12 15 17 21 7 21 12 15&amp;quot;/&amp;gt;&amp;lt;/svg&amp;gt;&amp;lt;i &amp;#x27;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
-&lt;h3 id=&#34;报错解决&#34;&gt;报错解决&lt;/h3&gt;
+&lt;h2 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;&lt;/a&gt;后记&lt;/h2&gt;
+&lt;h3 id=&#34;报错解决&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#报错解决&#34;&gt;&lt;/a&gt;报错解决&lt;/h3&gt;
 &lt;p&gt;报错 &lt;code&gt;syntax error, unexpected &#39;xxx&#39; (T_CONSTANT_ENCAPSED_STRING), expecting &#39;)&#39;&lt;/code&gt; 咋办？&lt;/p&gt;
 &lt;p&gt;检查你设置图标时的语法是否正确，正确语法如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;&lt;span class=&#34;variable&#34;&gt;$icons&lt;/span&gt; = &lt;span class=&#34;keyword&#34;&gt;array&lt;/span&gt;(

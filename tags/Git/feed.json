@@ -19,7 +19,7 @@
             "url": "https://blog.baoshuo.ren/post/clone-github-repo-faster/",
             "title": "修改 Git 配置加速 clone GitHub 源码",
             "date_published": "2020-07-21T10:38:23.000Z",
-            "content_html": "<p>设置代理：</p>\n<pre><code class=\"highlight bash\"><span class=\"comment\"># socks5协议，1080端口修改成自己的本地代理端口</span>\ngit config --global http.https://github.com.proxy  socks5://127.0.0.1:1080\ngit config --global https.https://github.com.proxy socks5://127.0.0.1:1080\n\n<span class=\"comment\"># http协议，7890端口修改成自己的本地代理端口</span>\ngit config --global http.https://github.com.proxy  http://127.0.0.1:7890\ngit config --global https.https://github.com.proxy http://127.0.0.1:7890</code></pre>\n<p>之后运行 <code>git config -l</code> 即可查看代理设置情况。</p>\n<p>清除代理：</p>\n<pre><code class=\"highlight shell\">git config --global --unset http.proxy\ngit config --global --unset https.proxy</code></pre>",
+            "content_html": "<p>设置代理：</p>\n<pre><code class=\"highlight bash\"><span class=\"comment\"># socks5协议，1080端口修改成自己的本地代理端口</span>\ngit config --global http.https://github.com.proxy  socks5://127.0.0.1:1080\ngit config --global https.https://github.com.proxy socks5://127.0.0.1:1080\n\n<span class=\"comment\"># http协议，7890端口修改成自己的本地代理端口</span>\ngit config --global http.https://github.com.proxy  http://127.0.0.1:7890\ngit config --global https.https://github.com.proxy http://127.0.0.1:7890</code></pre>\n<p>之后运行 <code>git config -l</code> 即可查看代理设置情况。</p>\n<p>清除代理：</p>\n<pre><code class=\"highlight shell\">git config --global --unset http.proxy\ngit config --global --unset https.proxy</code></pre>\n",
             "tags": [
                 "Git"
             ]

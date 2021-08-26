@@ -14,21 +14,21 @@
         <category>BIRD</category>
         <category>BGP</category>
         <category>CTF</category>
-        <category>Git</category>
         <category>DN42</category>
-        <category>Web</category>
+        <category>Git</category>
         <category>折腾</category>
-        <category>Linux</category>
+        <category>Web</category>
         <category>网络</category>
+        <category>Linux</category>
         <category>VMware</category>
         <category>OI</category>
         <category>题解</category>
         <category>洛谷</category>
-        <category>游记</category>
         <category>牛客网</category>
+        <category>游记</category>
         <category>S2OJ</category>
-        <category>Cloudflare</category>
         <category>macOS</category>
+        <category>Cloudflare</category>
         <category>ServiceWorker</category>
         <category>JavaScript</category>
         <category>前端</category>
@@ -109,15 +109,15 @@ git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;
             <guid isPermalink="true">https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</guid>
             <title>给腾讯云服务器免费增加第二个 IP</title>
             <link>https://blog.baoshuo.ren/post/tencent-cloud-cvm-dual-ip/</link>
-            <category>Linux</category>
             <category>网络</category>
+            <category>Linux</category>
             <pubDate>Thu, 20 Aug 2020 13:22:47 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;良心云果然是良心云，增加了一个IP四舍五入居然不要钱，不过还是要登进系统配置一下双IP的。&lt;/p&gt;
-&lt;a id=&#34;more&#34;&gt;&lt;/a&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/rAyvBmDw2bdMP6t.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;和客服的对话&lt;/p&gt;
-&lt;h2 id=&#34;增加网卡-公网IP&#34;&gt;增加网卡&amp;amp;公网IP&lt;/h2&gt;
+&lt;h2 id=&#34;增加网卡-公网ip&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#增加网卡-公网ip&#34;&gt;&lt;/a&gt;增加网卡&amp;amp;公网IP&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/SWwlbLRaHACnuBz.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;点击按钮新建一个弹性网卡并绑定&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/sJqBfdbv4eRzZFm.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
@@ -131,7 +131,7 @@ git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;
 &lt;p&gt;此时弹性公网IP已经绑定成功，并且可以看到已经变为不收取IP资源费的状态了&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/x8q7I5E2dMSDt4B.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;查看主网卡的&lt;strong&gt;内网IP&lt;/strong&gt;，并记录下这个IP，稍后会用到&lt;/p&gt;
-&lt;h2 id=&#34;配置服务器的网络设置&#34;&gt;配置服务器的网络设置&lt;/h2&gt;
+&lt;h2 id=&#34;配置服务器的网络设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置服务器的网络设置&#34;&gt;&lt;/a&gt;配置服务器的网络设置&lt;/h2&gt;
 &lt;p&gt;使用 &lt;code&gt;ip addr&lt;/code&gt; 查看网卡名称，并记录下来&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/Ofh8CzvnYKPGsH7.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;切换到网卡配置文件目录&lt;/p&gt;
@@ -163,23 +163,24 @@ git filter-branch --env-filter &lt;span class=&#34;string&#34;&gt;&amp;#x27;&lt;
 &lt;p&gt;保存后重启网络服务。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;service network restart&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/ReBSM4C9oF2HbVi.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;配置路由（可选）&#34;&gt;配置路由（可选）&lt;/h2&gt;
+&lt;h2 id=&#34;配置路由（可选）&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置路由（可选）&#34;&gt;&lt;/a&gt;配置路由（可选）&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;按照上述步骤配置好后，Linux 还是默认都从主网卡发包。
 您可通过策略路由让报文从哪个网卡进，并从该网卡返回。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;创建路由表&#34;&gt;创建路由表&lt;/h3&gt;
+&lt;h3 id=&#34;创建路由表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建路由表&#34;&gt;&lt;/a&gt;创建路由表&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;10 t1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/iproute2/rt_tables
 &lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;20 t2&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/iproute2/rt_tables&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;添加默认路由&#34;&gt;添加默认路由&lt;/h3&gt;
+&lt;h3 id=&#34;添加默认路由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加默认路由&#34;&gt;&lt;/a&gt;添加默认路由&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;ip route add default dev eth0 via 172.21.0.1 table 10
 ip route add default dev eth1 via 172.21.0.1 table 20&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;上述两个命令中，172.21.0.1要分别替换成主网卡所属子网的网关，以及辅助网卡所属子网的网关。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;配置策略路由&#34;&gt;配置策略路由&lt;/h3&gt;
+&lt;h3 id=&#34;配置策略路由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置策略路由&#34;&gt;&lt;/a&gt;配置策略路由&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;ip rule add from 172.21.0.10 table 10
-ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt; ]]></description>
+ip rule add from 172.21.0.12 table 20&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://blog.baoshuo.ren/post/clone-github-repo-faster/</guid>
@@ -198,7 +199,8 @@ git config --global https.https://github.com.proxy http://127.0.0.1:7890&lt;/cod
 &lt;p&gt;之后运行 &lt;code&gt;git config -l&lt;/code&gt; 即可查看代理设置情况。&lt;/p&gt;
 &lt;p&gt;清除代理：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight shell&#34;&gt;git config --global --unset http.proxy
-git config --global --unset https.proxy&lt;/code&gt;&lt;/pre&gt; ]]></description>
+git config --global --unset https.proxy&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
         </item>
     </channel>
 </rss>
