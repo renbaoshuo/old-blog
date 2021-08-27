@@ -3,7 +3,7 @@
     <id>https://blog.baoshuo.ren</id>
     <title>宝硕博客 • Posts by &#34;笔记&#34; tag</title>
     <link href="https://blog.baoshuo.ren" />
-    <updated>2021-08-12T02:50:06.000Z</updated>
+    <updated>2021-08-27T08:57:23.000Z</updated>
     <category term="算法" />
     <category term="图论" />
     <category term="笔记" />
@@ -29,6 +29,141 @@
     <category term="JavaScript" />
     <category term="前端" />
     <category term="比赛" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/minimum-spanning-tree/</id>
+        <title>最小生成树学习笔记</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/minimum-spanning-tree/"/>
+        <content type="html">&lt;p&gt;在 OI 中常用的最小生成树算法有 &lt;a href=&#34;#%E6%9C%B4%E7%B4%A0%E7%89%88-prim-%E7%AE%97%E6%B3%95&#34;&gt;朴素版 Prim 算法&lt;/a&gt; 和 &lt;a href=&#34;#krustal-%E7%AE%97%E6%B3%95&#34;&gt;Kruskal 算法&lt;/a&gt; 。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;h2 id=&#34;朴素版-prim-算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#朴素版-prim-算法&#34;&gt;&lt;/a&gt;朴素版 Prim 算法&lt;/h2&gt;
+&lt;p&gt;Prim 算法是一种常见且好写的最小生成树算法。&lt;/p&gt;
+&lt;p&gt;朴素版 Prim 算法的基本思想是从一个结点开始不断加点，其时间复杂度约为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O(n^2)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.064108em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8141079999999999em;&#34;&gt;&lt;span style=&#34;top:-3.063em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; ，适用于稠密图。&lt;/p&gt;
+&lt;h3 id=&#34;思路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思路&#34;&gt;&lt;/a&gt;思路&lt;/h3&gt;
+&lt;img src=&#34;https://vip2.loli.io/2021/08/10/OtvancqGr5MXuSe.gif&#34; width=&#34;400&#34; style=&#34;background: #ffffff33;&#34; alt=&#34;Prim 算法运行演示&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;Prim 算法运行演示&lt;/span&gt;
+&lt;p&gt;朴素版的 Prim 算法思想与我在 &lt;a href=&#34;/post/graph-shortest-path/&#34; title=&#34;最短路学习笔记&#34;&gt;最短路学习笔记&lt;/a&gt; 一文中提到的朴素版 Dijkstra 算法很相似。&lt;/p&gt;
+&lt;p&gt;大体步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化一个 &lt;code&gt;dist&lt;/code&gt; 数组，使所有距离均为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\infty&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.43056em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 。&lt;br&gt;设集合 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;S&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 表示已经在连通块内的所有点。&lt;/li&gt;
+&lt;li&gt;进行 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;n&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.43056em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 次迭代：
+&lt;ol&gt;
+&lt;li&gt;找到集合外 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;S&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 中的距离最近的点，将其赋值给 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;t&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.61508em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 。&lt;/li&gt;
+&lt;li&gt;用 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;t&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.61508em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 更新其他点到 &lt;strong&gt;集合 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;bold&#34;&gt;S&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\bold{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68611em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathbf&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt; 的距离。&lt;/li&gt;
+&lt;li&gt;将 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;t&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.61508em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;t&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 添加到集合 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;S&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码&#34;&gt;&lt;/a&gt;代码&lt;/h3&gt;
+&lt;p&gt;题目： &lt;a href=&#34;https://www.luogu.com.cn/problem/P3366&#34;&gt;P3366 【模板】最小生成树&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
+
+&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, u, v, w, g[&lt;span class=&#34;number&#34;&gt;5005&lt;/span&gt;][&lt;span class=&#34;number&#34;&gt;5005&lt;/span&gt;], dist[&lt;span class=&#34;number&#34;&gt;5005&lt;/span&gt;];
+&lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; vis[&lt;span class=&#34;number&#34;&gt;5005&lt;/span&gt;];
+
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;prim&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(dist, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(dist));
+    &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; res = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
+    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; n; i++) &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; t = &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt;;
+        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
+            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (!vis[j] &amp;amp;&amp;amp; (t == &lt;span class=&#34;number&#34;&gt;-1&lt;/span&gt; || dist[j] &amp;lt; dist[t])) &amp;#123;
+                t = j;
+            &amp;#125;
+        &amp;#125;
+        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (i &amp;amp;&amp;amp; dist[t] == &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt;;
+        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (i) res += dist[t];
+        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; j = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;
+            dist[j] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(dist[j], g[t][j]);
+        &amp;#125;
+        vis[t] = &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;
+    &amp;#125;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; res;
+&amp;#125;
+
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    &lt;span class=&#34;built_in&#34;&gt;memset&lt;/span&gt;(g, &lt;span class=&#34;number&#34;&gt;0x3f&lt;/span&gt;, &lt;span class=&#34;built_in&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;sizeof&lt;/span&gt;&lt;/span&gt;(g));
+    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
+        cin &amp;gt;&amp;gt; u &amp;gt;&amp;gt; v &amp;gt;&amp;gt; w;
+        g[u][v] = g[v][u] = &lt;span class=&#34;built_in&#34;&gt;min&lt;/span&gt;(g[u][v], w);
+    &amp;#125;
+    &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; ans = &lt;span class=&#34;built_in&#34;&gt;prim&lt;/span&gt;();
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (ans == &lt;span class=&#34;number&#34;&gt;0x3f3f3f3f&lt;/span&gt;) &amp;#123;
+        cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;orz&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
+        cout &amp;lt;&amp;lt; ans &amp;lt;&amp;lt; endl;
+    &amp;#125;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;krustal-算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#krustal-算法&#34;&gt;&lt;/a&gt;Krustal 算法&lt;/h2&gt;
+&lt;p&gt;时间复杂度约为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O(m \log m)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mop&#34;&gt;lo&lt;span style=&#34;margin-right:0.01389em;&#34;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; ，适用于稀疏图。&lt;/p&gt;
+&lt;h3 id=&#34;思路-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思路-t2&#34;&gt;&lt;/a&gt;思路&lt;/h3&gt;
+&lt;img src=&#34;https://vip1.loli.io/2021/08/10/8YV6BviLTrGkIZD.gif&#34; width=&#34;400&#34; style=&#34;background: #ffffff33;&#34; alt=&#34;Krustal 算法运行演示&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;Krustal 算法运行演示&lt;/span&gt;
+&lt;ol&gt;
+&lt;li&gt;先将所有边按照权重从小到大排序。&lt;/li&gt;
+&lt;li&gt;枚举每条边 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;(a, b, c)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，如果 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;a, b&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mpunct&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;b&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 不连通，将这条边加入集合 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;S&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注：可以使用并查集维护联通块。&lt;/p&gt;
+&lt;h3 id=&#34;代码-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码-t2&#34;&gt;&lt;/a&gt;代码&lt;/h3&gt;
+&lt;p&gt;题目： &lt;a href=&#34;https://www.luogu.com.cn/problem/P3366&#34;&gt;P3366 【模板】最小生成树&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight cpp&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;span class=&#34;meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;meta-string&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&#34;keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;namespace&lt;/span&gt; std;
+
+&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; n, m, fa[&lt;span class=&#34;number&#34;&gt;5005&lt;/span&gt;], res, cnt;
+&lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;node&lt;/span&gt; &amp;#123;&lt;/span&gt;
+    &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; u, v, w;
+
+    &lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;operator&lt;/span&gt;&amp;lt;(&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; node x) &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; &amp;#123;
+        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; w &amp;lt; x.w;
+    &amp;#125;
+&amp;#125; g[&lt;span class=&#34;number&#34;&gt;200005&lt;/span&gt;];
+
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;find&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; x)&lt;/span&gt; &lt;/span&gt;&amp;#123;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; fa[x] = fa[x] != x ? &lt;span class=&#34;built_in&#34;&gt;find&lt;/span&gt;(fa[x]) : fa[x];
+&amp;#125;
+
+&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
+    cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m;
+    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
+        cin &amp;gt;&amp;gt; g[i].u &amp;gt;&amp;gt; g[i].v &amp;gt;&amp;gt; g[i].w;
+    &amp;#125;
+    &lt;span class=&#34;built_in&#34;&gt;sort&lt;/span&gt;(g, g + m);
+    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;
+        fa[i] = i;
+    &amp;#125;
+    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; m; i++) &amp;#123;
+        g[i].u = &lt;span class=&#34;built_in&#34;&gt;find&lt;/span&gt;(g[i].u);
+        g[i].v = &lt;span class=&#34;built_in&#34;&gt;find&lt;/span&gt;(g[i].v);
+        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (g[i].u != g[i].v) &amp;#123;
+            fa[g[i].u] = g[i].v;
+            res += g[i].w;
+            cnt++;
+        &amp;#125;
+    &amp;#125;
+    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (cnt &amp;lt; n - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &amp;#123;
+        cout &amp;lt;&amp;lt; &lt;span class=&#34;string&#34;&gt;&amp;quot;orz&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; endl;
+    &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
+        cout &amp;lt;&amp;lt; res &amp;lt;&amp;lt; endl;
+    &amp;#125;
+    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
+&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://oi-wiki.org/graph/mst/&#34;&gt;最小生成树 - OI Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91&#34;&gt;最小生成树 - 维基百科&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%99%AE%E6%9E%97%E5%A7%86%E7%AE%97%E6%B3%95&#34;&gt;Prim 算法 - 维基百科&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%85%8B%E9%B2%81%E6%96%AF%E5%85%8B%E5%B0%94%E6%BC%94%E7%AE%97%E6%B3%95&#34;&gt;Kruskal 算法 - 维基百科&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;本文中 Prim 算法、 Kruskal 算法的演示图片原稿来自维基共享资源，原作者为 &lt;a href=&#34;https://commons.wikimedia.org/wiki/User:Alexander_Drichel&#34;&gt;Alexander Drichel&lt;/a&gt; ，经本人整合后以 &lt;a href=&#34;https://creativecommons.org/licenses/by-sa/3.0/legalcode.txt&#34;&gt;CC BY-SA 3.0&lt;/a&gt; 协议发布，初版可见 &lt;a href=&#34;https://github.com/OI-wiki/OI-wiki/commit/caf2ba8bdb69c60adc897b816859c6414f04999a&#34;&gt;&lt;code&gt;caf2ba8&lt;/code&gt;@OI-wiki/OI-wiki&lt;/a&gt;，本文其余内容的版权协议见正文下方「版权声明」处。&lt;/p&gt;
+</content>
+        <category term="算法" />
+        <category term="图论" />
+        <category term="笔记" />
+        <updated>2021-08-27T08:57:23.000Z</updated>
+    </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/graph-shortest-path/</id>
         <title>最短路学习笔记</title>
@@ -188,7 +323,7 @@ vector&amp;lt;pair&amp;lt;&lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt;, 
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;spfa-算法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#spfa-算法&#34;&gt;&lt;/a&gt;SPFA 算法&lt;/h3&gt;
-&lt;p&gt;SPFA 算法在国际上通称为「队列优化的 Bellman-Ford 算法」，时间复杂度一般情况下为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O(m)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; ，最坏情况下为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O(nm)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 。&lt;/p&gt;
+&lt;p&gt;SPFA 算法在国际上通称为「队列优化的 Bellman-Ford 算法」，时间复杂度为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O(nm)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 。&lt;/p&gt;
 &lt;h4 id=&#34;实现-t4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实现-t4&#34;&gt;&lt;/a&gt;实现&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;先初始化一个队列，并将起点入队。&lt;/li&gt;
