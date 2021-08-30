@@ -2136,7 +2136,7 @@ sysctl -p&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;由于我的 LIR 忘记了给我设置 RPKI 记录，导致出现了没有查询到 RPKI 记录的错误。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;p&gt;这是一篇 LOA 模板&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;，照抄即可。&lt;/p&gt;
+&lt;p&gt;这是一篇 LOA 模板，照抄即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight text&#34;&gt;AUTHORIZATION LETTER
 
 [日期, 如 Feb 27, 2021]
@@ -2215,7 +2215,7 @@ From,
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/03/13/R3UZXdnOx7yTVhc.png&#34; alt=&#34;成果&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;成果&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;可以使用 &lt;code&gt;birdc6 show route&lt;/code&gt; 和 &lt;code&gt;birdc6 show proto all&lt;/code&gt; 命令查看状态。&lt;/p&gt;
 &lt;h3 id=&#34;添加虚拟网卡&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加虚拟网卡&#34;&gt;&lt;/a&gt;添加虚拟网卡&lt;/h3&gt;
-&lt;p&gt;接下来需要创建一个虚拟网卡并设置一个 IP &lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;
+&lt;p&gt;接下来需要创建一个虚拟网卡并设置一个 IP ：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;ip link add dev baoshuo1 &lt;span class=&#34;built_in&#34;&gt;type&lt;/span&gt; dummy
 ip link &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; baoshuo1 up
 ip addr add dev baoshuo1 2406:840:e080::1/128&lt;/code&gt;&lt;/pre&gt;
@@ -2307,15 +2307,10 @@ protocol&lt;span class=&#34;built_in&#34;&gt; bgp &lt;/span&gt;&amp;lt;PEER_NAME
 &lt;li&gt;BIRD: 一个功能齐全的动态 IP 路由守护程序（&lt;a href=&#34;https://bird.network.cz&#34;&gt;官方网站&lt;/a&gt;）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
-&lt;hr class=&#34;footnotes-sep&#34;&gt;
-&lt;section class=&#34;footnotes&#34;&gt;
-&lt;ol class=&#34;footnotes-list&#34;&gt;
-&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://www.vultr.com/docs/example-letter-of-authorization-for-bgp-announcements&#34;&gt;Example Letter of Authorization for BGP Announcements - Vultr Docs&lt;/a&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn2&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://blog.lsc.moe/post/12/&#34;&gt;IP 广播 : CentOS 7 使用 bird6 广播 IPv6 - LiCEO&lt;/a&gt; &lt;a href=&#34;#fnref2&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.vultr.com/docs/example-letter-of-authorization-for-bgp-announcements&#34;&gt;Example Letter of Authorization for BGP Announcements - Vultr Docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.lsc.moe/post/12/&#34;&gt;IP 广播 : CentOS 7 使用 bird6 广播 IPv6 - LiCEO&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
 </content>
         <category term="BGP" />
         <updated>2021-03-20T17:06:09.000Z</updated>
@@ -2615,12 +2610,12 @@ workbox.routing.registerRoute(
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/17/tYEURzvx7LQ4mej.png&#34; alt=&#34;现在的深色模式效果&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;现在的深色模式效果&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;关于深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于深色模式&#34;&gt;&lt;/a&gt;关于深色模式&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/17/jXVHb1aAUf5pRhk.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Dark themes reduce the luminance emitted by device screens, while still meeting minimum color contrast ratios. They help improve visual ergonomics by reducing eye strain, adjusting brightness to current lighting conditions, and facilitating screen use in dark environments – all while conserving battery power.&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Dark themes reduce the luminance emitted by device screens, while still meeting minimum color contrast ratios. They help improve visual ergonomics by reducing eye strain, adjusting brightness to current lighting conditions, and facilitating screen use in dark environments – all while conserving battery power.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;翻译&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;深色主题能降低设备屏幕发出的亮度，同时仍然满足最小的颜色对比度。它们有助于改善视觉效果、减少眼睛疲劳，调整亮度以适应当前的照明条件，并有助于在黑暗环境中使用屏幕，同时节省电池电量。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;界面设计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#界面设计&#34;&gt;&lt;/a&gt;界面设计&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1:1&#34;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;界面设计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#界面设计&#34;&gt;&lt;/a&gt;界面设计&lt;/h2&gt;
 &lt;h3 id=&#34;颜色&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#颜色&#34;&gt;&lt;/a&gt;颜色&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;不要使用 100% 的纯黑&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Google 在 Material Design 的设计指南中对于深色模式列出了一系列设计规范，其中第一条就是 「不要使用 100% 的纯黑」 。&lt;/p&gt;
@@ -2646,14 +2641,14 @@ workbox.routing.registerRoute(
 &lt;p&gt;在深色模式下，过高的色彩饱和度可能会使文本像下方这样难以辨识（清晰度降低）：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/17/u16JvHsZBgeFYER.png&#34; alt=&#34;这张图片中的文本辨识度较低&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;这张图片中的文本辨识度较低&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;色彩饱和度过高还可能会导致文本在深色背景上产生光学振动，从而引起眼睛疲劳。&lt;/p&gt;
-&lt;p&gt;最佳做法是使用 「去饱和色」 ，这样可以提高清晰度，并减少视觉抖动。&lt;/p&gt;
+&lt;p&gt;最佳做法是使用「去饱和色」，这样可以提高清晰度，并减少视觉抖动。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/02/17/YxOwh46ZFNIC5Rg.png&#34; alt=&#34;这张图片中的文本较上方的图片来说文本辨识度提高了许多&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;这张图片中的文本较上方的图片来说文本辨识度提高了许多&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&#34;层次&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#层次&#34;&gt;&lt;/a&gt;层次&lt;/h3&gt;
 &lt;p&gt;在浅色模式下，我们通常会使用投影来区分页面内元素的层次，但这种方法在深色模式中如果使用不当，不仅起不到区分页面内元素层次的作用，还会影响整体观感，起到反作用。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/17/O7qzgYK98DGLvCV.png&#34; alt=&#34;Google 给出的示例&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;Google 给出的示例&lt;/span&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/17/Amac2CMl4bzurYe.png&#34; alt=&#34;WWDC 2019 中苹果设计师讲到深色模式的文本&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;WWDC 2019 中苹果设计师讲到深色模式的文本&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Apple 认为在浅色模式下投影能轻松地区分两个视觉元素，但是在深色模式下作用甚微。所以他们建议在深色背景下，对前置元素的使用稍亮的灰色。&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Apple 认为在浅色模式下投影能轻松地区分两个视觉元素，但是在深色模式下作用甚微。所以他们建议在深色背景下，对前置元素的使用稍亮的灰色。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2021/02/17/OHZqYmAaQDJ9RBe.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
 &lt;p&gt;在组件表面&lt;sup&gt;(1)&lt;/sup&gt;上放置一个白色半透明的遮罩层&lt;sup&gt;(2)&lt;/sup&gt;，就可以体现出深色模式中的层次。&lt;/p&gt;
@@ -2722,7 +2717,7 @@ workbox.routing.registerRoute(
 &lt;li&gt;时间在晚7点~早7点之间&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;只要满足上述任意一个条件，深色模式就会被开启。&lt;/p&gt;
-&lt;h3 id=&#34;使用-media-query-toggle-button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-media-query-toggle-button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;使用-media-query-toggle-button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-media-query-toggle-button-实现跟随系统-手动切换深色模式&#34;&gt;&lt;/a&gt;使用 Media Query + Toggle Button 实现跟随系统/手动切换深色模式&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight css&#34;&gt;&lt;span class=&#34;selector-pseudo&#34;&gt;:root&lt;/span&gt; &amp;#123;
     --text: &lt;span class=&#34;number&#34;&gt;#111&lt;/span&gt;;
 &amp;#125;
@@ -2858,11 +2853,9 @@ darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;
     &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
         &lt;span class=&#34;comment&#34;&gt;// 日出比日落晚表示白天&lt;/span&gt;
         &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (lastSunrise &amp;lt; darkModeTime) &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);
             applyCustomDarkModeSettings();
         &amp;#125;
         &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-            &lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;);
             applyCustomDarkModeSettings(invertDarkModeObj[darkModeClassName]);
         &amp;#125;
     &amp;#125;
@@ -2870,7 +2863,7 @@ darkModeTogglebuttonElement.addEventListener(&lt;span class=&#34;string&#34;&gt;
 
 initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Date&lt;/span&gt;());&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&#34;https://codesandbox.io/embed/shiyong-media-query-toggle-button-javascript-shixiangensuixitongdingshishoudongqiehuanshensemoshi-dyei7?autoresize=1&amp;fontsize=14&amp;theme=dark&amp;view=preview&#34; style=&#34;width: 100%; height: 500px; border: 0; border-radius: 4px; overflow: hidden;&#34; title=&#34;使用 Media Query + Toggle Button + JavaScript 实现跟随系统/定时/手动切换深色模式&#34; allow=&#34;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&#34; sandbox=&#34;allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&#34;&gt;&lt;/iframe&gt;
-&lt;h3 id=&#34;深色模式下的页面滚动条&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#深色模式下的页面滚动条&#34;&gt;&lt;/a&gt;深色模式下的页面滚动条&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn4&#34; id=&#34;fnref4&#34;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;深色模式下的页面滚动条&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#深色模式下的页面滚动条&#34;&gt;&lt;/a&gt;深色模式下的页面滚动条&lt;/h3&gt;
 &lt;p&gt;只需在页面的 &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 中添加一个 &lt;a href=&#34;https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme&#34;&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;color-scheme&amp;quot;&amp;gt;&lt;/code&gt;&lt;/a&gt; 的标签即可让页面滚动条的样式跟随深色模式变化。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;comment&#34;&gt;&amp;lt;!--&lt;/span&gt;
 &lt;span class=&#34;comment&#34;&gt;  The page supports both light and dark color schemes,&lt;/span&gt;
@@ -2895,20 +2888,13 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;来源：&lt;a href=&#34;https://stackoverflow.com/a/65313819/14109955&#34;&gt;Disqus iframe transparency won’t work on Chrome 87 - StackOverflow&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://material.io/design/color/dark-theme.html&#34;&gt;https://material.io/design/color/dark-theme.html&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;hr class=&#34;footnotes-sep&#34;&gt;
-&lt;section class=&#34;footnotes&#34;&gt;
-&lt;ol class=&#34;footnotes-list&#34;&gt;
-&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://material.io/design/color/dark-theme.html&#34;&gt;Dark theme - Material Design&lt;/a&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt; &lt;a href=&#34;#fnref1:1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn2&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/808/&#34;&gt;What’s New in iOS Design - WWDC 2019&lt;/a&gt; &lt;a href=&#34;#fnref2&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn3&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://blog.skk.moe/post/hello-darkmode-my-old-friend/&#34;&gt;你好黑暗，我的老朋友 —— 为网站添加用户友好的深色模式支持 - Sukka’s Blog&lt;/a&gt; &lt;a href=&#34;#fnref3&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn4&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://web.dev/color-scheme/&#34;&gt;Improved dark mode default styling with the color-scheme CSS property and the corresponding meta tag - web.dev&lt;/a&gt; &lt;a href=&#34;#fnref4&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://material.io/design/color/dark-theme.html&#34;&gt;Dark theme - Material Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/808/&#34;&gt;What’s New in iOS Design - WWDC 2019&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.skk.moe/post/hello-darkmode-my-old-friend/&#34;&gt;你好黑暗，我的老朋友 —— 为网站添加用户友好的深色模式支持 - Sukka’s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.dev/color-scheme/&#34;&gt;Improved dark mode default styling with the color-scheme CSS property and the corresponding meta tag - web.dev&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
+&lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://material.io/design/color/dark-theme.html&#34;&gt;https://material.io/design/color/dark-theme.html&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 </content>
         <category term="Web" />
         <category term="前端" />
@@ -2918,11 +2904,10 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
         <id>https://blog.baoshuo.ren/post/linux-systemd/</id>
         <title>Linux Systemd 入门</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/linux-systemd/"/>
-        <content type="html">&lt;h2 id=&#34;systemd-简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#systemd-简介&#34;&gt;&lt;/a&gt;Systemd 简介&lt;/h2&gt;
-&lt;p&gt;Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管理程序，包括有守护进程、程序库以及应用软件，由 Lennart Poettering 带头开发。其开发目标是提供更优秀的框架以表示系统服务间的依赖关系，并依此实现系统初始化时服务的并行启动，同时达到降低 Shell 的系统开销的效果，最终代替现在常用的 System V 与 BSD 风格 init 程序。&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+        <content type="html">&lt;p&gt;Systemd 是 Linux 电脑操作系统之下的一套中央化系统及设置管理程序，包括有守护进程、程序库以及应用软件，由 Lennart Poettering 带头开发。其开发目标是提供更优秀的框架以表示系统服务间的依赖关系，并依此实现系统初始化时服务的并行启动，同时达到降低 Shell 的系统开销的效果，最终代替现在常用的 System V 与 BSD 风格 init 程序。&lt;/p&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;p&gt;目前绝大多数的 Linux 发行版都已采用 systemd 代替原来的 System V。&lt;/p&gt;
-&lt;h2 id=&#34;常用命令列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令列表&#34;&gt;&lt;/a&gt;常用命令列表&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;常用命令列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令列表&#34;&gt;&lt;/a&gt;常用命令列表&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;列出所有已加载的单元：&lt;code&gt;systemctl list-units&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;查看指定的单元的配置：&lt;code&gt;systemctl cat [serviceName]&lt;/code&gt; &lt;em&gt;(e.g. &lt;code&gt;systemctl cat sshd.service&lt;/code&gt;)&lt;/em&gt;&lt;/li&gt;
@@ -2956,7 +2941,7 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;sudo systemctl &lt;span class=&#34;built_in&#34;&gt;enable&lt;/span&gt; sshd.service&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;上面的命令相当于在 &lt;code&gt;/etc/systemd/system&lt;/code&gt; 目录添加一个符号链接，指向 &lt;code&gt;/usr/lib/systemd/system&lt;/code&gt; 里面的 &lt;code&gt;sshd.service&lt;/code&gt; 文件。&lt;/p&gt;
 &lt;p&gt;这是因为开机时，Systemd 只执行 &lt;code&gt;/etc/systemd/system&lt;/code&gt; 目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。&lt;/p&gt;
-&lt;h2 id=&#34;unit&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unit&#34;&gt;&lt;/a&gt;Unit&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn3&#34; id=&#34;fnref3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;unit&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#unit&#34;&gt;&lt;/a&gt;Unit&lt;/h2&gt;
 &lt;h3 id=&#34;配置文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置文件&#34;&gt;&lt;/a&gt;配置文件&lt;/h3&gt;
 &lt;p&gt;对于那些没有原生支持 Systemd 的软件，可以自行编写配置文件来达到开机自启的目的。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -3191,17 +3176,11 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;li&gt;&lt;code&gt;AllowIsolate&lt;/code&gt;: 是否允许使用 &lt;code&gt;systemctl isolate&lt;/code&gt; 命令切换到这个 Target&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
-&lt;hr class=&#34;footnotes-sep&#34;&gt;
-&lt;section class=&#34;footnotes&#34;&gt;
-&lt;ol class=&#34;footnotes-list&#34;&gt;
-&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Systemd&#34;&gt;Systemd - Wikipedia&lt;/a&gt; &lt;sup&gt;（&lt;a href=&#34;https://web.archive.org/web/20210210150200/https://en.wikipedia.org/wiki/Systemd&#34;&gt;存档&lt;/a&gt; 于 &lt;a href=&#34;https://archive.org&#34;&gt;互联网档案馆&lt;/a&gt;）&lt;/sup&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn2&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://manpages.ubuntu.com/manpages/bionic/zh_CN/man1/systemctl.1.html&#34;&gt;Systemd - Ubuntu Manpages&lt;/a&gt; &lt;sup&gt;（&lt;a href=&#34;https://web.archive.org/web/20210210150518/https://manpages.ubuntu.com/manpages/bionic/zh_CN/man1/systemctl.1.html&#34;&gt;存档&lt;/a&gt; 于 &lt;a href=&#34;https://archive.org&#34;&gt;互联网档案馆&lt;/a&gt;）&lt;/sup&gt; &lt;a href=&#34;#fnref2&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn3&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://linux.vbird.org/linux_basic/0560daemons.php&#34;&gt;第十七章 认识系统服务(daemons) - 鸟哥的Linux私房菜&lt;/a&gt; &lt;sup&gt;（&lt;a href=&#34;https://web.archive.org/web/20200810204650/http://linux.vbird.org/linux_basic/0560daemons.php&#34;&gt;存档&lt;/a&gt; 于 &lt;a href=&#34;https://archive.org&#34;&gt;互联网档案馆&lt;/a&gt;）&lt;/sup&gt; &lt;a href=&#34;#fnref3&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Systemd&#34;&gt;Systemd - Wikipedia&lt;/a&gt; &lt;sup&gt;（&lt;a href=&#34;https://web.archive.org/web/20210210150200/https://en.wikipedia.org/wiki/Systemd&#34;&gt;存档&lt;/a&gt; 于 &lt;a href=&#34;https://archive.org&#34;&gt;互联网档案馆&lt;/a&gt;）&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://manpages.ubuntu.com/manpages/bionic/zh_CN/man1/systemctl.1.html&#34;&gt;Systemd - Ubuntu Manpages&lt;/a&gt; &lt;sup&gt;（&lt;a href=&#34;https://web.archive.org/web/20210210150518/https://manpages.ubuntu.com/manpages/bionic/zh_CN/man1/systemctl.1.html&#34;&gt;存档&lt;/a&gt; 于 &lt;a href=&#34;https://archive.org&#34;&gt;互联网档案馆&lt;/a&gt;）&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://linux.vbird.org/linux_basic/0560daemons.php&#34;&gt;第十七章 认识系统服务(daemons) - 鸟哥的Linux私房菜&lt;/a&gt; &lt;sup&gt;（&lt;a href=&#34;https://web.archive.org/web/20200810204650/http://linux.vbird.org/linux_basic/0560daemons.php&#34;&gt;存档&lt;/a&gt; 于 &lt;a href=&#34;https://archive.org&#34;&gt;互联网档案馆&lt;/a&gt;）&lt;/sup&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
 </content>
         <category term="Linux" />
         <updated>2021-02-11T16:06:31.000Z</updated>
@@ -3243,7 +3222,7 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:4.500000000000002em;vertical-align:-2.000000000000001em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mtable&#34;&gt;&lt;span class=&#34;col-align-r&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:2.5000000000000004em;&#34;&gt;&lt;span style=&#34;top:-4.66em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.16em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-1.6599999999999993em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:2.000000000000001em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;col-align-l&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:2.5000000000000004em;&#34;&gt;&lt;span style=&#34;top:-4.66em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.16em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-1.6599999999999993em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:2.000000000000001em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;思路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思路&#34;&gt;&lt;/a&gt;思路&lt;/h2&gt;
 &lt;p&gt;由 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;该天的最小波动值&lt;/mtext&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;min&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∣&lt;/mi&gt;&lt;mtext&gt;该天以前某一天的营业额&lt;/mtext&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mtext&gt;该天营业额&lt;/mtext&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∣&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\text{该天的最小波动值} = \min(|\text{该天以前某一天的营业额} - \text{该天营业额}|)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord text&#34;&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;该天的最小波动值&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mop&#34;&gt;min&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord text&#34;&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;该天以前某一天的营业额&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord text&#34;&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;该天营业额&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 可以判断出当前波动值与前面有关，设当天营业额为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;x&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.43056em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; ，则需要查找到某一天营业额 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;y&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.625em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 满足 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∣&lt;/mi&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∣&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;|y-x|&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∣&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 最小。&lt;/p&gt;
-&lt;p&gt;接着想到二分查找，使用 STL 库函数 &lt;code&gt;lower_bound&lt;/code&gt;&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt; 和 &lt;code&gt;upper_bound&lt;/code&gt;&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt; 即可完成。
+&lt;p&gt;接着想到二分查找，使用 STL 库函数 &lt;code&gt;lower_bound&lt;/code&gt; 和 &lt;code&gt;upper_bound&lt;/code&gt; 即可完成。
 二分查找需要保证数组有序，所以边读入边处理既能保证数组有序，又可以简单地查询出该天的最小波动值。&lt;/p&gt;
 &lt;p&gt;为了防止越界，开始前先向 a 中 push_back 一个满足要求的&amp;quot;极小值&amp;quot; &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1061109568&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;-1061109568&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.72777em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;8&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 。&lt;/p&gt;
 &lt;p&gt;时间复杂度： &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;msub&gt;&lt;mo&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O(n \log_2 n)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mop&#34;&gt;&lt;span class=&#34;mop&#34;&gt;lo&lt;span style=&#34;margin-right:0.01389em;&#34;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.20696799999999996em;&#34;&gt;&lt;span style=&#34;top:-2.4558600000000004em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.24414em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 。&lt;/p&gt;
@@ -3275,15 +3254,10 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
     &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
-&lt;hr class=&#34;footnotes-sep&#34;&gt;
-&lt;section class=&#34;footnotes&#34;&gt;
-&lt;ol class=&#34;footnotes-list&#34;&gt;
-&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://zh.cppreference.com/w/cpp/algorithm/lower_bound&#34;&gt;std::&lt;strong&gt;lower_bound&lt;/strong&gt; - cppreference&lt;/a&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn2&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://zh.cppreference.com/w/cpp/algorithm/upper_bound&#34;&gt;std::&lt;strong&gt;upper_bound&lt;/strong&gt; - cppreference&lt;/a&gt; &lt;a href=&#34;#fnref2&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.cppreference.com/w/cpp/algorithm/lower_bound&#34;&gt;std::&lt;strong&gt;lower_bound&lt;/strong&gt; - cppreference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.cppreference.com/w/cpp/algorithm/upper_bound&#34;&gt;std::&lt;strong&gt;upper_bound&lt;/strong&gt; - cppreference&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
 </content>
         <category term="题解" />
         <category term="洛谷" />
@@ -3502,7 +3476,7 @@ acme.sh --issue --keylength ec-256 \
     &lt;span class=&#34;comment&#34;&gt;# 404 page&lt;/span&gt;
     &lt;span class=&#34;attribute&#34;&gt;error_page&lt;/span&gt;                           &lt;span class=&#34;number&#34;&gt;404&lt;/span&gt; /&lt;span class=&#34;number&#34;&gt;404&lt;/span&gt;.html;
 &amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;上方使用的 SSL 配置是 Mozilla 推荐的现代化配置&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt; ，如果需要更好的兼容性，可以使用 Mozilla 提供的中等安全性配置&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt; ：&lt;/p&gt;
+&lt;p&gt;上方使用的 SSL 配置是 Mozilla 推荐的现代化配置 ，如果需要更好的兼容性，可以使用 Mozilla 提供的中等安全性配置 ：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;highlight apache&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;ssl_protocols&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt; TLSv&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;;
 &lt;span class=&#34;attribute&#34;&gt;ssl_ciphers&lt;/span&gt; ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-CHACHA&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;number&#34;&gt;1305&lt;/span&gt;:ECDHE-RSA-CHACHA&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;number&#34;&gt;1305&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:DHE-RSA-CHACHA&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt;-POLY&lt;span class=&#34;number&#34;&gt;1305&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:ECDHE-ECDSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA:ECDHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:DHE-RSA-AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-GCM-SHA&lt;span class=&#34;number&#34;&gt;384&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;:AES&lt;span class=&#34;number&#34;&gt;128&lt;/span&gt;-SHA:AES&lt;span class=&#34;number&#34;&gt;256&lt;/span&gt;-SHA:DES-CBC&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;-SHA;
 &lt;span class=&#34;attribute&#34;&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;on&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;
@@ -3558,15 +3532,10 @@ acme.sh --issue --keylength ec-256 \
 &lt;/table&gt;
 &lt;p&gt;将博客文件 push 到仓库中，就能在服务器上查看到文件了。&lt;/p&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
-&lt;hr class=&#34;footnotes-sep&#34;&gt;
-&lt;section class=&#34;footnotes&#34;&gt;
-&lt;ol class=&#34;footnotes-list&#34;&gt;
-&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://ssl-config.mozilla.org/#server=nginx&amp;amp;version=1.18.0&amp;amp;config=modern&amp;amp;openssl=1.1.1f&amp;amp;ocsp=false&amp;amp;guideline=5.6&#34;&gt;nginx 1.18.0, modern config, OpenSSL 1.1.1f - Mozilla SSL Configuration Generator&lt;/a&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn2&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://ssl-config.mozilla.org/#server=nginx&amp;amp;version=1.18.0&amp;amp;config=intermediate&amp;amp;openssl=1.1.1f&amp;amp;ocsp=false&amp;amp;guideline=5.6&#34;&gt;nginx 1.18.0, intermediate config, OpenSSL 1.1.1f - Mozilla SSL Configuration Generator&lt;/a&gt; &lt;a href=&#34;#fnref2&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://ssl-config.mozilla.org/#server=nginx&amp;amp;version=1.18.0&amp;amp;config=modern&amp;amp;openssl=1.1.1f&amp;amp;ocsp=false&amp;amp;guideline=5.6&#34;&gt;nginx 1.18.0, modern config, OpenSSL 1.1.1f - Mozilla SSL Configuration Generator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ssl-config.mozilla.org/#server=nginx&amp;amp;version=1.18.0&amp;amp;config=intermediate&amp;amp;openssl=1.1.1f&amp;amp;ocsp=false&amp;amp;guideline=5.6&#34;&gt;nginx 1.18.0, intermediate config, OpenSSL 1.1.1f - Mozilla SSL Configuration Generator&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
 </content>
         <category term="折腾" />
         <updated>2020-12-31T16:00:00.000Z</updated>
