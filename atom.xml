@@ -14,6 +14,7 @@
     <category term="Linux" />
     <category term="VMware" />
     <category term="网络" />
+    <category term="游记" />
     <category term="macOS" />
     <category term="Cloudflare" />
     <category term="ServiceWorker" />
@@ -1932,6 +1933,24 @@ acme.sh --issue --keylength ec-256 \
         <updated>2020-12-31T16:00:00.000Z</updated>
     </entry>
     <entry>
+        <id>https://blog.baoshuo.ren/post/noip-2020/</id>
+        <title>NOIP 2020 游记</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/noip-2020/"/>
+        <content type="html">&lt;p&gt;没想到初中生也能参加 NOIP 。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://oi.baoshuo.ren/solution-noip-2020/&#34;&gt;NOIP 2020 题解 @ oi.baoshuo.ren&lt;/a&gt;&lt;/p&gt;
+&lt;img src=&#34;https://vip2.loli.io/2020/12/13/5ePKrZ7Oy8Lj6fc.jpg&#34; class=&#34;&#34; width=&#34;300&#34; data-action=&#34;zoom&#34;&gt;
+&lt;p&gt;▲  &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;y&lt;/mtext&gt;&lt;mstyle mathcolor=&#34;red&#34;&gt;&lt;mtext&gt;ouwike&lt;/mtext&gt;&lt;/mstyle&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\text{y\color{red}{ouwike}}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord text&#34;&gt;&lt;span class=&#34;mord&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;e&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 在考前立的 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;flag&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10764em;&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.01968em;&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03588em;&#34;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;可惜 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mtext&gt;y&lt;/mtext&gt;&lt;mstyle mathcolor=&#34;red&#34;&gt;&lt;mtext&gt;ouwike&lt;/mtext&gt;&lt;/mstyle&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\text{y\color{red}{ouwike}}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord text&#34;&gt;&lt;span class=&#34;mord&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;mord&#34; style=&#34;color:red;&#34;&gt;e&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 最后还是没上二百。&lt;/p&gt;
+&lt;p&gt;周五下午的火车，赶到秦皇岛，晚上写了几个板子就开始颓废，一直颓废到 12 点。&lt;/p&gt;
+&lt;p&gt;中间还开了会，发了选手胸牌、讲了一些注意事项。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/05/fRagTOlMvx3Gn6B.jpg&#34; alt=&#34;选手胸牌&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;选手胸牌&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/12/05/NQ4JYSWf5cXt3U6.jpg&#34; alt=&#34;二中 OIer 大合照&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;span class=&#34;image-description&#34;&gt;二中 OIer 大合照&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;比完赛拿上行李就坐火车回石家庄了。&lt;/p&gt;
+</content>
+        <category term="游记" />
+        <updated>2020-12-05T09:30:03.000Z</updated>
+    </entry>
+    <entry>
         <id>https://blog.baoshuo.ren/post/download-smms-image/</id>
         <title>【随笔】下载自己在 SM.MS 图床上的所有图片</title>
         <link rel="alternate" href="https://blog.baoshuo.ren/post/download-smms-image/"/>
@@ -2824,157 +2843,5 @@ git config --global --unset https.proxy&lt;/code&gt;&lt;/pre&gt;
 </content>
         <category term="Git" />
         <updated>2020-07-21T10:38:23.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://blog.baoshuo.ren/post/handsome-leftbar-layout/</id>
-        <title>【补档】handsome 魔改教程：左侧边栏输出优化</title>
-        <link rel="alternate" href="https://blog.baoshuo.ren/post/handsome-leftbar-layout/"/>
-        <content type="html">&lt;p&gt;感觉 handsome 自带的左侧边栏显示方法不太合适，于是自己参照了UCW大佬的教程 &lt;a href=&#34;https://ucw.moe/archives/handsome-aside-category.html&#34;&gt;优化侧栏显示：实现更加美观的分类展示&lt;/a&gt; 改了一下。&lt;/p&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
-&lt;h2 id=&#34;修改方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改方法&#34;&gt;&lt;/a&gt;修改方法&lt;/h2&gt;
-&lt;h3 id=&#34;前置操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前置操作&#34;&gt;&lt;/a&gt;前置操作&lt;/h3&gt;
-&lt;p&gt;建议引入 &lt;a href=&#34;https://fontawesome.dashgame.com/&#34;&gt;Font Awesome&lt;/a&gt; 图标库，在 &lt;code&gt;主题后台设置 -&amp;gt; 开发者设置 -&amp;gt; 自定义输出 head 头部的 HTML 代码&lt;/code&gt; 里面添加下面的代码即可。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight html&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;href&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;rel&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;上面的 &lt;code&gt;Font Awesome&lt;/code&gt; 的 css 文件来自 BootCDN 提供，你也可以替换成自己的文件。&lt;/p&gt;
-&lt;h3 id=&#34;改代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#改代码&#34;&gt;&lt;/a&gt;改代码&lt;/h3&gt;
-&lt;p&gt;首先，打开 &lt;code&gt;libs/Content.php&lt;/code&gt; ，在蓝线所示的位置：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/3J7jpP5W6uqkAwO.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;p&gt;插入下面的代码：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;&lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;
-&lt;span class=&#34;comment&#34;&gt; *&lt;/span&gt;
-&lt;span class=&#34;comment&#34;&gt; * &lt;span class=&#34;doctag&#34;&gt;@param&lt;/span&gt; $categories&lt;/span&gt;
-&lt;span class=&#34;comment&#34;&gt; * &lt;span class=&#34;doctag&#34;&gt;@return&lt;/span&gt; string&lt;/span&gt;
-&lt;span class=&#34;comment&#34;&gt; */&lt;/span&gt;
-&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;returnAsideCategories&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;variable&#34;&gt;$html&lt;/span&gt;    = &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;;
-    &lt;span class=&#34;variable&#34;&gt;$options&lt;/span&gt; = mget();
-    &lt;span class=&#34;variable&#34;&gt;$icons&lt;/span&gt;   = &lt;span class=&#34;keyword&#34;&gt;array&lt;/span&gt;(
-        &lt;span class=&#34;string&#34;&gt;&amp;#x27;default&amp;#x27;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;glyphicon glyphicon-tasks&amp;#x27;&lt;/span&gt;,
-        &lt;span class=&#34;string&#34;&gt;&amp;#x27;github&amp;#x27;&lt;/span&gt;  =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;fa fa-github&amp;#x27;&lt;/span&gt;
-        &lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;
-&lt;span class=&#34;comment&#34;&gt;         *  格式：  &amp;#x27;分类缩略名&amp;#x27; =&amp;gt; &amp;#x27;图标名称&amp;#x27;,&lt;/span&gt;
-&lt;span class=&#34;comment&#34;&gt;         */&lt;/span&gt;
-    );
-    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt;(&lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;next()) &amp;#123;
-        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (&lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;levels === &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;) &amp;#123;
-            &lt;span class=&#34;variable&#34;&gt;$children&lt;/span&gt; = &lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;getAllChildren(&lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;mid);
-            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (!&lt;span class=&#34;keyword&#34;&gt;empty&lt;/span&gt;(&lt;span class=&#34;variable&#34;&gt;$children&lt;/span&gt;)) &amp;#123;
-                &lt;span class=&#34;variable&#34;&gt;$html&lt;/span&gt; .= &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;li&amp;gt;&amp;lt;a class=&amp;quot;auto&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;pull-right text-muted&amp;quot;&amp;gt;&amp;lt;i class=&amp;quot;fontello icon-fw fontello-angle-right text&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;i class=&amp;quot;fontello icon-fw fontello-angle-down text-active&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;nav-icon&amp;quot;&amp;gt;&amp;lt;i class=&amp;quot;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$icons&lt;/span&gt;[&lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;slug] . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;name . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;#x27;&lt;/span&gt;;
-                &lt;span class=&#34;variable&#34;&gt;$childCategoryHtml&lt;/span&gt; =  &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;ul class=&amp;quot;nav nav-sub dk&amp;quot;&amp;gt;&amp;lt;li class=&amp;quot;nav-sub-header&amp;quot;&amp;gt;&amp;lt;a&amp;gt;&amp;lt;span&amp;gt;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;name . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;#x27;&lt;/span&gt;;
-                &lt;span class=&#34;keyword&#34;&gt;foreach&lt;/span&gt;(&lt;span class=&#34;variable&#34;&gt;$children&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;$mid&lt;/span&gt;)&amp;#123;
-                    &lt;span class=&#34;variable&#34;&gt;$child&lt;/span&gt; = &lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;getCategory(&lt;span class=&#34;variable&#34;&gt;$mid&lt;/span&gt;);
-                    &lt;span class=&#34;variable&#34;&gt;$childCategoryHtml&lt;/span&gt; .= &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$child&lt;/span&gt;[&lt;span class=&#34;string&#34;&gt;&amp;#x27;permalink&amp;#x27;&lt;/span&gt;] . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;quot;&amp;gt;&amp;lt;b class=&amp;quot;badge pull-right&amp;quot;&amp;gt;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$child&lt;/span&gt;[&lt;span class=&#34;string&#34;&gt;&amp;#x27;count&amp;#x27;&lt;/span&gt;] . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;/b&amp;gt;&amp;lt;i class=&amp;quot;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$icons&lt;/span&gt;[&lt;span class=&#34;variable&#34;&gt;$child&lt;/span&gt;[&lt;span class=&#34;string&#34;&gt;&amp;#x27;slug&amp;#x27;&lt;/span&gt;]] . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;span&amp;gt;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$child&lt;/span&gt;[&lt;span class=&#34;string&#34;&gt;&amp;#x27;name&amp;#x27;&lt;/span&gt;] . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;#x27;&lt;/span&gt;;
-                &amp;#125;
-                &lt;span class=&#34;variable&#34;&gt;$childCategoryHtml&lt;/span&gt; .= &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;/ul&amp;gt;&amp;#x27;&lt;/span&gt;;
-                &lt;span class=&#34;variable&#34;&gt;$html&lt;/span&gt; .= &lt;span class=&#34;variable&#34;&gt;$childCategoryHtml&lt;/span&gt;;
-                &lt;span class=&#34;variable&#34;&gt;$html&lt;/span&gt; .= &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;lt;/li&amp;gt;&amp;quot;&lt;/span&gt;;
-            &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
-                &lt;span class=&#34;variable&#34;&gt;$html&lt;/span&gt; .= &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;permalink . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;quot; class=&amp;quot;auto&amp;quot;&amp;gt;&amp;lt;b class=&amp;quot;badge pull-right&amp;quot;&amp;gt;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;count . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;/b&amp;gt;&amp;lt;span class=&amp;quot;nav-icon&amp;quot;&amp;gt;&amp;lt;i class=&amp;quot;&amp;#x27;&lt;/span&gt;.&lt;span class=&#34;variable&#34;&gt;$icons&lt;/span&gt;[&lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;slug].&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;#x27;&lt;/span&gt; . &lt;span class=&#34;variable&#34;&gt;$categories&lt;/span&gt;-&amp;gt;name . &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;#x27;&lt;/span&gt;;
-            &amp;#125;
-        &amp;#125;
-    &amp;#125;
-    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;$html&lt;/span&gt;;
-&amp;#125;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在 &lt;code&gt;component/aside.php&lt;/code&gt; 中找到以下代码（大约 &lt;code&gt;131 ~ 160&lt;/code&gt; 行），删除。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;              &amp;lt;!--分类category--&amp;gt;
-                &lt;span class=&#34;meta&#34;&gt;&amp;lt;?php&lt;/span&gt;
-                &lt;span class=&#34;variable&#34;&gt;$class&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;;
-                    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (in_array(&lt;span class=&#34;string&#34;&gt;&amp;quot;openCategory&amp;quot;&lt;/span&gt;,&lt;span class=&#34;keyword&#34;&gt;$this&lt;/span&gt;-&amp;gt;options-&amp;gt;featuresetup))&amp;#123;
-                        &lt;span class=&#34;variable&#34;&gt;$class&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;class=\\&amp;quot;&lt;/span&gt;active\\&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;;
-                    &amp;#125;
-                    &lt;span class=&#34;meta&#34;&gt;?&amp;gt;&lt;/span&gt;
-              &amp;lt;li &lt;span class=&#34;meta&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;$class&lt;/span&gt;; &lt;span class=&#34;meta&#34;&gt;?&amp;gt;&lt;/span&gt;&amp;gt;
-                &amp;lt;a &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;auto&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                  &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;pull&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;muted&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;fontello&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;icon&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;fw&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;fontello&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;angle&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;fontello&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;icon&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;fw&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;fontello&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;angle&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;down&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;active&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                  &amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;&amp;lt;!--                  &amp;lt;&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;glyphicon&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;glyphicon&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;th&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt;&amp;gt;--&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;nav&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;icon&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;data&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;feather&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;grid&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;i&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;_me&lt;/span&gt;(&amp;quot;分类&amp;quot;) ?&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                &amp;lt;/&lt;span class=&#34;title&#34;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                &amp;lt;&lt;span class=&#34;title&#34;&gt;ul&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;nav&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;nav&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;sub&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;dk&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                  &amp;lt;&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;nav&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;sub&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;header&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                    &amp;lt;&lt;span class=&#34;title&#34;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                      &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;_me&lt;/span&gt;(&amp;quot;分类&amp;quot;) ?&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                    &amp;lt;/&lt;span class=&#34;title&#34;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                  &amp;lt;/&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                  &amp;lt;!--循环输出分类--&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                    &amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                    $&lt;span class=&#34;title&#34;&gt;this&lt;/span&gt;-&amp;gt;&lt;span class=&#34;title&#34;&gt;widget&lt;/span&gt;(&amp;#x27;&lt;span class=&#34;title&#34;&gt;Widget_Metas_Category_List&lt;/span&gt;&amp;#x27;)-&amp;gt;&lt;span class=&#34;title&#34;&gt;to&lt;/span&gt;($&lt;span class=&#34;title&#34;&gt;categorys&lt;/span&gt;);&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                    &lt;span class=&#34;title&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Content&lt;/span&gt;::&lt;span class=&#34;title&#34;&gt;returnCategories&lt;/span&gt;($&lt;span class=&#34;title&#34;&gt;categorys&lt;/span&gt;) ?&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;                &amp;lt;/&lt;span class=&#34;title&#34;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;              &amp;lt;/&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然后在下图蓝线所示的位置（ &lt;code&gt;127&lt;/code&gt; 行左右 ）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/H1s2CGy9NtWrgdh.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;p&gt;插入以下代码：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;     &amp;lt;!--start--&amp;gt;
-  &amp;lt;li &lt;span class=&#34;class&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;line&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;dk&lt;/span&gt;&amp;quot;&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt; &lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;&amp;lt;!--&lt;span class=&#34;title&#34;&gt;Components&lt;/span&gt;--&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;  &amp;lt;&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;class&lt;/span&gt;=&amp;quot;&lt;span class=&#34;title&#34;&gt;hidden&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;folded&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;padder&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;m&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;m&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;b&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;sm&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;muted&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;text&lt;/span&gt;-&lt;span class=&#34;title&#34;&gt;xs&lt;/span&gt;&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;    &amp;lt;&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;_me&lt;/span&gt;(&amp;quot;分类&amp;quot;) ?&amp;gt;&amp;lt;/&lt;span class=&#34;title&#34;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;  &amp;lt;/&lt;span class=&#34;title&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;  &amp;lt;!--分类&lt;span class=&#34;title&#34;&gt;category&lt;/span&gt;--&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;  &amp;lt;!--循环输出分类--&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;  &amp;lt;?&lt;span class=&#34;title&#34;&gt;php&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;  $&lt;span class=&#34;title&#34;&gt;this&lt;/span&gt;-&amp;gt;&lt;span class=&#34;title&#34;&gt;widget&lt;/span&gt;(&amp;#x27;&lt;span class=&#34;title&#34;&gt;Widget_Metas_Category_List&lt;/span&gt;&amp;#x27;)-&amp;gt;&lt;span class=&#34;title&#34;&gt;to&lt;/span&gt;($&lt;span class=&#34;title&#34;&gt;categorys&lt;/span&gt;);&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;  &lt;span class=&#34;title&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Content&lt;/span&gt;::&lt;span class=&#34;title&#34;&gt;returnAsideCategories&lt;/span&gt;($&lt;span class=&#34;title&#34;&gt;categorys&lt;/span&gt;) ?&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;class&#34;&gt;  &amp;lt;!--&lt;span class=&#34;title&#34;&gt;end&lt;/span&gt;--&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然后，刷新你的博客，是不是就有效果了呢？&lt;/p&gt;
-&lt;h2 id=&#34;图标设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图标设置&#34;&gt;&lt;/a&gt;图标设置&lt;/h2&gt;
-&lt;p&gt;设置方法：在 &lt;code&gt;$icons&lt;/code&gt; 的 array 数组中插入 &lt;code&gt;&#39;分类缩略名&#39; =&amp;gt; &#39;图标&#39;&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h3 id=&#34;font-awesome&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#font-awesome&#34;&gt;&lt;/a&gt;Font Awesome&lt;/h3&gt;
-&lt;p&gt;如果你引入了 &lt;code&gt;Font Awesome&lt;/code&gt; 的图标的话，可以到 &lt;a href=&#34;https://fontawesome.dashgame.com/&#34;&gt;https://fontawesome.dashgame.com/&lt;/a&gt; 选择你喜欢的图标使用。&lt;/p&gt;
-&lt;h4 id=&#34;使用方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方法&#34;&gt;&lt;/a&gt;使用方法&lt;/h4&gt;
-&lt;p&gt;在 &lt;a href=&#34;https://fontawesome.dashgame.com/&#34;&gt;https://fontawesome.dashgame.com/&lt;/a&gt; 挑一个图标，在图标的名字前加入 &lt;code&gt;fa fa-&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h4 id=&#34;使用样例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用样例&#34;&gt;&lt;/a&gt;使用样例&lt;/h4&gt;
-&lt;p&gt;使用 &lt;code&gt;archive&lt;/code&gt; 图标时：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2020/11/26/POyaCjgLveKJMDE.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;p&gt;对应在 &lt;code&gt;$icons&lt;/code&gt; 的 array 数组中插入的代码：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;#x27;archives&amp;#x27;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;fa fa-archive&amp;#x27;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;fontello&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#fontello&#34;&gt;&lt;/a&gt;Fontello&lt;/h3&gt;
-&lt;p&gt;handsome 主题自带部分 &lt;code&gt;fontello&lt;/code&gt; 图标，具体列表可在 &lt;a href=&#34;https://auth.ihewro.com/user/docs/#/icons&#34;&gt;handsome 主题文档&lt;/a&gt; 查看。&lt;/p&gt;
-&lt;h4 id=&#34;使用方法-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方法-t2&#34;&gt;&lt;/a&gt;使用方法&lt;/h4&gt;
-&lt;p&gt;在图标的名字前加入 &lt;code&gt;fontello fontello-&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h4 id=&#34;使用样例-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用样例-t2&#34;&gt;&lt;/a&gt;使用样例&lt;/h4&gt;
-&lt;p&gt;与 &lt;code&gt;Font Awesome&lt;/code&gt; 相似，在此不多赘述。&lt;/p&gt;
-&lt;h3 id=&#34;feather&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#feather&#34;&gt;&lt;/a&gt;Feather&lt;/h3&gt;
-&lt;p&gt;handsome 主题自带 &lt;code&gt;feather&lt;/code&gt; 的所有图标，在此处使用需要一些变通措施。&lt;/p&gt;
-&lt;h4 id=&#34;使用方法-t3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方法-t3&#34;&gt;&lt;/a&gt;使用方法&lt;/h4&gt;
-&lt;p&gt;在 &lt;a href=&#34;https://feathericons.com/&#34;&gt;https://feathericons.com/&lt;/a&gt; 选取好你需要的图标。&lt;/p&gt;
-&lt;p&gt;然后在名称前插入 &lt;code&gt;&amp;quot; data-feather=&amp;quot;&lt;/code&gt; ，再输入名称即可。&lt;/p&gt;
-&lt;h4 id=&#34;使用样例-t3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用样例-t3&#34;&gt;&lt;/a&gt;使用样例&lt;/h4&gt;
-&lt;p&gt;以 &lt;code&gt;airplay&lt;/code&gt; 为例：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/ObX7A1yuHoUj9fk.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;p&gt;输入 &lt;code&gt;&#39;airplay&#39; =&amp;gt; &#39;&amp;quot; data-feather=&amp;quot;airplay&#39;&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h3 id=&#34;其他-svg-格式的图标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他-svg-格式的图标&#34;&gt;&lt;/a&gt;其他 SVG 格式的图标&lt;/h3&gt;
-&lt;h3 id=&#34;使用方法-t4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用方法-t4&#34;&gt;&lt;/a&gt;使用方法&lt;/h3&gt;
-&lt;p&gt;在 svg 的开头加入 &lt;code&gt;&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&lt;/code&gt; ，在结尾加入 &lt;code&gt;&amp;lt;i&lt;/code&gt; 即可。&lt;/p&gt;
-&lt;h3 id=&#34;使用样例-t4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用样例-t4&#34;&gt;&lt;/a&gt;使用样例&lt;/h3&gt;
-&lt;p&gt;下载下来的 &lt;code&gt;svg&lt;/code&gt; 文件内容：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vip1.loli.io/2020/11/26/ukVefHwLng2PWhb.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
-&lt;p&gt;将其复制，然后在 &lt;code&gt;$icons&lt;/code&gt; 的 array 数组中插入的代码：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;#x27;airplay&amp;#x27;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;16&amp;quot; height=&amp;quot;16&amp;quot; viewBox=&amp;quot;0 0 24 24&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; stroke-width=&amp;quot;2&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot; class=&amp;quot;feather feather-airplay&amp;quot;&amp;gt;&amp;lt;path d=&amp;quot;M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1&amp;quot;/&amp;gt;&amp;lt;polygon points=&amp;quot;12 15 17 21 7 21 12 15&amp;quot;/&amp;gt;&amp;lt;/svg&amp;gt;&amp;lt;i &amp;#x27;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;后记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后记&#34;&gt;&lt;/a&gt;后记&lt;/h2&gt;
-&lt;h3 id=&#34;报错解决&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#报错解决&#34;&gt;&lt;/a&gt;报错解决&lt;/h3&gt;
-&lt;p&gt;报错 &lt;code&gt;syntax error, unexpected &#39;xxx&#39; (T_CONSTANT_ENCAPSED_STRING), expecting &#39;)&#39;&lt;/code&gt; 咋办？&lt;/p&gt;
-&lt;p&gt;检查你设置图标时的语法是否正确，正确语法如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight php&#34;&gt;&lt;span class=&#34;variable&#34;&gt;$icons&lt;/span&gt; = &lt;span class=&#34;keyword&#34;&gt;array&lt;/span&gt;(
-    &lt;span class=&#34;string&#34;&gt;&amp;#x27;aaaaaaa&amp;#x27;&lt;/span&gt;  =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;glyphicon glyphicon-xx&amp;#x27;&lt;/span&gt;,
-    &lt;span class=&#34;string&#34;&gt;&amp;#x27;bbbb&amp;#x27;&lt;/span&gt;     =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;glyphicon glyphicon-xxxxxx&amp;#x27;&lt;/span&gt;,
-    &lt;span class=&#34;string&#34;&gt;&amp;#x27;cccccc&amp;#x27;&lt;/span&gt;   =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;fa fa-xxxxx&amp;#x27;&lt;/span&gt;,
-    &lt;span class=&#34;string&#34;&gt;&amp;#x27;dddddddd&amp;#x27;&lt;/span&gt; =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;fa fa-xxxx&amp;#x27;&lt;/span&gt;,
-    &lt;span class=&#34;string&#34;&gt;&amp;#x27;eeeee&amp;#x27;&lt;/span&gt;    =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;glyphicon glyphicon-xxxx&amp;#x27;&lt;/span&gt;,
-    &lt;span class=&#34;string&#34;&gt;&amp;#x27;fff&amp;#x27;&lt;/span&gt;      =&amp;gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;fa fa-xxxxx&amp;#x27;&lt;/span&gt;
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;array&lt;/code&gt; 函数的参数中除了最后一行，每一行末尾都有一个 &lt;code&gt;,&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-        <category term="Web" />
-        <updated>2020-04-12T15:31:25.000Z</updated>
     </entry>
 </feed>
