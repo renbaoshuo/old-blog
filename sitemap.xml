@@ -200,13 +200,6 @@
 
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/CTF/</loc>
-    <lastmod>2021-09-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.baoshuo.ren/tags/BIRD/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
@@ -222,6 +215,13 @@
   
   <url>
     <loc>https://blog.baoshuo.ren/tags/DN42/</loc>
+    <lastmod>2021-09-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.baoshuo.ren/tags/CTF/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -256,14 +256,14 @@
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/VMware/</loc>
+    <loc>https://blog.baoshuo.ren/tags/%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/tags/%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://blog.baoshuo.ren/tags/VMware/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -314,7 +314,7 @@
 
   
   <url>
-    <loc>https://blog.baoshuo.ren/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <loc>https://blog.baoshuo.ren/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -328,14 +328,14 @@
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://blog.baoshuo.ren/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.baoshuo.ren/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://blog.baoshuo.ren/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2021-09-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
