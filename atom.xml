@@ -4,22 +4,22 @@
     <title>宝硕博客</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-08-08T13:44:33.000Z</updated>
+    <category term="Web" />
+    <category term="前端" />
+    <category term="JavaScript" />
     <category term="BIRD" />
     <category term="BGP" />
     <category term="DN42" />
     <category term="CTF" />
     <category term="Git" />
-    <category term="Web" />
     <category term="折腾" />
     <category term="Linux" />
     <category term="网络" />
     <category term="VMware" />
     <category term="游记" />
-    <category term="macOS" />
     <category term="Cloudflare" />
+    <category term="macOS" />
     <category term="ServiceWorker" />
-    <category term="JavaScript" />
-    <category term="前端" />
     <entry>
         <id>https://blog.baoshuo.ren/post/noi-linux-2/</id>
         <title>NOI Linux 2.0 上手体验</title>
@@ -1209,8 +1209,8 @@ workbox.routing.registerRoute(
 &lt;/ul&gt;
 </content>
         <category term="Web" />
-        <category term="ServiceWorker" />
         <category term="JavaScript" />
+        <category term="ServiceWorker" />
         <updated>2021-02-27T16:02:04.000Z</updated>
     </entry>
     <entry>
