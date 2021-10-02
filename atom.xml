@@ -3,7 +3,7 @@
     <id>https://blog.baoshuo.ren</id>
     <title>宝硕博客</title>
     <link href="https://blog.baoshuo.ren" />
-    <updated>2021-08-08T13:44:33.000Z</updated>
+    <updated>2021-10-02T14:24:02.000Z</updated>
     <category term="Web" />
     <category term="前端" />
     <category term="JavaScript" />
@@ -20,6 +20,116 @@
     <category term="Cloudflare" />
     <category term="macOS" />
     <category term="ServiceWorker" />
+    <category term="HTTP" />
+    <category term="Typecho" />
+    <entry>
+        <id>https://blog.baoshuo.ren/post/cors/</id>
+        <title>浅谈跨域资源共享（CORS）</title>
+        <link rel="alternate" href="https://blog.baoshuo.ren/post/cors/"/>
+        <content type="html">&lt;p&gt;跨域资源共享（CORS）是一种基于 HTTP 头来让网页的受限资源能够被其他域名的页面访问的一种机制。通过该机制，页面能够自由地使用不同源（cross-origin）的图片、样式、脚本、iframes 以及视频。&lt;/p&gt;
+&lt;p&gt;在通常情况下，一些跨域的请求（特别是 ajax）会被同源策略（same-origin policy）禁止。而 CORS 定义了一种方式，可以允许 Web 应用服务器进行跨源访问控制，从而使得跨源数据传输得以安全进行。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;目前几乎所有现代浏览器都支持 CORS ，可以在 &lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7&#34;&gt;MDN&lt;/a&gt; 上找到有关浏览器兼容性的信息。&lt;/p&gt;
+&lt;p&gt;浏览器将 CORS 请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request）。&lt;em&gt;这两个术语并不属于 Fetch 规范。&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;简单请求&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简单请求&#34;&gt;&lt;/a&gt;简单请求&lt;/h2&gt;
+&lt;p&gt;某些请求不会触发 CORS 预检请求。本文中称这样的请求为「简单请求」。&lt;/p&gt;
+&lt;h3 id=&#34;定义&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#定义&#34;&gt;&lt;/a&gt;定义&lt;/h3&gt;
+&lt;p&gt;若请求满足所有下述条件则该请求可被视为「简单请求」：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;请求方法为 &lt;code&gt;HEAD&lt;/code&gt;，&lt;code&gt;GET&lt;/code&gt; 或 &lt;code&gt;POST&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;除了被用户代理自动设置的字段以及在 Fetch 规范中被定义为 &lt;a href=&#34;https://fetch.spec.whatwg.org/#forbidden-header-name&#34;&gt;禁用头名称&lt;/a&gt; 的字段之外，HTTP 头信息只允许包含 Fetch 规范定义的 &lt;a href=&#34;https://fetch.spec.whatwg.org/#cors-safelisted-request-header&#34;&gt;对 CORS 安全的首部字段集合&lt;/a&gt; ：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Accept&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Accept-Language&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Content-Language&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Last-Event-ID&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Content-Type&lt;/code&gt; 仅限于三个值：&lt;code&gt;application/x-www-form-urlencoded&lt;/code&gt;、&lt;code&gt;multipart/form-data&lt;/code&gt; 或 &lt;code&gt;text/plain&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;请求中的任意 &lt;code&gt;XMLHttpRequestUpload&lt;/code&gt; 对象均没有注册任何事件监听器；&lt;code&gt;XMLHttpRequestUpload&lt;/code&gt; 对象可以使用 &lt;code&gt;XMLHttpRequest.upload&lt;/code&gt; 属性访问。&lt;/li&gt;
+&lt;li&gt;请求中没有使用 &lt;code&gt;ReadableStream&lt;/code&gt; 对象。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;简单请求的设计是为了兼容表单（form），因为历史上表单就一直可以发出跨域请求。&lt;/p&gt;
+&lt;h3 id=&#34;基本流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本流程&#34;&gt;&lt;/a&gt;基本流程&lt;/h3&gt;
+&lt;p&gt;对于简单请求，浏览器会直接发出 CORS 请求。具体来说，就是增加一个名为 &lt;code&gt;Origin&lt;/code&gt; 的字段到 HTTP 头中。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight http&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;GET&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/cors&lt;/span&gt; &lt;span class=&#34;meta&#34;&gt;HTTP/1.1&lt;/span&gt;
+&lt;span class=&#34;attribute&#34;&gt;Origin&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;http://foo.example
+&lt;span class=&#34;attribute&#34;&gt;Host&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;foo.example
+&lt;span class=&#34;attribute&#34;&gt;Accept-Language&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;zh-CN
+&lt;span class=&#34;attribute&#34;&gt;Connection&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;keep-alive
+&lt;span class=&#34;attribute&#34;&gt;User-Agent&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;Mozilla/5.0...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上面的头信息中，&lt;code&gt;Origin&lt;/code&gt; 字段用来说明本次请求来自哪个源，服务器端根据这个值决定是否同意这个请求。&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;Origin&lt;/code&gt; 指定的源在许可范围内，服务器返回的响应头会添加以下几个字段：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt; 字段表明服务器允许的请求源，其值要么为请求时 Origin 字段的值，要么为 &lt;code&gt;*&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Allow-Credentials&lt;/code&gt; 字段表明服务器是否允许发送凭据信息，该字段是可选的，默认情况下不允许发送凭据信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Expose-Headers&lt;/code&gt; 字段表明服务器指定的允许获取的 HTTP 头字段，该字段是可选的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果 &lt;code&gt;Origin&lt;/code&gt; 指定的源不在许可范围内，服务器会返回一个不带 &lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt; 字段的正常的 HTTP 回应。当浏览器发现没有包含这个字段就知道请求出错了，会抛出一个异常。需要注意的是，这种错误的 HTTP 响应码有可能是 200 或 204 ，因此无法通过状态码识别。&lt;/p&gt;
+&lt;h3 id=&#34;代码示例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码示例&#34;&gt;&lt;/a&gt;代码示例&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;fetch(&lt;span class=&#34;string&#34;&gt;&amp;#x27;https://baoshuo.ren&amp;#x27;&lt;/span&gt;, &amp;#123;
+  &lt;span class=&#34;attr&#34;&gt;mode&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;no-cors&amp;#x27;&lt;/span&gt;,
+&amp;#125;);&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;非简单请求-——-预检请求&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#非简单请求-——-预检请求&#34;&gt;&lt;/a&gt;非简单请求 —— 预检请求&lt;/h2&gt;
+&lt;p&gt;上面提到，CORS 请求除了简单请求外还有非简单请求。简单来说，非简单请求时对服务器有特殊要求的请求，比如请求方法是 &lt;code&gt;PUT&lt;/code&gt; 或 &lt;code&gt;DELETE&lt;/code&gt; ，或者 HTTP 头中 &lt;code&gt;Content-Type&lt;/code&gt; 字段的值不是上文所述的那三个「对 CORS 安全的 &lt;code&gt;Content-type&lt;/code&gt; 字段值」。&lt;/p&gt;
+&lt;h3 id=&#34;基本流程-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本流程-t2&#34;&gt;&lt;/a&gt;基本流程&lt;/h3&gt;
+&lt;p&gt;非简单请求的 CORS 请求，会在正式通信之前增加一次称为「预检」（preflight）的 HTTP 查询请求。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vip2.loli.io/2021/10/02/Nt9o2cX7gWzuMCr.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; data-action=&#34;zoom&#34;&gt;&lt;/p&gt;
+&lt;p&gt;从上面的报文中可以看到，浏览器先发送了一个使用 &lt;code&gt;OPTIONS&lt;/code&gt; 方法的「预检请求」。OPTIONS 是 HTTP/1.1 协议中定义的方法，用以从服务器获取更多信息。该方法不会对服务器资源产生影响。预检请求中同时携带了下面两个首部字段：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight http&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;Access-Control-Request-Method&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;POST
+&lt;span class=&#34;attribute&#34;&gt;Access-Control-Request-Headers&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;X-PINGOTHER, Content-Type&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Request-Method&lt;/code&gt; 字段将告知服务器实际请求将要使用的方法。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Request-Headers&lt;/code&gt; 字段将告知服务器实际请求将要携带的自定义请求首部字段。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;服务器将据此决定是否允许实际请求，并返回相应的响应。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight http&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;Access-Control-Allow-Origin&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;http://foo.example
+&lt;span class=&#34;attribute&#34;&gt;Access-Control-Allow-Methods&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;POST, GET, OPTIONS
+&lt;span class=&#34;attribute&#34;&gt;Access-Control-Allow-Headers&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;X-PINGOTHER, Content-Type
+&lt;span class=&#34;attribute&#34;&gt;Access-Control-Allow-Credentials&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;true
+&lt;span class=&#34;attribute&#34;&gt;Access-Control-Max-Age&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;86400&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt; 字段与简单请求时并无差异。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Allow-Methods&lt;/code&gt; 字段表明服务器允许哪些方法发起请求。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Allow-Headers&lt;/code&gt; 字段表明服务器允许请求头中携带的额外字段。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Allow-Credentials&lt;/code&gt; 字段与简单请求时并无差异。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Access-Control-Max-Age&lt;/code&gt; 字段表明该响应的有效时间，在有效时间内浏览器无须为同一请求再次发起预检请求。需要注意的是浏览器自身维护了一个最大有效时间，如果该字段的值超出了浏览器维护的最大有效时间则不会生效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果服务器「否定」了一个预检请求，也会返回一个正常的 HTTP 回应，但不包含任何与 CORS 相关的 HTTP 头信息字段。此时浏览器就会认定服务器不同意预检请求，并抛出一个错误。&lt;/p&gt;
+&lt;p&gt;一旦通过了预检请求，接下来的步骤就都和简单请求一样了，此处不过多赘述。&lt;/p&gt;
+&lt;h3 id=&#34;代码示例-t2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码示例-t2&#34;&gt;&lt;/a&gt;代码示例&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;fetch(&lt;span class=&#34;string&#34;&gt;&amp;#x27;https://baoshuo.ren&amp;#x27;&lt;/span&gt;, &amp;#123;
+  &lt;span class=&#34;attr&#34;&gt;mode&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;cors&amp;#x27;&lt;/span&gt;,
+&amp;#125;);&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;附带身份凭证的-cors-请求&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#附带身份凭证的-cors-请求&#34;&gt;&lt;/a&gt;附带身份凭证的 CORS 请求&lt;/h2&gt;
+&lt;p&gt;上文中提到，CORS 请求默认不发送凭据信息（Cookie 和 HTTP 认证信息），如果要向服务器发送凭据，不仅需要服务器指定 HTTP 头的 &lt;code&gt;Access-Control-Allow-Credentials&lt;/code&gt; 字段，还需要在请求时指明是否发送凭据信息。&lt;/p&gt;
+&lt;h3 id=&#34;代码示例-t3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码示例-t3&#34;&gt;&lt;/a&gt;代码示例&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;XmlHttpRequest&lt;/code&gt; 向服务器发起 CORS 请求时，需要将 &lt;code&gt;withCredentials&lt;/code&gt; 标志设置为 &lt;code&gt;true&lt;/code&gt; 。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; xhr = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; XMLHttpRequest();
+xhr.open(&lt;span class=&#34;string&#34;&gt;&amp;#x27;GET&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;https://baoshuo.ren&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;);
+xhr.withCredentials = &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;
+xhr.onreadystatechange = handler;   &lt;span class=&#34;comment&#34;&gt;// 此处的 Handler 需要自行定义&lt;/span&gt;
+xhr.send();&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用 fetch 进行请求时则需要设置 &lt;code&gt;credentials&lt;/code&gt; 为 &lt;code&gt;include&lt;/code&gt; 才能使浏览器向跨域源发送包含凭据的请求。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;highlight javascript&#34;&gt;fetch(&lt;span class=&#34;string&#34;&gt;&amp;#x27;https://baoshuo.ren&amp;#x27;&lt;/span&gt;, &amp;#123;
+  &lt;span class=&#34;attr&#34;&gt;credentials&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;#x27;include&amp;#x27;&lt;/span&gt;,
+&amp;#125;);&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;与-jsonp-的比较&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#与-jsonp-的比较&#34;&gt;&lt;/a&gt;与 JSONP 的比较&lt;/h2&gt;
+&lt;p&gt;CORS 与 JSONP 的使用目的是相同的，但是 CORS 比 JSONP 更强大。&lt;/p&gt;
+&lt;p&gt;JSONP 的缺点是只支持 GET 请求，而 CORS 则支持所有类型的 HTTP 请求。如果网站需要兼容老式浏览器或者需要向不支持 CORS 的网站请求数据仍然需要使用 JSONP 。&lt;/p&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS&#34;&gt;跨源资源共享（CORS）&lt;/a&gt;，MDN Web Docs，2021 年 8 月 8 日。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ruanyifeng.com/blog/2016/04/cors.html&#34;&gt;跨域资源共享 CORS 详解&lt;/a&gt;，阮一峰的网络日志，2016 年 4 月 12 日。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%B7%A8%E4%BE%86%E6%BA%90%E8%B3%87%E6%BA%90%E5%85%B1%E4%BA%AB&#34;&gt;跨域资源共享&lt;/a&gt;，维基百科，2021 年 5 月 3 日。&lt;/li&gt;
+&lt;li&gt;3.2. CORS protocol，&lt;a href=&#34;https://fetch.spec.whatwg.org/#http-cors-protocol&#34;&gt;Fetch Standard&lt;/a&gt;，2021 年 9 月 30 日。&lt;/li&gt;
+&lt;li&gt;参数，&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/API/fetch#%E5%8F%82%E6%95%B0&#34;&gt;WorkerOrGlobalScope.fetch()&lt;/a&gt;，MDN Web Docs，2021 年 9 月 1 日。&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="Web" />
+        <category term="HTTP" />
+        <updated>2021-10-02T14:24:02.000Z</updated>
+    </entry>
     <entry>
         <id>https://blog.baoshuo.ren/post/noi-linux-2/</id>
         <title>NOI Linux 2.0 上手体验</title>
@@ -2823,25 +2933,5 @@ sudo bash lnx-install.sh&lt;/code&gt;&lt;/pre&gt;
         <category term="VMware" />
         <category term="macOS" />
         <updated>2020-08-03T04:52:59.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://blog.baoshuo.ren/post/clone-github-repo-faster/</id>
-        <title>修改 Git 配置加速 clone GitHub 源码</title>
-        <link rel="alternate" href="https://blog.baoshuo.ren/post/clone-github-repo-faster/"/>
-        <content type="html">&lt;p&gt;设置代理：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight bash&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# socks5协议，1080端口修改成自己的本地代理端口&lt;/span&gt;
-git config --global http.https://github.com.proxy  socks5://127.0.0.1:1080
-git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
-
-&lt;span class=&#34;comment&#34;&gt;# http协议，7890端口修改成自己的本地代理端口&lt;/span&gt;
-git config --global http.https://github.com.proxy  http://127.0.0.1:7890
-git config --global https.https://github.com.proxy http://127.0.0.1:7890&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;之后运行 &lt;code&gt;git config -l&lt;/code&gt; 即可查看代理设置情况。&lt;/p&gt;
-&lt;p&gt;清除代理：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;highlight shell&#34;&gt;git config --global --unset http.proxy
-git config --global --unset https.proxy&lt;/code&gt;&lt;/pre&gt;
-</content>
-        <category term="Git" />
-        <updated>2020-07-21T10:38:23.000Z</updated>
     </entry>
 </feed>
