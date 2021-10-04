@@ -4,24 +4,24 @@
     <title>宝硕博客</title>
     <link href="https://blog.baoshuo.ren" />
     <updated>2021-10-02T14:24:02.000Z</updated>
-    <category term="Web" />
     <category term="前端" />
+    <category term="Web" />
+    <category term="CTF" />
     <category term="JavaScript" />
+    <category term="Git" />
     <category term="BIRD" />
     <category term="BGP" />
     <category term="DN42" />
-    <category term="CTF" />
-    <category term="Git" />
-    <category term="折腾" />
-    <category term="Linux" />
-    <category term="网络" />
-    <category term="VMware" />
-    <category term="游记" />
-    <category term="Cloudflare" />
-    <category term="macOS" />
-    <category term="ServiceWorker" />
     <category term="HTTP" />
     <category term="Typecho" />
+    <category term="折腾" />
+    <category term="Linux" />
+    <category term="VMware" />
+    <category term="网络" />
+    <category term="游记" />
+    <category term="macOS" />
+    <category term="Cloudflare" />
+    <category term="ServiceWorker" />
     <entry>
         <id>https://blog.baoshuo.ren/post/cors/</id>
         <title>浅谈跨域资源共享（CORS）</title>
@@ -1620,8 +1620,8 @@ initDarkMode(&lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class
 &lt;/ol&gt;
 &lt;p&gt;&lt;em&gt;文章头图来自：&lt;a href=&#34;https://material.io/design/color/dark-theme.html&#34;&gt;https://material.io/design/color/dark-theme.html&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 </content>
-        <category term="Web" />
         <category term="前端" />
+        <category term="Web" />
         <updated>2021-02-17T15:25:30.000Z</updated>
     </entry>
     <entry>
