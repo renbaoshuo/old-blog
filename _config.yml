@@ -1,0 +1,254 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 宝硕博客
+subtitle:
+description: '宝硕博客 —— Baoshuo (@renbaoshuo) 随便写东西的地方，以技术向博文为主，生活向博文为辅。'
+keywords:
+  - 宝硕
+  - Baoshuo
+  - Ren Baoshuo
+  - '@renbaoshuo'
+  - '@baoshuo'
+  - Blog
+  - Web
+author: 宝硕
+slogan: 学习，就是发现自己越来越菜的过程。
+avatar: https://cdn.jsdelivr.net/npm/bsi@0.0.4/avatar/512x512.png
+language: cn
+timezone: 'Asia/Shanghai'
+
+# URL
+url: https://blog.baoshuo.ren
+root: /
+permalink: /post/:name/
+permalink_defaults:
+pretty_urls:
+  trailing_index: false
+  trailing_html: true
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - '.github/**/*'
+  - 'CNAME'
+  - 'LICENSE'
+include:
+  - '.nojekyll'
+  - '.github/**/*'
+
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: true
+external_link:
+  enable: true
+  field: site
+  exclude:
+    - blog.baoshuo.ren
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+
+# Pagination
+## Set per_page to 0 to disable pagination
+index_generator:
+  per_page: 6
+  order_by: -date
+archive_generator: ## https://github.com/hexojs/hexo-generator-archive
+  enabled: true
+  per_page: 15
+  yearly: false
+  monthly: false
+  daily: false
+  order_by: -date
+tag_generator:
+  per_page: 6
+category_generator:
+  per_page: 6
+
+# Category & Tag
+default_category: 未分类
+category_map:
+tag_map:
+
+# Metadata elements
+meta_generator: true
+
+# Date / Time format
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: 'mtime'
+
+# Pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+feed: ## https://github.com/sergeyzwezdin/hexo-feed
+  limit: 20
+  order_by: '-date'
+  tag_dir: false
+  category_dir: false
+  rss:
+    enable: false
+    template: 'themes/pure/layout/_feed/rss.ejs'
+    output: 'rss.xml'
+  atom:
+    enable: true
+    template: 'themes/pure/layout/_feed/atom.ejs'
+    output: 'atom.xml'
+  jsonFeed:
+    enable: false
+    template: 'themes/pure/layout/_feed/json.ejs'
+    output: 'feed.json'
+
+sitemap: ## https://github.com/hexojs/hexo-generator-sitemap
+  path: 'sitemap.xml'
+  rel: true
+  tags: true
+  categories: true
+
+search: ## https://github.com/wzpan/hexo-generator-search
+  path: search.json
+  field: all
+  content: true
+  format: striptags
+
+symbols_count_time: ## https://github.com/theme-next/hexo-symbols-count-time
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  exclude_codeblock: false
+  awl: 2
+  wpm: 275
+  suffix: '分钟'
+
+html_minifier: ## https://github.com/hexojs/hexo-html-minifier
+  exclude:
+
+uglify: ## https://github.com/hexojs/hexo-uglify
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '*.min.js'
+
+clean_css: ## https://github.com/hexojs/hexo-clean-css
+  exclude:
+    - '*.min.css'
+
+autoprefixer: ## https://github.com/hexojs/hexo-autoprefixer
+  exclude:
+    - '*.min.css'
+
+# Theme
+theme: pure
+# Theme configs is in `_config.pure.yml`
+
+# Code highlight
+highlight:
+  enable: true
+  auto_detect: true
+  line_number: false
+  wrap: false
+  tab_replace: '    '
+  hljs: false
+prismjs:
+  enable: false
+
+# Deploy
+deploy:
+  - type: ''
+
+# Markdown-it config
+## Docs: https://github.com/hexojs/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: false
+    linkify: true
+    lazyload: true
+    typographer: true
+    quotes: '「」‘’'
+  plugins:
+    - name: markdown-it-sub
+    - name: markdown-it-sup
+    - name: markdown-it-image-lazy-loading
+    - name: '@neilsustc/markdown-it-katex'
+    - name: markdown-it-abbr
+    - name: markdown-it-footnote
+    - name: markdown-it-ins
+    - name: markdown-it-task-lists
+  anchors:
+    level: 2
+    collisionSuffix: 't'
+    permalink: true
+    permalinkClass: anchor
+    # permalinkSymbol: ''
+    permalinkSymbol: ''
+    case: 1
+
+browsersync:
+  logLevel: 'error'
+  ghostMode:
+    scroll: true
+  instanceName: 'uniqueString'
+
+redirects:
+  # Old Post
+  - from: /post/about-darkmode/
+    to: /post/darkmode/
+  # OI Blog
+  - from: /categories/OI/
+    to: https://oi.baoshuo.ren/
+  - from: /post/solution-luogu-p2412/
+    to: https://oi.baoshuo.ren/solution-luogu-p2412/
+  - from: /post/solution-xjoi-3rd-turing-cup/
+    to: https://oi.baoshuo.ren/solution-xjoi-3rd-turing-cup/
+  - from: /post/solution-s2oj-441/
+    to: https://oi.baoshuo.ren/solution-s2oj-441/
+  - from: /post/solution-s2oj-438/
+    to: https://oi.baoshuo.ren/solution-s2oj-438/
+  - from: /post/solution-luogu-p2234/
+    to: https://oi.baoshuo.ren/solution-luogu-p2234/
+  - from: /post/solution-s2oj-217/
+    to: https://oi.baoshuo.ren/solution-s2oj-217/
+  - from: /post/solution-luogu-p3879/
+    to: https://oi.baoshuo.ren/solution-luogu-p3879/
+  - from: /post/solution-noip-2020/
+    to: https://oi.baoshuo.ren/solution-noip-2020/
+  - from: /post/solution-csp-j-2020/
+    to: https://oi.baoshuo.ren/solution-csp-j-2020/
+  - from: /post/segment-tree/
+    to: https://oi.baoshuo.ren/segment-tree/
+  - from: /post/solution-nowcoder-contest-7612/
+    to: https://oi.baoshuo.ren/solution-nowcoder-contest-7612/
+  - from: /post/solution-nowcoder-contest-7606/
+    to: https://oi.baoshuo.ren/solution-nowcoder-contest-7606/
+  - from: /post/solution-luogu-p1200/
+    to: https://oi.baoshuo.ren/solution-luogu-p1200/
+  - from: /post/solution-luogu-p1724/
+    to: https://oi.baoshuo.ren/solution-luogu-p1724/
+  - from: /post/solution-luogu-p4994/
+    to: https://oi.baoshuo.ren/solution-luogu-p4994/
+  - from: /post/solution-luogu-p5738/
+    to: https://oi.baoshuo.ren/solution-luogu-p5738/
+  - from: /post/solution-luogu-p5660/
+    to: https://oi.baoshuo.ren/solution-luogu-p5660/
+  - from: /post/minimum-spanning-tree/
+    to: https://oi.baoshuo.ren/minimum-spanning-tree/
+  - from: /post/minimum-spanning-tree/
+    to: https://oi.baoshuo.ren/

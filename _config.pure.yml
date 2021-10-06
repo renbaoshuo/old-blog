@@ -1,0 +1,40 @@
+favicon: https://cdn.jsdelivr.net/npm/bsi@0.0.4/favicon/16x16.png
+favicon_png: https://cdn.jsdelivr.net/npm/bsi@0.0.4/favicon/64x64.png
+show_feature: true
+copyright: true
+anchors: true
+katex: true
+afdian: baoshuo
+menus:
+  - name: 首页
+    link: /
+  - name: 归档
+    link: /archives/
+  - name: 分类
+    link: /categories/
+  - name: 标签
+    link: /tags/
+  - name: 友链
+    link: /friends/
+  - name: 关于
+    link: /about/
+disqus:
+  enable: true
+  shortname: baoshuo
+  api: https://api.baoshuo.ren/disqus/api/
+  apikey: SysuSvnZJi7nYvWwH14fu42b1CowDBsAH3Ol3UIsqdRbEcQwGFpWuUPkcX93ffCJ
+  admin: renbaoshuo
+google_analytics:
+  enable: true
+  cfga: true
+  id: UA-163290903-2
+  api: https://api.baoshuo.ren/cfga/jquery.js
+footer: |
+  Copyright &copy; 2019-2021 Baoshuo's Blog · <a target="_blank" 
+      href="https://beian.miit.gov.cn" rel="nofollow noopener">冀ICP备15024669号</a> · <a target="_blank"
+       rel="noopener" href="https://twitter.com/renbaoshuo">Twitter @renbaoshuo</a>
+friends_endpoint: https://friends.baoshuo.ren
+twitter:
+  enable: true
+  username: renbaoshuo
+  default_image: https://cdn.jsdelivr.net/npm/bsi@0.0.2/favicon/144x144.png

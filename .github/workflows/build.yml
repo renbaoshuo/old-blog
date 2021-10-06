@@ -1,0 +1,67 @@
+name: Build Site from Source
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn ci
+      - name: Fix File Modify Date
+        run: git ls-files --directory source | while read filepath; do touch -d "$(git log -1 --format='@%ct' $filepath)" "$filepath"; done
+      - name: Build Site
+        run: yarn build
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2.5.0
+        with:
+          target_branch: gh-pages
+          build_dir: public
+          committer: BaoshuoBot <bot@baoshuo.ren>
+          author: Ren Baoshuo <i@baoshuo.ren>
+          keep_history: true
+          fqdn: blog.baoshuo.ren
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to Server 39.106.121.132
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-avz --delete"
+          REMOTE_HOST: 39.106.121.132
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SOURCE: public/
+          TARGET: /var/www/blog/
+          EXCLUDE: .git,.github,.gitlab-ci.yml,.nojekyll
+      - name: Deploy to Server 81.68.81.106
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-avz --delete"
+          REMOTE_HOST: 81.68.81.106
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SOURCE: public/
+          TARGET: /var/www/blog/
+          EXCLUDE: .git,.github,.gitlab-ci.yml,.nojekyll
+      - name: Deploy to Server 106.52.19.71
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-avz --delete"
+          REMOTE_HOST: 106.52.19.71
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SOURCE: public/
+          TARGET: /var/www/blog/
+          EXCLUDE: .git,.github,.gitlab-ci.yml,.nojekyll

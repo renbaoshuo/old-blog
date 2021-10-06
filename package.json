@@ -1,0 +1,49 @@
+{
+  "name": "baoshuo-blog",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "ci": "rm -rf node_modules && yarn install --frozen-lockfile",
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server",
+    "preview": "hexo server --draft --port=4001"
+  },
+  "hexo": {
+    "version": "5.4.0"
+  },
+  "dependencies": {
+    "@neilsustc/markdown-it-katex": "^0.6.1",
+    "hexo": "^5.4.0",
+    "hexo-autoprefixer": "^2.0.0",
+    "hexo-browsersync": "^0.3.0",
+    "hexo-clean-css": "^2.0.0",
+    "hexo-deployer-git": "^3.0.0",
+    "hexo-deployer-rsync": "github:renbaoshuo/hexo-deployer-rsync",
+    "hexo-feed": "^1.1.0",
+    "hexo-generator-archive": "^1.0.0",
+    "hexo-generator-category": "^1.0.0",
+    "hexo-generator-index": "^2.0.0",
+    "hexo-generator-searchdb": "^1.3.3",
+    "hexo-generator-sitemap": "^2.1.0",
+    "hexo-generator-tag": "^1.0.0",
+    "hexo-html-minifier": "^1.0.0",
+    "hexo-renderer-ejs": "^1.0.0",
+    "hexo-renderer-less": "^2.0.2",
+    "hexo-renderer-markdown-it": "^5.0.0",
+    "hexo-renderer-stylus": "^2.0.0",
+    "hexo-server": "^2.0.0",
+    "hexo-uglify": "^2.0.0",
+    "htmlnano": "^1.1.1",
+    "jsdom": "^17.0.0",
+    "less": "^3.13.1",
+    "markdown-it-anchor": "^8.1.3",
+    "markdown-it-image-lazy-loading": "^1.0.2",
+    "markdown-it-named-headers": "^0.0.4",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "micromatch": "^4.0.4"
+  }
+}
