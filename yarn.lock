@@ -23,12 +23,12 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@neilsustc/markdown-it-katex@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@neilsustc/markdown-it-katex/-/markdown-it-katex-0.6.1.tgz#d46269601d97f4c67285aa93e011ed9382e76827"
-  integrity sha512-GXMFn2Hgfj4ZU2C5fhk+1wDZbs2ftRiJGfK1ua+SZ+0G+3EIcbxpmpezT81dQywPSpinU1a15bLba+w3419lEw==
+"@neilsustc/markdown-it-katex@^0.13.5":
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/@neilsustc/markdown-it-katex/-/markdown-it-katex-0.13.5.tgz#c0e1a272ca08696df4d88db16f9adceaa4129032"
+  integrity sha512-yE1bds/joRzzWA8o8UbKLANL3iubk2iKCuctHkCG0i9CSDMPN2+3JHI0lkOCPkdrVsq3pQ+RV+1eNT58kKLmSw==
   dependencies:
-    katex "^0.12.0"
+    katex "^0.13.5"
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -2181,12 +2181,12 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-katex@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/katex/-/katex-0.12.0.tgz#2fb1c665dbd2b043edcf8a1f5c555f46beaa0cb9"
-  integrity sha512-y+8btoc/CK70XqcHqjxiGWBOeIL8upbS0peTPXTvgrh21n1RiWWcIpSWM+4uXq+IAgNh9YYQWdc7LVDPDAEEAg==
+katex@^0.13.5:
+  version "0.13.18"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.13.18.tgz#ba89e8e4b70cc2325e25e019a62b9fe71e5c2931"
+  integrity sha512-a3dC4NSVSDU3O1WZbTnOiA8rVNJ2lSiomOl0kmckCIGObccIHXof7gAseIY0o1gjEspe+34ZeSEX2D1ChFKIvA==
   dependencies:
-    commander "^2.19.0"
+    commander "^6.0.0"
 
 less@^3.13.1, less@^3.9.0:
   version "3.13.1"

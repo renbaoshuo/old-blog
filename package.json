@@ -14,7 +14,7 @@
     "version": "5.4.0"
   },
   "dependencies": {
-    "@neilsustc/markdown-it-katex": "^0.6.1",
+    "@neilsustc/markdown-it-katex": "^0.13.5",
     "hexo": "^5.4.0",
     "hexo-autoprefixer": "^2.0.0",
     "hexo-browsersync": "^0.3.0",
