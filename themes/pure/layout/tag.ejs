@@ -1,0 +1,12 @@
+<!-- Styles -->
+<%- css('styles/tag') %>
+<%- css('styles/post-list') %>
+
+<div class="tag-info card flex">
+    <div class="tag-name">标签：<b><%= page.tag %></b></div>
+    <div class="tag-count">共 <%= site.tags.find({ name: page.tag }).data[0].posts.length %> 篇文章</div>
+</div>
+
+<%- partial('_includes/post-list.ejs') %>
+
+<%- partial('_includes/pagination.ejs') %>

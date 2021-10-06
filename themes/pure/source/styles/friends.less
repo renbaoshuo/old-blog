@@ -1,0 +1,82 @@
+.title {
+    padding: var(--pc);
+    // margin: var(--my);
+    font-size: 1.5em;
+}
+
+.content {
+    padding: var(--pc);
+    margin: var(--my);
+    width: 100%;
+
+    p {
+        line-height: 1.725;
+        margin-bottom: 1.25rem;
+        font-size: 1rem;
+        letter-spacing: 1.0382px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    a {
+        color: var(--accent);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.friends-list {
+    display: grid;
+    margin: var(--my);
+    width: 100%;
+    grid-row-gap: 0.75rem;
+    grid-column-gap: 0.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.friend {
+    width: 100%;
+    overflow: hidden;
+}
+
+.friend-logo {
+    height: 64px;
+    width: 64px;
+    background-color: #fff;
+
+    .dark & {
+        filter: brightness(0.75) contrast(1.25);
+    }
+}
+
+.friend-info {
+    color: var(--mtext);
+    margin: auto 0;
+    padding: 0.25rem 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.friend-title {
+    color: var(--text);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.friend-description {
+    color: var(--mtext);
+    font-size: 0.9em;
+}

@@ -1,0 +1,17 @@
+<% if(theme.disqus.enable) { %>
+    <%- css('styles/disqus') %>
+    <div class="disqus card" id="disqus_thread"></div>
+    <script>
+        var disqus_options = {
+            shortname: '<%= theme.disqus.shortname %>',
+            api: '<%= theme.disqus.api %>',
+            apikey: '<%= theme.disqus.apikey %>',
+            identifier: location.pathname,
+            title: '<%= page.title %>',
+            siteName: '<%= config.title %>',
+            admin: '<%= theme.disqus.admin %>'
+        };
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/js/disqus.lazyload.js" inline></script> -->
+    <script defer src="<%- url_for("/scripts/disqus.lazyload.js") %>"></script>
+<% } %>

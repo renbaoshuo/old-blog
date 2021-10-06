@@ -1,0 +1,16 @@
+<!-- Style -->
+<%- css('styles/friends') %>
+
+<div class="title card flex">友情链接</div>
+
+<div class="friends-list" id="friends">
+    <div class="card" style="width: 100%; padding: var(--pc);">加载中...</div>
+    <noscript><p>请开启 JavaScript 以加载友情链接。</p></noscript>
+</div>
+
+<div class="content card"><%- page.content %></div>
+
+<%- partial("_includes/disqus.ejs") %>
+
+<script> var friends_endpoint = '<%- theme.friends_endpoint %>'; </script>
+<%- js("scripts/friends.js") %>

@@ -1,0 +1,103 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="IE=edge" http-equiv=X-UA-Compatible>
+
+<!-- Ttile -->
+<title>
+    <% if (is_archive()) { %>
+        <%= page_title = `归档 - ${config.title}` %>
+    <% } else if (is_category()) { %>
+        <%= page_title = `分类：${page.category} - ${config.title}` %>
+    <% } else if (is_tag()) { %>
+        <%= page_title = `标签：${page.tag} - ${config.title}` %>
+    <% } else { %>
+        <%= page_title = page.title ? `${page.title} - ${config.title}` : `${config.title}` %>
+    <% } %>
+</title>
+
+<!-- Icon -->
+<link rel="icon" href="<%- full_url_for(theme.favicon) %>">
+
+<!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://i.loli.net">
+<link rel="preconnect" href="https://vip1.loli.net">
+<link rel="preconnect" href="https://vip2.loli.net">
+<link rel="preconnect" href="https://vip1.loli.io">
+<link rel="preconnect" href="https://vip2.loli.io">
+
+<!-- Fonts -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload="this.onload=null, this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
+
+<!-- Modern Normalize -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.0.0/modern-normalize.min.css"> -->
+
+<% if(theme.katex) { %>
+    <!-- KaTeX -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" as="style" onload="this.onload=null, this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"></noscript>
+<% } %>
+
+<!-- Feed tag -->
+<%- feed_tag("/rss.xml", { type: "rss" }) %>
+<%- feed_tag("/atom.xml", { type: "atom" }) %>
+
+<!-- Style -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/css/main.css" inline> -->
+<%- css('styles/main') %>
+
+<% if (theme.google_analytics.enable) { %>
+    <% if(theme.google_analytics.cfga) { %>
+        <script>
+            window.ga_tid = "<%- theme.google_analytics.id  %>";
+            window.ga_api = "<%- theme.google_analytics.api %>";
+        </script>
+        <%- js({ src: "scripts/cfga", async: "async" }) %>
+        <!-- <script async src="https://cdn.jsdelivr.net/npm/cfga@1.0.3/cfga.min.js"></script> -->
+    <% } else { %>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=<%- theme.google_analytics.id %>"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', '<%- theme.google_analytics.id %>');
+        </script>
+    <% } %>
+<% } %>
+
+<!-- Dark mode -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/js/darkmode.js" inline></script> -->
+<%- js("scripts/darkmode") %>
+
+<meta name="keywords" content="<%= config.keywords.join(', ') %>">
+<% if (theme.twitter.enable) { %>
+    <%- 
+        open_graph({
+            title: page_title,
+            image: page.feature ? page.feature : theme.twitter.default_image,
+            twitter_card: page.feature ? "summary_large_image" : "summary",
+            twitter_id: theme.twitter.username,
+            twitter_site: theme.twitter.username,
+        })
+    %>
+<% } else { %>
+    <%-
+        open_graph({
+            title: page_title,
+            image: page.feature ? page.feature : theme.twitter.default_image,
+        })
+    %>
+<% } %>
+
+<script>
+    if (navigator.serviceWorker) {
+        window.addEventListener('load', function (event) {
+            navigator.serviceWorker.register('/sw.js');
+        });
+    }
+</script>

@@ -1,0 +1,43 @@
+<!-- Style -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/css/archive.css" inline> -->
+<%- css('styles/archive') %>
+
+<div class="timeline flex">
+    <% function buildArchive(posts, year, month = null) {
+        const time = moment([page.year, (page.month) ? page.month - 1 : null].filter(i => i !== null)); %>
+        <div class="timeline-header"><%= (month === null) ? year : (time.locale((config.language) ? config.language : 'en').format('MMMM YYYY')) %></div>
+        <% posts.forEach(post => { %>
+            <div class="timeline-item flex">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-card card flex">
+                        <div class="timeline-card-left">
+                            <span class="timeline-post-date"><%= date(post.date, 'YYYY-MM-DD') %></span>
+                            <a href="<%- url_for(post.path) %>" class="timeline-post-title" rel="bookmark"><%= post.title %></a>
+                        </div>
+                        <% if (post.feature) { %>
+                            <img class="timeline-post-feature" src="<%- post.feature %>">
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+
+    <% if (!page.year) { %>
+        <% 
+            let years = {};
+            page.posts.each(post => years[post.date.year()] = null);
+            for (let year of Object.keys(years).sort((a, b) => b - a)) {
+                let posts = page.posts.filter(p => p.date.year() == year);
+        %>
+                <%- buildArchive(posts, year, null) %>
+        <% } %>
+    <% } else { %>
+        <%- buildArchive(page.posts, page.year, page.month) %>
+    <% } %>
+
+</div>
+
+
+<%- partial('_includes/pagination.ejs') %>

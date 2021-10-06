@@ -1,0 +1,27 @@
+<!-- Style -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/css/search.css" inline> -->
+<%- css('styles/search') %>
+
+<div class="search-container" id="main">
+    <div class="search card">
+        <span class="search-title">站内搜索</span>
+        <form class="search-form" autocomplete="off" action="<%- url_for("/search/") %>">
+            <div class="control search-input">
+                <input class="input search-input" maxlength="50" name="s" placeholder="请输入关键字..."
+                    id="search-input" type="search" required />
+            </div>
+            <div class="control search-control">
+                <button class="button search-button" type="submit">搜索</button>
+            </div>
+        </form>
+    </div>
+    <div class="search-result card" id="search-result">
+        <!-- This Content Will Generate by JavaScript -->
+        <noscript>
+            <p style="text-align: center;">请开启 JavaScript 以使用站内搜索功能。</p>
+        </noscript>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.basic.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/js/search.js" inline></script> -->
+<%- js('scripts/search') %>

@@ -1,0 +1,14 @@
+<!-- Style -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/css/category.css" inline> -->
+<%- css('styles/category') %>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/css/post-list.css" inline> -->
+<%- css('styles/post-list') %>
+
+<div class="category-info card flex">
+    <div class="category-name">分类：<b><%= page.category %></b></div>
+    <div class="category-count">共 <%= page.posts.length %> 篇文章</div>
+</div>
+
+<%- partial('_includes/post-list.ejs') %>
+
+<%- partial('_includes/pagination.ejs') %>

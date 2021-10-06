@@ -1,0 +1,206 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 1.25rem;
+    padding-top: 0.875rem;
+    font-weight: bold;
+    // display: table;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 1.75rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1.125rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.875rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    border-radius: calc(var(--br) / 2);
+    margin: 1.25rem auto;
+
+    .dark & {
+        filter: brightness(0.75) contrast(1.25);
+    }
+}
+
+.image-description {
+    display: block;
+    text-align: center;
+    color: var(--mtext);
+    font-size: 0.85em;
+    margin-top: -0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    line-height: 1.725;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    letter-spacing: 1.0382px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+blockquote {
+    padding: 1rem;
+    border: 0;
+    border-left: 0.25rem;
+    border-style: solid;
+    margin-bottom: 1rem;
+    background: var(--bg-b);
+    border-color: var(--accent);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+p code,
+li code,
+table code {
+    letter-spacing: 0px;
+    color: var(--text);
+    font-family: 'Roboto Mono', Consolas, Menlo, Monaco, 'Source Code Pro', 'Courier New', monospace;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 0.85em;
+    background-color: var(--code);
+    border-radius: 6px;
+    word-break: break-all;
+}
+
+a {
+    color: var(--accent);
+
+    & code {
+        color: var(--accent);
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:visited {
+        color: var(--accent);
+    }
+}
+
+table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    overflow-x: auto;
+    display: block;
+    width: 100%;
+
+    thead th {
+        text-align: left;
+    }
+
+    tr {
+        border-top: 1px solid var(--border);
+    }
+
+    td,
+    th {
+        border: 1px solid var(--border);
+        padding: 0.6em 1em;
+
+        img {
+            display: inline-block;
+        }
+    }
+}
+
+pre {
+    width: 100%;
+    margin-bottom: 1.25rem;
+    margin-right: 2rem;
+    overflow: hidden;
+    border-radius: calc(var(--br) / 2);
+    scrollbar-width: thin; // Firefox
+    scrollbar-color: auto; // Firefox
+
+    & > code {
+        letter-spacing: 0px;
+        font-size: 0.875rem;
+        font-family: 'Roboto Mono', Consolas, Menlo, Monaco, 'Source Code Pro', 'Courier New', monospace;
+        padding: 1em;
+        line-height: 1.5;
+        position: relative;
+        overflow: scroll;
+        display: block;
+    }
+}
+
+ul,
+ol {
+    margin-left: 2.25rem;
+    line-height: 1.725;
+    margin-bottom: 1rem;
+}
+
+li > ul,
+li > ol {
+    margin-bottom: 0px;
+}
+
+details {
+    background: var(--bg-b);
+    border-radius: calc(var(--br) / 2);
+    padding: 0.625rem 1.25rem;
+    margin: 0.5rem 0;
+
+    summary {
+        user-select: none;
+        font-size: 0.875rem;
+        font-weight: bold;
+        padding: 0.625rem 1.25rem;
+        border-radius: 5px;
+        background: var(--bg-b);
+        margin: -0.625rem -1.25rem;
+    }
+
+    &[open] summary {
+        border-radius: 5px 5px 0px 0px;
+        margin: -10px -20px 15px -20px;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+}
+
+cite {
+    font-style: normal;
+    text-align: right;
+    display: block;
+
+    &::before {
+        content: '——';
+    }
+}

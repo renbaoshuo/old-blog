@@ -1,0 +1,8 @@
+<!-- Style -->
+<%- css('styles/tags') %>
+
+<div class="tags-container">
+    <% site.tags.forEach((tag)=> { %>
+        <a class="tag" href="<%- url_for(tag.path) %>">#<%= tag.name %></a>
+    <% }); %>
+</div>

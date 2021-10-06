@@ -1,0 +1,11 @@
+<!-- Style -->
+<%- css('styles/categories') %>
+
+<div class="categories-list">
+    <% site.categories.forEach((category) => { %>
+        <a class="categories-list-item card" href="<%- url_for(category.path) %>">
+            <div class="categories-list-item-name"><%= category.name %></div>
+            <div class="categories-list-item-count">共 <%= category.posts.length %> 篇文章</div>
+        </a>
+    <% }); %>
+</div>

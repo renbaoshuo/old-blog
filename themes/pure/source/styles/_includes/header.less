@@ -1,0 +1,138 @@
+// Navbar
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2.25rem 0.75rem;
+    box-sizing: border-box;
+    user-select: none;
+
+    @media (min-width: 1024px) {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+    }
+
+    @media (max-width: 1023px) {
+        width: 100%;
+        padding: 1.875rem 1.875rem 0.75rem 1.875rem;
+    }
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // padding: 0.3125rem 0 0.3125rem 0;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.site-logo {
+    width: 32px;
+    height: 32px;
+    // border-radius: 50%;
+
+    @media (max-width: 1023px) {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.site-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 0.75rem;
+    display: inline-block;
+    letter-spacing: 2px;
+    color: var(--text);
+
+    @media (max-width: 1023px) {
+        font-size: 1.25rem;
+    }
+}
+
+.navbar-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-left: 0;
+    margin-bottom: 0;
+    align-items: center;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+    }
+
+    @media (max-width: 1023px) and (min-width: 768px) {
+        justify-content: space-between;
+    }
+}
+
+.nav-item {
+    padding: 0.875rem 1.625rem;
+
+    @media (max-width: 767px) {
+        padding: 1rem 1.5rem;
+
+        &:first-child {
+            margin-top: 0.75rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        &:last-child {
+            padding-right: 0.625rem;
+        }
+    }
+
+    a {
+        font-size: 0.925rem;
+        flex-shrink: 0;
+        color: var(--text);
+    }
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+        display: flex;
+        flex-basis: auto;
+    }
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    color: var(--text);
+
+    @media (min-width: 1024px) {
+        display: none;
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 1023px) {
+    #navbarSupportedContent {
+        display: none;
+    }
+}

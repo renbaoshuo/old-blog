@@ -1,0 +1,240 @@
+// Highlight theme: Atom One Dark [Modefined]
+.dark {
+    pre > code {
+        color: #abb2bf;
+        background: #282c34;
+
+        .comment,
+        .quote {
+            color: #5c6370;
+        }
+
+        .doctag,
+        .formula,
+        .keyword {
+            color: #c678dd;
+        }
+
+        .deletion,
+        .name,
+        .section,
+        .selector-tag,
+        .subst {
+            color: #e06c75;
+        }
+
+        .literal {
+            color: #56b6c2;
+        }
+
+        .addition,
+        .attribute,
+        .meta-string,
+        .regexp,
+        .string {
+            color: #98c379;
+        }
+
+        .built_in,
+        .class .title {
+            color: #e6c07b;
+        }
+
+        .attr,
+        .number,
+        .selector-attr,
+        .selector-class,
+        .selector-pseudo,
+        .template-variable,
+        .type,
+        .variable {
+            color: #d19a66;
+        }
+
+        .bullet,
+        .link,
+        .meta,
+        .selector-id,
+        .symbol,
+        .title {
+            color: #61aeee;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #cbcbcb !important;
+        }
+
+        &::-webkit-scrollbar-track-piece,
+        &::-webkit-scrollbar-corner {
+            background: #282c34 !important;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+        pre > code {
+            color: #abb2bf;
+            background: #282c34;
+
+            .comment,
+            .quote {
+                color: #5c6370;
+            }
+
+            .doctag,
+            .formula,
+            .keyword {
+                color: #c678dd;
+            }
+
+            .deletion,
+            .name,
+            .section,
+            .selector-tag,
+            .subst {
+                color: #e06c75;
+            }
+
+            .literal {
+                color: #56b6c2;
+            }
+
+            .addition,
+            .attribute,
+            .meta-string,
+            .regexp,
+            .string {
+                color: #98c379;
+            }
+
+            .built_in,
+            .class .title {
+                color: #e6c07b;
+            }
+
+            .attr,
+            .number,
+            .selector-attr,
+            .selector-class,
+            .selector-pseudo,
+            .template-variable,
+            .type,
+            .variable {
+                color: #d19a66;
+            }
+
+            .bullet,
+            .link,
+            .meta,
+            .selector-id,
+            .symbol,
+            .title {
+                color: #61aeee;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #cbcbcb !important;
+            }
+
+            &::-webkit-scrollbar-track-piece,
+            &::-webkit-scrollbar-corner {
+                background: #282c34 !important;
+            }
+        }
+    }
+}
+
+// Highight theme: Atom One Light [Modefined]
+pre > code {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: #383a42;
+    background: #eeeeee;
+    font-family: 'Roboto Mono', Consolas, Menlo, Monaco, 'Source Code Pro', 'Courier New', monospace;
+
+    .comment,
+    .quote {
+        color: #a0a1a7;
+        font-style: italic;
+    }
+
+    .doctag,
+    .formula,
+    .keyword {
+        color: #a626a4;
+    }
+
+    .deletion,
+    .name,
+    .section,
+    .selector-tag,
+    .subst {
+        color: #e45649;
+    }
+
+    .literal {
+        color: #0184bb;
+    }
+
+    .addition,
+    .attribute,
+    .meta-string,
+    .regexp,
+    .string {
+        color: #50a14f;
+    }
+
+    .built_in,
+    .class .title {
+        color: #c18401;
+    }
+
+    .attr,
+    .number,
+    .selector-attr,
+    .selector-class,
+    .selector-pseudo,
+    .template-variable,
+    .type,
+    .variable {
+        color: #986801;
+    }
+
+    .bullet,
+    .link,
+    .meta,
+    .selector-id,
+    .symbol,
+    .title {
+        color: #4078f2;
+    }
+
+    .emphasis {
+        font-style: italic;
+    }
+
+    .strong {
+        font-weight: 700;
+    }
+
+    .link {
+        text-decoration: underline;
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: #cbcbcb !important;
+    }
+
+    &::-webkit-scrollbar-track-piece,
+    &::-webkit-scrollbar-corner {
+        background: #eeeeee !important;
+    }
+}

@@ -1,0 +1,246 @@
+// Variables
+:root {
+    --bg: #ffffff;
+    --bg-c: #f8f9fa;
+    --bg-b: #eeeeee;
+    --bg-h: #00000010;
+    --text: #343a40;
+    --mtext: #949b9e;
+    --code: #1b1f230d;
+    --border: #dfe2e5;
+    --accent: #3273dc;
+    --fab: #f5f5f5;
+    --alt: #e6e8ee;
+    --br: 10px;
+    --shadow: 0 4px 10px rgba(0, 2, 4, 0.06), 0 0 1px rgba(0, 2, 4, 0.11);
+    --my: 0.75rem 0;
+    --mt: 1rem 0 0 0;
+    --pc: 1.5rem 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+        --bg: #151617;
+        --bg-c: #1d1e1f;
+        --bg-b: #3b3d3f;
+        --bg-h: #ffffff27;
+        --text: #e0eaef;
+        --mtext: #7c8183;
+        --border: #7c8183;
+        --code: #ffffff0d;
+        --fab: #393939;
+        --alt: #3e4b5e;
+    }
+}
+
+.dark {
+    --bg: #151617;
+    --bg-c: #1d1e1f;
+    --bg-b: #3b3d3f;
+    --bg-h: #ffffff27;
+    --text: #e0eaef;
+    --mtext: #7c8183;
+    --border: #646464;
+    --code: #ffffff0d;
+    --fab: #393939;
+    --alt: #3e4b5e;
+}
+
+:root {
+    color-scheme: light;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+iframe {
+    color-scheme: light;
+}
+
+* {
+    &,
+    &:before,
+    &:after {
+        margin: 0;
+        padding: 0;
+    }
+
+    &:focus {
+        outline-width: 0px;
+    }
+
+    &:focus-visible {
+        outline-width: 1px;
+    }
+}
+
+html {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB',
+        'Source Han Sans SC', 'Noto Sans CJK SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'WenQuanYi Zen Hei',
+        'Helvetica Neue', Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 16px;
+    // letter-spacing: 1.0382px;
+    letter-spacing: 0.75px;
+    // overflow-y: overlay;
+    // scroll-behavior: smooth;
+    transition: all 0.3s;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+}
+
+button {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    // transition: all .3s;
+    color: var(--accent);
+}
+
+body,
+div,
+a,
+p,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+table,
+tr,
+td {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ol li {
+    list-style: decimal;
+}
+
+ul li {
+    list-style: disc;
+}
+
+hr {
+    margin: 1rem 0;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    .dark & {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    max-width: 100%;
+    min-height: 100vh;
+    width: 1000px;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+}
+
+.katex {
+    .katex-mathml {
+        user-select: none;
+    }
+
+    // .katex-html {
+    //     display: none;
+    // }
+
+    .mathdefault {
+        font-family: KaTeX_Math;
+        font-style: italic;
+    }
+}
+
+.divider {
+    border-top: 0.05rem solid var(--alt);
+    height: 0.05rem;
+    margin: 0.6rem 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.dot {
+    margin: 0 0.2rem;
+
+    &::after {
+        content: '·';
+    }
+}
+
+.card {
+    // flex: 1;
+    // display: flex;
+    // flex-direction: column;
+    // padding: 1.5rem 2rem;
+    border-radius: var(--br);
+    background: var(--bg-c);
+    // position: relative;
+    box-shadow: var(--shadow);
+    // margin: .5rem 0;
+}
+
+.flex {
+    display: flex;
+    flex: 1;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.button {
+    appearance: none;
+    align-items: center !important;
+    border: 1px solid transparent !important;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 0.875rem;
+    padding: 15px 20px;
+    height: 32px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+@import '_includes/header.less';
+@import '_includes/footer.less';
+// @import '_includes/post-list.less';
+@import '_includes/pagination.less';
+// @import '_includes/post.less';
+// @import '_includes/archive.less';
+// @import '_includes/tag.less';
+// @import '_includes/tags.less';
+// @import '_includes/friends.less';
+// @import '_includes/about.less';
+// @import '_includes/search.less';
+// @import '_includes/disqus.less';
+// @import '_includes/highlight.less';

@@ -1,0 +1,145 @@
+<!-- Style -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/css/post.css" inline> -->
+<%- css('styles/post') %>
+
+<div class="post card">
+    <% if(theme.show_feature && page.feature) { %>
+        <img id="post-feature" class="feature" src="<%= page.feature %>" crossorigin alt="<%= page.title %>" />
+    <% } %>
+    <div class="post-container">
+        <h1 class="post-title" id="post-title"><%= page.title %></h1>
+        <% if (is_post()) { %>
+            <div class="post-meta" id="post-info">
+                <div class="post-meta-left">
+                    <time class="time" id="post-time"><%= date(page.date) %></time>
+                    <div class="post-categories">
+                        <% page.categories && page.categories.forEach((category) => { %>
+                            <i class="dot"></i>
+                            <a href="<%= url_for(category.path) %>" class="category">
+                                <%= category.name %></a>
+                        <% }); %>
+                    </div>
+                    <i class="dot"></i>
+                    <div class="post-wordcount">
+                        &nbsp;<%= symbolsCount(page) %>
+                    </div>
+                </div>
+                <div class="post-meta-right post-tags">
+                    <% page.tags && page.tags.forEach((tag) => { %>
+                        <a href="<%= url_for(tag.path) %>" class="tag">
+                            #<%= tag.name %></a>
+                    <% }); %>
+                </div>
+            </div>
+
+            <% if (page.english) { %>
+                <div id="english-version">
+                    You may read the English version of this post here: <a href="<%- page.english %>" target="_blank" rel="noopneer"><%= page.english %></a>
+                </div>
+            <% } %>
+            <div class="hidden" id="article-expire">
+                本文最后更新于 <span id="article-expire-day">-1</span> 天前，文中所描述的信息可能已发生改变。
+            </div>
+            <script>
+                var updateTime = <%= date(page.updated, 'x') %>;
+                var updated = Math.floor((new Date().getTime() - updateTime) / 864e5);
+                if (updated > 182) {
+                    document.getElementById("article-expire-day").textContent = updated;
+                    document.getElementById("article-expire").classList.remove("hidden");
+                }
+            </script>
+
+        <% } %>
+
+        <div class="content" id="post-content">
+            <%- page.content %>
+        </div>
+    </div>
+</div>
+
+<% if (is_post()) { %>
+    <div class="license card" id="post-license">
+        <div class="license-title"><%= page.title %></div>
+        <div class="license-link"><a href="<%= page.permalink %>"><%= page.permalink %></a></div>
+        <div class="license-meta">
+            <div class="license-meta-item">
+                <div class="license-meta-title">本文作者</div>
+                <div class="license-meta-text"><%= config.author %></div>
+            </div>
+            <div class="license-meta-item">
+                <div class="license-meta-title">发布于</div>
+                <div class="license-meta-text"><%= date(page.date, 'YYYY-MM-DD') %></div>
+            </div>
+            <% if (date(page.updated, 'YYYY-MM-DD') !== date(page.date, 'YYYY-MM-DD')) { %>
+                <div class="license-meta-item">
+                    <div class="license-meta-title">更新于</div>
+                    <div class="license-meta-text"><%= date(page.updated, 'YYYY-MM-DD') %></div>
+                </div>
+            <% } %>
+            <div class="license-meta-item">
+                <div class="license-meta-title">许可协议</div>
+                <div class="license-meta-text">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt" target="_blank"
+                        rel="license external nofollow noopener noopenner noreferrer">CC BY-NC-SA 4.0</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="afdian card" style="text-align: center;">
+        <div class="donation-label">喜欢这篇文章？为什么不考虑打赏一下作者呢？</div>
+        <a class="afdian-button button" href="https://afdian.net/@<%= theme.afdian %>"
+            rel="nofollow noopener" target="_blank">爱发电</a>
+    </div>
+
+    <% if (page.next || page.prev) { %>
+        <div class="pagination-container" id="pagination">
+            <% if (page.prev) { %>
+                <div class="prev-page">
+                    <i class="i-prev"></i>
+                    <a href="<%- url_for(page.prev.path) %>"><%- page.prev.title %></a>
+                </div>
+            <% } %>
+            <% if (page.next) { %>
+                <div class="next-page">
+                    <a href="<%- url_for(page.next.path) %>"><%- page.next.title %></a>
+                    <i class="i-next"></i>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+<% } %>
+
+<%- partial("_includes/disqus.ejs") %>
+
+<div class="post-toc" id="post-toc">
+    <div class="toc-label">
+        <div>文章目录</div>
+        <a href="javascript:;" id="post-toc-close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" height="16" width="16">
+                <path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" fill="currentColor" />
+            </svg>
+        </a>
+    </div>
+    <%- toc(page.content,  { class: 'toc', list_number: false, max_depth: 4, min_depth: 2 }) %>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@nishanths/zoom.js@3.1.0/dist/zoom.min.js"></script>
+<!-- <%- js('scripts/post.js') %> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bsm@0.3.6/dist/js/post.js"></script> -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('toc-btn').onclick = function() {
+            document.getElementById('post-toc').classList.add('active');
+        }
+        document.getElementById('post-toc-close').onclick = function() {
+            document.getElementById('post-toc').classList.remove('active');
+        }
+        Array.from(document.getElementsByClassName('toc-link')).forEach(function(element) {
+            element.addEventListener('click', function(event) {
+                document.getElementById('post-toc').classList.remove('active');
+            })
+        })
+    });
+</script>
